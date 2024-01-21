@@ -1,3 +1,5 @@
+-- ステータスバー
+
 local colors = {
   bg       = '#2E3440',
   fg       = '#D8DEE9',
@@ -127,13 +129,17 @@ ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
 
 ins_left {
   'diagnostics',
-  sources = { 'nvim_diagnostic' },
+  sources = { 'nvim_diagnostic', 'nvim_lsp' },
   symbols = { error = ' ', warn = ' ', info = ' ' },
   diagnostics_color = {
     color_error = { fg = colors.red },
     color_warn = { fg = colors.yellow },
     color_info = { fg = colors.cyan },
   },
+}
+
+ins_left {
+  'navic'
 }
 
 -- Insert mid section. You can make any number of sections in neovim :)
@@ -208,6 +214,6 @@ ins_right {
 
 return {
   "nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { "nvim-tree/nvim-web-devicons", "neovim/nvim-lspconfig", "SmiteshP/nvim-navic" },
   opts = config
 }

@@ -1,3 +1,4 @@
+-- ソースコードを解析してシンタックスハイライトしてくれる
 return {
 	"nvim-treesitter/nvim-treesitter",
 	opts = {

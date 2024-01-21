@@ -1,3 +1,4 @@
+-- ファイルツリー表示
 return {
   "nvim-tree/nvim-tree.lua",
   version = "*",
