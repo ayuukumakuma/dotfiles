@@ -24,8 +24,8 @@ config.initial_cols = 140
 config.initial_rows = 50
 
 -- 背景透過
-config.window_background_opacity = 0.4
-config.macos_window_background_blur = 20
+config.window_background_opacity = 0.6
+config.macos_window_background_blur = 30
 
 -- font
 config.font = wezterm.font("MonaspiceAr Nerd Font Mono", { weight = "Medium", stretch = "Normal", style = "Normal" })
