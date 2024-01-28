@@ -37,20 +37,4 @@ return {
       "hrsh7th/cmp-nvim-lsp",
     },
   },
-  {
-    -- dap(デバッグ機能)
-    "mfussenegger/nvim-dap",
-  },
-  {
-    -- ↑のUIを扱う
-    "rcarriga/nvim-dap-ui",
-  },
-  {
-    -- デバッガ内の変数を表示させる
-    "theHamsta/nvim-dap-virtual-text",
-  },
-  {
-    -- カーソル下にハイライト表示させる
-    "RRethy/vim-illuminate",
-  },
 }
