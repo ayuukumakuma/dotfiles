@@ -1,0 +1,5 @@
+node = "~21"
+
+[tools.node.aliases]
+main = "~21"
+n = "~21"

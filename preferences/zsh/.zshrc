@@ -57,5 +57,7 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!\.git/*'"
 export FZF_DEFAULT_OPTS="--reverse --inline-info"  
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# asdf initializer
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# proto
+export PROTO_HOME="$HOME/.proto"
+export PATH="$PROTO_HOME/shims:$PROTO_HOME/bin:$PATH"

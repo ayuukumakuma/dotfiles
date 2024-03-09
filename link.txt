@@ -3,4 +3,4 @@ wezterm/.wezterm.lua .wezterm.lua
 sheldon/plugins.toml .config/sheldon/plugins.toml
 starship/starship.toml .config/starship.toml
 nvim .config/nvim
-asdf/.tool-versions .tool-versions
+proto .proto
