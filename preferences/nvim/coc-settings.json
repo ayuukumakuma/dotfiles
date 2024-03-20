@@ -1,0 +1,5 @@
+{
+	"npm.binPath": "/Users/ayuu/.proto/tools/pnpm/8.15.4/bin/pnpm.cjs",
+	"stylua.styluaPath": "/opt/homebrew/bin/stylua",
+	"coc.preferences.formatOnSave": true
+}

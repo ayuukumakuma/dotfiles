@@ -1,0 +1,12 @@
+{
+  "installed_versions": [
+    "8.15.4"
+  ],
+  "shim_version": 13,
+  "versions": {
+    "8.15.4": {
+      "no_clean": false,
+      "installed_at": 1710431154251
+    }
+  }
+}
