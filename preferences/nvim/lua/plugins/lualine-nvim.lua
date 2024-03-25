@@ -1,67 +1,214 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { "nvim-tree/nvim-web-devicons", "shaunsingh/nord.nvim" },
 	config = function()
-		-- Bubbles config for lualine
-		-- Author: lokesh-krishna
-		-- MIT license, see LICENSE for more details.
+		-- Eviline config for lualine
+		-- Author: shadmansaleh
+		-- Credit: glepnir
+		local lualine = require("lualine")
 
-		local colors = {
-			blue = "#81A1C1", -- Frost
-			cyan = "#88C0D0", -- Frost
-			black = "#2E3440", -- Polar Night
-			white = "#ECEFF4", -- Snow Storm
-			red = "#BF616A", -- Aurora
-			violet = "#B48EAD", -- Aurora
-			grey = "#3B4252", -- Polar Night
+    -- Color table for highlights
+    -- stylua: ignore
+    local colors = {
+      bg       = '#2E3440',
+      fg       = '#bbc2cf',
+      yellow   = '#ECBE7B',
+      cyan     = '#008080',
+      darkblue = '#081633',
+      green    = '#98be65',
+      orange   = '#FF8800',
+      violet   = '#a9a1e1',
+      magenta  = '#c678dd',
+      blue     = '#51afef',
+      red      = '#ec5f67',
+    }
+
+		local conditions = {
+			buffer_not_empty = function()
+				return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
+			end,
+			hide_in_width = function()
+				return vim.fn.winwidth(0) > 80
+			end,
+			check_git_workspace = function()
+				local filepath = vim.fn.expand("%:p:h")
+				local gitdir = vim.fn.finddir(".git", filepath .. ";")
+				return gitdir and #gitdir > 0 and #gitdir < #filepath
+			end,
 		}
 
-		local bubbles_theme = {
-			normal = {
-				a = { fg = colors.black, bg = colors.violet },
-				b = { fg = colors.white, bg = colors.grey },
-				c = { fg = colors.white },
-			},
-
-			insert = { a = { fg = colors.black, bg = colors.blue } },
-			visual = { a = { fg = colors.black, bg = colors.cyan } },
-			replace = { a = { fg = colors.black, bg = colors.red } },
-
-			inactive = {
-				a = { fg = colors.white, bg = colors.black },
-				b = { fg = colors.white, bg = colors.black },
-				c = { fg = colors.white },
-			},
-		}
-
-		require("lualine").setup({
+		-- Config
+		local config = {
 			options = {
-				theme = bubbles_theme,
+				-- Disable sections and component separators
 				component_separators = "",
-				section_separators = { left = "", right = "" },
+				section_separators = "",
+				theme = {
+					-- We are going to use lualine_c an lualine_x as left and
+					-- right section. Both are highlighted by c theme .  So we
+					-- are just setting default looks o statusline
+					normal = { c = { fg = colors.fg, bg = colors.bg } },
+					inactive = { c = { fg = colors.fg, bg = colors.bg } },
+				},
 			},
 			sections = {
-				lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
-				lualine_b = { "filename", "branch" },
-				lualine_c = {
-					"%=", --[[ add your center compoentnts here in place of this comment ]]
-				},
-				lualine_x = {},
-				lualine_y = { "filetype", "progress" },
-				lualine_z = {
-					{ "location", separator = { right = "" }, left_padding = 2 },
-				},
-			},
-			inactive_sections = {
-				lualine_a = { "filename" },
+				-- these are to remove the defaults
+				lualine_a = {},
 				lualine_b = {},
+				lualine_y = {},
+				lualine_z = {},
+				-- These will be filled later
 				lualine_c = {},
 				lualine_x = {},
-				lualine_y = {},
-				lualine_z = { "location" },
 			},
-			tabline = {},
-			extensions = {},
+			inactive_sections = {
+				-- these are to remove the defaults
+				lualine_a = {},
+				lualine_b = {},
+				lualine_y = {},
+				lualine_z = {},
+				lualine_c = {},
+				lualine_x = {},
+			},
+		}
+
+		-- Inserts a component in lualine_c at left section
+		local function ins_left(component)
+			table.insert(config.sections.lualine_c, component)
+		end
+
+		-- Inserts a component in lualine_x at right section
+		local function ins_right(component)
+			table.insert(config.sections.lualine_x, component)
+		end
+
+		ins_left({
+			function()
+				return "▊"
+			end,
+			color = { fg = colors.blue }, -- Sets highlighting of component
+			padding = { left = 0, right = 1 }, -- We don't need space before this
 		})
+
+		ins_left({
+			-- mode component
+			function()
+				local mode_alias = {
+					n = "NORMAL",
+					i = "INSERT",
+					v = "VISUAL",
+					[""] = "V-BLOCK",
+					V = "V-LINE",
+					c = "COMMAND",
+					no = "OP-PENDING",
+					s = "SELECT",
+					S = "S-LINE",
+					[""] = "S-BLOCK",
+					ic = "INSERT-COMPLETE",
+					R = "REPLACE",
+					Rv = "V-REPLACE",
+					cv = "VIM EX",
+					ce = "NORMAL EX",
+					r = "HIT-ENTER",
+					rm = "MORE",
+					["r?"] = "CONFIRM",
+					["!"] = "SHELL",
+					t = "TERMINAL",
+				}
+				-- アイコンと現在のモード名を結合して返す
+				return " " .. mode_alias[vim.fn.mode()]
+			end,
+			color = function()
+				-- auto change color according to neovims mode
+				local mode_color = {
+					n = colors.red,
+					i = colors.green,
+					v = colors.blue,
+					[""] = colors.blue,
+					V = colors.blue,
+					c = colors.magenta,
+					no = colors.red,
+					s = colors.orange,
+					S = colors.orange,
+					[""] = colors.orange,
+					ic = colors.yellow,
+					R = colors.violet,
+					Rv = colors.violet,
+					cv = colors.red,
+					ce = colors.red,
+					r = colors.cyan,
+					rm = colors.cyan,
+					["r?"] = colors.cyan,
+					["!"] = colors.red,
+					t = colors.red,
+				}
+				return { fg = mode_color[vim.fn.mode()] }
+			end,
+			padding = { right = 1 },
+		})
+
+		ins_left({
+			-- filesize component
+			"filesize",
+			cond = conditions.buffer_not_empty,
+		})
+
+		ins_left({
+			"filename",
+			cond = conditions.buffer_not_empty,
+			color = { fg = colors.magenta, gui = "bold" },
+		})
+
+		ins_left({ "location" })
+
+		ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
+
+		ins_left({
+			"diagnostics",
+			sources = { "nvim_diagnostic" },
+			symbols = { error = " ", warn = " ", info = " " },
+			diagnostics_color = {
+				color_error = { fg = colors.red },
+				color_warn = { fg = colors.yellow },
+				color_info = { fg = colors.cyan },
+			},
+		})
+
+		-- Insert mid section. You can make any number of sections in neovim :)
+		-- for lualine it's any number greater then 2
+		ins_left({
+			function()
+				return "%="
+			end,
+		})
+
+		ins_right({
+			"branch",
+			icon = "",
+			color = { fg = colors.violet, gui = "bold" },
+		})
+
+		ins_right({
+			"diff",
+			-- Is it me or the symbol for modified us really weird
+			symbols = { added = " ", modified = "󰝤 ", removed = " " },
+			diff_color = {
+				added = { fg = colors.green },
+				modified = { fg = colors.orange },
+				removed = { fg = colors.red },
+			},
+			cond = conditions.hide_in_width,
+		})
+
+		ins_right({
+			function()
+				return "▊"
+			end,
+			color = { fg = colors.blue },
+			padding = { left = 1 },
+		})
+
+		-- Now don't forget to initialize lualine
+		lualine.setup(config)
 	end,
 }
