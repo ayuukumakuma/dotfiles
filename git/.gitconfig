@@ -1,0 +1,24 @@
+[include]
+  path = ~/dotfiles/git/user.conf
+
+[init]
+  defaultBranch = main
+
+[push]
+  default         = current
+  autoSetupRemote = true
+
+[merge]
+  ff = false
+
+[pull]
+  ff = only
+
+[alias]
+  s  = switch
+  st = status
+  c  = commit
+  p  = pull
+  ps = push
+  a  = add
+  r  = reset
