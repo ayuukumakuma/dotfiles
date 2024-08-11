@@ -52,6 +52,7 @@ config.show_tab_index_in_tab_bar = false -- タブバーにインデックスを
 -- Font
 config.line_height = 1.1
 config.treat_east_asian_ambiguous_width_as_wide = true -- 日本語を2文字分の幅で表示する
+config.font = wezterm.font "MonaspiceAr Nerd Font Mono"
 
 -- Window
 config.window_decorations = "RESIZE" -- タイトルバーを非表示にする
