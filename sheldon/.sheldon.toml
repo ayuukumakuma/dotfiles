@@ -1,0 +1,27 @@
+shell = "zsh"
+
+# デフォルトを遅延読み込みにする
+apply = ["defer"]
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+apply = ["source"]
+
+# 遅延読み込みの設定 
+[templates]
+defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
+
+# シンタックスハイライト(遅延読み込み非対応)
+[plugins.syntax-highlighting]
+github = "zdharma/fast-syntax-highlighting"
+
+# zsh配下のファイルは遅延読み込みする
+[plugins.local-defers]
+local = "~/dotfiles/zsh"
+use = ["{!sync,*}.zsh"]
+
+# zsh/sync配下のファイルは遅延読み込みしない
+[plugins.local-sync]
+local = "~/dotfiles/zsh"
+use = ["sync/*.zsh"]
+apply = ["source"]

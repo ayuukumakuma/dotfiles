@@ -24,7 +24,7 @@ else
     SHELL_CONFIG_FILE="$HOME/.zshrc"
 
     # シェル設定ファイルにパスを追加
-    echo "export PATH=\"$GIT_PATH:\$PATH\"" >> "$SHELL_CONFIG_FILE"
+    echo "export PATH=\"$GIT_PATH:\$PATH\"" >>"$SHELL_CONFIG_FILE"
 
     # シェル設定を再読み込み
     source "$SHELL_CONFIG_FILE"

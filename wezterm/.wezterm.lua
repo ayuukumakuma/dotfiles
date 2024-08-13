@@ -47,15 +47,17 @@ config.default_cursor_style = "BlinkingBlock"
 
 -- TabBar
 config.hide_tab_bar_if_only_one_tab = true -- タブが1つだけの場合はタブバーを非表示にする
-config.show_tab_index_in_tab_bar = false -- タブバーにインデックスを表示しない
+config.show_tab_index_in_tab_bar    = false -- タブバーにインデックスを表示しない
 
 -- Font
-config.line_height = 1.1
+config.line_height                              = 1.1
 config.treat_east_asian_ambiguous_width_as_wide = true -- 日本語を2文字分の幅で表示する
-config.font = wezterm.font "MonaspiceAr Nerd Font Mono"
+config.font                                     = wezterm.font "MonaspiceAr Nerd Font Mono"
 
 -- Window
-config.window_decorations = "RESIZE" -- タイトルバーを非表示にする
+config.window_decorations        = "RESIZE" -- タイトルバーを非表示にする
 config.window_close_confirmation = "NeverPrompt" -- ウィンドウを閉じる際の確認を行わない
+config.initial_rows              = 50 -- 初期の行数
+config.initial_cols              = 150 -- 初期の列数
 
 return config
