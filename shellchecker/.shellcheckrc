@@ -1,2 +1,3 @@
 # shellcheckがsourceコマンドを参照先を特定できない問題を許容
 disable=SC1090
+disable=SC1091
