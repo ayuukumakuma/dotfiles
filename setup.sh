@@ -4,7 +4,6 @@ echo "セットアップを開始します"
 
 # dotfilesのシンボリックリンクを作成する
 source ~/dotfiles/link.sh
-echo ""
 
 # homebrewがインストールされていない場合はインストール
 if ! type brew >/dev/null 2>&1; then
