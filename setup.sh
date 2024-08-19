@@ -9,6 +9,11 @@ source ~/dotfiles/link.sh
 if ! type brew >/dev/null 2>&1; then
   echo "Homebrewをインストールします"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  (
+    echo
+    echo "eval \"$(/opt/homebrew/bin/brew shellenv)\""
+  ) >>"$HOME"/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   echo "Homebrewはすでにインストールされています"
 fi
