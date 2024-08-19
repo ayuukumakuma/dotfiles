@@ -162,3 +162,5 @@ symbol = " "
 
 [zig]
 symbol = " "
+
+command_timeout = 1000
