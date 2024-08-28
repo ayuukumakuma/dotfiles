@@ -24,9 +24,10 @@ local dirName = os.getenv("HOME")
 local env = load_env(string.format("%s/dotfiles/.env", dirName))
 
 local config = wezterm.config_builder()
+local act = wezterm.action
 
 -- Color scheme
-config.color_scheme = 'Andromeda'
+config.color_scheme = 'Kanagawa (Gogh)'
 
 -- Background
 config.background = {
@@ -53,11 +54,51 @@ config.show_tab_index_in_tab_bar    = false -- タブバーにインデックス
 config.line_height                              = 1.1
 config.treat_east_asian_ambiguous_width_as_wide = true -- 日本語を2文字分の幅で表示する
 config.font                                     = wezterm.font "MonaspiceAr Nerd Font Mono"
+config.font_size                                = 14
 
 -- Window
 config.window_decorations        = "RESIZE" -- タイトルバーを非表示にする
 config.window_close_confirmation = "NeverPrompt" -- ウィンドウを閉じる際の確認を行わない
 config.initial_rows              = 50 -- 初期の行数
 config.initial_cols              = 150 -- 初期の列数
+
+-- KeyConfig
+config.keys =  {
+  {
+    key = 'h',
+    mods = 'CTRL|SHIFT',
+    action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+  {
+    key = 'v',
+    mods = 'CTRL|SHIFT',
+    action = act.SplitVertical { domain = 'CurrentPaneDomain' },
+  },
+  {
+    key = 'w',
+    mods = 'CTRL',
+    action = act.CloseCurrentPane { confirm = false },
+  },
+  {
+    key = 'h',
+    mods = 'CMD|SHIFT',
+    action = act.ActivatePaneDirection 'Left',
+  },
+  {
+    key = 'l',
+    mods = 'CMD|SHIFT',
+    action = act.ActivatePaneDirection 'Right',
+  },
+  {
+    key = 'k',
+    mods = 'CMD|SHIFT',
+    action = act.ActivatePaneDirection 'Up',
+  },
+  {
+    key = 'j',
+    mods = 'CMD|SHIFT',
+    action = act.ActivatePaneDirection 'Down',
+  },
+}
 
 return config

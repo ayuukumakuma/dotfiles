@@ -12,7 +12,7 @@ autoSetupRemote = true
 ff = false
 
 [pull]
-ff = only
+rebase = false
 
 [fetch]
 showForcedUpdates = true
