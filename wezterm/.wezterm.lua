@@ -27,7 +27,7 @@ local config = wezterm.config_builder()
 local act = wezterm.action
 
 -- Color scheme
-config.color_scheme = 'Kanagawa (Gogh)'
+config.color_scheme = 'tokyonight'
 
 -- Background
 config.background = {
@@ -52,9 +52,9 @@ config.show_tab_index_in_tab_bar    = false -- タブバーにインデックス
 
 -- Font
 config.line_height                              = 1.1
-config.treat_east_asian_ambiguous_width_as_wide = true -- 日本語を2文字分の幅で表示する
+config.treat_east_asian_ambiguous_width_as_wide = false
 config.font                                     = wezterm.font "MonaspiceAr Nerd Font Mono"
-config.font_size                                = 14
+config.font_size                                = 16
 
 -- Window
 config.window_decorations        = "RESIZE" -- タイトルバーを非表示にする

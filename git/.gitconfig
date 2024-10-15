@@ -25,3 +25,6 @@ p = pull
 ps = push
 a = add
 r = reset
+
+[core]
+ignoreCase = true
