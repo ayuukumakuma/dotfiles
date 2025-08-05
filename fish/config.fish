@@ -7,6 +7,9 @@ if status is-interactive
   # Configurations for plugin: fish-autols
   set -U autols_cmd ls -al
 
+  # Configurations for git
+  set -Ux GIT_CONFIG_GLOBAL ~/.config/git/config
+
   # Abbreviation
   abbr -a c 'clear'
   abbr -a reload 'exec $SHELL -l'

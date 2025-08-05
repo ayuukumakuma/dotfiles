@@ -1,0 +1,16 @@
+[user]
+	name = ayuukumakuma
+	email = ayuu.kumakuma@gmail.com
+[alias]
+	s = switch
+  st = stash
+  a = add
+  c = commit
+  p = pull
+  ps = push
+[color]
+	ui = true
+[pull]
+	ff = only
+[init]
+	defaultBranch = main
