@@ -44,16 +44,16 @@
     ];
     casks = [
       ### GUI Applications
+      # "slack" #  会社標準搭載
+      # "google-chrome" #  会社標準搭載
       "wezterm"
       "visual-studio-code"
-      "slack"
       "1password"
       "aerospace"
       "cursor"
       "figma"
       "firefox"
       "gather"
-      "google-chrome"
       "obsidian"
       "raycast"
       "stats"

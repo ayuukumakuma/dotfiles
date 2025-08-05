@@ -17,24 +17,13 @@
     }:
     let
       system = "aarch64-darwin";
-      pkgs = import nixpkgs { inherit system; };
+      pkgsConfig = import ./pkgs.nix { inherit nixpkgs system; };
+      pkgs = pkgsConfig.pkgs;
     in
     {
       packages.${system}.my-packages = pkgs.buildEnv {
         name = "my-packages";
-        paths = with pkgs; [
-          ### CLI Applications
-          nil
-          nixfmt-rfc-style
-          fzf
-          bat
-          ripgrep
-          eza
-          fish
-          gh
-          git
-          just
-        ];
+        paths = pkgsConfig.myPackages;
       };
 
       apps.${system}.update = {
