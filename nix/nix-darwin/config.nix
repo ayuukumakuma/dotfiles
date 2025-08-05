@@ -69,6 +69,7 @@
       "orbstack"
       "zed"
       "arc"
+      "logitech-g-hub"
 
       ### Fonts
       "font-google-sans-code"
