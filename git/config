@@ -1,6 +1,7 @@
 [user]
 	name = ayuukumakuma
 	email = ayuu.kumakuma@gmail.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINoiYGqw22LvgvyuB8wT87WRzzAoeNZxKZZmS6bTK2/J
 [alias]
 	s = switch
   st = stash
@@ -14,3 +15,9 @@
 	ff = only
 [init]
 	defaultBranch = main
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
