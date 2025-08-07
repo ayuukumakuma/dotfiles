@@ -29,14 +29,6 @@ in
     gemini-cli
     jankyborders
     mise
-    libyaml
-    libyaml.dev
-    pkg-config
-    openssl
-    openssl.dev
-    openssl.out
-    mysql84
-    zstd
-    zstd.dev
+    kubectl
   ];
 }
