@@ -8,6 +8,26 @@
     };
   };
 
+  # bordersをバックグラウンドで起動する
+  # 再起動: launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
+  launchd.user.agents.jankyborders = {
+    path = [ pkgs.jankyborders ];
+    serviceConfig = {
+      ProgramArguments = [ 
+        "${pkgs.jankyborders}/bin/borders" 
+        "style=round" 
+        "width=5.0" 
+        "hidpi=on" 
+        "active_color=0xc0ff00f2" 
+        "inactive_color=0xff0080ff" 
+        "active_border_color=0xc0ff00f2" 
+      ];
+      RunAtLoad = true;
+      KeepAlive = true;
+    };
+  };
+  environment.systemPackages = [ pkgs.jankyborders ];
+
   system = {
     stateVersion = 6;
     primaryUser = "nasuno.ayumu";
