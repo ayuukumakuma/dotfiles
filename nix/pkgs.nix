@@ -28,5 +28,12 @@ in
     terminal-notifier
     gemini-cli
     jankyborders
+    mise
+    libyaml
+    libyaml.dev
+    pkg-config
+    openssl
+    openssl.dev
+    openssl.out
   ];
 }
