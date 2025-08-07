@@ -1,0 +1,72 @@
+{
+    "env": {
+      "SLACK_WEBHOOK_URL": "https://hooks.slack.com/services/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"
+    },
+    "permissions": {
+      "deny": [
+        "Bash(sudo:*)",
+        "Bash(rm:*)",
+        "Bash(rm -rf:*)",
+        "Bash(git push:*)",
+        "Bash(git reset:*)",
+        "Bash(git rebase:*)",
+        "Read(.env.*)",
+        "Read(id_rsa)",
+        "Read(id_ed25519)",
+        "Read(**/*token*)",
+        "Read(**/*key*)",
+        "Write(.env*)",
+        "Write(**/secrets/**)",
+        "Bash(curl:*)",
+        "Bash(wget:*)",
+        "Bash(nc:*)",
+        "Bash(pnpm uninstall:*)",
+        "Bash(pnpm remove:*)",
+        "Bash(psql:*)",
+        "Bash(mysql:*)",
+        "mcp__notion__API-patch-block-children",
+        "mcp__notion__API-update-a-block",
+        "mcp__notion__API-delete-a-block",
+        "mcp__notion__API-patch-page",
+        "mcp__notion__API-post-page",
+        "mcp__notion__API-create-a-database",
+        "mcp__notion__API-update-a-database",
+        "mcp__notion__API-create-a-comment"
+      ],
+      "defaultMode": "plan"
+    },
+    "enableAllProjectMcpServers": true,
+    "hooks": {
+      "PreToolUse": [
+        {
+          "matcher": "WebFetch",
+          "hooks": [
+            {
+              "type": "command",
+              "command": "if jq -r '.tool_input.url' | grep -E '(notion\\.so|notion\\.com)' >/dev/null 2>&1; then jq -n --arg reason '❌ NotionのURLに対するWebFetchはブロックされています！\\n\\n💡 代わりに以下のMCPツールを使用してください：\\n• mcp__Notion__fetch - ページやデータベースの詳細取得\\n• mcp__Notion__search - Notionワークスペース内の検索\\n• その他のNotion MCP機能' '{decision: \"block\", reason: $reason}'; else jq -n '{decision: \"approve\"}'; fi"
+            }
+          ]
+        },
+        {
+          "matcher": "WebFetch",
+          "hooks": [
+            {
+              "type": "command",
+              "command": "jq -n --arg reason '❌ WebFetchツールの使用はブロックされています！\\n\\n💡 代わりに`web-search-gemini`Agentを使用してください' '{decision: \"block\", reason: $reason}'"
+            }
+          ]
+        }
+      ],
+      "Stop": [
+        {
+          "matcher": "*",
+          "hooks": [
+            {
+              "type": "command",
+              "command": "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"🤖 Claude Code: タスクが完了しました。\"}' \"$SLACK_WEBHOOK_URL\""
+            }
+          ]
+        }
+      ]
+    }
+  }
