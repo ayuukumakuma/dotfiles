@@ -27,5 +27,6 @@ in
     claude-code
     terminal-notifier
     gemini-cli
+    jankyborders
   ];
 }
