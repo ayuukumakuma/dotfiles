@@ -14,7 +14,7 @@ if status is-interactive
   set -gx PKG_CONFIG_PATH "$HOME/.nix-profile/lib/pkgconfig"
   set -gx CFLAGS "-I$HOME/.nix-profile/include"
   set -gx LDFLAGS "-L$HOME/.nix-profile/lib"
-
+  
   # mise activate
   ~/.nix-profile/bin/mise activate fish | source
 
@@ -24,4 +24,9 @@ if status is-interactive
   abbr -a ll 'ls -la'
   abbr -a g 'git'
   abbr -a pn 'pnpm'
+  abbr -a j 'just'
 end
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
