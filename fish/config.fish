@@ -15,4 +15,8 @@ if status is-interactive
   abbr -a reload 'exec $SHELL -l'
   abbr -a ll 'ls -la'
   abbr -a g 'git'
+  abbr -a pn 'pnpm'
 end
+
+# mise activate
+~/.nix-profile/bin/mise activate fish | source
