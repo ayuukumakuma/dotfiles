@@ -179,6 +179,7 @@
       "zed"
       "arc"
       "logitech-g-hub"
+      "hhkb"
 
       ### Fonts
       "font-google-sans-code"
