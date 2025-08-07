@@ -34,7 +34,7 @@
             echo "Updating flake..."
             nix flake update
             echo "Updating profile..."
-            nix profile upgrade my-packages
+            nix profile upgrade nix
             echo "Updating nix-darwin..."
             nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
             echo "Update complete!"
