@@ -35,5 +35,8 @@ in
     openssl
     openssl.dev
     openssl.out
+    mysql84
+    zstd
+    zstd.dev
   ];
 }
