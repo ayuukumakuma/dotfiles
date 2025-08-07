@@ -58,7 +58,7 @@
       };
       dock = {
         # アプリケーションスイッチャーを全てのディスプレイに表示する
-        appswitcher-all-displays = false;
+        appswitcher-all-displays = true;
         # Dockの自動非表示を有効にする
         autohide = true;
         # Mission ControlのExposeでアプリケーションをグループ化する
