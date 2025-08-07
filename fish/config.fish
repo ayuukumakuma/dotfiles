@@ -4,6 +4,8 @@ if test -d /opt/homebrew/share/fish/vendor_functions.d
 end
 
 if status is-interactive
+  # remove welcome message
+  set fish_greeting
   # Configurations for plugin: fish-autols
   set -gx autols_cmd ls -al
 
