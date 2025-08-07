@@ -34,6 +34,7 @@
 
     keyboard = {
       enableKeyMapping = true;
+      # CapsLockをControlにマッピング
       remapCapsLockToControl = true;
     };
 
