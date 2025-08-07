@@ -1,7 +1,6 @@
 -- Initialization
 local wezterm = require('wezterm')
 local config = wezterm.config_builder()
-local action = wezterm.action
 
 -- Color Scheme
 config.color_scheme = 'Kanagawa (Gogh)'
@@ -9,7 +8,6 @@ config.color_scheme = 'Kanagawa (Gogh)'
 -- Font Settings
 config.font = wezterm.font {
   family = 'Google Sans Code',
-  italic = true
 }
 config.line_height = 1.1
 
