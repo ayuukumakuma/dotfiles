@@ -1,6 +1,6 @@
 {
     "env": {
-      "SLACK_WEBHOOK_URL": "https://hooks.slack.com/services/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"
+      "SLACK_WEBHOOK_URL": "1Passwordより取得すること"
     },
     "permissions": {
       "deny": [
