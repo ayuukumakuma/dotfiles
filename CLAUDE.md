@@ -30,6 +30,15 @@
 - **Fish をデフォルトシェルに設定**: `./script/set-fish-default.sh`
 - **Fish 設定をリロード**: `reload` (`exec $SHELL -l`のエイリアス)
 
+### セキュリティ関連コマンド
+
+- **1Password CLI サインイン**: `op signin`
+- **1Password アカウント追加**: `op account add`
+- **Git設定の更新**: `./script/update-git-config-from-1password.sh`
+- **Slack Webhook URL更新**: `./script/update-slack-webhook-from-1password.sh`
+- **1Password アイテム確認**: `op item get "アイテム名" --vault ボルト名`
+- **1Password フィールド読み取り**: `op read "op://ボルト名/アイテム名/フィールド名"`
+
 ## アーキテクチャ
 
 ### ディレクトリ構造
@@ -43,6 +52,12 @@
   - `flake.nix` - メイン flake 定義
   - `pkgs.nix` - パッケージリスト（CLI ツール）
   - `nix-darwin/config.nix` - macOS システム設定と Homebrew パッケージ
+- `script/` - セキュリティスクリプトとユーティリティ
+  - `set-fish-default.sh` - Fish shell セットアップ
+  - `update-git-config-from-1password.sh` - Git設定更新
+  - `update-slack-webhook-from-1password.sh` - Webhook URL更新
+- `git/` - Git 設定
+- `claude/` - Claude Code 設定
 
 ### 主要な設定ファイル
 
@@ -70,6 +85,21 @@
    - インタラクティブモード設定
    - コマンドの略語
 
+5. **git/config** - Git 設定：
+   - 個人情報（name、email、signingkey）を削除
+   - スクリプトによる更新を指示するコメントのみ
+   - エイリアス設定やその他の非機密設定は保持
+
+6. **claude/settings.json** - Claude Code 設定：
+   - SLACK_WEBHOOK_URL はスクリプトによる更新を指示
+   - 権限設定やその他の非機密設定は保持
+   - 実際の値は 1Password で管理
+
+7. **script/set-fish-default.sh** - セットアップスクリプト：
+   - エラーハンドリング、カラーアウトプット、ユーザー確認機能付き
+   - 前提条件チェック機能
+   - 堅牢で使いやすい設計
+
 ### プラグイン管理
 
 Fish プラグインは Fisher を通じて管理されます。プラグインリストは`fish/fish_plugins`にあります：
@@ -81,3 +111,62 @@ Fish プラグインは Fisher を通じて管理されます。プラグイン�
 - pisces（括弧の自動ペア）
 - fish-abbreviation-tips
 - z（ディレクトリジャンプ）
+
+## セキュリティ設定
+
+このリポジトリでは、情報漏洩防止のため、機密情報を1Passwordで管理する設計を採用しています。
+
+### セキュリティ原則
+
+- **個人情報の分離**: Git設定、API キー、Webhook URL などの個人情報はリポジトリから除外
+- **スクリプトベース管理**: 機密情報の設定は専用スクリプトを通じて自動化
+- **1Password統合**: 1Password CLI を使用してクレデンシャル情報を安全に管理
+
+### 機密情報の管理対象
+
+1. **Git設定** (`git/config`):
+   - ユーザー名、メールアドレス
+   - SSH署名キー
+   - 現在は`# script/update-git-config-from-1password.sh でユーザー情報を更新する`というコメントのみ
+
+2. **Claude Code設定** (`claude/settings.json`):
+   - SLACK_WEBHOOK_URL
+   - 現在は`"script/update-slack-webhook-from-1password.sh で更新すること"`という指示のみ
+
+### セキュリティスクリプト
+
+以下のスクリプトが設計されています：
+
+1. **`script/update-git-config-from-1password.sh`**:
+   - 1Password から Git ユーザー情報を取得
+   - `git/config` ファイルを動的に更新
+
+2. **`script/update-slack-webhook-from-1password.sh`**:
+   - 1Password から Slack Webhook URL を取得
+   - Claude Code の環境変数を更新
+
+### 1Password CLI 使用方法
+
+```bash
+# 1Password CLI の基本操作
+op signin                           # サインイン
+op item get "Git Config" --vault Personal  # アイテム取得
+op read "op://Personal/Git Config/username" # 特定フィールド読み取り
+```
+
+### セキュリティベストプラクティス
+
+コードを扱う際は以下の点に注意してください：
+
+- ✅ 個人情報を含むファイルを編集する際は、実際の値をコミットしないよう注意
+- ✅ 新しい機密設定を追加する場合は、スクリプトベース管理を検討
+- ✅ コミット前に `git diff` で機密情報が含まれていないか確認
+- ✅ 1Password からの設定取得を自動化するスクリプトの実装を推奨
+
+### 実装時の参考情報
+
+スクリプト実装時の参考として、以下の情報が有用です：
+
+- 1Password CLI のフィールド参照: `op://vault/item/field`
+- 環境変数での設定: `export VAR_NAME=$(op read "op://...")`
+- 設定ファイルの動的生成: テンプレート + 1Password 値の組み合わせ
