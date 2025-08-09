@@ -31,8 +31,15 @@ nix profile install .#my-packages
 # 3. nix-darwin設定を適用
 nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
 
-# 4. Fish shellをデフォルトに設定
+# 4. 1Password CLIを設定
+op signin
+
+# 5. Fish shellをデフォルトに設定
 ./script/set-fish-default.sh
+
+# 6. セキュリティ設定を更新
+./script/update-git-config-from-1password.sh
+./script/update-slack-webhook-from-1password.sh
 ```
 
 ## 📦 インストール
@@ -71,7 +78,20 @@ nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
 ./script/set-fish-default.sh
 ```
 
-### 4. Fish プラグインのインストール
+### 4. セキュリティ設定の初期化
+
+リポジトリでは、個人情報の保護のため、機密情報を1Passwordで管理しています：
+
+```bash
+# 1Password CLIの認証
+op signin
+
+# セキュリティ設定を更新
+./script/update-git-config-from-1password.sh
+./script/update-slack-webhook-from-1password.sh
+```
+
+### 5. Fish プラグインのインストール
 
 Fish shellに切り替え後：
 
@@ -117,7 +137,7 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 │   ├── flake.nix      # メインFlake定義
 │   ├── flake.lock     # 依存関係のロックファイル
 │   ├── pkgs.nix       # CLIツールのパッケージリスト
-│   └── nix-darwin/    
+│   └── nix-darwin/
 │       └── config.nix # macOSシステム設定とHomebrew設定
 ├── fish/              # Fish shell設定
 │   ├── config.fish    # メイン設定ファイル
@@ -125,7 +145,9 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 │   ├── functions/     # カスタム関数
 │   └── conf.d/        # 自動読み込み設定
 ├── script/            # ユーティリティスクリプト
-│   └── set-fish-default.sh # Fishをデフォルトシェルに設定
+│   ├── set-fish-default.sh # Fishをデフォルトシェルに設定
+│   ├── update-git-config-from-1password.sh # Git設定の更新
+│   └── update-slack-webhook-from-1password.sh # Webhook URL更新
 └── [各種アプリ設定ディレクトリ]
     ├── aerospace/    # AerospaceWMの設定
     ├── claude/        # Claude Codeの設定
@@ -234,6 +256,55 @@ fisher update  # プラグインを更新
 - **fish-abbreviation-tips** - 略語のヒント表示
 - **z** - ディレクトリジャンプ
 
+## 🔒 セキュリティ設定
+
+このリポジトリでは、個人情報の漏洩を防ぐため、機密情報を1Passwordで管理し、スクリプトを通じて設定を更新する仕組みを採用しています。
+
+### セキュリティ機能
+
+- **個人情報の分離**: Git設定やWebhook URLなどの個人情報はリポジトリに含めず、1Passwordで管理
+- **スクリプトベースの設定**: 機密情報の設定は専用スクリプトを通じて更新
+- **自動化**: 必要に応じて1Password CLIから設定を取得し、環境に適用
+
+### 必要な初期設定
+
+1. **1Password CLIのインストール**
+   ```bash
+   # macOS (Homebrewでインストール済み)
+   brew install 1password-cli
+   ```
+
+2. **1Password CLIの認証**
+   ```bash
+   # 初回認証
+   op signin
+   ```
+
+3. **セキュリティスクリプトの実行**
+   ```bash
+   # Git設定の更新
+   ./script/update-git-config-from-1password.sh
+
+   # Slack Webhook URLの更新
+   ./script/update-slack-webhook-from-1password.sh
+   ```
+
+### 1Passwordでの情報管理
+
+以下の情報は1Passwordで管理することを推奨します：
+
+- **Git設定**: ユーザー名、メールアドレス、署名キー
+- **Webhook URL**: Slack通知用のWebhook URL
+- **API キー**: 各種サービスのAPIキー
+- **SSH キー**: Git署名用のSSH秘密鍵
+
+### セキュリティベストプラクティス
+
+- ✅ 個人情報はリポジトリにコミットしない
+- ✅ 1Passwordを使用してクレデンシャル情報を管理
+- ✅ 環境変数や設定ファイルで機密情報を参照
+- ✅ 定期的にコミット履歴をチェックし、情報漏洩がないか確認
+
 ## 🔧 トラブルシューティング
 
 ### Nixコマンドが見つからない
@@ -251,6 +322,16 @@ which fish
 
 # /etc/shellsに追加されているか確認
 cat /etc/shells | grep fish
+```
+
+### 1Password CLIの認証エラー
+
+```bash
+# セッションの確認
+op account list
+
+# 再認証
+op signin
 ```
 
 ### nix-darwin設定の適用でエラー

@@ -1,6 +1,6 @@
 {
     "env": {
-      "SLACK_WEBHOOK_URL": "1Passwordより取得すること"
+      "SLACK_WEBHOOK_URL": "script/update-slack-webhook-from-1password.sh で更新すること"
     },
     "permissions": {
       "deny": [

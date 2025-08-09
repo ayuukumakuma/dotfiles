@@ -1,7 +1,4 @@
-[user]
-	name = ayuukumakuma
-	email = ayuu.kumakuma@gmail.com
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINoiYGqw22LvgvyuB8wT87WRzzAoeNZxKZZmS6bTK2/J
+# script/update-git-config-from-1password.sh でユーザー情報を更新する
 [alias]
 	s = switch
   st = stash
