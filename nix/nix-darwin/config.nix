@@ -13,14 +13,14 @@
   launchd.user.agents.jankyborders = {
     path = [ pkgs.jankyborders ];
     serviceConfig = {
-      ProgramArguments = [ 
-        "${pkgs.jankyborders}/bin/borders" 
-        "style=round" 
-        "width=5.0" 
-        "hidpi=on" 
-        "active_color=0xc0ff00f2" 
-        "inactive_color=0xff0080ff" 
-        "active_border_color=0xc0ff00f2" 
+      ProgramArguments = [
+        "${pkgs.jankyborders}/bin/borders"
+        "style=round"
+        "width=5.0"
+        "hidpi=on"
+        "active_color=0xc0ff00f2"
+        "inactive_color=0xff0080ff"
+        "active_border_color=0xc0ff00f2"
       ];
       RunAtLoad = true;
       KeepAlive = true;
@@ -155,7 +155,6 @@
       # "slack" #  会社標準搭載
       # "google-chrome" #  会社標準搭載
       "wezterm"
-      "visual-studio-code"
       "1password"
       "1password-cli"
       "aerospace"
@@ -180,6 +179,7 @@
       "arc"
       "logitech-g-hub"
       "hhkb"
+      "notion"
 
       ### Fonts
       "font-google-sans-code"
