@@ -16,7 +16,7 @@ if status is-interactive
   set -gx PKG_CONFIG_PATH "$HOME/.nix-profile/lib/pkgconfig"
   set -gx CFLAGS "-I$HOME/.nix-profile/include"
   set -gx LDFLAGS "-L$HOME/.nix-profile/lib"
-  
+
   # mise activate
   ~/.nix-profile/bin/mise activate fish | source
 
