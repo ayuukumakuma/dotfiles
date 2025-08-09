@@ -1,0 +1,23 @@
+{
+    "window.commandCenter": true,
+    "explorer.confirmDelete": false,
+    "workbench.productIconTheme": "icons-carbon",
+    "workbench.iconTheme": "a-file-icon-vscode",
+    "workbench.colorTheme": "GitHub Light Colorblind (Beta)",
+    "editor.accessibilitySupport": "off",
+    "files.exclude": {
+      "**/.git": false
+    },
+    "editor.fontFamily": "'Google Sans Code', 'JetBrainsMonoNL Nerd Font',monospace",
+    "explorer.confirmDragAndDrop": false,
+    "files.autoSave": "onFocusChange",
+    "git.autofetch": true,
+    "workbench.activityBar.orientation": "vertical",
+    "githubIssues.assignWhenWorking": false,
+    "githubPullRequests.defaultCommentType": "review",
+    "githubPullRequests.notifications": "pullRequests",
+    "githubPullRequests.showPullRequestNumberInTree": true,
+    "cursor.composer.shouldChimeAfterChatFinishes": true,
+    "githubPullRequests.pullBranch": "never"
+  }
+  
