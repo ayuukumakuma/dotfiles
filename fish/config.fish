@@ -17,8 +17,9 @@ if status is-interactive
   set -gx CFLAGS "-I$HOME/.nix-profile/include"
   set -gx LDFLAGS "-L$HOME/.nix-profile/lib"
 
-  # mise activate
+  # Configurations for mise
   ~/.nix-profile/bin/mise activate fish | source
+  set -gx MISE_NODE_VERIFY false
 
   # Abbreviation
   abbr -a c 'clear'
