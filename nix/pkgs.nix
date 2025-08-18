@@ -30,5 +30,6 @@ in
     jankyborders
     mise
     kubectl
+    jq
   ];
 }
