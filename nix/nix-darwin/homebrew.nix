@@ -6,9 +6,6 @@
       autoUpdate = true;
       cleanup = "uninstall";
     };
-    caskArgs = {
-      appdir = "~/Applications";
-    };
     brews = [
       ### CLI Applications not available in nixpkgs
       "fisher"
