@@ -343,15 +343,3 @@ nix flake check
 # ログを確認
 nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin --show-trace
 ```
-
-## 📝 ライセンス
-
-個人使用のためのdotfilesリポジトリです。ご自由にフォーク・カスタマイズしてください。
-
-## 🤝 貢献
-
-Issue報告やPull Requestは歓迎します！
-
----
-
-このdotfilesについて質問がある場合は、Issueを作成してください。
