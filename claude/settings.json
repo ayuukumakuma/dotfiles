@@ -1,64 +1,69 @@
 {
-    "env": {
-      "SLACK_WEBHOOK_URL": "script/update-slack-webhook-from-1password.sh で更新すること"
-    },
-    "permissions": {
-      "deny": [
-        "Bash(sudo:*)",
-        "Bash(rm:*)",
-        "Bash(rm -rf:*)",
-        "Bash(git push:*)",
-        "Bash(git reset:*)",
-        "Bash(git rebase:*)",
-        "Read(.env.*)",
-        "Read(id_rsa)",
-        "Read(id_ed25519)",
-        "Read(**/*token*)",
-        "Read(**/*key*)",
-        "Write(.env*)",
-        "Write(**/secrets/**)",
-        "Bash(curl:*)",
-        "Bash(wget:*)",
-        "Bash(nc:*)",
-        "Bash(pnpm uninstall:*)",
-        "Bash(pnpm remove:*)",
-        "Bash(psql:*)",
-        "Bash(mysql:*)",
-        "mcp__notion__API-patch-block-children",
-        "mcp__notion__API-update-a-block",
-        "mcp__notion__API-delete-a-block",
-        "mcp__notion__API-patch-page",
-        "mcp__notion__API-post-page",
-        "mcp__notion__API-create-a-database",
-        "mcp__notion__API-update-a-database",
-        "mcp__notion__API-create-a-comment"
-      ],
-      "defaultMode": "plan"
-    },
-    "enableAllProjectMcpServers": true,
-    "hooks": {
-      "PreToolUse": [
-        {
-          "matcher": "WebFetch",
-          "hooks": [
-            {
-              "type": "command",
-              "command": "jq -n --arg reason '❌ WebFetchツールの使用はブロックされています！\\n\\n💡 代わりに`web-search-gemini`Agentを使用してください' '{decision: \"block\", reason: $reason}'"
-            }
-          ]
-        }
-      ],
-      "Stop": [
-        {
-          "matcher": "*",
-          "hooks": [
-            {
-              "type": "command",
-              "command": "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"🤖 Claude Code: タスクが完了しました。\"}' \"$SLACK_WEBHOOK_URL\""
-            }
-          ]
-        }
-      ]
-    },
-    "$schema": "https://json.schemastore.org/claude-code-settings.json"
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "SLACK_WEBHOOK_URL": "script/update-slack-webhook-from-1password.sh で更新すること"
+  },
+  "permissions": {
+    "deny": [
+      "Bash(sudo:*)",
+      "Bash(rm:*)",
+      "Bash(rm -rf:*)",
+      "Bash(git push:*)",
+      "Bash(git reset:*)",
+      "Bash(git rebase:*)",
+      "Read(.env.*)",
+      "Read(id_rsa)",
+      "Read(id_ed25519)",
+      "Read(**/*token*)",
+      "Read(**/*key*)",
+      "Write(.env*)",
+      "Write(**/secrets/**)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(nc:*)",
+      "Bash(pnpm uninstall:*)",
+      "Bash(pnpm remove:*)",
+      "Bash(psql:*)",
+      "Bash(mysql:*)",
+      "mcp__notion__API-patch-block-children",
+      "mcp__notion__API-update-a-block",
+      "mcp__notion__API-delete-a-block",
+      "mcp__notion__API-patch-page",
+      "mcp__notion__API-post-page",
+      "mcp__notion__API-create-a-database",
+      "mcp__notion__API-update-a-database",
+      "mcp__notion__API-create-a-comment"
+    ],
+    "defaultMode": "plan"
+  },
+  "enableAllProjectMcpServers": true,
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "WebFetch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -n --arg reason '❌ WebFetchツールの使用はブロックされています！\\n\\n💡 代わりに`web-search-gemini`Agentを使用してください' '{decision: \"block\", reason: $reason}'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"🤖 Claude Code: タスクが完了しました。\"}' \"$SLACK_WEBHOOK_URL\""
+          }
+        ]
+      }
+    ]
+  },
+  "model": "opusplan",
+  "statusLine": {
+    "type": "command",
+    "command": "npx ccusage@latest statusline"
+  }
 }
