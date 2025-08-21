@@ -31,5 +31,7 @@ in
     mise
     kubectl
     jq
+    tmux
+    ollama
   ];
 }
