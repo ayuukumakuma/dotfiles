@@ -9,7 +9,6 @@
     brews = [
       ### CLI Applications not available in nixpkgs
       "fisher"
-      "crush"
       ### Ruby環境用はbrewの方が相性が良いのでこちらでインストールする
       "mysql@8.0"
       "libyaml"
@@ -18,7 +17,6 @@
     ];
     taps = [
       "nikitabobko/tap"
-      "charmbracelet/tap"
     ];
     casks = [
       ### GUI Applications
