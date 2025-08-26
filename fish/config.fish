@@ -9,6 +9,9 @@ if status is-interactive
   # Configurations for plugin: fish-autols
   set -gx autols_cmd ls -al
 
+  # Configurations for plugin: fish-fzf
+  set -gx FZF_DISABLE_KEYBINDINGS 1
+
   # Configurations for git
   set -gx GIT_CONFIG_GLOBAL ~/.config/git/config
 
