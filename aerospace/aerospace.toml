@@ -181,9 +181,9 @@ alt-shift-semicolon = 'mode service'
 
 # ワークスペースを特定のモニターに強制配置
 [workspace-to-monitor-force-assignment]
-1 = 'DELL U3223QE'          
-2 = 'LG HDR 4K'          
-3 = 'Built-in Retina Display'          
+1 = 'DELL U3223QE'
+2 = 'LG HDR 4K'
+3 = 'Built-in Retina Display'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -201,7 +201,11 @@ alt-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
-run = "move-node-to-workspace S"
+run = 'move-node-to-workspace S'
+
+[[on-window-detected]]
+if.app-id = 'notion.id'
+run = 'move-node-to-workspace N'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
