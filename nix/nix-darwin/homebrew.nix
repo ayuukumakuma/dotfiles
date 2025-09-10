@@ -29,7 +29,6 @@
       "cursor"
       "figma"
       "firefox"
-      "gather"
       "obsidian"
       "raycast"
       "stats"
@@ -48,6 +47,7 @@
       "logitech-g-hub"
       "hhkb"
       "notion"
+      "azooKey"
 
       ### Fonts
       "font-google-sans-code"
