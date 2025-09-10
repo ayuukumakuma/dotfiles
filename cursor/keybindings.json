@@ -15,5 +15,9 @@
         "text": "\\\r\n"
     },
     "when": "terminalFocus"
+},
+{
+  "key": "shift+escape",
+  "command": "workbench.action.toggleMaximizedPanel"
 }
 ]

@@ -1,4 +1,8 @@
 {
+  "cSpell.userWords": [
+    "BOXIL"
+  ],
+  "comments.thread.confirmOnCollapse": "never",
   "cursor.composer.shouldChimeAfterChatFinishes": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.accessibilitySupport": "off",
@@ -16,6 +20,7 @@
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 2000,
   "files.exclude": {
@@ -67,16 +72,29 @@
     "miseExecutablePath": "/Users/nasuno.ayumu/.nix-profile/bin/mise"
   },
   "search.globalFindClipboard": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "after": [
+        "<Esc>"
+      ],
+      "before": [
+        "j",
+        "j"
+      ]
+    }
+  ],
   "window.autoDetectColorScheme": true,
   "window.autoDetectHighContrast": false,
   "window.commandCenter": true,
+  "window.dialogStyle": "custom",
   "window.title": "${dirty}${activeEditorShort}${separator}${rootNameShort}${separator}${activeRepositoryBranchName}",
+  "window.zoomLevel": 1,
   "workbench.activityBar.orientation": "vertical",
   "workbench.iconTheme": "a-file-icon-vscode",
   "workbench.list.smoothScrolling": true,
   "workbench.preferredDarkColorTheme": "Kanagawa Wave",
   "workbench.preferredLightColorTheme": "GitHub Light Colorblind (Beta)",
-  "workbench.productIconTheme": "icons-carbon",
-  "window.dialogStyle": "custom",
-  "window.zoomLevel": 1
+  "workbench.productIconTheme": "icons-carbon"
 }
