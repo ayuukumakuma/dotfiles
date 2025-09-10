@@ -31,6 +31,7 @@ if status is-interactive
   abbr -a g 'git'
   abbr -a pn 'pnpm'
   abbr -a j 'just'
+  abbr -a cc 'claude'
 end
 
 # Added by OrbStack: command-line tools and integration
