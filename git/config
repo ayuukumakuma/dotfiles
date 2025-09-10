@@ -1,7 +1,9 @@
 # script/update-git-config-from-1password.sh でユーザー情報を更新する
 [alias]
 	s = switch
-  st = stash
+  st = stash -u
+	stp = stash pop
+	sta = stash apply
   a = add
   c = commit
   p = pull
