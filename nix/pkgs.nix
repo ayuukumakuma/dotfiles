@@ -25,13 +25,12 @@ in
     git
     just
     claude-code
+    codex
     terminal-notifier
     gemini-cli
     jankyborders
     mise
     kubectl
     jq
-    tmux
-    ollama
   ];
 }
