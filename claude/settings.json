@@ -61,9 +61,10 @@
       }
     ]
   },
-  "model": "opusplan",
   "statusLine": {
     "type": "command",
-    "command": "npx ccusage@latest statusline"
-  }
+    "command": "/Users/nasuno.ayumu/.claude/statusline.sh",
+    "padding": 0
+  },
+  "alwaysThinkingEnabled": true
 }
