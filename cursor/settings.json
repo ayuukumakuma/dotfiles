@@ -1,26 +1,38 @@
 {
   "cSpell.userWords": [
-    "BOXIL"
+    "wezterm"
   ],
+  "chatgpt.openOnStartup": true,
+  "claude-code.selectedModel": "default",
   "comments.thread.confirmOnCollapse": "never",
+  "cursor.composer.shouldAllowCustomModes": true,
   "cursor.composer.shouldChimeAfterChatFinishes": true,
+  "cursor.composer.textSizeScale": 1.15,
+  "cursor.cpp.disabledLanguages": [
+    "plaintext"
+  ],
+  "cursor.cpp.enablePartialAccepts": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.accessibilitySupport": "off",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorStyle": "underline",
   "editor.cursorSurroundingLines": 15,
   "editor.find.globalFindClipboard": true,
-  "editor.fontFamily": "'Google Sans Code', 'JetBrainsMonoNL Nerd Font',monospace",
+  "editor.fontFamily": "'HackGen35 Console NF', 'JetBrainsMonoNL Nerd Font',monospace",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": "active",
   "editor.lineHeight": 1.5,
   "editor.renderWhitespace": "boundary",
+  "editor.snippetSuggestions": "top",
   "editor.tabSize": 2,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
+  "files.associations": {
+    "*.schema": "ruby"
+  },
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 2000,
   "files.exclude": {
@@ -38,12 +50,17 @@
   "githubPullRequests.terminalLinksHandler": "github",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "makefile.configureOnOpen": false,
-  "markdown.extension.preview.autoShowPreviewToSide": true,
   "markdown.preview.markEditorSelection": false,
   "markdown.preview.scrollEditorWithPreview": false,
   "markdown.preview.scrollPreviewWithEditor": false,
   "markdown.validate.enabled": true,
-  "rubyLsp.bundleGemfile": "/Users/nasuno.ayumu/dev/shogun/backend/Gemfile",
+  "redoclyOpenAPI.user.anonymousId": "599b0b94-08b0-4c04-b8c8-4f1d56cadceb",
+  "rubyLsp.addonSettings": {
+    "Ruby LSP RSpec": {
+      "rspecCommand": "DATABASE_HOST=127.0.0.1 bundle exec rspec"
+    }
+  },
+  "rubyLsp.bundleGemfile": "/Users/nasuno.ayumu/dev/shogun/backend/ruby-lsp/Gemfile",
   "rubyLsp.enabledFeatures": {
     "codeActions": true,
     "codeLens": true,
@@ -72,6 +89,8 @@
     "miseExecutablePath": "/Users/nasuno.ayumu/.nix-profile/bin/mise"
   },
   "search.globalFindClipboard": true,
+  "terminal.integrated.fontFamily": "'HackGen35 Console NF'",
+  "todo-tree.general.enableFileWatcher": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vim.hlsearch": true,
   "vim.insertModeKeyBindings": [
