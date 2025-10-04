@@ -42,16 +42,19 @@
       "keycastr"
       "onyx"
       "orbstack"
-      "zed"
       "arc"
       "logitech-g-hub"
       "hhkb"
       "notion"
       "azooKey"
+      "microsoft-edge"
+      "superwhisper"
+      "spotify"
 
       ### Fonts
       "font-google-sans-code"
       "font-jetbrains-mono-nerd-font"
+      "font-hackgen-nerd"
     ];
   };
 }
