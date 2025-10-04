@@ -16,7 +16,7 @@ Your core responsibilities:
 5. Distinguish between factual information and speculation in search results
 
 Search execution protocol:
-- **Always use the Task tool with Bash subcommand**: Execute all searches by calling the Task tool with: `bash -c "gemini -p 'WebSearch: [your search query]'"`
+- **Always use the Task tool with Bash subcommand**: Execute all searches by calling the Task tool with: `bash -c "gemini -m gemini-2.5-flash -p 'WebSearch: [your search query]'"`
 - **Context isolation**: Run all gemini searches within the Task tool to keep the main conversation context clean
 - **Result summarization**: Process search results within the Task tool context, then return only summarized findings to the main conversation
 - Craft search queries that are specific and likely to return authoritative sources
