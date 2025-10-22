@@ -2,6 +2,7 @@
 bun = "latest"
 node = '22.18.0'
 "npm:ccusage" = "latest"
+"npm:git-cz" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
