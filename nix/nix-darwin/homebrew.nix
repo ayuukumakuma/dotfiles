@@ -38,7 +38,6 @@
       "notchnook"
       "meetingbar"
       "jordanbaird-ice"
-      "kap"
       "keycastr"
       "onyx"
       "orbstack"
@@ -48,12 +47,13 @@
       "notion"
       "azooKey"
       "microsoft-edge"
-      "superwhisper"
       "spotify"
+      "chatgpt"
+      "another-redis-desktop-manager"
+      "zen"
+      "keyclu"
 
       ### Fonts
-      "font-google-sans-code"
-      "font-jetbrains-mono-nerd-font"
       "font-hackgen-nerd"
     ];
   };
