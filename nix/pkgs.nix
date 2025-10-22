@@ -32,5 +32,6 @@ in
     mise
     kubectl
     jq
+    neovim
   ];
 }
