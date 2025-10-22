@@ -32,6 +32,7 @@ if status is-interactive
   abbr -a pn 'pnpm'
   abbr -a j 'just'
   abbr -a cc 'claude'
+  abbr -a v 'nvim'
 end
 
 # Added by OrbStack: command-line tools and integration
