@@ -1,10 +1,24 @@
 {
-  "cSpell.userWords": [
-    "wezterm"
+  "Lua.codeLens.enable": true,
+  "Lua.diagnostics.globals": [
+    "vim"
   ],
-  "chatgpt.openOnStartup": true,
+  "Lua.hint.enable": true,
+  "Lua.hint.setType": true,
+  "Lua.workspace.library": [
+    "/Users/nasuno.ayumu/.config/nvim",
+    "/Users/nasuno.ayumu/.local/share/nvim/site",
+    "/Users/nasuno.ayumu/.nix-profile/share/nvim/site",
+    "/nix/store/m1g5yqcx7a5v5s8rw5i3l22yplfg0czg-neovim-unwrapped-0.11.4/share/nvim/runtime",
+    "/nix/store/m1g5yqcx7a5v5s8rw5i3l22yplfg0czg-neovim-unwrapped-0.11.4/share/nvim/runtime/pack/dist/opt/netrw",
+    "/nix/store/m1g5yqcx7a5v5s8rw5i3l22yplfg0czg-neovim-unwrapped-0.11.4/share/nvim/runtime/pack/dist/opt/matchit",
+    "/nix/store/m1g5yqcx7a5v5s8rw5i3l22yplfg0czg-neovim-unwrapped-0.11.4/lib/nvim",
+    "${workspaceFolder}/nvim/types/stable"
+  ],
+  "biome.lsp.trace.server": "messages",
   "claude-code.selectedModel": "default",
   "comments.thread.confirmOnCollapse": "never",
+  "cursor.agent_layout_browser_beta_setting": true,
   "cursor.composer.shouldAllowCustomModes": true,
   "cursor.composer.shouldChimeAfterChatFinishes": true,
   "cursor.composer.textSizeScale": 1.15,
@@ -12,11 +26,13 @@
     "plaintext"
   ],
   "cursor.cpp.enablePartialAccepts": true,
-  "diffEditor.ignoreTrimWhitespace": false,
+  "cursor.diffs.useCharacterLevelDiffs": true,
+  "cursor.preferNotificationsSameAsChat": true,
+  "cursor.terminal.usePreviewBox": true,
+  "diffEditor.ignoreTrimWhitespace": true,
   "editor.accessibilitySupport": "off",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorStyle": "underline",
-  "editor.cursorSurroundingLines": 15,
   "editor.find.globalFindClipboard": true,
   "editor.fontFamily": "'HackGen35 Console NF', 'JetBrainsMonoNL Nerd Font',monospace",
   "editor.formatOnPaste": true,
@@ -30,6 +46,9 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
   "files.associations": {
     "*.schema": "ruby"
   },
@@ -40,6 +59,8 @@
   },
   "files.simpleDialog.enable": true,
   "files.trimTrailingWhitespace": true,
+  "geminicodeassist.displayInlineContextHint": false,
+  "geminicodeassist.project": "dauntless-surface-9vmxc",
   "git.autofetch": true,
   "git.confirmSync": false,
   "githubIssues.assignWhenWorking": false,
@@ -54,6 +75,7 @@
   "markdown.preview.scrollEditorWithPreview": false,
   "markdown.preview.scrollPreviewWithEditor": false,
   "markdown.validate.enabled": true,
+  "redhat.telemetry.enabled": true,
   "redoclyOpenAPI.user.anonymousId": "599b0b94-08b0-4c04-b8c8-4f1d56cadceb",
   "rubyLsp.addonSettings": {
     "Ruby LSP RSpec": {
@@ -90,20 +112,28 @@
   },
   "search.globalFindClipboard": true,
   "terminal.integrated.fontFamily": "'HackGen35 Console NF'",
+  "testing.coverageToolbarEnabled": true,
+  "testing.followRunningTest": true,
   "todo-tree.general.enableFileWatcher": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "vim.hlsearch": true,
-  "vim.insertModeKeyBindings": [
-    {
-      "after": [
-        "<Esc>"
-      ],
-      "before": [
-        "j",
-        "j"
-      ]
-    }
+  "todohighlight.keywords": [
+    "NOTE"
   ],
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "vitest.maximumConfigs": 20,
+  "vscode-neovim.compositeKeys": {
+    "jj": {
+      "args": [
+        [
+          "local code = require('vscode')",
+          "code.action('vscode-neovim.escape')",
+          "code.action('workbench.action.files.save')"
+        ]
+      ],
+      "command": "vscode-neovim.lua"
+    }
+  },
+  "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
+  "vscode-neovim.statusLineSeparator": " | ",
   "window.autoDetectColorScheme": true,
   "window.autoDetectHighContrast": false,
   "window.commandCenter": true,
@@ -111,6 +141,7 @@
   "window.title": "${dirty}${activeEditorShort}${separator}${rootNameShort}${separator}${activeRepositoryBranchName}",
   "window.zoomLevel": 1,
   "workbench.activityBar.orientation": "vertical",
+  "workbench.experimental.share.enabled": true,
   "workbench.iconTheme": "a-file-icon-vscode",
   "workbench.list.smoothScrolling": true,
   "workbench.preferredDarkColorTheme": "Kanagawa Wave",

@@ -5,10 +5,6 @@
     "command": "composerMode.agent"
   },
   {
-    "key": "cmd+e",
-    "command": "composerMode.background"
-  },
-  {
       "key": "shift+enter",
       "command": "workbench.action.terminal.sendSequence",
       "args": {
@@ -19,5 +15,25 @@
   {
     "key": "shift+escape",
     "command": "workbench.action.toggleMaximizedPanel"
-  }
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "alt+cmd+right",
+    "command": "-workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "alt+cmd+left",
+    "command": "-workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
 ]
