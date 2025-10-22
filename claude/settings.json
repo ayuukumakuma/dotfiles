@@ -1,8 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "env": {
-    "SLACK_WEBHOOK_URL": "script/update-slack-webhook-from-1password.sh で更新すること"
-  },
   "permissions": {
     "deny": [
       "Bash(sudo:*)",
@@ -36,35 +33,15 @@
     ],
     "defaultMode": "plan"
   },
+  "model": "haiku",
   "enableAllProjectMcpServers": true,
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "WebFetch",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "jq -n --arg reason '❌ WebFetchツールの使用はブロックされています！\\n\\n💡 代わりに`web-search-gemini`Agentを使用してください' '{decision: \"block\", reason: $reason}'"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"🤖 Claude Code: タスクが完了しました。\"}' \"$SLACK_WEBHOOK_URL\""
-          }
-        ]
-      }
-    ]
-  },
+  "hooks": {},
   "statusLine": {
     "type": "command",
     "command": "/Users/nasuno.ayumu/.claude/statusline.sh",
     "padding": 0
+  },
+  "enabledPlugins": {
   },
   "alwaysThinkingEnabled": true
 }
