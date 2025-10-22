@@ -1,0 +1,7 @@
+model = "gpt-5-codex"
+model_reasoning_effort = "medium"
+
+notify = ["bash", "/Users/nasuno.ayumu/.codex/notify.sh"]
+
+[tools]
+web_search = true
