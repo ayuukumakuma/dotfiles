@@ -29,7 +29,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 accordion-padding = 20
 
 # Possible values: tiles|accordion
-default-root-container-layout = 'tiles'
+default-root-container-layout = 'accordion'
 
 # Possible values: horizontal|vertical|auto
 # 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
@@ -184,6 +184,8 @@ alt-shift-semicolon = 'mode service'
 1 = 'DELL U3223QE'
 2 = 'LG HDR 4K'
 3 = 'Built-in Retina Display'
+C = 'DELL U3223QE'
+S = 'LG HDR 4K'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -204,15 +206,31 @@ if.app-id = 'com.tinyspeck.slackmacgap'
 run = 'move-node-to-workspace S'
 
 [[on-window-detected]]
-if.app-id = 'notion.id'
-run = 'move-node-to-workspace N'
+if.app-id = 'company.thebrowser.Browser'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.gather.GatherV2'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'dev.kdrag0n.MacVirt'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'com.sequel-ace.sequel-ace'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'com.todesktop.230313mzl4w4u92'
+run = 'move-node-to-workspace C'
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.wulkano.kap'
 run = 'layout floating'
 
 [[on-window-detected]]
@@ -221,8 +239,4 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.titanium.OnyX'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Music'
 run = 'layout floating'
