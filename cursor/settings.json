@@ -16,7 +16,6 @@
     "${workspaceFolder}/nvim/types/stable"
   ],
   "biome.lsp.trace.server": "messages",
-  "claude-code.selectedModel": "default",
   "comments.thread.confirmOnCollapse": "never",
   "cursor.agent_layout_browser_beta_setting": true,
   "cursor.composer.shouldAllowCustomModes": true,
