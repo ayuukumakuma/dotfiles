@@ -52,9 +52,12 @@
       "another-redis-desktop-manager"
       "zen"
       "keyclu"
+      "cap"
+      "claude-code"
 
       ### Fonts
       "font-hackgen-nerd"
+      "font-monaspace"
     ];
   };
 }

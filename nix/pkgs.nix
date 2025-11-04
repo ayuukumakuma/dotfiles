@@ -2,11 +2,7 @@
 let
   pkgs = import nixpkgs {
     inherit system;
-    config.allowUnfreePredicate =
-      pkg:
-      builtins.elem (nixpkgs.lib.getName pkg) [
-        "claude-code"
-      ];
+    config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [ ];
   };
 in
 {
@@ -24,7 +20,6 @@ in
     gh
     git
     just
-    claude-code
     codex
     terminal-notifier
     gemini-cli
