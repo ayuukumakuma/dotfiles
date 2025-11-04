@@ -8,6 +8,7 @@
   c = commit
   p = pull
   ps = push
+  d = "!echo 'git clean -fd && git restore .' && git clean -fd && git restore ."
 [color]
 	ui = true
 [pull]
