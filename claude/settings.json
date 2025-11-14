@@ -33,16 +33,63 @@
     ],
     "defaultMode": "plan"
   },
-  "model": "haiku",
   "enableAllProjectMcpServers": true,
-  "hooks": {},
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "permission_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "terminal-notifier -title 'Claude Code' -message '実行権限を要求しています...' -sound 'blow' -ignoreDnD -activate 'com.todesktop.230313mzl4w4u92'"
+          }
+        ]
+      },
+      {
+        "matcher": "elicitation_dialog",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "terminal-notifier -title 'Claude Code' -message '質問に回答してください...' -sound 'blow' -ignoreDnD -activate 'com.todesktop.230313mzl4w4u92'"
+          }
+        ]
+      },
+      {
+        "matcher": "idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "terminal-notifier -title 'Claude Code' -message '待機中です...\n対応してください' -sound 'blow' -ignoreDnD -activate 'com.todesktop.230313mzl4w4u92'"
+          }
+        ]
+      },
+      {
+        "matcher": "auth_success",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "terminal-notifier -title 'Claude Code' -message 'ユーザーの対応が必要です...' -sound 'blow' -ignoreDnD -activate 'com.todesktop.230313mzl4w4u92'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "terminal-notifier -title 'Claude Code' -message '対応が完了しました' -sound 'submarine' -ignoreDnD -activate 'com.todesktop.230313mzl4w4u92'"
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
     "type": "command",
-    "command": "/Users/nasuno.ayumu/.claude/statusline.sh",
-    "padding": 0
+    "command": "/Users/nasuno.ayumu/.claude/statusline.sh"
   },
   "enabledPlugins": {
     "example-skills@anthropic-agent-skills": true
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": false
 }
