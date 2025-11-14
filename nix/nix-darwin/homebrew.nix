@@ -44,16 +44,15 @@
       "arc"
       "logitech-g-hub"
       "hhkb"
-      "notion"
       "azooKey"
       "microsoft-edge"
       "spotify"
       "chatgpt"
       "another-redis-desktop-manager"
       "zen"
-      "keyclu"
       "cap"
       "claude-code"
+      "gyazo"
 
       ### Fonts
       "font-hackgen-nerd"

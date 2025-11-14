@@ -28,5 +28,6 @@ in
     kubectl
     jq
     neovim
+    tre-command
   ];
 }
