@@ -184,10 +184,10 @@ alt-shift-l = ["join-with right", "mode main"]
 C = "DELL U3223QE"
 S = "DELL U3223QE"
 
-# Slack - 全てのウィンドウをワークスペースSに配置し、水平分割レイアウトを適用
+# Slack
 [[on-window-detected]]
 if.app-id = "com.tinyspeck.slackmacgap"
-run = ["move-node-to-workspace S", "workspace S", "layout tiles vertical"]
+run = ["layout tiling", "move-node-to-workspace S"]
 
 # Arc
 [[on-window-detected]]
