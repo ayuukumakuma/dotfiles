@@ -1,8 +1,6 @@
 {
   "Lua.codeLens.enable": true,
-  "Lua.diagnostics.globals": [
-    "vim"
-  ],
+  "Lua.diagnostics.globals": ["vim"],
   "Lua.hint.enable": true,
   "Lua.hint.setType": true,
   "Lua.workspace.library": [
@@ -16,15 +14,13 @@
     "${workspaceFolder}/nvim/types/stable"
   ],
   "biome.lsp.trace.server": "messages",
+  "biome.suggestInstallingGlobally": false,
   "comments.thread.confirmOnCollapse": "never",
   "cursor.composer.shouldAllowCustomModes": true,
   "cursor.composer.shouldChimeAfterChatFinishes": true,
   "cursor.composer.textSizeScale": 1.15,
-  "cursor.cpp.disabledLanguages": [
-    "plaintext"
-  ],
+  "cursor.cpp.disabledLanguages": ["plaintext"],
   "cursor.cpp.enablePartialAccepts": true,
-  "cursor.diffs.useCharacterLevelDiffs": true,
   "cursor.preferNotificationsSameAsChat": true,
   "cursor.terminal.usePreviewBox": true,
   "diffEditor.ignoreTrimWhitespace": true,
@@ -34,6 +30,7 @@
   "editor.cursorStyle": "underline",
   "editor.find.globalFindClipboard": true,
   "editor.fontFamily": "'HackGen Console NF',monospace",
+  "editor.fontWeight": "normal",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": "active",
@@ -117,9 +114,7 @@
   "testing.coverageToolbarEnabled": true,
   "testing.followRunningTest": true,
   "todo-tree.general.enableFileWatcher": true,
-  "todohighlight.keywords": [
-    "NOTE"
-  ],
+  "todohighlight.keywords": ["NOTE"],
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vitest.maximumConfigs": 20,
   "vscode-neovim.compositeKeys": {
@@ -146,9 +141,10 @@
   "window.zoomLevel": 1,
   "workbench.activityBar.orientation": "vertical",
   "workbench.experimental.share.enabled": true,
-  "workbench.iconTheme": "a-file-icon-vscode",
+  "workbench.iconTheme": "catppuccin-macchiato",
   "workbench.list.smoothScrolling": true,
-  "workbench.preferredDarkColorTheme": "Atom One Dark",
-  "workbench.preferredLightColorTheme": "Atom One Light",
-  "workbench.productIconTheme": "icons-carbon"
+  "workbench.preferredLightColorTheme": "Catppuccin Mocha",
+  "search.useIgnoreFiles": false,
+  "cursor.composer.usageSummaryDisplay": "always",
+  "cursor.composer.queueMessageDefaultBehavior": "stop-and-send"
 }

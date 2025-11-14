@@ -8,5 +8,10 @@
 ~/Library/Application Support/Cursor/User/keybindings.json
 ```
 
+## commands
+```sh
+~/.cursor/commands
+```
+
 ## extensions
 - コードで管理できないためリストに出力する
