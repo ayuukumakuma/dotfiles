@@ -3,6 +3,13 @@ let
   pkgs = import nixpkgs {
     inherit system;
     config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [ ];
+    overlays = [
+      (final: prev: {
+        fish = prev.fish.overrideAttrs (old: {
+          doCheck = false;
+        });
+      })
+    ];
   };
 in
 {
