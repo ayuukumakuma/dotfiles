@@ -1,25 +1,31 @@
 # script/update-git-config-from-1password.sh でユーザー情報を更新する
 [alias]
-	s = switch
+  s = switch
   st = stash -u
-	stp = stash pop
-	sta = stash apply
+  stp = stash pop
+  sta = stash apply
   a = add
   c = commit
   p = pull
   ps = push
   d = "!echo 'git clean -fd && git restore .' && git clean -fd && git restore ."
 [color]
-	ui = true
+  ui = true
 [pull]
-	ff = only
+  ff = only
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [gpg]
-	format = ssh
+  format = ssh
 [gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+  program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [commit]
-	gpgsign = true
+  gpgsign = true
 [push]
-	autoSetupRemote = true
+  autoSetupRemote = true
+[code]
+  editor = nvim
+[user]
+  name = ayuukumakuma
+  email = ayuu.kumakuma@gmail.com
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINoiYGqw22LvgvyuB8wT87WRzzAoeNZxKZZmS6bTK2/J
