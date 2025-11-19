@@ -53,6 +53,7 @@
       "cap"
       "claude-code"
       "gyazo"
+      "antigravity"
 
       ### Fonts
       "font-hackgen-nerd"
