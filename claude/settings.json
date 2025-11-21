@@ -91,5 +91,5 @@
   "enabledPlugins": {
     "example-skills@anthropic-agent-skills": true
   },
-  "alwaysThinkingEnabled": false
+  "alwaysThinkingEnabled": true
 }
