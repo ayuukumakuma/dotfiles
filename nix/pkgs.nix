@@ -34,7 +34,9 @@ in
     mise
     kubectl
     jq
+    jnv
     neovim
     tre-command
+    ffmpeg
   ];
 }
