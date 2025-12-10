@@ -19,6 +19,7 @@
     taps = [
       "nikitabobko/tap"
       "unhappychoice/tap"
+      "BarutSRB/tap"
     ];
     casks = [
       ### GUI Applications
@@ -27,7 +28,7 @@
       "wezterm"
       "1password"
       "1password-cli"
-      "aerospace"
+      "hyprspace"
       "cursor"
       "figma"
       "firefox"
