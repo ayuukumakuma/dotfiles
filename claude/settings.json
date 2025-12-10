@@ -33,6 +33,7 @@
     ],
     "defaultMode": "plan"
   },
+  "model": "opus",
   "enableAllProjectMcpServers": true,
   "hooks": {
     "Notification": [
@@ -88,8 +89,6 @@
     "type": "command",
     "command": "/Users/nasuno.ayumu/.claude/statusline.sh"
   },
-  "enabledPlugins": {
-    "example-skills@anthropic-agent-skills": true
-  },
-  "alwaysThinkingEnabled": true
+  "enabledPlugins": {},
+  "alwaysThinkingEnabled": false
 }
