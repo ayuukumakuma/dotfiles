@@ -27,12 +27,14 @@ if status is-interactive
   # Abbreviation
   abbr -a c 'clear'
   abbr -a reload 'exec $SHELL -l'
-  abbr -a ll 'ls -la'
+  abbr -a ll 'eza --total-size -alh'
+  abbr -a ls 'eza'
   abbr -a g 'git'
   abbr -a pn 'pnpm'
   abbr -a j 'just'
   abbr -a cc 'claude'
   abbr -a v 'nvim'
+  abbr -a gl 'gitlogue --background=false --path="/Users/nasuno.ayumu/dev/shogun"'
 end
 
 # Added by OrbStack: command-line tools and integration
