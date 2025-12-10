@@ -9,6 +9,7 @@
     brews = [
       ### CLI Applications not available in nixpkgs
       "fisher"
+      "gitlogue"
       ### Ruby環境用はbrewの方が相性が良いのでこちらでインストールする
       "mysql@8.0"
       "libyaml"
@@ -17,6 +18,7 @@
     ];
     taps = [
       "nikitabobko/tap"
+      "unhappychoice/tap"
     ];
     casks = [
       ### GUI Applications
@@ -30,6 +32,7 @@
       "figma"
       "firefox"
       "obsidian"
+      "musaicfm"
       "raycast"
       "stats"
       "shottr"
@@ -45,15 +48,14 @@
       "logitech-g-hub"
       "hhkb"
       "azooKey"
-      "microsoft-edge"
       "spotify"
       "chatgpt"
       "another-redis-desktop-manager"
-      "zen"
       "cap"
       "claude-code"
       "gyazo"
       "antigravity"
+      "google-drive"
 
       ### Fonts
       "font-hackgen-nerd"
