@@ -7,7 +7,7 @@ if status is-interactive
   # remove welcome message
   set fish_greeting
   # Configurations for plugin: fish-autols
-  set -gx autols_cmd ls -al
+  set -gx autols_cmd eza -alh
 
   # Configurations for plugin: fish-fzf
   set -gx FZF_DISABLE_KEYBINDINGS 1
@@ -27,14 +27,15 @@ if status is-interactive
   # Abbreviation
   abbr -a c 'clear'
   abbr -a reload 'exec $SHELL -l'
-  abbr -a ll 'eza --total-size -alh'
+  abbr -a ll 'eza -alh'
   abbr -a ls 'eza'
   abbr -a g 'git'
   abbr -a pn 'pnpm'
   abbr -a j 'just'
   abbr -a cc 'claude'
   abbr -a v 'nvim'
-  abbr -a gl 'gitlogue --background=false --path="/Users/nasuno.ayumu/dev/shogun"'
+  abbr -a cdg 'cd-gitroot'
+  abbr -a cat 'bat'
 end
 
 # Added by OrbStack: command-line tools and integration
