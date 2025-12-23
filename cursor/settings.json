@@ -16,6 +16,11 @@
   "[markdown]": {
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   },
+  "editor.quickSuggestions": {
+    "comments": true,
+    "strings": true,
+    "other": true
+  },
   "biome.lsp.trace.server": "messages",
   "biome.suggestInstallingGlobally": false,
   "comments.thread.confirmOnCollapse": "never",
@@ -159,7 +164,6 @@
   "window.commandCenter": true,
   "window.dialogStyle": "custom",
   "window.title": "${dirty}${activeEditorShort}${separator}${rootNameShort}${separator}${activeRepositoryBranchName}",
-  "window.zoomLevel": 1,
   "workbench.activityBar.orientation": "vertical",
   "workbench.experimental.share.enabled": true,
   "workbench.iconTheme": "catppuccin-macchiato",
@@ -180,5 +184,6 @@
   "prettify-ts.maxDepth": 5,
   "githubPullRequests.commentExpandState": "collapseAll",
   "javascript.preferences.importModuleSpecifier": "non-relative",
-  "javascript.updateImportsOnPaste.enabled": true
+  "javascript.updateImportsOnPaste.enabled": true,
+  "claudeCode.preferredLocation": "panel"
 }
