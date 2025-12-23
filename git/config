@@ -9,6 +9,7 @@
   p = pull
   ps = push
   d = "!echo 'git clean -fd && git restore .' && git clean -fd && git restore ."
+  f = fetch
 [color]
   ui = true
 [pull]
