@@ -10,8 +10,6 @@ readonly COLOR_CYAN='\033[36m'
 # Token threshold constants
 readonly COMPACTION_THRESHOLD=160000
 
-# API cost constants
-readonly USAGE_LIMIT=100
 
 # Get Git branch information
 get_git_branch() {
@@ -83,25 +81,13 @@ get_token_summary() {
 get_api_usage() {
   local current_month=$(date +"%Y-%m")
   local usage_cost_output=$(npx --yes ccusage monthly --locale ja-JP --json | jq --arg current_month "$current_month" '.monthly[] | select(.month == $current_month).totalCost' 2>/dev/null)
-  local usage_cost=0
+  local usage_cost="0.00"
 
   if [ -n "$usage_cost_output" ]; then
-    usage_cost=$(printf "%.0f\n" "$usage_cost_output")
+    usage_cost=$(printf "%.2f" "$usage_cost_output")
   fi
 
-  local usage_percentage=$((usage_cost * 100 / USAGE_LIMIT))
-
-  # Color coding for percentage
-  local color
-  if [ "$usage_percentage" -ge 90 ]; then
-    color="$COLOR_RED"
-  elif [ "$usage_percentage" -ge 70 ]; then
-    color="$COLOR_YELLOW"
-  else
-    color="$COLOR_GREEN"
-  fi
-
-  echo -e "\$${usage_cost}/\$${USAGE_LIMIT} (${color}${usage_percentage}%${COLOR_RESET})"
+  echo "\$${usage_cost}"
 }
 
 # Main execution
