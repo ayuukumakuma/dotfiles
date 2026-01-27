@@ -22,7 +22,6 @@ if status is-interactive
 
   # Configurations for mise
   ~/.nix-profile/bin/mise activate fish | source
-  set -gx MISE_NODE_VERIFY false
 
   # Abbreviation
   abbr -a c 'clear'
@@ -36,6 +35,8 @@ if status is-interactive
   abbr -a v 'nvim'
   abbr -a cdg 'cd-gitroot'
   abbr -a cat 'bat'
+  abbr -a zl 'zellij'
+  abbr -a wt 'git gtr'
 end
 
 # Added by OrbStack: command-line tools and integration
@@ -43,5 +44,3 @@ end
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
 export PATH="$HOME/.local/bin:$PATH"
 
-# Added by Antigravity
-fish_add_path /Users/nasuno.ayumu/.antigravity/antigravity/bin
