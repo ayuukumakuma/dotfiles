@@ -7,3 +7,8 @@
 ```sh
 ~/.codex/notify.sh
 ```
+
+## skills
+```sh
+~/.codex/skills
+```
