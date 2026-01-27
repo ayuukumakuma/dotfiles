@@ -11,21 +11,16 @@
     "/nix/store/m1g5yqcx7a5v5s8rw5i3l22yplfg0czg-neovim-unwrapped-0.11.4/share/nvim/runtime/pack/dist/opt/netrw",
     "/nix/store/m1g5yqcx7a5v5s8rw5i3l22yplfg0czg-neovim-unwrapped-0.11.4/share/nvim/runtime/pack/dist/opt/matchit",
     "/nix/store/m1g5yqcx7a5v5s8rw5i3l22yplfg0czg-neovim-unwrapped-0.11.4/lib/nvim",
-    "${workspaceFolder}/nvim/types/stable"
+    "${workspaceFolder}/nvim/types/stable",
   ],
   "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-  },
-  "editor.quickSuggestions": {
-    "comments": true,
-    "strings": true,
-    "other": true
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
   },
   "biome.lsp.trace.server": "messages",
   "biome.suggestInstallingGlobally": false,
+  "claudeCode.preferredLocation": "panel",
   "comments.thread.confirmOnCollapse": "never",
   "cursor.composer.cmdPFilePicker2": true,
-  "cursor.composer.collapsePaneInputBoxPills": true,
   "cursor.composer.queueMessageDefaultBehavior": "stop-and-send",
   "cursor.composer.shouldChimeAfterChatFinishes": true,
   "cursor.composer.shouldShowMarkdownHoverParticipantActions2": true,
@@ -51,6 +46,12 @@
   "editor.inlayHints.fontFamily": "'Monaspace Radon'",
   "editor.inlineSuggest.fontFamily": "'Monaspace Radon'",
   "editor.lineHeight": 1.5,
+  "editor.linkedEditing": true,
+  "editor.quickSuggestions": {
+    "comments": true,
+    "other": true,
+    "strings": true,
+  },
   "editor.renderWhitespace": "boundary",
   "editor.snippetSuggestions": "top",
   "editor.tabSize": 2,
@@ -59,41 +60,49 @@
   "explorer.confirmPasteNative": false,
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-  },
   "files.associations": {
-    "*.schema": "ruby"
+    "*.schema": "ruby",
   },
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 2000,
   "files.exclude": {
-    "**/.git": false
+    "**/.git": false,
   },
   "files.simpleDialog.enable": true,
   "files.trimTrailingWhitespace": true,
   "git.autofetch": true,
   "git.confirmSync": false,
   "githubIssues.assignWhenWorking": false,
+  "githubPullRequests.commentExpandState": "collapseAll",
   "githubPullRequests.defaultCommentType": "review",
   "githubPullRequests.notifications": "pullRequests",
   "githubPullRequests.pullBranch": "never",
   "githubPullRequests.showPullRequestNumberInTree": true,
   "githubPullRequests.terminalLinksHandler": "github",
   "hediet.vscode-drawio.resizeImages": null,
+  "importCost.fontStyle": "italic",
+  "javascript.format.semicolons": "insert",
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  "javascript.inlayHints.parameterTypes.enabled": true,
+  "javascript.inlayHints.variableTypes.enabled": true,
+  "javascript.preferGoToSourceDefinition": true,
+  "javascript.preferences.importModuleSpecifier": "non-relative",
   "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnPaste.enabled": true,
+  "liveServer.settings.donotShowInfoMsg": true,
   "makefile.configureOnOpen": false,
   "markdown.preview.markEditorSelection": false,
   "markdown.preview.scrollEditorWithPreview": false,
   "markdown.preview.scrollPreviewWithEditor": false,
   "markdown.validate.enabled": true,
-  "playwright.reuseBrowser": false,
+  "prettify-ts.maxDepth": 5,
+  "reactSnippets.settings.importReactOnTop": false,
   "redhat.telemetry.enabled": true,
-  "redoclyOpenAPI.user.anonymousId": "599b0b94-08b0-4c04-b8c8-4f1d56cadceb",
   "rubyLsp.addonSettings": {
     "Ruby LSP RSpec": {
-      "rspecCommand": "DATABASE_HOST=127.0.0.1 bundle exec rspec"
-    }
+      "rspecCommand": "DATABASE_HOST=127.0.0.1 bundle exec rspec",
+    },
   },
   "rubyLsp.enabledFeatures": {
     "codeActions": true,
@@ -113,14 +122,14 @@
     "semanticHighlighting": true,
     "signatureHelp": true,
     "typeHierarchy": true,
-    "workspaceSymbol": true
+    "workspaceSymbol": true,
   },
   "rubyLsp.featureFlags": {
-    "all": true
+    "all": true,
   },
   "rubyLsp.rubyVersionManager": {
     "identifier": "mise",
-    "miseExecutablePath": "/Users/nasuno.ayumu/.nix-profile/bin/mise"
+    "miseExecutablePath": "/Users/nasuno.ayumu/.nix-profile/bin/mise",
   },
   "search.globalFindClipboard": true,
   "search.useIgnoreFiles": false,
@@ -130,6 +139,13 @@
   "terminal.integrated.defaultProfile.osx": "fish",
   "terminal.integrated.enableMultiLinePasteWarning": "never",
   "terminal.integrated.enableVisualBell": true,
+  "terminal.integrated.localEchoExcludePrograms": [
+    "vim",
+    "vi",
+    "nano",
+    "tmux",
+    "nvim",
+  ],
   "terminal.integrated.splitCwd": "workspaceRoot",
   "terminal.integrated.stickyScroll.enabled": true,
   "terminal.integrated.suggest.enabled": true,
@@ -141,7 +157,11 @@
   "testing.followRunningTest": true,
   "todo-tree.general.enableFileWatcher": true,
   "todohighlight.keywords": ["NOTE"],
+  "typescript.experimental.useTsgo": false,
+  "typescript.preferGoToSourceDefinition": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnPaste.enabled": true,
+  "update.releaseTrack": "prerelease",
   "vitest.maximumConfigs": 20,
   "vscode-neovim.compositeKeys": {
     "jj": {
@@ -149,11 +169,11 @@
         [
           "local code = require('vscode')",
           "code.action('vscode-neovim.escape')",
-          "code.action('workbench.action.files.save')"
-        ]
+          "code.action('workbench.action.files.save')",
+        ],
       ],
-      "command": "vscode-neovim.lua"
-    }
+      "command": "vscode-neovim.lua",
+    },
   },
   "vscode-neovim.neovimClean": false,
   "vscode-neovim.neovimExecutablePaths.darwin": "/Users/nasuno.ayumu/.nix-profile/bin/nvim",
@@ -165,25 +185,23 @@
   "window.dialogStyle": "custom",
   "window.title": "${dirty}${activeEditorShort}${separator}${rootNameShort}${separator}${activeRepositoryBranchName}",
   "workbench.activityBar.orientation": "vertical",
+  "workbench.editor.customLabels.patterns": {
+    "**/src/app/**/default.tsx": "${dirname}/default.tsx",
+    "**/src/app/**/layout.tsx": "${dirname}/layout.tsx",
+    "**/src/app/**/loading.tsx": "${dirname}/loading.tsx",
+    "**/src/app/**/page.tsx": "${dirname}/page.tsx",
+    "**/src/app/**/route.tsx": "${dirname}/route.tsx",
+    "**/src/app/**/template.tsx": "${dirname}/template.tsx",
+  },
   "workbench.experimental.share.enabled": true,
   "workbench.iconTheme": "catppuccin-macchiato",
   "workbench.list.smoothScrolling": true,
   "workbench.preferredLightColorTheme": "Catppuccin Mocha",
-  "liveServer.settings.donotShowInfoMsg": true,
-  "editor.linkedEditing": true,
-  "javascript.inlayHints.variableTypes.enabled": true,
-  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "javascript.inlayHints.parameterTypes.enabled": true,
-  "typescript.experimental.useTsgo": false,
-  "javascript.format.semicolons": "insert",
-  "javascript.inlayHints.parameterNames.enabled": "all",
-  "javascript.preferGoToSourceDefinition": true,
-  "typescript.preferGoToSourceDefinition": true,
-  "typescript.updateImportsOnPaste.enabled": true,
-  "reactSnippets.settings.importReactOnTop": false,
-  "prettify-ts.maxDepth": 5,
-  "githubPullRequests.commentExpandState": "collapseAll",
-  "javascript.preferences.importModuleSpecifier": "non-relative",
-  "javascript.updateImportsOnPaste.enabled": true,
-  "claudeCode.preferredLocation": "panel"
+  "claudeCode.disableLoginPrompt": true,
+  "claudeCode.initialPermissionMode": "plan",
+  "claudeCode.selectedModel": "opus",
+  "claudeCode.useCtrlEnterToSend": true,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1,
+  },
 }
