@@ -80,7 +80,7 @@ get_token_summary() {
 # Get Claude API usage cost
 get_api_usage() {
   local current_month=$(date +"%Y-%m")
-  local usage_cost_output=$(npx --yes ccusage monthly --locale ja-JP --json | jq --arg current_month "$current_month" '.monthly[] | select(.month == $current_month).totalCost' 2>/dev/null)
+  local usage_cost_output=$(bunx --yes ccusage monthly --locale ja-JP --json | jq --arg current_month "$current_month" '.monthly[] | select(.month == $current_month).totalCost' 2>/dev/null)
   local usage_cost="0.00"
 
   if [ -n "$usage_cost_output" ]; then
