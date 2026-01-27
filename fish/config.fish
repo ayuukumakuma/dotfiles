@@ -14,6 +14,11 @@ if status is-interactive
 
   # Configurations for git
   set -gx GIT_CONFIG_GLOBAL ~/.config/git/config
+  
+  # Load git gtr completions
+  if test -f ~/.config/fish/completions/gtr.fish
+    source ~/.config/fish/completions/gtr.fish
+  end
 
   # Environment variables for Ruby building with Nix packages
   set -gx PKG_CONFIG_PATH "$HOME/.nix-profile/lib/pkgconfig"
