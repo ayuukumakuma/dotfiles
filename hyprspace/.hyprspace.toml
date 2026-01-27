@@ -29,7 +29,7 @@ start-at-login = true
 # 例：
 #   after-startup-command = 'exec-and-forget open -a Ghostty'
 #   after-startup-command = ['exec-and-forget open -a Safari', 'exec-and-forget open -a Slack']
-after-startup-command = ["exec-and-forget borders", "workspace S"]
+after-startup-command = ["exec-and-forget borders", "workspace 1"]
 # ╔═══════════════════════════════════════════════════════════════════════════════╗
 # ║                            デフォルトレイアウト設定                            ║
 # ╚═══════════════════════════════════════════════════════════════════════════════╝
@@ -52,7 +52,7 @@ default-root-container-orientation = "horizontal"
 #   1.0 = 均等分割（50%/50%）
 #   1.618 = 黄金比分割（約62%/38%）
 #   0.618 = 逆黄金比（約38%/62%）
-dwindle-default-split-ratio = 1.618
+dwindle-default-split-ratio = 1.9
 # dwindleレイアウトで単一ウィンドウのアスペクト比を強制
 # 形式: [幅, 高さ] または [0, 0] で無効化
 # 例：
@@ -66,7 +66,7 @@ dwindle-single-window-aspect-ratio = [0, 0]
 # 範囲: 0.0 〜 1.0
 # ウィンドウが目標比率に近い場合、微細なパディング調整を防止
 # 低い値 = より厳密、高い値 = より寛容
-dwindle-single-window-aspect-ratio-tolerance = 0.1
+dwindle-single-window-aspect-ratio-tolerance = 1.0
 # ╔═══════════════════════════════════════════════════════════════════════════════╗
 # ║                      マウス操作（HYPRSPACE独自機能）                          ║
 # ╚═══════════════════════════════════════════════════════════════════════════════╝
@@ -181,8 +181,8 @@ on-mode-changed = []
 [gaps]
 # 内側のギャップ（ウィンドウ間のスペース）
 # 定数またはモニターごとの設定が可能
-inner.horizontal = 8
-inner.vertical = 8
+inner.horizontal = 5
+inner.vertical = 5
 # 外側のギャップ（画面端からのスペース）
 # 形式: 定数整数またはモニターごとの配列
 # モニターごとの配列構文：
@@ -192,10 +192,10 @@ inner.vertical = 8
 #     { monitor.1 = 24 },              # シーケンス内の最初のモニターは24px
 #     24                               # デフォルトフォールバック（必須）
 #   ]
-outer.left = 8
-outer.bottom = 8
-outer.top = 8
-outer.right = 8
+outer.left = 5
+outer.bottom = 5
+outer.top = 5
+outer.right = 5
 
 # 例: モニターごとに異なるギャップ（使用する場合はコメント解除）
 # [gaps]
@@ -227,11 +227,16 @@ outer.right = 8
 # 5 = "LG.*"                          # ワークスペース5は任意のLGモニター
 
 [workspace-to-monitor-force-assignment]
-0 = "secondary"
 1 = "main"
 2 = "main"
-S = "main"
-W = "main"
+3 = "main"
+4 = "main"
+5 = "main"
+6 = "main"
+7 = "main"
+8 = "secondary"
+9 = "secondary"
+0 = "Deskpad*"
 
 # ╔═══════════════════════════════════════════════════════════════════════════════╗
 # ║                            キーマッピング                                     ║
@@ -335,62 +340,56 @@ on-focused-monitor-changed = "move-mouse monitor-lazy-center"
 # Slack
 [[on-window-detected]]
 if.app-id = "com.tinyspeck.slackmacgap"
-run = ["layout dwindle", "move-node-to-workspace S"]
+run = ["layout dwindle", "move-node-to-workspace 1"]
 
 # Arc
 [[on-window-detected]]
 if.app-id = "company.thebrowser.Browser"
-run = "move-node-to-workspace 1"
-
-# Gather
-[[on-window-detected]]
-if.app-id = "com.gather.GatherV2"
-run = "move-node-to-workspace 1"
-
-# OrbStack
-[[on-window-detected]]
-if.app-id = "dev.kdrag0n.MacVirt"
-run = "move-node-to-workspace 1"
-
-# Sequel Ace
-[[on-window-detected]]
-if.app-id = "com.sequel-ace.sequel-ace"
-run = "move-node-to-workspace 1"
+run = "move-node-to-workspace 2"
 
 # Cursor
 [[on-window-detected]]
 if.app-id = "com.todesktop.230313mzl4w4u92"
-run = "move-node-to-workspace 2"
+run = "move-node-to-workspace 3"
+
+# WezTerm
+[[on-window-detected]]
+if.app-id = "com.github.wez.wezterm"
+run = "move-node-to-workspace 4"
+
+[[on-window-detected]]
+if.app-id = "notion.id"
+run = "move-node-to-workspace 8"
 
 # Obsidian
 [[on-window-detected]]
 if.app-id = "md.obsidian"
-run = "move-node-to-workspace 0"
+run = "move-node-to-workspace 9"
+
+# Gather
+[[on-window-detected]]
+if.app-id = "com.gather.GatherV2"
+run = "move-node-to-workspace 7"
+
+# OrbStack
+[[on-window-detected]]
+if.app-id = "dev.kdrag0n.MacVirt"
+run = "move-node-to-workspace 7"
+
+# Sequel Ace
+[[on-window-detected]]
+if.app-id = "com.sequel-ace.sequel-ace"
+run = "move-node-to-workspace 7"
 
 # Finder
 [[on-window-detected]]
 if.app-id = "com.apple.finder"
 run = "layout floating"
 
-# OnyX
-[[on-window-detected]]
-if.app-id = "com.titanium.OnyX"
-run = "layout floating"
-
 # Cap
 [[on-window-detected]]
 if.app-id = "so.cap.desktop"
 run = "layout floating"
-
-# WezTerm
-[[on-window-detected]]
-if.app-id = "com.github.wez.wezterm"
-run = "move-node-to-workspace W"
-
-# Spotify
-[[on-window-detected]]
-if.app-id = "com.spotify.client"
-run = "move-node-to-workspace 0"
 
 # ╔═══════════════════════════════════════════════════════════════════════════════╗
 # ║                          メインモードのキーバインディング                      ║
@@ -407,12 +406,10 @@ run = "move-node-to-workspace 0"
 # alt-up = "focus up"
 # alt-right = "focus right"
 # 代替: Vimスタイルナビゲーション（矢印キーの代わりに使用する場合はコメント解除）
-alt-h = "focus left"
-alt-j = "focus down"
-alt-k = "focus up"
-alt-l = "focus right"
-alt-n = "focus dfs-next"
-alt-p = "focus dfs-prev"
+alt-h = ["focus left", "focus dfs-prev"]
+alt-j = ["focus down", "focus dfs-next"]
+alt-k = ["focus up", "focus dfs-prev"]
+alt-l = ["focus right", "focus dfs-next"]
 # ──────────────────────────────────────────────────────────────────────────────
 #                              ウィンドウ移動
 # ──────────────────────────────────────────────────────────────────────────────
@@ -436,10 +433,10 @@ alt-2 = "workspace 2"
 alt-3 = "workspace 3"
 alt-4 = "workspace 4"
 alt-5 = "workspace 5"
-# alt-6 = "workspace 6"
-# alt-7 = "workspace 7"
-# alt-8 = "workspace 8"
-# alt-9 = "workspace 9"
+alt-6 = "workspace 6"
+alt-7 = "workspace 7"
+alt-8 = "workspace 8"
+alt-9 = "workspace 9"
 # ワークスペースA-Zに切り替え（h, j, k, lは除外 - フォーカス移動に使用）
 # alt-a = "workspace A"
 # alt-b = "workspace B"
@@ -455,11 +452,11 @@ alt-5 = "workspace 5"
 # alt-p = "workspace P"
 # alt-q = "workspace Q"
 # alt-r = "workspace R"
-alt-s = "workspace S"
+# alt-s = "workspace S"
 # alt-t = "workspace T"
 # alt-u = "workspace U"
 # alt-v = "workspace V"
-alt-w = "workspace W"
+# alt-w = "workspace W"
 # alt-x = "workspace X"
 # alt-y = "workspace Y"
 # alt-z = "workspace Z"
@@ -470,10 +467,10 @@ alt-shift-2 = "move-node-to-workspace 2"
 alt-shift-3 = "move-node-to-workspace 3"
 alt-shift-4 = "move-node-to-workspace 4"
 alt-shift-5 = "move-node-to-workspace 5"
-# alt-shift-6 = "move-node-to-workspace 6"
-# alt-shift-7 = "move-node-to-workspace 7"
-# alt-shift-8 = "move-node-to-workspace 8"
-# alt-shift-9 = "move-node-to-workspace 9"
+alt-shift-6 = "move-node-to-workspace 6"
+alt-shift-7 = "move-node-to-workspace 7"
+alt-shift-8 = "move-node-to-workspace 8"
+alt-shift-9 = "move-node-to-workspace 9"
 # ワークスペースA-Zにウィンドウを移動（h, j, k, lは除外 - ウィンドウ移動に使用）
 # alt-shift-a = "move-node-to-workspace A"
 # alt-shift-b = "move-node-to-workspace B"
@@ -489,11 +486,11 @@ alt-shift-5 = "move-node-to-workspace 5"
 # alt-shift-p = "move-node-to-workspace P"
 # alt-shift-q = "move-node-to-workspace Q"
 # alt-shift-r = "move-node-to-workspace R"
-alt-shift-s = "move-node-to-workspace S"
+# alt-shift-s = "move-node-to-workspace S"
 # alt-shift-t = "move-node-to-workspace T"
 # alt-shift-u = "move-node-to-workspace U"
 # alt-shift-v = "move-node-to-workspace V"
-alt-shift-w = "move-node-to-workspace W"
+# alt-shift-w = "move-node-to-workspace W"
 # alt-shift-x = "move-node-to-workspace X"
 # alt-shift-y = "move-node-to-workspace Y"
 # alt-shift-z = "move-node-to-workspace Z"
@@ -507,9 +504,9 @@ alt-shift-tab = "move-workspace-to-monitor --wrap-around next"
 # alt-slash = "layout tiles horizontal vertical"
 # alt-comma = "layout accordion horizontal vertical"
 # レイアウト切り替え（HyprSpace独自レイアウト含む）
-alt-shift-d = "layout dwindle"  # HyprSpace独自
+# alt-shift-d = "layout dwindle"  # HyprSpace独自
 # alt-shift-t = "layout tiles"  # 従来のタイリング
-alt-shift-a = "layout accordion horizontal"  # アコーディオン（1ウィンドウ表示、横方向）
+# alt-shift-a = "layout accordion horizontal"  # アコーディオン（1ウィンドウ表示、横方向）
 # alt-shift-m = "layout master"  # HyprSpace独自マスター/スタック
 # alt-shift-s = "layout scroll"  # HyprSpace独自スクロール
 # ──────────────────────────────────────────────────────────────────────────────
@@ -517,11 +514,11 @@ alt-shift-a = "layout accordion horizontal"  # アコーディオン（1ウィ�
 # ──────────────────────────────────────────────────────────────────────────────
 # ウィンドウサイズのバランス調整（均等サイズにリセット）
 # dwindleレイアウトでの手動リサイズ後に特に有用
-alt-b = "balance-sizes"
+# alt-b = "balance-sizes"
 # フォーカスしているウィンドウを閉じる
 # alt-shift-q = "close"
 # フルスクリーン切り替え
-alt-f = "fullscreen"
+# alt-f = "fullscreen"
 # アコーディオンとdwindle表示の切り替え
 alt-shift-space = "layout accordion dwindle"
 # コンテナのフラット化（不要なネストを削除）
