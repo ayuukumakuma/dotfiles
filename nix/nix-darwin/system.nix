@@ -122,10 +122,10 @@
         # ディスプレイごとに異なるスペースを使用する
         spans-displays = false;
       };
-      universalaccess = {
-        # カーソルのサイズ
-        mouseDriverCursorSize = 2.0;
-      };
+      # universalaccess = {
+      #   # カーソルのサイズ
+      #   mouseDriverCursorSize = 2.0;
+      # };
     };
   };
 }

@@ -9,6 +9,9 @@
     brews = [
       ### CLI Applications not available in nixpkgs
       "fisher"
+      "mas" # Mac App Store CLI
+      "mole"
+
       ### Ruby環境用はbrewの方が相性が良いのでこちらでインストールする
       "mysql@8.0"
       "libyaml"
@@ -18,6 +21,7 @@
     taps = [
       "nikitabobko/tap"
       "BarutSRB/tap"
+      "tw93/tap"
     ];
     casks = [
       ### GUI Applications
@@ -39,9 +43,8 @@
       "scroll-reverser"
       "notchnook"
       "meetingbar"
-      "jordanbaird-ice"
+      # "jordanbaird-ice"
       "keycastr"
-      "onyx"
       "orbstack"
       "arc"
       "logitech-g-hub"
@@ -52,12 +55,21 @@
       "another-redis-desktop-manager"
       "cap"
       "gyazo"
-      "antigravity"
       "google-drive"
+      "claude"
+      "zed"
+      "deskpad"
+      "logi-options+"
+      "affinity"
+      "notion"
+
 
       ### Fonts
       "font-hackgen-nerd"
       "font-monaspace"
     ];
+    masApps = {
+      "Klack" = 6446206067;
+    };
   };
 }

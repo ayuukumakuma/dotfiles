@@ -28,8 +28,6 @@ in
     git
     just
     codex
-    terminal-notifier
-    gemini-cli
     jankyborders
     mise
     kubectl
@@ -38,5 +36,9 @@ in
     neovim
     tre-command
     ffmpeg
+    hyperfine
+    fd
+    zellij
+    wget
   ];
 }
