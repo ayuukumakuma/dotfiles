@@ -1,47 +1,46 @@
-// Place your key bindings in this file to override the defaults
 [
   {
     "key": "cmd+i",
-    "command": "composerMode.agent",
+    "command": "composerMode.agent"
   },
   {
     "key": "shift+enter",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-      "text": "\\\r\n",
+      "text": "\\\r\n"
     },
-    "when": "terminalFocus",
+    "when": "terminalFocus"
   },
   {
     "key": "shift+escape",
-    "command": "workbench.action.toggleMaximizedPanel",
+    "command": "workbench.action.toggleMaximizedPanel"
   },
   {
     "key": "ctrl+l",
     "command": "workbench.action.terminal.focusNextPane",
-    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
   {
     "key": "alt+cmd+right",
     "command": "-workbench.action.terminal.focusNextPane",
-    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
   {
     "key": "ctrl+h",
     "command": "workbench.action.terminal.focusPreviousPane",
-    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
   {
     "key": "alt+cmd+left",
     "command": "-workbench.action.terminal.focusPreviousPane",
-    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
   {
     "key": "ctrl+shift+q",
-    "command": "workbench.action.quickOpenView",
+    "command": "workbench.action.quickOpenView"
   },
   {
     "key": "ctrl+q",
-    "command": "-workbench.action.quickOpenView",
-  },
+    "command": "-workbench.action.quickOpenView"
+  }
 ]
