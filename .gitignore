@@ -1,3 +1,5 @@
 *.local.*
 !git/config.local.example
 git/config.local
+.DS_Store
+fish/fish_variables
