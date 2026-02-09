@@ -1,4 +1,4 @@
-## wezterm.lua
+## wezterm
 ```sh
 ~/.config/wezterm
 ```

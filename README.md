@@ -21,15 +21,17 @@ macOS用の個人的なdotfilesリポジトリです。Nix Flakesとnix-darwin�
 
 ```bash
 # 1. リポジトリをクローン
-git clone https://github.com/yourusername/dotfiles.git ~/dotfiles
+git clone https://github.com/ayuukumakuma/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 
 # 2. Nixパッケージをインストール
+cd nix
 nix build .#my-packages
 nix profile install .#my-packages
 
 # 3. nix-darwin設定を適用
 nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
+cd ..
 
 # 4. Fish shellをデフォルトに設定
 ./script/set-fish-default.sh
@@ -62,15 +64,17 @@ sh <(curl -L https://nixos.org/nix/install)
 
 ```bash
 # リポジトリをクローン
-git clone https://github.com/yourusername/dotfiles.git ~/dotfiles
+git clone https://github.com/ayuukumakuma/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 
 # Nixパッケージをビルドしてインストール
+cd nix
 nix build .#my-packages
 nix profile install .#my-packages
 
 # nix-darwin設定を初回適用
 nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
+cd ..
 
 # Fish shellの設定
 ./script/set-fish-default.sh
@@ -101,12 +105,12 @@ fisher update
 
 ```bash
 # すべてを更新（flake入力、プロファイル、nix-darwin）
-nix run .#update
+cd nix && nix run .#update
 
 # 個別の更新
-nix flake update                                          # flake入力を更新
-nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin # nix-darwin設定を適用
-nix profile upgrade nix                                    # Nixプロファイルを更新
+cd nix && nix flake update                                   # flake入力を更新
+cd nix && nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin # nix-darwin設定を適用
+cd nix && nix profile upgrade nix                            # Nixプロファイルを更新
 ```
 
 ### 開発コマンド
@@ -127,27 +131,33 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 ```
 .
 ├── README.md           # このファイル
-├── CLAUDE.md          # Claude Code用のガイドライン
+├── AGENTS.md           # エージェント向けリポジトリ運用ガイド
 ├── nix/               # Nix設定
 │   ├── flake.nix      # メインFlake定義
 │   ├── flake.lock     # 依存関係のロックファイル
 │   ├── pkgs.nix       # CLIツールのパッケージリスト
 │   └── nix-darwin/
 │       └── config.nix # macOSシステム設定とHomebrew設定
+├── agents/            # スキル・エージェント用アセット
+├── codex/             # Codex設定
 ├── fish/              # Fish shell設定
 │   ├── config.fish    # メイン設定ファイル
 │   ├── fish_plugins   # Fisherプラグインリスト
 │   ├── functions/     # カスタム関数
 │   └── conf.d/        # 自動読み込み設定
+├── mise/              # mise設定
+├── nvim/              # Neovim設定
 ├── script/            # ユーティリティスクリプト
 │   └── set-fish-default.sh # Fishをデフォルトシェルに設定
 └── [各種アプリ設定ディレクトリ]
-    ├── aerospace/    # AerospaceWMの設定
+    ├── aerospace/     # AerospaceWMの設定
     ├── claude/        # Claude Codeの設定
     ├── cursor/        # Cursorエディタの設定
     ├── git/          # Git設定
     ├── raycast/      # Raycastの設定
-    └── wezterm/      # WezTermターミナルの設定
+    ├── simple-bar/    # simple-barの設定
+    ├── wezterm/       # WezTermターミナルの設定
+    └── zellij/        # Zellijの設定
 ```
 
 ## 🛠 管理対象のツール
@@ -219,7 +229,7 @@ casks = [
 変更を適用：
 
 ```bash
-nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
+cd nix && nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
 ```
 
 ### Fish設定の変更
@@ -320,8 +330,8 @@ op signin
 
 ```bash
 # 設定ファイルの構文チェック
-nix flake check
+cd nix && nix flake check
 
 # ログを確認
-nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin --show-trace
+cd nix && nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin --show-trace
 ```
