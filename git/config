@@ -38,5 +38,6 @@
     conflictStyle = zdiff3
 [ghq]
   root = ~/dev
+  user = ayuukumakuma
 [include]
   path = ~/.config/git/config.local
