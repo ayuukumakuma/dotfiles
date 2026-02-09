@@ -1,0 +1,5 @@
+[user]
+  # Copy this file to ~/.config/git/config.local and replace with your values.
+  name = <your-name>
+  email = <your-email>
+  signingkey = ssh-ed25519 <your-public-key>
