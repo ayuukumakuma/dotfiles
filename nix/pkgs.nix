@@ -2,7 +2,7 @@
 let
   pkgs = import nixpkgs {
     inherit system;
-    config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [ ];
+    config.allowUnfree = true;
     overlays = [
       (final: prev: {
         fish = prev.fish.overrideAttrs (old: {
@@ -18,7 +18,8 @@ in
   myPackages = with pkgs; [
     ### CLI Applications
     nil
-    nixfmt-rfc-style
+    nixfmt
+    nixd
     fzf
     bat
     ripgrep
@@ -27,7 +28,6 @@ in
     gh
     git
     just
-    codex
     jankyborders
     mise
     kubectl
@@ -40,5 +40,9 @@ in
     fd
     zellij
     wget
+    just-lsp
+    tmux
+    ghq
+    # cursor-cli `curl https://cursor.com/install -fsS | bash`
   ];
 }
