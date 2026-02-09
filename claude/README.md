@@ -8,12 +8,6 @@ curl -fsSL https://claude.ai/install.sh | bash -s latest
 ~/.claude/agents
 ```
 
-## skills
-
-```sh
-~/.claude/skills
-```
-
 ## settings.json
 ```sh
 ~/.claude/settings.json
