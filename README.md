@@ -31,15 +31,13 @@ nix profile install .#my-packages
 # 3. nix-darwin設定を適用
 nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
 
-# 4. 1Password CLIを設定
-op signin
-
-# 5. Fish shellをデフォルトに設定
+# 4. Fish shellをデフォルトに設定
 ./script/set-fish-default.sh
 
-# 6. セキュリティ設定を更新
-./script/update-git-config-from-1password.sh
-./script/update-slack-webhook-from-1password.sh
+# 5. Gitのローカル個人設定を作成
+mkdir -p ~/.config/git
+cp git/config.local.example ~/.config/git/config.local
+# ~/.config/git/config.local の name/email/signingkey を編集
 ```
 
 ## 📦 インストール
@@ -78,17 +76,14 @@ nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
 ./script/set-fish-default.sh
 ```
 
-### 4. セキュリティ設定の初期化
+### 4. Git個人設定の初期化
 
-リポジトリでは、個人情報の保護のため、機密情報を1Passwordで管理しています：
+Gitの個人情報は `~/.config/git/config.local` で管理します（リポジトリには含めません）：
 
 ```bash
-# 1Password CLIの認証
-op signin
-
-# セキュリティ設定を更新
-./script/update-git-config-from-1password.sh
-./script/update-slack-webhook-from-1password.sh
+mkdir -p ~/.config/git
+cp git/config.local.example ~/.config/git/config.local
+$EDITOR ~/.config/git/config.local
 ```
 
 ### 5. Fish プラグインのインストール
@@ -145,9 +140,7 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 │   ├── functions/     # カスタム関数
 │   └── conf.d/        # 自動読み込み設定
 ├── script/            # ユーティリティスクリプト
-│   ├── set-fish-default.sh # Fishをデフォルトシェルに設定
-│   ├── update-git-config-from-1password.sh # Git設定の更新
-│   └── update-slack-webhook-from-1password.sh # Webhook URL更新
+│   └── set-fish-default.sh # Fishをデフォルトシェルに設定
 └── [各種アプリ設定ディレクトリ]
     ├── aerospace/    # AerospaceWMの設定
     ├── claude/        # Claude Codeの設定
@@ -258,43 +251,32 @@ fisher update  # プラグインを更新
 
 ## 🔒 セキュリティ設定
 
-このリポジトリでは、個人情報の漏洩を防ぐため、機密情報を1Passwordで管理し、スクリプトを通じて設定を更新する仕組みを採用しています。
+このリポジトリでは、個人情報の漏洩を防ぐため、Git個人設定をローカルファイルに分離しています。必要に応じて1Passwordを秘密情報管理に利用できます。
 
 ### セキュリティ機能
 
-- **個人情報の分離**: Git設定やWebhook URLなどの個人情報はリポジトリに含めず、1Passwordで管理
-- **スクリプトベースの設定**: 機密情報の設定は専用スクリプトを通じて更新
-- **自動化**: 必要に応じて1Password CLIから設定を取得し、環境に適用
+- **個人情報の分離**: Gitの `user.*` は `~/.config/git/config.local` で管理
+- **追跡対象の明確化**: リポジトリには `git/config.local.example` のみ保持
+- **秘密情報管理**: APIキーやWebhook等は1Passwordなど外部ストアで管理可能
 
 ### 必要な初期設定
 
-1. **1Password CLIのインストール**
+1. **ローカルGit設定ファイルの作成**
    ```bash
-   # macOS (Homebrewでインストール済み)
-   brew install 1password-cli
+   mkdir -p ~/.config/git
+   cp git/config.local.example ~/.config/git/config.local
    ```
 
-2. **1Password CLIの認証**
+2. **Git個人情報の編集**
    ```bash
-   # 初回認証
-   op signin
-   ```
-
-3. **セキュリティスクリプトの実行**
-   ```bash
-   # Git設定の更新
-   ./script/update-git-config-from-1password.sh
-
-   # Slack Webhook URLの更新
-   ./script/update-slack-webhook-from-1password.sh
+   $EDITOR ~/.config/git/config.local
    ```
 
 ### 1Passwordでの情報管理
 
 以下の情報は1Passwordで管理することを推奨します：
 
-- **Git設定**: ユーザー名、メールアドレス、署名キー
-- **Webhook URL**: Slack通知用のWebhook URL
+- **Webhook URL**: 通知用のWebhook URL
 - **API キー**: 各種サービスのAPIキー
 - **SSH キー**: Git署名用のSSH秘密鍵
 
