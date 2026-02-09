@@ -1,15 +1,14 @@
-# script/update-git-config-from-1password.sh でユーザー情報を更新する
 [alias]
-  s = switch
-  st = stash -u
+  s   = switch
+  st  = stash -u
   stp = stash pop
   sta = stash apply
-  a = add
-  c = commit
-  p = pull
-  ps = push
-  d = "!echo 'git clean -fd && git restore .' && git clean -fd && git restore ."
-  f = fetch
+  a   = add
+  c   = commit
+  p   = pull
+  ps  = push
+  d   = "!echo 'git clean -fd && git restore .' && git clean -fd && git restore ."
+  f   = fetch
 [color]
   ui = true
 [pull]
@@ -24,9 +23,18 @@
   gpgsign = true
 [push]
   autoSetupRemote = true
-[code]
+[core]
   editor = nvim
-[user]
-  name = ayuukumakuma
-  email = ayuu.kumakuma@gmail.com
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINoiYGqw22LvgvyuB8wT87WRzzAoeNZxKZZmS6bTK2/J
+  pager  = delta
+  diff   = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark     = true      # or light = true, or omit for auto-detection
+    side-by-side = true
+    line-numbers = true
+[merge]
+    conflictStyle = zdiff3
+[include]
+  path = ~/.config/git/config.local

@@ -1,1 +1,3 @@
 *.local.*
+!git/config.local.example
+git/config.local
