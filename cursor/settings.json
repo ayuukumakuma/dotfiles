@@ -26,7 +26,7 @@
   "cursor.composer.shouldShowMarkdownHoverParticipantActions2": true,
   "cursor.composer.textSizeScale": 1.15,
   "cursor.composer.usageSummaryDisplay": "always",
-  "cursor.cpp.disabledLanguages": ["plaintext"],
+  "cursor.cpp.disabledLanguages": [],
   "cursor.cpp.enablePartialAccepts": true,
   "cursor.preferNotificationsSameAsChat": true,
   "cursor.semanticSearch.includeCommitsWithFiles": true,
@@ -157,11 +157,10 @@
   "testing.followRunningTest": true,
   "todo-tree.general.enableFileWatcher": true,
   "todohighlight.keywords": ["NOTE"],
-  "typescript.experimental.useTsgo": false,
+  "typescript.experimental.useTsgo": true,
   "typescript.preferGoToSourceDefinition": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnPaste.enabled": true,
-  "update.releaseTrack": "prerelease",
   "vitest.maximumConfigs": 20,
   "vscode-neovim.compositeKeys": {
     "jj": {
@@ -203,5 +202,21 @@
   "claudeCode.useCtrlEnterToSend": true,
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1,
+  },
+  "workbench.editor.enablePreview": false,
+  "cSpell.userWords": ["nixos", "nixpkgs", "pkgs"],
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+  "typescript.format.insertSpaceAfterTypeAssertion": true,
+  "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "typescript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+  "typescript.format.placeOpenBraceOnNewLineForFunctions": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "editor.experimental.preferTreeSitter.typescript": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
 }
