@@ -1,4 +1,4 @@
-## *
+## fis
 ```sh
-~/.config/fish
+~/.config/fish/
 ```

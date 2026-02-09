@@ -52,17 +52,17 @@ if grep -q "^$FISH_PATH$" /etc/shells 2>/dev/null; then
     print_info "Fish is already registered in /etc/shells"
 else
     print_step "Adding Fish to /etc/shells (requires sudo)..."
-    
+
     # Confirm before using sudo
     echo "This operation requires administrator privileges."
     read -p "Do you want to continue? (y/N): " -n 1 -r
     echo
-    
+
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
         print_info "Operation cancelled by user."
         exit 0
     fi
-    
+
     if echo "$FISH_PATH" | sudo tee -a /etc/shells > /dev/null; then
         print_success "Fish added to /etc/shells"
     else
