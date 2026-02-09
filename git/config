@@ -36,5 +36,7 @@
     line-numbers = true
 [merge]
     conflictStyle = zdiff3
+[ghq]
+  root = ~/dev
 [include]
   path = ~/.config/git/config.local
