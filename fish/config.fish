@@ -14,7 +14,7 @@ if status is-interactive
 
   # Configurations for git
   set -gx GIT_CONFIG_GLOBAL ~/.config/git/config
-  
+
   # Load git gtr completions
   if test -f ~/.config/fish/completions/gtr.fish
     source ~/.config/fish/completions/gtr.fish
