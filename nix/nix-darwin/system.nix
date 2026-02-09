@@ -1,32 +1,19 @@
 { pkgs, ... }:
 {
+  # environment.systemPackages = with pkgs; [
+  #   direnv
+  #   nix-direnv
+  # ];
+
   nix = {
     optimise.automatic = true;
     settings = {
       experimental-features = "nix-command flakes";
       max-jobs = 8;
+      keep-outputs = true;
+      keep-derivations = true;
     };
   };
-
-  # bordersをバックグラウンドで起動する
-  # 再起動: launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
-  launchd.user.agents.jankyborders = {
-    path = [ pkgs.jankyborders ];
-    serviceConfig = {
-      ProgramArguments = [
-        "${pkgs.jankyborders}/bin/borders"
-        "style=round"
-        "width=5.0"
-        "hidpi=on"
-        "active_color=0xc0ff00f2"
-        "inactive_color=0xff0080ff"
-        "active_border_color=0xc0ff00f2"
-      ];
-      RunAtLoad = true;
-      KeepAlive = true;
-    };
-  };
-  environment.systemPackages = [ pkgs.jankyborders ];
 
   system = {
     stateVersion = 6;
@@ -49,10 +36,10 @@
         StandardHideDesktopIcons = true;
       };
       controlcenter = {
-        # メニューバーにAirDropを表示しない
-        AirDrop = false;
-        # メニューバーにバッテリー残量を表示しない(Statusで表示しているため)
-        BatteryShowPercentage = false;
+        # メニューバーにAirDropを表示する
+        AirDrop = true;
+        # メニューバーにバッテリー残量を表示する
+        BatteryShowPercentage = true;
         # メニューバーにBluetoothを表示する
         Bluetooth = true;
       };
@@ -122,10 +109,8 @@
         # ディスプレイごとに異なるスペースを使用する
         spans-displays = false;
       };
-      # universalaccess = {
-      #   # カーソルのサイズ
-      #   mouseDriverCursorSize = 2.0;
-      # };
     };
   };
+
+  security.pam.services.sudo_local.touchIdAuth = true;
 }

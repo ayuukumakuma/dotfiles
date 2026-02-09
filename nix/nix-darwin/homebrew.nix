@@ -11,6 +11,8 @@
       "fisher"
       "mas" # Mac App Store CLI
       "mole"
+      "im-select"
+      "git-delta"
 
       ### Ruby環境用はbrewの方が相性が良いのでこちらでインストールする
       "mysql@8.0"
@@ -19,9 +21,9 @@
       "vips"
     ];
     taps = [
-      "nikitabobko/tap"
-      "BarutSRB/tap"
-      "tw93/tap"
+      "nikitabobko/tap" # aerospace
+      "tw93/tap" # mole
+      "daipeihust/tap" # im-select
     ];
     casks = [
       ### GUI Applications
@@ -30,7 +32,7 @@
       "wezterm"
       "1password"
       "1password-cli"
-      "hyprspace"
+      "aerospace"
       "cursor"
       "figma"
       "firefox"
@@ -42,27 +44,25 @@
       "sequel-ace"
       "scroll-reverser"
       "notchnook"
-      "meetingbar"
-      # "jordanbaird-ice"
       "keycastr"
       "orbstack"
-      "arc"
       "logitech-g-hub"
       "hhkb"
-      "azooKey"
       "spotify"
-      "chatgpt"
       "another-redis-desktop-manager"
       "cap"
       "gyazo"
       "google-drive"
-      "claude"
       "zed"
       "deskpad"
       "logi-options+"
       "affinity"
       "notion"
-
+      "ubersicht"
+      "ankerwork"
+      "codex-app"
+      "codex" # nixpkgは更新が遅い
+      "thebrowsercompany-dia"
 
       ### Fonts
       "font-hackgen-nerd"
