@@ -7,3 +7,4 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${SCRIPT_DIR}/../script/link-common.sh"
 
 create_symlink "codex/config.toml" "~/.codex/config.toml"
+create_symlink "codex/hooks/notify-terminal-notifier.sh" "~/.codex/hooks/notify-terminal-notifier.sh"
