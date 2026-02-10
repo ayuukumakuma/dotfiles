@@ -1,5 +1,6 @@
 model_reasoning_effort = "medium"
 notify = ["bash", "/Users/nasuno.ayumu/.codex/notify.sh"]
+personality = "pragmatic"
 
 [projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/dotfiles"]
 trust_level = "trusted"
