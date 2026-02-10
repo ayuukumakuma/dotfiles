@@ -30,7 +30,7 @@ end
 
 if test -n \"\$readme\"
     if type -q bat
-        bat --style=plain --paging=never --line-range :80 \"\$readme\"
+        bat --color=always --language=markdown --paging=never --line-range :80 \"\$readme\"
     else
         sed -n '1,80p' \"\$readme\"
     end
@@ -52,6 +52,7 @@ end
 
     set -l selected_repo (
         ghq list | fzf \
+            --ansi \
             --height 80% \
             --layout=reverse \
             --prompt='ghq> ' \
