@@ -120,7 +120,7 @@ cd nix && nix profile upgrade nix                            # Nixプロファ�
 
 ```bash
 # Nixファイルをフォーマット
-nixfmt-rfc-style <file>
+nixfmt <file>
 
 # Fish設定をリロード
 reload  # exec $SHELL -l のエイリアス
@@ -152,13 +152,14 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 ├── nvim/              # Neovim設定
 ├── script/            # ユーティリティスクリプト
 │   ├── create-link-template.sh # 新規設定ディレクトリとlink.sh雛形を対話生成
+│   ├── link-all.sh             # 各種link.shをまとめて実行
+│   ├── link-common.sh          # symlink共通処理
 │   └── set-fish-default.sh     # Fishをデフォルトシェルに設定
 └── [各種アプリ設定ディレクトリ]
     ├── aerospace/    # AerospaceWMの設定
     ├── claude/       # Claude Codeの設定
     ├── cursor/       # Cursorエディタの設定
     ├── git/          # Git設定
-    ├── hoge/         # hoge設定
     ├── raycast/      # Raycastの設定
     ├── simple-bar/   # simple-barの設定
     ├── wezterm/      # WezTermターミナルの設定
@@ -171,11 +172,13 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 
 #### 開発ツール
 - `nil` - Nix LSP
-- `nixfmt-rfc-style` - Nixフォーマッター
+- `nixfmt` - Nixフォーマッター
+- `nixd` - Nix LSP
 - `git`, `gh` - Gitツール
 - `just` - タスクランナー
-- `claude-code` - Claude Code CLI
 - `mise` - ランタイムバージョン管理
+- `neovim` - Neovim
+- `just-lsp` - Just LSP
 
 #### CLIユーティリティ
 - `fzf` - ファジーファインダー
@@ -184,6 +187,15 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - `eza` - lsの代替
 - `fish` - Fish shell
 - `kubectl` - Kubernetes CLI
+- `jq`, `jnv` - JSONツール
+- `tre-command` - tree互換
+- `ffmpeg` - メディアツール
+- `hyperfine` - ベンチマーク
+- `fd` - find互換
+- `zellij` - ターミナルマルチプレクサ
+- `wget` - ダウンローダ
+- `tmux` - ターミナルマルチプレクサ
+- `ghq` - リポジトリ管理
 - `terminal-notifier` - macOS通知
 - `jankyborders` - ウィンドウボーダー
 
@@ -191,21 +203,30 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 
 #### CLI ツール
 - `fisher` - Fish プラグインマネージャー
+- `mas` - Mac App Store CLI
+- `mole` - インジケーター
+- `im-select` - IM切替
+- `git-delta` - diffビューア
 - `mysql@8.0` - MySQL（Ruby開発用）
 - `libyaml`, `pkg-config`, `vips` - ビルドツール
 
 #### GUI アプリケーション
 - **エディタ**: Cursor, Zed
 - **ターミナル**: WezTerm
-- **ブラウザ**: Firefox, Arc
-- **開発ツール**: OrbStack, Figma, Sequel Ace
-- **ユーティリティ**: Raycast, Stats, Shottr, 1Password
+- **ブラウザ**: Firefox, Dia
+- **開発ツール**: OrbStack, Sequel Ace, Another Redis Desktop Manager
+- **デザイン/制作**: Figma, Affinity
+- **ドキュメント/ノート**: Obsidian, Notion
+- **ユーティリティ**: Raycast, Stats, Shottr, Scroll Reverser, KeyCastr, Gyazo, Google Drive, Ubersicht, AnkerWork, DeskPad, NotchNook, Cap
+- **セキュリティ**: 1Password, 1Password CLI
 - **ウィンドウ管理**: AeroSpace
-- **その他**: Obsidian, Notion, Gather, Kap, KeyCastr
+- **ハードウェア**: Logitech G Hub, Logi Options+, HHKB
+- **音楽**: Spotify, MusaicFM
+- **その他**: codex-app, codex
 
 #### フォント
-- JetBrains Mono Nerd Font
-- Google Sans Code
+- HackGen Nerd Font
+- Monaspace
 
 ## ⚙️ カスタマイズ
 
@@ -272,9 +293,11 @@ fisher update  # プラグインを更新
 以下のプラグインがFisherを通じて管理されています：
 
 - **tide** - モダンなプロンプトテーマ
+- **fish-cdf** - ディレクトリ履歴ジャンプ
+- **fish-cd-gitroot** - Gitルートへ移動
+- **fish-fzf-bd** - FZFで親ディレクトリ移動
 - **fzf.fish** - fzfとの統合
 - **fish-autols** - ディレクトリ変更時の自動ls
-- **done** - 長時間コマンド終了通知
 - **pisces** - 括弧の自動ペアリング
 - **fish-abbreviation-tips** - 略語のヒント表示
 - **z** - ディレクトリジャンプ
