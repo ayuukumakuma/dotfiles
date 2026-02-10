@@ -4,6 +4,7 @@ personality = "pragmatic"
 forced_login_method = "chatgpt"
 model = "gpt-5.3-codex"
 web_search = "live"
+notify = ["/Users/nasuno.ayumu/.codex/hooks/notify-terminal-notifier.sh"]
 
 [features]
 shell_snapshot = true
@@ -12,4 +13,7 @@ shell_snapshot = true
 enabled = false
 
 [projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/mario-chrome-extensions"]
 trust_level = "trusted"
