@@ -1,41 +1,41 @@
-# Repository Guidelines
+# リポジトリガイドライン
 
-## Project Structure & Module Organization
-- `nix/`: Flake entry point (`flake.nix`), lockfile, package list (`pkgs.nix`), and `nix-darwin/config.nix` for macOS system+Homebrew state.
-- `fish/`: Shell config (`config.fish`), `fish_plugins`, and custom functions/conf.d snippets.
-- `script/`: Utility Bash scripts (e.g., `set-fish-default.sh`).
-- Tool configs sit at top level (e.g., `aerospace/`, `cursor/`, `wezterm/`, `raycast/`, `git/`, `nvim/`, `claude/`, `codex/`, `zellij/`, `simple-bar/`).
-- Agent-specific assets live under `agents/` (skills, prompts, and supporting docs).
+## プロジェクト構成とモジュール構成
+- `nix/`: Flake のエントリポイント（`flake.nix`）、ロックファイル、パッケージ一覧（`pkgs.nix`）、および macOS の system+Homebrew 状態を管理する `nix-darwin/config.nix`。
+- `fish/`: シェル設定（`config.fish`）、`fish_plugins`、およびカスタム functions/conf.d のスニペット。
+- `script/`: ユーティリティ Bash スクリプト（例: `set-fish-default.sh`）。
+- ツール設定はトップレベルに配置（例: `aerospace/`、`cursor/`、`wezterm/`、`raycast/`、`git/`、`nvim/`、`claude/`、`codex/`、`zellij/`、`simple-bar/`）。
+- エージェント固有のアセットは `agents/` 配下（スキル、プロンプト、補助ドキュメント）。
 
-## Build, Test, and Development Commands
-- `cd nix && nix flake check` — validates the flake and darwin config.
-- `cd nix && nix build .#my-packages` — builds the curated CLI bundle.
-- `cd nix && nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin` — applies system/Homebrew settings.
-- `cd nix && nix run .#update` — updates flake inputs, profiles, and nix-darwin together.
-- `reload` (Fish alias) — restart login shell to load new config; follow with `fisher update` if `fish_plugins` changed.
+## ビルド・テスト・開発コマンド
+- `cd nix && nix flake check` — flake と darwin 設定を検証。
+- `cd nix && nix build .#my-packages` — 厳選 CLI バンドルをビルド。
+- `cd nix && nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin` — system/Homebrew 設定を適用。
+- `cd nix && nix run .#update` — flake の入力、プロファイル、nix-darwin をまとめて更新。
+- `reload`（Fish エイリアス）— ログインシェルを再起動して新しい設定を読み込む。`fish_plugins` を変更した場合は `fisher update` を続けて実行。
 
-## Coding Style & Naming Conventions
-- Nix: run `nixfmt-rfc-style <file>`; keep two-space indentation and sorted attribute sets where practical.
-- Shell scripts: `#!/bin/bash` with `set -euo pipefail`; prefer long options and `printf` over `echo -e`.
-- File and scope names use kebab-case (e.g., `set-fish-default.sh`) and scoped filenames per tool directory.
-- Prefer small, composable scripts placed in `script/`; avoid embedding secrets or host-specific paths.
+## コーディングスタイルと命名規則
+- Nix: `nixfmt-rfc-style <file>` を実行。2 スペースインデントを保ち、可能な限り属性セットをソート。
+- シェルスクリプト: `#!/bin/bash` + `set -euo pipefail`。`echo -e` より `printf` の長いオプションを優先。
+- ファイル名とスコープ名は kebab-case（例: `set-fish-default.sh`）。ツールごとのディレクトリでスコープ化したファイル名を使用。
+- 小さく合成可能なスクリプトは `script/` に配置。秘密情報やホスト固有パスの埋め込みは避ける。
 
-## Testing Guidelines
-- Minimal automated tests exist; rely on `cd nix && nix flake check` before commits/PRs.
-- For new scripts, add a dry-run flag when possible and test manually on macOS (Apple Silicon).
-- After changing Nix inputs or services, rerun the darwin switch command and spot-check services (e.g., `launchctl list | grep jankyborders`).
+## テストガイドライン
+- 自動テストは最小限のため、コミット/PR 前に `cd nix && nix flake check` を実行。
+- 新規スクリプトでは可能な限り dry-run フラグを追加し、macOS（Apple Silicon）で手動テスト。
+- Nix の入力やサービスを変更した後は darwin の switch コマンドを再実行し、サービスをスポットチェック（例: `launchctl list | grep jankyborders`）。
 
-## Commit & Pull Request Guidelines
-- Commit messages follow Conventional Commits with scopes (e.g., `chore(nix): ...`, `docs(cursor): ...`, `chore(fish): ...`); use imperative mood.
-- Keep commits focused; avoid mixing unrelated tool configs and Nix changes.
-- PRs should include: short summary, affected areas (Nix/Fish/app config), commands run (`cd nix && nix flake check`, apply switch), and screenshots for UI-facing tweaks.
+## コミット & PR ガイドライン
+- コミットメッセージは Conventional Commits（スコープ付き。例: `chore(nix): ...`、`docs(cursor): ...`、`chore(fish): ...`）。命令形を使用。
+- コミットは焦点を絞る。無関係なツール設定と Nix 変更を混ぜない。
+- PR には以下を含める: 簡単な概要、影響範囲（Nix/Fish/アプリ設定）、実行したコマンド（`cd nix && nix flake check`、apply switch）、UI 変更がある場合はスクリーンショット。
 
-## Security & Configuration Tips
-- Never commit secrets. Keep Git identity in `~/.config/git/config.local` (template: `git/config.local.example`) and use 1Password CLI (`op signin`) for other credentials.
-- Treat `flake.lock` as source of truth; avoid manual edits. Commit the lockfile when dependencies update.
-- If adding new casks or packages, prefer `nix/nix-darwin/config.nix` and `nix/pkgs.nix` to keep state declarative; rerun the switch command to reconcile the system.
+## セキュリティ & 設定の注意点
+- 秘密情報はコミットしない。Git の identity は `~/.config/git/config.local`（テンプレート: `git/config.local.example`）に保持し、その他の認証情報は 1Password CLI（`op signin`）を使用。
+- `flake.lock` を唯一の正とし、手動編集は避ける。依存更新時にはロックファイルもコミット。
+- 新しい cask やパッケージを追加する場合は `nix/nix-darwin/config.nix` と `nix/pkgs.nix` を優先して宣言的に管理し、switch コマンドを再実行してシステムに反映。
 
-## Agent Skills
-- Reusable skills are stored in `agents/skills/`.
-- Current built-in skills include: `code-simplifier`, `conventional-commit`, `frontend-design`, `skill-creator`, and `skill-installer`.
-- When a task explicitly references a skill, use that skill workflow and keep changes scoped to the requested area.
+## エージェントスキル
+- 再利用可能なスキルは `agents/skills/` に保存。
+- 現在の組み込みスキル: `code-simplifier`、`conventional-commit`、`frontend-design`、`skill-creator`、`skill-installer`。
+- タスクで特定のスキルが明示された場合は、そのスキルのワークフローを使用し、変更範囲は要求された領域に限定。
