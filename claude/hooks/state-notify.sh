@@ -83,7 +83,7 @@ notify() {
     terminal-notifier \
       -title "$title" \
       -message "$message" \
-      -sound default \
+      -sound Funk \
       -execute "open -a \"${parent_app}\""
     return
   fi
@@ -91,7 +91,7 @@ notify() {
   terminal-notifier \
     -title "$title" \
     -message "$message" \
-    -sound default
+    -sound Funk
 }
 
 if ! command -v terminal-notifier >/dev/null 2>&1; then

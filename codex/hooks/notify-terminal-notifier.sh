@@ -65,7 +65,7 @@ notify() {
     terminal-notifier \
       -title "$title" \
       -message "$message" \
-      -sound default \
+      -sound Glass \
       -execute "open -a \"${parent_app}\""
     return
   fi
@@ -73,7 +73,7 @@ notify() {
   terminal-notifier \
     -title "$title" \
     -message "$message" \
-    -sound default
+    -sound Glass
 }
 
 title="$(extract_json_field "title")"
