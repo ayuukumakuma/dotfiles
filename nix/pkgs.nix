@@ -43,6 +43,7 @@ in
     just-lsp
     tmux
     ghq
+    terminal-notifier
     # cursor-cli `curl https://cursor.com/install -fsS | bash`
   ];
 }
