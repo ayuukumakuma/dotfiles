@@ -78,6 +78,9 @@ cd ..
 
 # Fish shellの設定
 ./script/set-fish-default.sh
+
+# dotfilesのシンボリックリンクを作成
+./script/link-all.sh
 ```
 
 ### 4. Git個人設定の初期化
@@ -148,16 +151,18 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 ├── mise/              # mise設定
 ├── nvim/              # Neovim設定
 ├── script/            # ユーティリティスクリプト
-│   └── set-fish-default.sh # Fishをデフォルトシェルに設定
+│   ├── create-link-template.sh # 新規設定ディレクトリとlink.sh雛形を対話生成
+│   └── set-fish-default.sh     # Fishをデフォルトシェルに設定
 └── [各種アプリ設定ディレクトリ]
-    ├── aerospace/     # AerospaceWMの設定
-    ├── claude/        # Claude Codeの設定
-    ├── cursor/        # Cursorエディタの設定
+    ├── aerospace/    # AerospaceWMの設定
+    ├── claude/       # Claude Codeの設定
+    ├── cursor/       # Cursorエディタの設定
     ├── git/          # Git設定
+    ├── hoge/         # hoge設定
     ├── raycast/      # Raycastの設定
-    ├── simple-bar/    # simple-barの設定
-    ├── wezterm/       # WezTermターミナルの設定
-    └── zellij/        # Zellijの設定
+    ├── simple-bar/   # simple-barの設定
+    ├── wezterm/      # WezTermターミナルの設定
+    └── zellij/       # Zellijの設定
 ```
 
 ## 🛠 管理対象のツール
@@ -231,6 +236,21 @@ casks = [
 ```bash
 cd nix && nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
 ```
+
+### 新しい設定ディレクトリの追加
+
+新規ディレクトリと `link.sh` 雛形は以下の対話コマンドで作成できます：
+
+```bash
+./script/create-link-template.sh
+```
+
+このコマンドは以下を自動更新します：
+
+- 新規設定ディレクトリ
+- `対象ディレクトリ/link.sh`
+- `script/link-all.sh` の `TARGET_DIRS`（アルファベット順）
+- `README.md` のディレクトリ構造
 
 ### Fish設定の変更
 

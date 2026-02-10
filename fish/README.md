@@ -1,4 +1,0 @@
-## fis
-```sh
-~/.config/fish/
-```

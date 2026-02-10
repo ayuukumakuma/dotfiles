@@ -1,4 +1,0 @@
-## wezterm
-```sh
-~/.config/wezterm
-```
