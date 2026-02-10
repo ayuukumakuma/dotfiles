@@ -33,7 +33,7 @@
     ],
     "defaultMode": "plan"
   },
-  "model": "opus",
+  "model": "haiku",
   "enableAllProjectMcpServers": true,
   "hooks": {
     "SessionStart": [
