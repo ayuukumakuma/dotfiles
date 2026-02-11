@@ -23,6 +23,17 @@
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
+      localConfigPath = ./local.nix;
+      local =
+        if builtins.pathExists localConfigPath then
+          import localConfigPath
+        else
+          import ./local.nix.example;
+      darwinConfigName =
+        if local ? darwinConfigName then
+          local.darwinConfigName
+        else
+          throw "Missing local.darwinConfigName in nix/local.nix. Create/update it from nix/local.nix.example.";
     in
     {
       apps.${system}.update = {
@@ -35,7 +46,7 @@
             echo "Checking flake..."
             nix flake check
             echo "Updating nix-darwin..."
-            nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
+            nix run nix-darwin -- switch --flake .#${darwinConfigName}
             echo "Update complete!"
           ''
         );
@@ -44,12 +55,17 @@
         };
       };
 
-      darwinConfigurations.ayuukumakuma-darwin = nix-darwin.lib.darwinSystem {
-        system = system;
-        modules = [
-          home-manager.darwinModules.home-manager
-          ./nix-darwin/default.nix
-        ];
+      darwinConfigurations = {
+        ${darwinConfigName} = nix-darwin.lib.darwinSystem {
+          system = system;
+          specialArgs = {
+            inherit local;
+          };
+          modules = [
+            home-manager.darwinModules.home-manager
+            ./nix-darwin/default.nix
+          ];
+        };
       };
     };
 }

@@ -1,11 +1,11 @@
-{ ... }:
+{ local, ... }:
 {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
 
-    users."nasuno.ayumu" =
+    users.${local.userName} =
       { ... }:
       {
         imports = [
@@ -14,8 +14,8 @@
         ];
 
         home.stateVersion = "24.11";
-        home.username = "nasuno.ayumu";
-        home.homeDirectory = "/Users/nasuno.ayumu";
+        home.username = local.userName;
+        home.homeDirectory = local.homeDirectory;
       };
   };
 }

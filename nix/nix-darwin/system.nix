@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, local, ... }:
 {
-  users.users."nasuno.ayumu" = {
-    name = "nasuno.ayumu";
-    home = "/Users/nasuno.ayumu";
+  users.users.${local.userName} = {
+    name = local.userName;
+    home = local.homeDirectory;
   };
 
   # environment.systemPackages = with pkgs; [
@@ -22,7 +22,7 @@
 
   system = {
     stateVersion = 6;
-    primaryUser = "nasuno.ayumu";
+    primaryUser = local.userName;
 
     keyboard = {
       enableKeyMapping = true;
