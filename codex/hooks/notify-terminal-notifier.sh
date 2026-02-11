@@ -16,48 +16,93 @@ extract_json_field() {
   printf '%s' "$payload" | jq -r --arg key "$key" '.[$key] // empty' 2>/dev/null || true
 }
 
+normalize_app_name() {
+  local app_name="$1"
+
+  case "$app_name" in
+    *wezterm-gui*|*WezTerm*)
+      printf '%s' "WezTerm"
+      return 0
+      ;;
+    *iTerm2*|*iTerm*)
+      printf '%s' "iTerm"
+      return 0
+      ;;
+    */Terminal|*Terminal.app/*|*Terminal*)
+      printf '%s' "Terminal"
+      return 0
+      ;;
+    *Cursor*)
+      printf '%s' "Cursor"
+      return 0
+      ;;
+    *Zed*)
+      printf '%s' "Zed"
+      return 0
+      ;;
+    *Visual\ Studio\ Code*|*Code*)
+      printf '%s' "Visual Studio Code"
+      return 0
+      ;;
+    *Codex*)
+      printf '%s' "Codex"
+      return 0
+      ;;
+  esac
+
+  return 1
+}
+
 find_parent_app() {
   local pid="$PPID"
   local command_name
+  local normalized_name
 
   while [[ -n "$pid" && "$pid" -gt 1 ]]; do
     command_name="$(ps -p "$pid" -o comm= 2>/dev/null | xargs || true)"
 
-    case "$command_name" in
-      *wezterm-gui*|*WezTerm*)
-        printf '%s' "WezTerm"
-        return 0
-        ;;
-      *iTerm2*)
-        printf '%s' "iTerm"
-        return 0
-        ;;
-      */Terminal|*Terminal.app/*)
-        printf '%s' "Terminal"
-        return 0
-        ;;
-      *Cursor*)
-        printf '%s' "Cursor"
-        return 0
-        ;;
-      *Zed*)
-        printf '%s' "Zed"
-        return 0
-        ;;
-      *Visual\ Studio\ Code*|*Code*)
-        printf '%s' "Visual Studio Code"
-        return 0
-        ;;
-      *Codex*)
-        printf '%s' "Codex"
-        return 0
-        ;;
-    esac
+    if normalized_name="$(normalize_app_name "$command_name")"; then
+      printf '%s' "$normalized_name"
+      return 0
+    fi
 
     pid="$(ps -p "$pid" -o ppid= 2>/dev/null | xargs || true)"
   done
 
   return 1
+}
+
+get_frontmost_app() {
+  local frontmost_app
+  local normalized_name
+
+  command -v osascript >/dev/null 2>&1 || return 1
+
+  frontmost_app="$(
+    osascript -e 'tell application "System Events" to get name of first application process whose frontmost is true' 2>/dev/null || true
+  )"
+  frontmost_app="$(printf '%s' "$frontmost_app" | xargs || true)"
+  [[ -n "$frontmost_app" ]] || return 1
+
+  normalized_name="$(normalize_app_name "$frontmost_app" || true)"
+  [[ -n "$normalized_name" ]] || return 1
+
+  printf '%s' "$normalized_name"
+}
+
+should_skip_notification() {
+  local parent_name
+  local frontmost_name
+
+  if ! parent_name="$(find_parent_app)"; then
+    return 1
+  fi
+
+  if ! frontmost_name="$(get_frontmost_app)"; then
+    return 1
+  fi
+
+  [[ "$parent_name" == "$frontmost_name" ]]
 }
 
 notify() {
@@ -88,4 +133,9 @@ if [[ -z "$message" ]]; then
 fi
 
 parent_app=""
+
+if should_skip_notification; then
+  exit 0
+fi
+
 notify
