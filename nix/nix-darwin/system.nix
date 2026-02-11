@@ -1,5 +1,10 @@
 { pkgs, ... }:
 {
+  users.users."nasuno.ayumu" = {
+    name = "nasuno.ayumu";
+    home = "/Users/nasuno.ayumu";
+  };
+
   # environment.systemPackages = with pkgs; [
   #   direnv
   #   nix-direnv
