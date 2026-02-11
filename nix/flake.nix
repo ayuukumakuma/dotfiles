@@ -22,15 +22,9 @@
     }:
     let
       system = "aarch64-darwin";
-      pkgsConfig = import ./pkgs.nix { inherit nixpkgs system; };
-      pkgs = pkgsConfig.pkgs;
+      pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      packages.${system}.my-packages = pkgs.buildEnv {
-        name = "my-packages";
-        paths = pkgsConfig.myPackages;
-      };
-
       apps.${system}.update = {
         type = "app";
         program = toString (
