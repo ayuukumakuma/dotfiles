@@ -5,7 +5,7 @@ macOS用の個人的なdotfilesリポジトリです。Nix Flakesとnix-darwin�
 ## 🚀 主な機能
 
 - **Nix Flakes** - 再現可能なパッケージ管理
-- **nix-darwin** - macOSシステム設定の宣言的管理
+- **nix-darwin + Home Manager** - macOSとユーザー設定の宣言的管理
 - **Fish Shell** - 高機能なシェル環境（Fisherプラグイン管理付き）
 - **Homebrew** - GUI アプリケーションとcaskの管理
 - **設定ファイル管理** - 各種開発ツールの設定を一元管理
@@ -40,6 +40,9 @@ cd ..
 mkdir -p ~/.config/git
 cp git/config.local.example ~/.config/git/config.local
 # ~/.config/git/config.local の name/email/signingkey を編集
+
+# 6. 設定反映（Home Manager）
+# 必要に応じて再適用: cd nix && nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
 ```
 
 ## 📦 インストール
@@ -79,9 +82,9 @@ cd ..
 # Fish shellの設定
 ./script/set-fish-default.sh
 
-# dotfilesのシンボリックリンクを作成
-./script/link-all.sh
 ```
+
+Home Manager で `~/.config/*` に加えて `~/.aerospace.toml`、`~/.agents`、`~/.claude`、`~/.codex`、Cursor ユーザー設定を `nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin` で管理します。
 
 ### 4. Git個人設定の初期化
 
@@ -140,7 +143,9 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 │   ├── flake.lock     # 依存関係のロックファイル
 │   ├── pkgs.nix       # CLIツールのパッケージリスト
 │   └── nix-darwin/
-│       └── config.nix # macOSシステム設定とHomebrew設定
+│       ├── config.nix       # nix-darwin のモジュール定義
+│       ├── home-manager.nix # Home Manager のユーザー設定
+│       └── ...
 ├── agents/            # スキル・エージェント用アセット
 ├── codex/             # Codex設定
 ├── fish/              # Fish shell設定
@@ -151,9 +156,6 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 ├── mise/              # mise設定
 ├── nvim/              # Neovim設定
 ├── script/            # ユーティリティスクリプト
-│   ├── create-link-template.sh # 新規設定ディレクトリとlink.sh雛形を対話生成
-│   ├── link-all.sh             # 各種link.shをまとめて実行
-│   ├── link-common.sh          # symlink共通処理
 │   └── set-fish-default.sh     # Fishをデフォルトシェルに設定
 └── [各種アプリ設定ディレクトリ]
     ├── aerospace/    # AerospaceWMの設定
@@ -163,10 +165,24 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
     ├── raycast/      # Raycastの設定
     ├── simple-bar/   # simple-barの設定
     ├── wezterm/      # WezTermターミナルの設定
+    ├── zed/          # zed設定
     └── zellij/       # Zellijの設定
 ```
 
 ## 🛠 管理対象のツール
+
+### Home Managerで管理する設定
+- `fish`, `git`, `mise`, `nvim`, `wezterm`, `zed`, `zellij`
+- `aerospace/.aerospace.toml` -> `~/.aerospace.toml`
+- `agents/` -> `~/.agents`
+- `claude/` -> `~/.claude/*`（`settings.local.json` は除く）
+- `codex/` -> `~/.codex/*`
+- `cursor/settings.json`, `cursor/keybindings.json` -> `~/Library/Application Support/Cursor/User/`
+
+### Home Manager非対象（手動運用）
+- `raycast/*.rayconfig`（Raycast の `Import Settings & Data` で取り込み）
+- `~/.claude/settings.local.json`（機密・ローカル差分用）
+- `simple-bar/`（利用先パス依存のため、必要に応じて手動配置）
 
 ### Nixでインストールされるツール (`nix/pkgs.nix`)
 
@@ -199,7 +215,7 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - `terminal-notifier` - macOS通知
 - `jankyborders` - ウィンドウボーダー
 
-### Homebrewでインストールされるツール (`nix/nix-darwin/config.nix`)
+### Homebrewでインストールされるツール (`nix/nix-darwin/homebrew.nix`)
 
 #### CLI ツール
 - `fisher` - Fish プラグインマネージャー
@@ -260,18 +276,23 @@ cd nix && nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
 
 ### 新しい設定ディレクトリの追加
 
-新規ディレクトリと `link.sh` 雛形は以下の対話コマンドで作成できます：
+新しい設定を追加する場合は、対象ディレクトリを作成して `nix/nix-darwin/home-manager.nix` にマッピングを追記します。
 
-```bash
-./script/create-link-template.sh
+```nix
+xdg.configFile = {
+  "tool/config.ext".source = ../../tool/config.ext;
+};
+
+home.file = {
+  ".toolrc".source = ../../tool/.toolrc;
+};
 ```
 
-このコマンドは以下を自動更新します：
+変更を適用：
 
-- 新規設定ディレクトリ
-- `対象ディレクトリ/link.sh`
-- `script/link-all.sh` の `TARGET_DIRS`（アルファベット順）
-- `README.md` のディレクトリ構造
+```bash
+cd nix && nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
+```
 
 ### Fish設定の変更
 
