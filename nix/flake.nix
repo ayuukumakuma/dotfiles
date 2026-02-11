@@ -7,6 +7,10 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -14,6 +18,7 @@
       self,
       nixpkgs,
       nix-darwin,
+      home-manager,
     }:
     let
       system = "aarch64-darwin";
@@ -40,11 +45,17 @@
             echo "Update complete!"
           ''
         );
+        meta = {
+          description = "Update flake inputs, profile packages, and nix-darwin configuration";
+        };
       };
 
       darwinConfigurations.ayuukumakuma-darwin = nix-darwin.lib.darwinSystem {
         system = system;
-        modules = [ ./nix-darwin/config.nix ];
+        modules = [
+          home-manager.darwinModules.home-manager
+          ./nix-darwin/config.nix
+        ];
       };
     };
 }
