@@ -134,8 +134,11 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 │   ├── flake.nix      # メインFlake定義
 │   ├── flake.lock     # 依存関係のロックファイル
 │   └── nix-darwin/
-│       ├── config.nix       # nix-darwin のモジュール定義
-│       ├── home-manager.nix # Home Manager のユーザー設定（home.packages含む）
+│       ├── default.nix      # nix-darwin のモジュール集約
+│       ├── home-manager/
+│       │   ├── default.nix  # Home Manager のユーザー設定
+│       │   ├── packages.nix # Home Manager の CLI パッケージ
+│       │   └── files.nix    # dotfiles のシンボリックリンク設定
 │       └── ...
 ├── agents/            # スキル・エージェント用アセット
 ├── codex/             # Codex設定
@@ -175,7 +178,7 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - `~/.claude/settings.local.json`（機密・ローカル差分用）
 - `simple-bar/`（利用先パス依存のため、必要に応じて手動配置）
 
-### Home ManagerでインストールされるCLIツール (`nix/nix-darwin/home-manager.nix`)
+### Home ManagerでインストールされるCLIツール (`nix/nix-darwin/home-manager/packages.nix`)
 
 #### 開発ツール
 - `nil` - Nix LSP
@@ -240,7 +243,7 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 ### パッケージの追加
 
 #### CLIツールを追加する場合
-`nix/nix-darwin/home-manager.nix` の `home.packages` を編集：
+`nix/nix-darwin/home-manager/packages.nix` の `home.packages` を編集：
 
 ```nix
 home.packages = with pkgs; [
@@ -250,7 +253,7 @@ home.packages = with pkgs; [
 ```
 
 #### GUIアプリケーションを追加する場合
-`nix/nix-darwin/config.nix`を編集：
+`nix/nix-darwin/homebrew.nix`を編集：
 
 ```nix
 casks = [
@@ -267,7 +270,7 @@ cd nix && nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
 
 ### 新しい設定ディレクトリの追加
 
-新しい設定を追加する場合は、対象ディレクトリを作成して `nix/nix-darwin/home-manager.nix` にマッピングを追記します。
+新しい設定を追加する場合は、対象ディレクトリを作成して `nix/nix-darwin/home-manager/files.nix` にマッピングを追記します。
 
 ```nix
 xdg.configFile = {
@@ -298,7 +301,7 @@ fisher update  # プラグインを更新
 
 ### macOSシステム設定の変更
 
-`nix/nix-darwin/config.nix`の`system.defaults`セクションを編集して、Dock、Finder、その他のシステム設定をカスタマイズできます。
+`nix/nix-darwin/system.nix`の`system.defaults`セクションを編集して、Dock、Finder、その他のシステム設定をカスタマイズできます。
 
 ## 🎨 Fish Shellプラグイン
 
