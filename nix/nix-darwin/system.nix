@@ -5,11 +5,6 @@
     home = local.homeDirectory;
   };
 
-  # environment.systemPackages = with pkgs; [
-  #   direnv
-  #   nix-direnv
-  # ];
-
   nix = {
     optimise.automatic = true;
     settings = {

@@ -1,4 +1,9 @@
-{ config, local, ... }:
+{
+  config,
+  local,
+  pkgs,
+  ...
+}:
 let
   dotfilesRoot = local.dotfilesRoot;
   oos = config.lib.file.mkOutOfStoreSymlink;
@@ -19,6 +24,12 @@ in
     "wezterm/wezterm.lua".source = oos "${dotfilesRoot}/wezterm/wezterm.lua";
     "zed/settings.json".source = oos "${dotfilesRoot}/zed/settings.json";
     "zellij/config.kdl".source = oos "${dotfilesRoot}/zellij/config.kdl";
+
+    # direnvrc は ${pkgs.nix-direnv} の Nix Store パスを参照するため
+    # dotfiles 側に静的ファイルとして管理できない。text で直接記述する。
+    "direnv/direnvrc" = {
+      text = "source ${pkgs.nix-direnv}/share/nix-direnv/direnvrc";
+    };
   };
 
   home.file = {
