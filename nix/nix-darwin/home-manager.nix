@@ -30,8 +30,9 @@ in
             source = fishSource;
             recursive = true;
           };
-          "git/config".source = ../../git/config;
-          "git/ignore".source = ../../git/ignore;
+          git = {
+            source = ../../git;
+          };
           "mise/config.toml".source = ../../mise/config.toml;
           nvim = {
             source = ../../nvim;
