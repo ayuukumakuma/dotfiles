@@ -29,11 +29,11 @@
         type = "app";
         program = toString (
           pkgs.writeShellScript "update-script" ''
-            set -e
+            set -euo pipefail
             echo "Updating flake..."
             nix flake update
-            echo "Updating profile..."
-            nix profile upgrade nix
+            echo "Checking flake..."
+            nix flake check
             echo "Updating nix-darwin..."
             nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
             echo "Update complete!"
@@ -48,7 +48,7 @@
         system = system;
         modules = [
           home-manager.darwinModules.home-manager
-          ./nix-darwin/config.nix
+          ./nix-darwin/default.nix
         ];
       };
     };

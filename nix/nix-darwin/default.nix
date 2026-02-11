@@ -5,6 +5,6 @@
   imports = [
     ./system.nix
     ./homebrew.nix
-    ./home-manager.nix
+    ./home-manager/default.nix
   ];
 }
