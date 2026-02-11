@@ -59,6 +59,7 @@
   ],
   "file_types": {
     "Git Config": ["**/git/**/config*"],
+    "Shell Script": [".envrc"],
   },
   "git": {
     "hunk_style": "unstaged_hollow",
