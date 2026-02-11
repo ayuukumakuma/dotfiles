@@ -1,3 +1,10 @@
+# Nix home-manager packages
+if test -d /etc/profiles/per-user/$USER/bin
+  if not contains /etc/profiles/per-user/$USER/bin $PATH
+    set -gx PATH /etc/profiles/per-user/$USER/bin $PATH
+  end
+end
+
 # brewでインストールしたfisherをnixpkgsでインストールしたfishで使う
 if test -d /opt/homebrew/share/fish/vendor_functions.d
     set -p fish_function_path /opt/homebrew/share/fish/vendor_functions.d
@@ -26,7 +33,7 @@ if status is-interactive
   set -gx LDFLAGS "-L$HOME/.nix-profile/lib"
 
   # Configurations for mise
-  ~/.nix-profile/bin/mise activate fish | source
+  /etc/profiles/per-user/nasuno.ayumu/bin/mise activate fish | source
 
   # Abbreviation
   abbr -a c 'clear'
