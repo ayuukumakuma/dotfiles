@@ -1,7 +1,7 @@
 # リポジトリガイドライン
 
 ## プロジェクト構成とモジュール構成
-- `nix/`: Flake のエントリポイント（`flake.nix`）、ロックファイル、パッケージ一覧（`pkgs.nix`）、および macOS の system+Homebrew 状態を管理する `nix-darwin/config.nix`。
+- `nix/`: Flake のエントリポイント（`flake.nix`）、ロックファイル、および macOS の system+Homebrew 状態を管理する `nix-darwin/config.nix` / `nix-darwin/home-manager.nix`。
 - `fish/`: シェル設定（`config.fish`）、`fish_plugins`、およびカスタム functions/conf.d のスニペット。
 - `script/`: ユーティリティ Bash スクリプト（例: `set-fish-default.sh`）。
 - ツール設定はトップレベルに配置（例: `aerospace/`、`cursor/`、`wezterm/`、`raycast/`、`git/`、`nvim/`、`claude/`、`codex/`、`zellij/`、`simple-bar/`）。
@@ -9,7 +9,6 @@
 
 ## ビルド・テスト・開発コマンド
 - `cd nix && nix flake check` — flake と darwin 設定を検証。
-- `cd nix && nix build .#my-packages` — 厳選 CLI バンドルをビルド。
 - `cd nix && nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin` — system/Homebrew 設定を適用。
 - `cd nix && nix run .#update` — flake の入力、プロファイル、nix-darwin をまとめて更新。
 - `reload`（Fish エイリアス）— ログインシェルを再起動して新しい設定を読み込む。`fish_plugins` を変更した場合は `fisher update` を続けて実行。
@@ -33,7 +32,7 @@
 ## セキュリティ & 設定の注意点
 - 秘密情報はコミットしない。Git の identity は `~/.config/git/config.local`（テンプレート: `git/config.local.example`）に保持し、その他の認証情報は 1Password CLI（`op signin`）を使用。
 - `flake.lock` を唯一の正とし、手動編集は避ける。依存更新時にはロックファイルもコミット。
-- 新しい cask やパッケージを追加する場合は `nix/nix-darwin/config.nix` と `nix/pkgs.nix` を優先して宣言的に管理し、switch コマンドを再実行してシステムに反映。
+- 新しい cask やパッケージを追加する場合は `nix/nix-darwin/config.nix` と `nix/nix-darwin/home-manager.nix` を優先して宣言的に管理し、switch コマンドを再実行してシステムに反映。
 
 ## エージェントスキル
 - 再利用可能なスキルは `agents/skills/` に保存。
