@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    ### CLI Applications
     nil
     nixfmt
     nixd
@@ -29,6 +28,12 @@
     tmux
     ghq
     terminal-notifier
-    # cursor-cli `curl https://cursor.com/install -fsS | bash`
+    direnv
+    nix-direnv
+    bun
+    nodejs_25
+    (callPackage ../../pkgs/git-cz/default.nix { })
+    (callPackage ../../pkgs/tree-sitter-cli/default.nix { })
+    # cursor command `curl https://cursor.com/install -fsS | bash`
   ];
 }
