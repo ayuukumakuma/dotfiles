@@ -1,6 +1,6 @@
-{ config, ... }:
+{ config, local, ... }:
 let
-  dotfilesRoot = "/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/dotfiles";
+  dotfilesRoot = local.dotfilesRoot;
   oos = config.lib.file.mkOutOfStoreSymlink;
 in
 {

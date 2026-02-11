@@ -9,7 +9,7 @@
 
 ## ビルド・テスト・開発コマンド
 - `cd nix && nix flake check` — flake と darwin 設定を検証。
-- `cd nix && nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin` — system/Homebrew 設定を適用。
+- `cd nix && nix run nix-darwin -- switch --flake .#<darwinConfigName>` — system/Homebrew 設定を適用。
 - `cd nix && nix run .#update` — flake の入力、プロファイル、nix-darwin をまとめて更新。
 - `reload`（Fish エイリアス）— ログインシェルを再起動して新しい設定を読み込む。`fish_plugins` を変更した場合は `fisher update` を続けて実行。
 
@@ -30,6 +30,9 @@
 - PR には以下を含める: 簡単な概要、影響範囲（Nix/Fish/アプリ設定）、実行したコマンド（`cd nix && nix flake check`、apply switch）、UI 変更がある場合はスクリーンショット。
 
 ## セキュリティ & 設定の注意点
+- `nix/local.nix` はローカル専用ファイルとしてコミットしない。
+- `nix/local.nix` を ignore に入れると flake の pure 評価で参照できず失敗するため、ignore しない。
+- そのため `git status` に `?? nix/local.nix` が表示されるのは想定どおり。
 - 秘密情報はコミットしない。Git の identity は `~/.config/git/config.local`（テンプレート: `git/config.local.example`）に保持し、その他の認証情報は 1Password CLI（`op signin`）を使用。
 - `flake.lock` を唯一の正とし、手動編集は避ける。依存更新時にはロックファイルもコミット。
 - 新しい cask やパッケージを追加する場合は `nix/nix-darwin/config.nix` と `nix/nix-darwin/home-manager.nix` を優先して宣言的に管理し、switch コマンドを再実行してシステムに反映。
