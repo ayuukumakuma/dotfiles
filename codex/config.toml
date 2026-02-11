@@ -8,6 +8,8 @@ notify = ["/Users/nasuno.ayumu/.codex/hooks/notify-terminal-notifier.sh"]
 
 [features]
 shell_snapshot = true
+collab = true
+apps = true
 
 [feedback]
 enabled = false
@@ -20,3 +22,6 @@ trust_level = "trusted"
 
 [projects."/Users/nasuno.ayumu/dev/github.com/smartcamp/shogun"]
 trust_level = "trusted"
+
+[tui]
+status_line = ["model-with-reasoning", "project-root", "git-branch", "context-used", "five-hour-limit", "weekly-limit", "codex-version", "used-tokens"]
