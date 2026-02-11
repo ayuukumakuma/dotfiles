@@ -27,8 +27,8 @@
     ];
     casks = [
       ### GUI Applications
-      # "slack" #  会社標準搭載
-      # "google-chrome" #  会社標準搭載
+      # "slack"
+      # "google-chrome"
       "wezterm"
       "1password"
       "1password-cli"
