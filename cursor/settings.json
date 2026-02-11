@@ -8,7 +8,7 @@
   "Lua.workspace.library": [
     "/Users/nasuno.ayumu/.config/nvim",
     "/Users/nasuno.ayumu/.local/share/nvim/site",
-    "/Users/nasuno.ayumu/.nix-profile/share/nvim/site",
+    "/Users/nasuno.ayumu/.local/state/nix/profiles/per-user/nasuno.ayumu/profile/share/nvim/site",
     "/nix/store/m1g5yqcx7a5v5s8rw5i3l22yplfg0czg-neovim-unwrapped-0.11.4/share/nvim/runtime",
     "/nix/store/m1g5yqcx7a5v5s8rw5i3l22yplfg0czg-neovim-unwrapped-0.11.4/share/nvim/runtime/pack/dist/opt/netrw",
     "/nix/store/m1g5yqcx7a5v5s8rw5i3l22yplfg0czg-neovim-unwrapped-0.11.4/share/nvim/runtime/pack/dist/opt/matchit",
@@ -131,7 +131,7 @@
   },
   "rubyLsp.rubyVersionManager": {
     "identifier": "mise",
-    "miseExecutablePath": "/Users/nasuno.ayumu/.nix-profile/bin/mise"
+    "miseExecutablePath": "/etc/profiles/per-user/nasuno.ayumu/bin/mise"
   },
   "search.globalFindClipboard": true,
   "search.useIgnoreFiles": false,
@@ -179,7 +179,7 @@
     }
   },
   "vscode-neovim.neovimClean": false,
-  "vscode-neovim.neovimExecutablePaths.darwin": "/Users/nasuno.ayumu/.nix-profile/bin/nvim",
+  "vscode-neovim.neovimExecutablePaths.darwin": "/etc/profiles/per-user/nasuno.ayumu/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "/Users/nasuno.ayumu/.config/nvim/init.lua",
   "vscode-neovim.statusLineSeparator": " | ",
   "window.autoDetectColorScheme": true,
