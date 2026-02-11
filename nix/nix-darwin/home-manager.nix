@@ -18,11 +18,42 @@ in
     backupFileExtension = "backup";
 
     users."nasuno.ayumu" =
-      { ... }:
+      { pkgs, ... }:
       {
         home.stateVersion = "24.11";
         home.username = "nasuno.ayumu";
         home.homeDirectory = "/Users/nasuno.ayumu";
+        home.packages = with pkgs; [
+          ### CLI Applications
+          nil
+          nixfmt
+          nixd
+          fzf
+          bat
+          ripgrep
+          eza
+          fish
+          gh
+          git
+          just
+          jankyborders
+          mise
+          kubectl
+          jq
+          jnv
+          neovim
+          tre-command
+          ffmpeg
+          hyperfine
+          fd
+          zellij
+          wget
+          just-lsp
+          tmux
+          ghq
+          terminal-notifier
+          # cursor-cli `curl https://cursor.com/install -fsS | bash`
+        ];
 
         xdg.enable = true;
         xdg.configFile = {
