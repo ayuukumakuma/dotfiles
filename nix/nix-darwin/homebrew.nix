@@ -62,6 +62,7 @@
       "ankerwork"
       "codex-app"
       "codex" # nixpkgは更新が遅い
+      "chatgpt"
       "thebrowsercompany-dia"
 
       ### Fonts
