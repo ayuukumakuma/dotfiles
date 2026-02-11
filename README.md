@@ -24,24 +24,20 @@ macOS用の個人的なdotfilesリポジトリです。Nix Flakesとnix-darwin�
 git clone https://github.com/ayuukumakuma/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 
-# 2. Nixパッケージをインストール
+# 2. nix-darwin設定を適用
 cd nix
-nix build .#my-packages
-nix profile install .#my-packages
-
-# 3. nix-darwin設定を適用
 nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
 cd ..
 
-# 4. Fish shellをデフォルトに設定
+# 3. Fish shellをデフォルトに設定
 ./script/set-fish-default.sh
 
-# 5. Gitのローカル個人設定を作成
+# 4. Gitのローカル個人設定を作成
 mkdir -p ~/.config/git
 cp git/config.local.example ~/.config/git/config.local
 # ~/.config/git/config.local の name/email/signingkey を編集
 
-# 6. 設定反映（Home Manager）
+# 5. 設定反映（Home Manager）
 # 必要に応じて再適用: cd nix && nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
 ```
 
@@ -70,12 +66,8 @@ sh <(curl -L https://nixos.org/nix/install)
 git clone https://github.com/ayuukumakuma/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 
-# Nixパッケージをビルドしてインストール
-cd nix
-nix build .#my-packages
-nix profile install .#my-packages
-
 # nix-darwin設定を初回適用
+cd nix
 nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
 cd ..
 
@@ -141,10 +133,9 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 ├── nix/               # Nix設定
 │   ├── flake.nix      # メインFlake定義
 │   ├── flake.lock     # 依存関係のロックファイル
-│   ├── pkgs.nix       # CLIツールのパッケージリスト
 │   └── nix-darwin/
 │       ├── config.nix       # nix-darwin のモジュール定義
-│       ├── home-manager.nix # Home Manager のユーザー設定
+│       ├── home-manager.nix # Home Manager のユーザー設定（home.packages含む）
 │       └── ...
 ├── agents/            # スキル・エージェント用アセット
 ├── codex/             # Codex設定
@@ -184,7 +175,7 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - `~/.claude/settings.local.json`（機密・ローカル差分用）
 - `simple-bar/`（利用先パス依存のため、必要に応じて手動配置）
 
-### Nixでインストールされるツール (`nix/pkgs.nix`)
+### Home ManagerでインストールされるCLIツール (`nix/nix-darwin/home-manager.nix`)
 
 #### 開発ツール
 - `nil` - Nix LSP
@@ -249,10 +240,10 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 ### パッケージの追加
 
 #### CLIツールを追加する場合
-`nix/pkgs.nix`を編集：
+`nix/nix-darwin/home-manager.nix` の `home.packages` を編集：
 
 ```nix
-myPackages = with pkgs; [
+home.packages = with pkgs; [
   # 既存のパッケージ...
   your-new-package  # 追加
 ];
