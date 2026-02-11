@@ -9,7 +9,7 @@
 - Homebrew
 - このリポジトリをローカルに clone 済み
 
-`flake.nix` は `local.nix` を必須とします。初回セットアップ時に `local.nix.example` から作成してください。
+`flake.nix` は `local.nix` がなければ `local.nix.example` を読み込みます。実運用では `local.nix` を作成してローカル値で上書きしてください。
 
 ## 初回セットアップ
 
@@ -79,9 +79,14 @@ cd nix && nix flake update
 - `nix-darwin/home-manager/default.nix`
   - Home Manager のユーザー設定エントリ
 - `nix-darwin/home-manager/packages.nix`
-  - Home Manager 管理の CLI パッケージ
+  - Home Manager 管理のターミナル向けパッケージ
 - `nix-darwin/home-manager/files.nix`
   - dotfiles のシンボリックリンク管理（`~/.config` や `~/.codex` など）
+  - `direnv/direnvrc` は `pkgs.nix-direnv` の store path を参照するため `text` で生成
+- `pkgs/git-cz/default.nix`
+  - npm 配布の `git-cz` をラップして `home.packages` で利用可能にする
+- `pkgs/tree-sitter-cli/default.nix`
+  - `tree-sitter` を Rust ビルドして `home.packages` で利用可能にする
 
 ## 変更時の運用フロー
 
@@ -105,14 +110,14 @@ cd nix && sudo -H nix run nix-darwin -- switch --flake .#<darwinConfigName>
 
 ## トラブルシュート
 
-### `Missing nix/local.nix` が出る
-
-`local.nix` が未作成です。以下を実行してください。
+### `local.nix` を自分用に設定したい
 
 ```bash
 cd nix
 cp local.nix.example local.nix
 ```
+
+`local.nix` がなくても `flake.nix` は `local.nix.example` にフォールバックしますが、`darwinConfigName` などは自分の環境値に変更してください。
 
 ### `switch` が失敗する
 
@@ -148,5 +153,24 @@ cp local.nix.example local.nix
 - `local.nix` を ignore に入れると flake の pure 評価で参照できず失敗するため、ignore しない。
 - そのため `git status` に `?? nix/local.nix` が表示されるのは想定どおり。
 - 新規パッケージ追加時は宣言的管理を優先する。
-  - CLI は `nix-darwin/home-manager/packages.nix`
+  - ターミナル向けパッケージは `nix-darwin/home-manager/packages.nix`
   - GUI アプリは `nix-darwin/homebrew.nix`
+
+## パッケージ追加手順
+
+1. 定義ファイルに追加する
+
+- ターミナル向けパッケージ: `nix-darwin/home-manager/packages.nix`
+- GUI アプリ（brew/cask/mas）: `nix-darwin/homebrew.nix`
+- カスタムパッケージが必要な場合: `pkgs/<name>/default.nix` を作成し、`packages.nix` から `callPackage` で参照する
+
+2. 利用対象として有効化する
+
+- `home.packages`（または brew/cask/mas の対象リスト）に追加する
+
+3. 妥当性確認と適用
+
+```bash
+cd nix && nix flake check
+cd nix && sudo -H nix run nix-darwin -- switch --flake .#<darwinConfigName>
+```
