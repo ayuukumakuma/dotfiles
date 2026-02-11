@@ -1,0 +1,140 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "agent": {
+    "button": false,
+    "play_sound_when_agent_done": true,
+    "model_parameters": [],
+    "enable_feedback": false,
+  },
+  "agent_ui_font_size": 13.0,
+  "always_treat_brackets_as_autoclosed": true,
+  "audio": {
+    "experimental.auto_speaker_volume": false,
+  },
+  "auto_signature_help": true,
+  "autosave": "on_focus_change",
+  "base_keymap": "VSCode",
+  "buffer_font_family": "HackGen Console NF",
+  "buffer_font_features": {
+    "calt": false,
+  },
+  "buffer_font_size": 14.0,
+  "calls": {
+    "mute_on_join": true,
+  },
+  "collaboration_panel": {
+    "button": false,
+  },
+  "colorize_brackets": true,
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+    },
+  },
+  "disable_ai": false,
+  "edit_predictions": {
+    "enabled_in_text_threads": false,
+    "mode": "subtle",
+    "provider": "zed",
+  },
+  "file_finder": {
+    "include_ignored": "all",
+  },
+  "file_scan_exclusions": [
+    "**/.svn",
+    "**/.hg",
+    "**/.repo",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+  ],
+  "file_types": {
+    "Git Config": ["**/git/**/config*"],
+  },
+  "git": {
+    "hunk_style": "unstaged_hollow",
+    "inline_blame": {
+      "show_commit_summary": true,
+    },
+  },
+  "git_panel": {
+    "dock": "left",
+    "collapse_untracked_diff": true,
+    "tree_view": true,
+    "sort_by_path": true,
+    "status_style": "label_color",
+  },
+  "hard_tabs": false,
+  "helix_mode": false,
+  "icon_theme": "Catppuccin Frappé",
+  "indent_guides": {
+    "background_coloring": "indent_aware",
+    "coloring": "indent_aware",
+    "active_line_width": 2,
+    "line_width": 2,
+  },
+  "inlay_hints": {
+    "show_background": true,
+    "enabled": true,
+  },
+  "prettier": {
+    "allowed": true,
+  },
+  "project_panel": {
+    "hide_root": false,
+    "bold_folder_labels": true,
+    "default_width": 320.0,
+  },
+  "search": {
+    "include_ignored": false,
+  },
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "show_edit_predictions": false,
+  "show_signature_help_after_edits": true,
+  "sticky_scroll": {
+    "enabled": true,
+  },
+  "tab_size": 2,
+  "tabs": {
+    "git_status": true,
+  },
+  "tasks": {
+    "enabled": true,
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "terminal": {
+    "dock": "bottom",
+    "default_height": 400.0,
+    "copy_on_select": true,
+  },
+  "theme": "Catppuccin Frappé",
+  "ui_font_family": "HackGen35 Console NF",
+  "ui_font_size": 15.0,
+  "vim": {
+    "cursor_shape": {
+      "insert": "bar",
+      "normal": "block",
+    },
+    "toggle_relative_line_numbers": true,
+    "use_smartcase_find": true,
+    "use_system_clipboard": "on_yank",
+  },
+  "vim_mode": true,
+  "which_key": {
+    "enabled": true,
+  },
+}
