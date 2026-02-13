@@ -27,11 +27,6 @@ if status is-interactive
     source ~/.config/fish/completions/gtr.fish
   end
 
-  # Environment variables for Ruby building with Nix packages
-  set -gx PKG_CONFIG_PATH "$HOME/.nix-profile/lib/pkgconfig"
-  set -gx CFLAGS "-I$HOME/.nix-profile/include"
-  set -gx LDFLAGS "-L$HOME/.nix-profile/lib"
-
   # Configurations for mise
   /etc/profiles/per-user/nasuno.ayumu/bin/mise activate fish | source
 
