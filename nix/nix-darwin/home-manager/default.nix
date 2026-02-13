@@ -1,10 +1,15 @@
-{ local, ... }:
+{ inputs, local, ... }:
 {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
-    extraSpecialArgs = { inherit local; };
+    extraSpecialArgs = {
+      inherit
+        local
+        inputs
+        ;
+    };
 
     users.${local.userName} =
       { ... }:
