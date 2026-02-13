@@ -13,15 +13,15 @@ return {
       end,
     })
 
-    vim.keymap.set("n", "<leader>ta", function()
+    vim.keymap.set("n", "<leader>ba", function()
       require("close_buffers").delete({ type = "all" })
     end, { silent = true, desc = "Close all buffers" })
 
-    vim.keymap.set("n", "<leader>to", function()
+    vim.keymap.set("n", "<leader>bo", function()
       require("close_buffers").delete({ type = "other" })
     end, { silent = true, desc = "Close other buffers" })
 
-    vim.keymap.set("n", "<leader>tc", function()
+    vim.keymap.set("n", "<leader>bt", function()
       require("close_buffers").delete({ type = "this" })
     end, { silent = true, desc = "Close current buffer" })
   end,

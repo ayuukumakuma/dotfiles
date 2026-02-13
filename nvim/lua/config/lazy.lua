@@ -17,7 +17,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Leader key
 vim.g.mapleader = ' '
--- vim.g.maplocalleader = '\\'
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -26,7 +25,7 @@ require("lazy").setup({
     { import = "plugins" },
   },
   -- テーマの設定
-  install = { colorscheme = { "nord" } },
+  install = { colorscheme = { "catppuccin" } },
   -- プラグインの更新を自動的に行う
   checker = { enabled = true },
 })
