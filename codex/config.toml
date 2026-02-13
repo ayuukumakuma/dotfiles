@@ -1,5 +1,5 @@
 #:schema https://developers.openai.com/codex/config-schema.json
-model_reasoning_effort = "medium"
+model_reasoning_effort = "xhigh"
 personality = "pragmatic"
 forced_login_method = "chatgpt"
 model = "gpt-5.3-codex"
@@ -21,6 +21,12 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects."/Users/nasuno.ayumu/dev/github.com/smartcamp/shogun"]
+trust_level = "trusted"
+
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/smartcamp-fy26"]
+trust_level = "trusted"
+
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/cf-page-to-md"]
 trust_level = "trusted"
 
 [tui]
