@@ -11,24 +11,23 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    cf-page-to-md.url = "github:ayuukumakuma/cf-page-to-md";
   };
 
   outputs =
-    {
+    inputs@{
       self,
       nixpkgs,
       nix-darwin,
       home-manager,
+      ...
     }:
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
       localConfigPath = ./local.nix;
       local =
-        if builtins.pathExists localConfigPath then
-          import localConfigPath
-        else
-          import ./local.nix.example;
+        if builtins.pathExists localConfigPath then import localConfigPath else import ./local.nix.example;
       darwinConfigName =
         if local ? darwinConfigName then
           local.darwinConfigName
@@ -59,7 +58,10 @@
         ${darwinConfigName} = nix-darwin.lib.darwinSystem {
           system = system;
           specialArgs = {
-            inherit local;
+            inherit
+              local
+              inputs
+              ;
           };
           modules = [
             home-manager.darwinModules.home-manager
