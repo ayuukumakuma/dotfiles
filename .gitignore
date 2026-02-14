@@ -4,3 +4,4 @@ git/config.local
 .DS_Store
 fish/fish_variables
 nix/result
+.nvimlog
