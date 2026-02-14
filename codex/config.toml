@@ -31,3 +31,11 @@ trust_level = "trusted"
 
 [tui]
 status_line = ["model-with-reasoning", "project-root", "git-branch", "context-used", "five-hour-limit", "weekly-limit", "codex-version", "used-tokens"]
+
+[apps.connector_2128aebfecb84f64a069897515042a44]
+enabled = false
+disabled_reason = "user"
+
+[apps.connector_68df038e0ba48191908c8434991bbac2]
+enabled = false
+disabled_reason = "user"
