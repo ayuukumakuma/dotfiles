@@ -76,7 +76,7 @@ cd ..
 
 ```
 
-Home Manager で `~/.config/*` に加えて `~/.aerospace.toml`、`~/.agents`、`~/.claude`、`~/.codex`、Cursor ユーザー設定を `nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin` で管理します。
+Home Manager で `~/.config/*` に加えて `~/.aerospace.toml`、`~/.agents`、`~/.claude/settings.json`/`~/.claude/statusline.sh`/`~/.claude/hooks/state-notify.sh`、`~/.codex/config.toml`/`~/.codex/hooks/notify-terminal-notifier.sh`、Cursor ユーザー設定を `nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin` で管理します。
 
 ### 4. Git個人設定の初期化
 
@@ -130,16 +130,19 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 .
 ├── README.md           # このファイル
 ├── AGENTS.md           # エージェント向けリポジトリ運用ガイド
+├── typos.toml          # Typos設定
 ├── nix/               # Nix設定
 │   ├── flake.nix      # メインFlake定義
 │   ├── flake.lock     # 依存関係のロックファイル
-│   └── nix-darwin/
-│       ├── default.nix      # nix-darwin のモジュール集約
-│       ├── home-manager/
-│       │   ├── default.nix  # Home Manager のユーザー設定
-│       │   ├── packages.nix # Home Manager の CLI パッケージ
-│       │   └── files.nix    # dotfiles のシンボリックリンク設定
-│       └── ...
+│   ├── nix-darwin/
+│   │   ├── default.nix      # nix-darwin のモジュール集約
+│   │   ├── home-manager/
+│   │   │   ├── default.nix  # Home Manager のユーザー設定
+│   │   │   ├── packages.nix # Home Manager の CLI パッケージ
+│   │   │   └── files.nix    # dotfiles のシンボリックリンク設定
+│   │   ├── homebrew.nix     # Homebrew設定
+│   │   └── system.nix       # macOSシステム設定
+│   └── pkgs/                # 自前パッケージ
 ├── agents/            # スキル・エージェント用アセット
 ├── codex/             # Codex設定
 ├── fish/              # Fish shell設定
@@ -147,6 +150,7 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 │   ├── fish_plugins   # Fisherプラグインリスト
 │   ├── functions/     # カスタム関数
 │   └── conf.d/        # 自動読み込み設定
+├── git/               # Git設定
 ├── mise/              # mise設定
 ├── nvim/              # Neovim設定
 ├── script/            # ユーティリティスクリプト
@@ -155,7 +159,6 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
     ├── aerospace/    # AerospaceWMの設定
     ├── claude/       # Claude Codeの設定
     ├── cursor/       # Cursorエディタの設定
-    ├── git/          # Git設定
     ├── raycast/      # Raycastの設定
     ├── simple-bar/   # simple-barの設定
     ├── wezterm/      # WezTermターミナルの設定
@@ -167,10 +170,11 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 
 ### Home Managerで管理する設定
 - `fish`, `git`, `mise`, `nvim`, `wezterm`, `zed`, `zellij`
+- `direnv/direnvrc` -> `~/.config/direnv/direnvrc`
 - `aerospace/.aerospace.toml` -> `~/.aerospace.toml`
 - `agents/` -> `~/.agents`
-- `claude/` -> `~/.claude/*`（`settings.local.json` は除く）
-- `codex/` -> `~/.codex/*`
+- `claude/settings.json`, `claude/statusline.sh`, `claude/hooks/state-notify.sh` -> `~/.claude/`
+- `codex/config.toml`, `codex/hooks/notify-terminal-notifier.sh` -> `~/.codex/`
 - `cursor/settings.json`, `cursor/keybindings.json` -> `~/Library/Application Support/Cursor/User/`
 
 ### Home Manager非対象（手動運用）
@@ -185,29 +189,33 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - `nixfmt` - Nixフォーマッター
 - `nixd` - Nix LSP
 - `git`, `gh` - Gitツール
-- `just` - タスクランナー
+- `just`, `just-lsp` - タスクランナーとLSP
 - `mise` - ランタイムバージョン管理
 - `neovim` - Neovim
-- `just-lsp` - Just LSP
+- `kubectl` - Kubernetes CLI
+- `awscli2` - AWS CLI
+- `nodejs_25`, `python315`, `ruby`, `bun` - 言語ランタイム
+- `git-cz` - Gitコミット支援
+- `tree-sitter-cli` - Tree-sitter CLI
 
 #### CLIユーティリティ
 - `fzf` - ファジーファインダー
 - `bat` - catの代替（シンタックスハイライト付き）
 - `ripgrep` - 高速grep
 - `eza` - lsの代替
-- `fish` - Fish shell
-- `kubectl` - Kubernetes CLI
-- `jq`, `jnv` - JSONツール
-- `tre-command` - tree互換
-- `ffmpeg` - メディアツール
-- `hyperfine` - ベンチマーク
 - `fd` - find互換
-- `zellij` - ターミナルマルチプレクサ
-- `wget` - ダウンローダ
-- `tmux` - ターミナルマルチプレクサ
+- `fish` - Fish shell
+- `tre-command` - tree互換
+- `jq`, `jnv` - JSONツール
+- `direnv`, `nix-direnv` - direnv連携
+- `zellij`, `tmux` - ターミナルマルチプレクサ
 - `ghq` - リポジトリ管理
 - `terminal-notifier` - macOS通知
 - `jankyborders` - ウィンドウボーダー
+- `ffmpeg` - メディアツール
+- `hyperfine` - ベンチマーク
+- `wget` - ダウンローダ
+- `cf-page-to-md` - WebページのMarkdown変換
 
 ### Homebrewでインストールされるツール (`nix/nix-darwin/homebrew.nix`)
 
@@ -232,11 +240,16 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - **ウィンドウ管理**: AeroSpace
 - **ハードウェア**: Logitech G Hub, Logi Options+, HHKB
 - **音楽**: Spotify, MusaicFM
+- **AI**: ChatGPT, Ollama
 - **その他**: codex-app, codex
 
 #### フォント
 - HackGen Nerd Font
 - Monaspace
+
+#### Mac App Store (mas)
+- Klack
+- Grila
 
 ## ⚙️ カスタマイズ
 
@@ -316,6 +329,7 @@ fisher update  # プラグインを更新
 - **pisces** - 括弧の自動ペアリング
 - **fish-abbreviation-tips** - 略語のヒント表示
 - **z** - ディレクトリジャンプ
+- **done** - コマンド完了通知
 
 ## 🔒 セキュリティ設定
 
