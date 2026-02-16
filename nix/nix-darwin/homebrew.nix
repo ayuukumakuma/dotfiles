@@ -64,7 +64,6 @@
       "codex" # nixpkgは更新が遅い
       "chatgpt"
       "thebrowsercompany-dia"
-      "ollama-app"
 
       ### Fonts
       "font-hackgen-nerd"

@@ -35,6 +35,7 @@
     python315
     ruby
     awscli2
+    lazygit
     inputs.cf-page-to-md.packages.${pkgs.system}.default
     (callPackage ../../pkgs/git-cz/default.nix { })
     (callPackage ../../pkgs/tree-sitter-cli/default.nix { })

@@ -5,3 +5,8 @@ git/config.local
 fish/fish_variables
 nix/result
 .nvimlog
+
+# Keep only README and example under nix-dev-env-flake
+nix-dev-env-flake/*
+!nix-dev-env-flake/README*
+!nix-dev-env-flake/example/
