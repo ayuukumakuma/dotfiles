@@ -34,6 +34,44 @@ build_notification() {
   esac
 }
 
+event_to_env_suffix() {
+  local event="$1"
+
+  printf '%s' "$event" | tr '[:lower:]' '[:upper:]' | sed 's/[^A-Z0-9]/_/g'
+}
+
+resolve_custom_wav_path() {
+  local event="$1"
+  local event_suffix
+  local event_var_name
+  local event_wav_path
+
+  event_suffix="$(event_to_env_suffix "$event")"
+  event_var_name="CLAUDE_NOTIFY_WAV_${event_suffix}"
+  event_wav_path="${!event_var_name:-}"
+
+  if [[ -n "$event_wav_path" ]]; then
+    printf '%s' "$event_wav_path"
+    return 0
+  fi
+
+  printf '%s' "${CLAUDE_NOTIFY_WAV:-}"
+}
+
+can_play_custom_wav() {
+  local wav_path="$1"
+
+  [[ -n "$wav_path" ]] || return 1
+  command -v afplay >/dev/null 2>&1 || return 1
+  [[ -f "$wav_path" ]]
+}
+
+play_custom_wav() {
+  local wav_path="$1"
+
+  afplay -v 0.3 "$wav_path" >/dev/null 2>&1 &
+}
+
 find_parent_app() {
   local pid="$PPID"
   local command_name
@@ -79,19 +117,25 @@ find_parent_app() {
 }
 
 notify() {
+  local wav_path="$1"
+  local -a notify_args=(
+    -title "$title"
+    -message "$message"
+  )
+
   if parent_app="$(find_parent_app)"; then
-    terminal-notifier \
-      -title "$title" \
-      -message "$message" \
-      -sound Funk \
+    notify_args+=(
       -execute "open -a \"${parent_app}\""
-    return
+    )
   fi
 
-  terminal-notifier \
-    -title "$title" \
-    -message "$message" \
-    -sound Funk
+  if can_play_custom_wav "$wav_path"; then
+    terminal-notifier "${notify_args[@]}"
+    play_custom_wav "$wav_path" || true
+    return 0
+  fi
+
+  terminal-notifier "${notify_args[@]}" -sound Funk
 }
 
 if ! command -v terminal-notifier >/dev/null 2>&1; then
@@ -101,9 +145,12 @@ fi
 title=""
 message=""
 parent_app=""
+wav_path=""
 
 if ! build_notification "$event_type"; then
   exit 0
 fi
 
-notify
+wav_path="$(resolve_custom_wav_path "$event_type")"
+
+notify "$wav_path"
