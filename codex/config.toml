@@ -29,6 +29,9 @@ trust_level = "trusted"
 [projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/cf-page-to-md"]
 trust_level = "trusted"
 
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/shogun-nix-flake"]
+trust_level = "trusted"
+
 [tui]
 status_line = ["model-with-reasoning", "project-root", "git-branch", "context-used", "five-hour-limit", "weekly-limit", "codex-version", "used-tokens"]
 
