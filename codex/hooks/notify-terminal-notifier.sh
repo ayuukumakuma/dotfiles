@@ -105,20 +105,42 @@ should_skip_notification() {
   [[ "$parent_name" == "$frontmost_name" ]]
 }
 
+can_play_custom_wav() {
+  local wav_path="${CODEX_NOTIFY_WAV:-}"
+
+  [[ -n "$wav_path" ]] || return 1
+  command -v afplay >/dev/null 2>&1 || return 1
+  [[ -f "$wav_path" ]]
+}
+
+play_custom_wav() {
+  local wav_path="${CODEX_NOTIFY_WAV:-}"
+
+  afplay -v 0.3 "$wav_path" >/dev/null 2>&1 &
+}
+
 notify() {
+  local parent_app=""
+  local execute_command=""
+  local -a notify_args=(
+    -title "$title"
+    -message "$message"
+  )
+
   if parent_app="$(find_parent_app)"; then
-    terminal-notifier \
-      -title "$title" \
-      -message "$message" \
-      -sound Glass \
-      -execute "open -a \"${parent_app}\""
+    execute_command="open -a \"${parent_app}\""
+    notify_args+=(
+      -execute "$execute_command"
+    )
+  fi
+
+  if can_play_custom_wav; then
+    terminal-notifier "${notify_args[@]}"
+    play_custom_wav || true
     return
   fi
 
-  terminal-notifier \
-    -title "$title" \
-    -message "$message" \
-    -sound Glass
+  terminal-notifier "${notify_args[@]}" -sound Glass
 }
 
 title="$(extract_json_field "title")"
@@ -131,8 +153,6 @@ fi
 if [[ -z "$message" ]]; then
   message="Task update"
 fi
-
-parent_app=""
 
 if should_skip_notification; then
   exit 0
