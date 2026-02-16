@@ -1,8 +1,6 @@
 {
   "Lua.codeLens.enable": true,
-  "Lua.diagnostics.globals": [
-    "vim"
-  ],
+  "Lua.diagnostics.globals": ["vim"],
   "Lua.hint.enable": true,
   "Lua.hint.setType": true,
   "Lua.workspace.library": [
@@ -13,10 +11,10 @@
     "/nix/store/m1g5yqcx7a5v5s8rw5i3l22yplfg0czg-neovim-unwrapped-0.11.4/share/nvim/runtime/pack/dist/opt/netrw",
     "/nix/store/m1g5yqcx7a5v5s8rw5i3l22yplfg0czg-neovim-unwrapped-0.11.4/share/nvim/runtime/pack/dist/opt/matchit",
     "/nix/store/m1g5yqcx7a5v5s8rw5i3l22yplfg0czg-neovim-unwrapped-0.11.4/lib/nvim",
-    "${workspaceFolder}/nvim/types/stable"
+    "${workspaceFolder}/nvim/types/stable",
   ],
   "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
   },
   "biome.lsp.trace.server": "messages",
   "biome.suggestInstallingGlobally": false,
@@ -52,7 +50,7 @@
   "editor.quickSuggestions": {
     "comments": true,
     "other": true,
-    "strings": true
+    "strings": true,
   },
   "editor.renderWhitespace": "boundary",
   "editor.snippetSuggestions": "top",
@@ -63,12 +61,12 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "files.associations": {
-    "*.schema": "ruby"
+    "*.schema": "ruby",
   },
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 2000,
   "files.exclude": {
-    "**/.git": false
+    "**/.git": false,
   },
   "files.simpleDialog.enable": true,
   "files.trimTrailingWhitespace": true,
@@ -103,8 +101,8 @@
   "redhat.telemetry.enabled": true,
   "rubyLsp.addonSettings": {
     "Ruby LSP RSpec": {
-      "rspecCommand": "DATABASE_HOST=127.0.0.1 bundle exec rspec"
-    }
+      "rspecCommand": "DATABASE_HOST=127.0.0.1 bundle exec rspec",
+    },
   },
   "rubyLsp.enabledFeatures": {
     "codeActions": true,
@@ -124,14 +122,14 @@
     "semanticHighlighting": true,
     "signatureHelp": true,
     "typeHierarchy": true,
-    "workspaceSymbol": true
+    "workspaceSymbol": true,
   },
   "rubyLsp.featureFlags": {
-    "all": true
+    "all": true,
   },
   "rubyLsp.rubyVersionManager": {
     "identifier": "mise",
-    "miseExecutablePath": "/etc/profiles/per-user/nasuno.ayumu/bin/mise"
+    "miseExecutablePath": "/etc/profiles/per-user/nasuno.ayumu/bin/mise",
   },
   "search.globalFindClipboard": true,
   "search.useIgnoreFiles": false,
@@ -146,7 +144,7 @@
     "vi",
     "nano",
     "tmux",
-    "nvim"
+    "nvim",
   ],
   "terminal.integrated.splitCwd": "workspaceRoot",
   "terminal.integrated.stickyScroll.enabled": true,
@@ -158,10 +156,8 @@
   "testing.coverageToolbarEnabled": true,
   "testing.followRunningTest": true,
   "todo-tree.general.enableFileWatcher": true,
-  "todohighlight.keywords": [
-    "NOTE"
-  ],
-  "typescript.experimental.useTsgo": true,
+  "todohighlight.keywords": ["NOTE"],
+  "typescript.experimental.useTsgo": false,
   "typescript.preferGoToSourceDefinition": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnPaste.enabled": true,
@@ -172,11 +168,11 @@
         [
           "local code = require('vscode')",
           "code.action('vscode-neovim.escape')",
-          "code.action('workbench.action.files.save')"
-        ]
+          "code.action('workbench.action.files.save')",
+        ],
       ],
-      "command": "vscode-neovim.lua"
-    }
+      "command": "vscode-neovim.lua",
+    },
   },
   "vscode-neovim.neovimClean": false,
   "vscode-neovim.neovimExecutablePaths.darwin": "/etc/profiles/per-user/nasuno.ayumu/bin/nvim",
@@ -194,7 +190,7 @@
     "**/src/app/**/loading.tsx": "${dirname}/loading.tsx",
     "**/src/app/**/page.tsx": "${dirname}/page.tsx",
     "**/src/app/**/route.tsx": "${dirname}/route.tsx",
-    "**/src/app/**/template.tsx": "${dirname}/template.tsx"
+    "**/src/app/**/template.tsx": "${dirname}/template.tsx",
   },
   "workbench.experimental.share.enabled": true,
   "workbench.iconTheme": "catppuccin-macchiato",
@@ -205,14 +201,10 @@
   "claudeCode.selectedModel": "opus",
   "claudeCode.useCtrlEnterToSend": true,
   "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
+    "asvetliakov.vscode-neovim": 1,
   },
   "workbench.editor.enablePreview": false,
-  "cSpell.userWords": [
-    "nixos",
-    "nixpkgs",
-    "pkgs"
-  ],
+  "cSpell.userWords": ["nixos", "nixpkgs", "pkgs"],
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
@@ -225,6 +217,6 @@
   "typescript.inlayHints.parameterNames.enabled": "all",
   "editor.experimental.preferTreeSitter.typescript": true,
   "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  }
+    "editor.defaultFormatter": "vscode.json-language-features",
+  },
 }

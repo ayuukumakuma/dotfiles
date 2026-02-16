@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "use_system_path_prompts": true,
   "agent": {
     "use_modifier_to_send": true,
     "button": false,
@@ -44,7 +45,7 @@
     "provider": "zed",
   },
   "file_finder": {
-    "include_ignored": "all",
+    "include_ignored": "smart",
   },
   "file_scan_exclusions": [
     "**/.svn",
@@ -57,8 +58,12 @@
     "**/.settings",
   ],
   "file_types": {
-    "Git Config": ["**/git/**/config*"],
-    "Shell Script": [".envrc"],
+    "Git Config": [
+      "**/git/**/config*"
+    ],
+    "Shell Script": [
+      ".envrc"
+    ],
   },
   "git": {
     "hunk_style": "unstaged_hollow",
@@ -67,9 +72,9 @@
     },
   },
   "git_panel": {
-    "dock": "left",
-    "collapse_untracked_diff": true,
-    "tree_view": true,
+    "collapse_untracked_diff": false,
+    "dock": "right",
+    "tree_view": false,
     "sort_by_path": true,
     "status_style": "label_color",
   },
@@ -95,7 +100,7 @@
     "default_width": 320.0,
   },
   "search": {
-    "include_ignored": true,
+    "include_ignored": false,
   },
   "session": {
     "trust_all_worktrees": true,
@@ -136,13 +141,5 @@
   "vim_mode": true,
   "which_key": {
     "enabled": true,
-  },
-  "languages": {
-    "Ruby": {
-      "language_servers": ["ruby-lsp"],
-    },
-  },
-  "lsp": {
-    "ruby-lsp": {},
   },
 }
