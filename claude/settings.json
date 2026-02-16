@@ -33,7 +33,7 @@
     ],
     "defaultMode": "plan"
   },
-  "model": "opus",
+  "model": "sonnet",
   "enableAllProjectMcpServers": true,
   "hooks": {
     "SessionStart": [
