@@ -62,12 +62,12 @@
         static-only = true;
         # Dock内のアイコンサイズ
         tilesize = 32;
-        # ホットコーナー(左下)にLaunchpadを設定する
-        wvous-bl-corner = 11;
+        # ホットコーナー(左下)にMission Controlを設定する
+        wvous-bl-corner = 2;
         # ホットコーナー(右下)にApplication Windowsを設定する
         wvous-br-corner = 3;
-        # ホットコーナー(左上)に通知センターを設定する
-        wvous-tl-corner = 12;
+        # ホットコーナー(左上)にスクリーンセーバーを設定する
+        wvous-tl-corner = 5;
         # ホットコーナー(右上)にMission Controlを設定する
         wvous-tr-corner = 2;
       };
