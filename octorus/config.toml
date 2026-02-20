@@ -4,7 +4,7 @@ editor = "nvim"
 [diff]
 # diff 画面のシンタックスハイライトテーマ
 # 利用可能なテーマについては下記「テーマ」セクションを参照
-theme = "InspiredGitHub"
+theme = "base16-ocean.dark"
 
 [keybindings]
 # 設定可能なすべてのキーについては「設定可能なキーバインド」セクションを参照
