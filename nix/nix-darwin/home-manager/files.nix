@@ -24,6 +24,9 @@ in
     octorus = {
       source = oos "${dotfilesRoot}/octorus";
     };
+    lazygit = {
+      source = oos "${dotfilesRoot}/lazygit";
+    };
     "wezterm/wezterm.lua".source = oos "${dotfilesRoot}/wezterm/wezterm.lua";
     "zed/settings.json".source = oos "${dotfilesRoot}/zed/settings.json";
     "zellij/config.kdl".source = oos "${dotfilesRoot}/zellij/config.kdl";
