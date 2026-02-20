@@ -22,6 +22,9 @@ if status is-interactive
   # Configurations for git
   set -gx GIT_CONFIG_GLOBAL ~/.config/git/config
 
+  # Configurations for lazygit
+  set -gx XDG_CONFIG_HOME  ~/.config
+
   # Load git gtr completions
   if test -f ~/.config/fish/completions/gtr.fish
     source ~/.config/fish/completions/gtr.fish
@@ -46,6 +49,7 @@ if status is-interactive
   abbr -a wt 'git gtr'
   abbr -a co 'codex'
   abbr -a oct 'command or'
+  abbr -a lg 'lazygit'
 end
 
 # Added by OrbStack: command-line tools and integration
