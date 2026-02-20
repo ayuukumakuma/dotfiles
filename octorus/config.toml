@@ -1,0 +1,14 @@
+# レビュー本文（Approve/Request Changes/Comment）入力に使用するエディタ
+editor = "nvim"
+
+[diff]
+# diff 画面のシンタックスハイライトテーマ
+# 利用可能なテーマについては下記「テーマ」セクションを参照
+theme = "InspiredGitHub"
+
+[keybindings]
+# 設定可能なすべてのキーについては「設定可能なキーバインド」セクションを参照
+approve = "a"
+request_changes = "r"
+comment = "c"
+suggestion = "s"

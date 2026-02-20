@@ -1,20 +1,5 @@
-{ pkgs, local, ... }:
+{ local, ... }:
 {
-  users.users.${local.userName} = {
-    name = local.userName;
-    home = local.homeDirectory;
-  };
-
-  nix = {
-    optimise.automatic = true;
-    settings = {
-      experimental-features = "nix-command flakes";
-      max-jobs = 8;
-      keep-outputs = true;
-      keep-derivations = true;
-    };
-  };
-
   system = {
     stateVersion = 6;
     primaryUser = local.userName;
