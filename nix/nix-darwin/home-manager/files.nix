@@ -21,6 +21,9 @@ in
     nvim = {
       source = oos "${dotfilesRoot}/nvim";
     };
+    octorus = {
+      source = oos "${dotfilesRoot}/octorus";
+    };
     "wezterm/wezterm.lua".source = oos "${dotfilesRoot}/wezterm/wezterm.lua";
     "zed/settings.json".source = oos "${dotfilesRoot}/zed/settings.json";
     "zellij/config.kdl".source = oos "${dotfilesRoot}/zellij/config.kdl";

@@ -11,6 +11,7 @@
     fish
     gh
     git
+    claude-code
     just
     jankyborders
     mise
@@ -36,8 +37,10 @@
     ruby
     awscli2
     lazygit
+    octorus
     inputs.cf-page-to-md.packages.${pkgs.system}.default
     (callPackage ../../pkgs/git-cz/default.nix { })
+    (callPackage ../../pkgs/portless/default.nix { })
     (callPackage ../../pkgs/tree-sitter-cli/default.nix { })
     # cursor command `curl https://cursor.com/install -fsS | bash`
   ];

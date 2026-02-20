@@ -189,6 +189,7 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - `nixfmt` - Nixフォーマッター
 - `nixd` - Nix LSP
 - `git`, `gh` - Gitツール
+- `claude-code` - Claude Code CLI（`claude-code-overlay` 経由）
 - `just`, `just-lsp` - タスクランナーとLSP
 - `mise` - ランタイムバージョン管理
 - `neovim` - Neovim

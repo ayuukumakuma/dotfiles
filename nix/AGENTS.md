@@ -5,9 +5,9 @@
 
 - `flake.nix` / `flake.lock`: Flake のエントリポイントと依存の固定。
 - `nix-darwin/`: system と Home Manager のモジュール群。
-- `system.nix`、`homebrew.nix`、`default.nix`
+- `default.nix`、`nix-core.nix`、`users.nix`、`system.nix`、`homebrew.nix`
 - `home-manager/`（`default.nix`、`packages.nix`、`files.nix`）
-- `pkgs/`: nixpkgs にないカスタムパッケージ定義（例: `git-cz`、`tree-sitter-cli`）。
+- `pkgs/`: nixpkgs にないカスタムパッケージ定義（例: `git-cz`、`tree-sitter-cli`、`portless`）。
 - `local.nix` / `local.nix.example`: ローカルマシン固有の上書き設定。
 
 変更は責務に合わせて配置してください。システム設定は `nix-darwin/`、カスタムパッケージは `pkgs/` に分離します。
@@ -15,9 +15,9 @@
 ## Build, Test, and Development Commands
 - `nix flake check`
   Flake 出力とモジュール評価を検証します。
-- `sudo -H nix run nix-darwin -- switch --flake .#<darwinConfigName>`
+- `sudo -H nix run nix-darwin -- switch --flake path:.#<darwinConfigName>`
   system + Home Manager 設定をホストに適用します。
-- `nix run .#update`
+- `nix run path:.#update`
   flake input と関連プロファイルを更新します。
 
 コマンドは `nix/` ディレクトリで実行してください。
@@ -47,7 +47,7 @@
 - ただし実運用では `local.nix` を作成し、ローカル値で上書きすることを推奨。  
   例: `cp local.nix.example local.nix`
 - `local.nix` には以下を設定する。
-- `darwinConfigName`（`switch --flake .#<name>` の `<name>`）
+- `darwinConfigName`（`switch --flake path:.#<name>` の `<name>`）
 - `userName`
 - `homeDirectory`（絶対パス）
 - `dotfilesRoot`（このリポジトリの絶対パス）

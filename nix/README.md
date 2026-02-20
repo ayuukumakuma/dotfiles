@@ -31,7 +31,7 @@ cp local.nix.example local.nix
 }
 ```
 
-- `darwinConfigName`: `darwinConfigurations` で使う構成名（`switch --flake .#<name>` の `<name>`）
+- `darwinConfigName`: `darwinConfigurations` で使う構成名（`switch --flake path:.#<name>` の `<name>`）
 - `userName`: macOS のユーザー名
 - `homeDirectory`: ホームディレクトリの絶対パス
 - `dotfilesRoot`: この dotfiles リポジトリの絶対パス
@@ -39,7 +39,7 @@ cp local.nix.example local.nix
 3. 設定を適用
 
 ```bash
-cd nix && sudo -H nix run nix-darwin -- switch --flake .#<darwinConfigName>
+cd nix && sudo -H nix run nix-darwin -- switch --flake path:.#<darwinConfigName>
 ```
 
 ## よく使うコマンド
@@ -49,10 +49,10 @@ cd nix && sudo -H nix run nix-darwin -- switch --flake .#<darwinConfigName>
 cd nix && nix flake check
 
 # nix-darwin / home-manager 設定の適用
-cd nix && sudo -H nix run nix-darwin -- switch --flake .#<darwinConfigName>
+cd nix && sudo -H nix run nix-darwin -- switch --flake path:.#<darwinConfigName>
 
 # flake 入力更新 + check + switch を一括実行
-cd nix && nix run .#update
+cd nix && nix run path:.#update
 
 # flake 入力のみ更新
 cd nix && nix flake update
@@ -63,7 +63,8 @@ cd nix && nix flake update
 - `flake.nix`
   - flake の `inputs` / `outputs` を定義
   - `darwinConfigurations.<darwinConfigName>` を構築
-  - `nix run .#update` で使う更新アプリを定義
+  - `nix-darwin/default.nix` を経由して各モジュールを読み込む
+  - `nix run path:.#update` で使う更新アプリを定義
 - `flake.lock`
   - 依存関係のロックファイル（手動編集しない）
 - `local.nix`
@@ -71,9 +72,14 @@ cd nix && nix flake update
 - `local.nix.example`
   - `local.nix` のテンプレート
 - `nix-darwin/default.nix`
-  - macOS / Homebrew / Home Manager のモジュール集約
+  - Nix core / users / macOS / Homebrew / Home Manager のモジュール集約
+- `nix-darwin/nix-core.nix`
+  - `nixpkgs` の共通設定（`allowUnfree` / overlay）
+  - `nix.settings` などの Nix 本体設定
+- `nix-darwin/users.nix`
+  - macOS ユーザー定義（`users.users.<userName>`）
 - `nix-darwin/system.nix`
-  - macOS のシステム設定（Dock、Finder、キーボード、Nix 設定など）
+  - macOS のシステム設定（Dock、Finder、キーボードなど）
 - `nix-darwin/homebrew.nix`
   - Homebrew の brew / cask / mas 管理
 - `nix-darwin/home-manager/default.nix`
@@ -87,6 +93,8 @@ cd nix && nix flake update
   - npm 配布の `git-cz` をラップして `home.packages` で利用可能にする
 - `pkgs/tree-sitter-cli/default.nix`
   - `tree-sitter` を Rust ビルドして `home.packages` で利用可能にする
+- `pkgs/portless/default.nix`
+  - npm 配布の `portless` をラップして `home.packages` で利用可能にする
 
 ## 変更時の運用フロー
 
@@ -100,7 +108,7 @@ cd nix && nix flake check
 3. 変更を適用
 
 ```bash
-cd nix && sudo -H nix run nix-darwin -- switch --flake .#<darwinConfigName>
+cd nix && sudo -H nix run nix-darwin -- switch --flake path:.#<darwinConfigName>
 ```
 
 4. 反映確認
@@ -124,8 +132,17 @@ cp local.nix.example local.nix
 以下の順で切り分けます。
 
 1. `cd nix && nix flake check`
-2. `cd nix && sudo -H nix run nix-darwin -- switch --flake .#<darwinConfigName>`
+2. `cd nix && sudo -H nix run nix-darwin -- switch --flake path:.#<darwinConfigName>`
 3. 依存更新が必要なら `cd nix && nix flake update` 後に再実行
+
+### `does not provide attribute ... darwinConfigurations.<name>.system` が出る
+
+`--flake .#...` は Git Flake として解決され、`local.nix` の扱いが期待とずれる場合があります。  
+`--flake path:.#...` を使って再実行してください。
+
+```bash
+cd nix && sudo -H nix run nix-darwin -- switch --flake path:.#<darwinConfigName>
+```
 
 ### `Missing local.darwinConfigName` が出る
 
@@ -172,5 +189,5 @@ cp local.nix.example local.nix
 
 ```bash
 cd nix && nix flake check
-cd nix && sudo -H nix run nix-darwin -- switch --flake .#<darwinConfigName>
+cd nix && sudo -H nix run nix-darwin -- switch --flake path:.#<darwinConfigName>
 ```
