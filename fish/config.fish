@@ -45,6 +45,7 @@ if status is-interactive
   abbr -a zl 'zellij'
   abbr -a wt 'git gtr'
   abbr -a co 'codex'
+  abbr -a oct 'command or'
 end
 
 # Added by OrbStack: command-line tools and integration
