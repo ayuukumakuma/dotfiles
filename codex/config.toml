@@ -8,8 +8,9 @@ notify = ["/Users/nasuno.ayumu/.codex/hooks/notify-terminal-notifier.sh"]
 
 [features]
 shell_snapshot = true
-collab = true
 apps = true
+multi_agent = true
+prevent_idle_sleep = true
 
 [feedback]
 enabled = false
