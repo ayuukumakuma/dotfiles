@@ -25,6 +25,9 @@ if status is-interactive
   # Configurations for lazygit
   set -gx XDG_CONFIG_HOME  ~/.config
 
+  # Set Editor
+  set -gx EDITOR nvim
+
   # Load git gtr completions
   if test -f ~/.config/fish/completions/gtr.fish
     source ~/.config/fish/completions/gtr.fish
