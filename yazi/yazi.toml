@@ -1,0 +1,4 @@
+[mgr]
+show_hidden = true
+linemode = "size"
+show_symlink = true
