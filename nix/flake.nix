@@ -17,6 +17,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     cf-page-to-md.url = "github:ayuukumakuma/cf-page-to-md";
+    yazi.url = "github:sxyazi/yazi";
   };
 
   outputs =
