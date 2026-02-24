@@ -24,21 +24,25 @@ macOS用の個人的なdotfilesリポジトリです。Nix Flakesとnix-darwin�
 git clone https://github.com/ayuukumakuma/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 
-# 2. nix-darwin設定を適用
+# 2. ローカル設定を作成
+cp nix/local.nix.example nix/local.nix
+$EDITOR nix/local.nix
+
+# 3. nix-darwin設定を適用
 cd nix
-nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
+nix run nix-darwin -- switch --flake .#<darwinConfigName>
 cd ..
 
-# 3. Fish shellをデフォルトに設定
+# 4. Fish shellをデフォルトに設定
 ./script/set-fish-default.sh
 
-# 4. Gitのローカル個人設定を作成
+# 5. Gitのローカル個人設定を作成
 mkdir -p ~/.config/git
 cp git/config.local.example ~/.config/git/config.local
 # ~/.config/git/config.local の name/email/signingkey を編集
 
-# 5. 設定反映（Home Manager）
-# 必要に応じて再適用: cd nix && nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
+# 6. 設定反映（Home Manager）
+# 必要に応じて再適用: cd nix && nix run nix-darwin -- switch --flake .#<darwinConfigName>
 ```
 
 ## 📦 インストール
@@ -66,9 +70,13 @@ sh <(curl -L https://nixos.org/nix/install)
 git clone https://github.com/ayuukumakuma/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 
+# ローカル設定を作成
+cp nix/local.nix.example nix/local.nix
+$EDITOR nix/local.nix
+
 # nix-darwin設定を初回適用
 cd nix
-nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
+nix run nix-darwin -- switch --flake .#<darwinConfigName>
 cd ..
 
 # Fish shellの設定
@@ -76,7 +84,7 @@ cd ..
 
 ```
 
-Home Manager で `~/.config/*` に加えて `~/.aerospace.toml`、`~/.agents`、`~/.claude/settings.json`/`~/.claude/statusline.sh`/`~/.claude/hooks/state-notify.sh`、`~/.codex/config.toml`/`~/.codex/hooks/notify-terminal-notifier.sh`、Cursor ユーザー設定を `nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin` で管理します。
+Home Manager で `~/.config/*` に加えて `~/.aerospace.toml`、`~/.agents`、`~/.claude/settings.json`/`~/.claude/statusline.sh`/`~/.claude/hooks/state-notify.sh`、`~/.codex/config.toml`/`~/.codex/hooks/notify-terminal-notifier.sh`、Cursor ユーザー設定を `nix run nix-darwin -- switch --flake .#<darwinConfigName>` で管理します。
 
 ### 4. Git個人設定の初期化
 
@@ -107,7 +115,7 @@ cd nix && nix run .#update
 
 # 個別の更新
 cd nix && nix flake update                                   # flake入力を更新
-cd nix && nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin # nix-darwin設定を適用
+cd nix && nix run nix-darwin -- switch --flake .#<darwinConfigName> # nix-darwin設定を適用
 cd nix && nix profile upgrade nix                            # Nixプロファイルを更新
 ```
 
@@ -136,6 +144,8 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 │   ├── flake.lock     # 依存関係のロックファイル
 │   ├── nix-darwin/
 │   │   ├── default.nix      # nix-darwin のモジュール集約
+│   │   ├── nix-core.nix     # Nix 基本設定
+│   │   ├── users.nix        # ユーザー設定
 │   │   ├── home-manager/
 │   │   │   ├── default.nix  # Home Manager のユーザー設定
 │   │   │   ├── packages.nix # Home Manager の CLI パッケージ
@@ -153,6 +163,8 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 ├── git/               # Git設定
 ├── mise/              # mise設定
 ├── nvim/              # Neovim設定
+├── lazygit/           # lazygit設定
+├── yazi/              # yazi設定
 ├── script/            # ユーティリティスクリプト
 │   └── set-fish-default.sh     # Fishをデフォルトシェルに設定
 └── [各種アプリ設定ディレクトリ]
@@ -169,7 +181,7 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 ## 🛠 管理対象のツール
 
 ### Home Managerで管理する設定
-- `fish`, `git`, `mise`, `nvim`, `wezterm`, `zed`, `zellij`
+- `fish`, `git`, `lazygit`, `mise`, `nvim`, `yazi`, `wezterm/wezterm.lua`, `zed/settings.json`, `zellij/config.kdl`
 - `direnv/direnvrc` -> `~/.config/direnv/direnvrc`
 - `aerospace/.aerospace.toml` -> `~/.aerospace.toml`
 - `agents/` -> `~/.agents`
@@ -185,38 +197,54 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 ### Home ManagerでインストールされるCLIツール (`nix/nix-darwin/home-manager/packages.nix`)
 
 #### 開発ツール
-- `nil` - Nix LSP
-- `nixfmt` - Nixフォーマッター
-- `nixd` - Nix LSP
-- `git`, `gh` - Gitツール
-- `claude-code` - Claude Code CLI（`claude-code-overlay` 経由）
-- `just`, `just-lsp` - タスクランナーとLSP
-- `mise` - ランタイムバージョン管理
-- `neovim` - Neovim
-- `kubectl` - Kubernetes CLI
-- `awscli2` - AWS CLI
-- `nodejs_25`, `python315`, `ruby`, `bun` - 言語ランタイム
-- `git-cz` - Gitコミット支援
-- `tree-sitter-cli` - Tree-sitter CLI
+- `nil`
+- `nixfmt`
+- `nixd`
+- `git`
+- `gh`
+- `claude-code`
+- `just`
+- `just-lsp`
+- `mise`
+- `neovim`
+- `kubectl`
+- `awscli2`
+- `bun`
+- `nodejs_25`
+- `python315`
+- `ruby`
+- `git-cz`
+- `tree-sitter-cli`
+- `lazygit`
+- `octorus`
+- `openssl_3`
 
 #### CLIユーティリティ
-- `fzf` - ファジーファインダー
-- `bat` - catの代替（シンタックスハイライト付き）
-- `ripgrep` - 高速grep
-- `eza` - lsの代替
-- `fd` - find互換
-- `fish` - Fish shell
-- `tre-command` - tree互換
-- `jq`, `jnv` - JSONツール
-- `direnv`, `nix-direnv` - direnv連携
-- `zellij`, `tmux` - ターミナルマルチプレクサ
-- `ghq` - リポジトリ管理
-- `terminal-notifier` - macOS通知
-- `jankyborders` - ウィンドウボーダー
-- `ffmpeg` - メディアツール
-- `hyperfine` - ベンチマーク
-- `wget` - ダウンローダ
-- `cf-page-to-md` - WebページのMarkdown変換
+- `fzf`
+- `bat`
+- `ripgrep`
+- `eza`
+- `fd`
+- `fish`
+- `tre-command`
+- `jq`
+- `jnv`
+- `direnv`
+- `nix-direnv`
+- `zellij`
+- `tmux`
+- `ghq`
+- `terminal-notifier`
+- `jankyborders`
+- `ffmpeg`
+- `hyperfine`
+- `wget`
+- `yazi`
+- `_7zz-rar`
+- `imagemagick`
+- `resvg`
+- `poppler`
+- `cf-page-to-md`
 
 ### Homebrewでインストールされるツール (`nix/nix-darwin/homebrew.nix`)
 
@@ -241,7 +269,7 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - **ウィンドウ管理**: AeroSpace
 - **ハードウェア**: Logitech G Hub, Logi Options+, HHKB
 - **音楽**: Spotify, MusaicFM
-- **AI**: ChatGPT, Ollama
+- **AI**: ChatGPT
 - **その他**: codex-app, codex
 
 #### フォント
@@ -279,7 +307,7 @@ casks = [
 変更を適用：
 
 ```bash
-cd nix && nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
+cd nix && nix run nix-darwin -- switch --flake .#<darwinConfigName>
 ```
 
 ### 新しい設定ディレクトリの追加
@@ -299,7 +327,7 @@ home.file = {
 変更を適用：
 
 ```bash
-cd nix && nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin
+cd nix && nix run nix-darwin -- switch --flake .#<darwinConfigName>
 ```
 
 ### Fish設定の変更
@@ -406,5 +434,5 @@ op signin
 cd nix && nix flake check
 
 # ログを確認
-cd nix && nix run nix-darwin -- switch --flake .#ayuukumakuma-darwin --show-trace
+cd nix && nix run nix-darwin -- switch --flake .#<darwinConfigName> --show-trace
 ```

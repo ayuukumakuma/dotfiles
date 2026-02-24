@@ -1,10 +1,10 @@
 # リポジトリガイドライン
 
 ## プロジェクト構成とモジュール構成
-- `nix/`: Flake のエントリポイント（`flake.nix`）、ロックファイル、および macOS の system+Homebrew 状態を管理する `nix-darwin/config.nix` / `nix-darwin/home-manager.nix`。
+- `nix/`: Flake のエントリポイント（`flake.nix`）、ロックファイル、および macOS の system+Homebrew+Home Manager 状態を管理する `nix-darwin/default.nix` / `nix-darwin/system.nix` / `nix-darwin/homebrew.nix` / `nix-darwin/home-manager/default.nix`。
 - `fish/`: シェル設定（`config.fish`）、`fish_plugins`、およびカスタム functions/conf.d のスニペット。
 - `script/`: ユーティリティ Bash スクリプト（例: `set-fish-default.sh`）。
-- ツール設定はトップレベルに配置（例: `aerospace/`、`cursor/`、`wezterm/`、`raycast/`、`git/`、`mise/`、`nvim/`、`claude/`、`codex/`、`zed/`、`zellij/`、`simple-bar/`）。
+- ツール設定はトップレベルに配置（例: `aerospace/`、`cursor/`、`wezterm/`、`raycast/`、`git/`、`mise/`、`nvim/`、`lazygit/`、`yazi/`、`claude/`、`codex/`、`zed/`、`zellij/`、`simple-bar/`）。
 - エージェント固有のアセットは `agents/` 配下（スキル、プロンプト、補助ドキュメント）。
 
 ## ビルド・テスト・開発コマンド
