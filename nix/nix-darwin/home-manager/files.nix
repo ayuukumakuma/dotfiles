@@ -21,11 +21,11 @@ in
     nvim = {
       source = oos "${dotfilesRoot}/nvim";
     };
-    octorus = {
-      source = oos "${dotfilesRoot}/octorus";
-    };
     lazygit = {
       source = oos "${dotfilesRoot}/lazygit";
+    };
+    yazi = {
+      source = oos "${dotfilesRoot}/yazi";
     };
     "wezterm/wezterm.lua".source = oos "${dotfilesRoot}/wezterm/wezterm.lua";
     "zed/settings.json".source = oos "${dotfilesRoot}/zed/settings.json";

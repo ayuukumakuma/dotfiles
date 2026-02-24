@@ -38,6 +38,14 @@
     awscli2
     lazygit
     octorus
+    openssl_3
+    (yazi.override {
+      _7zz = pkgs._7zz-rar;
+    })
+    _7zz-rar
+    imagemagick
+    resvg
+    poppler
     inputs.cf-page-to-md.packages.${pkgs.system}.default
     (callPackage ../../pkgs/git-cz/default.nix { })
     (callPackage ../../pkgs/portless/default.nix { })
