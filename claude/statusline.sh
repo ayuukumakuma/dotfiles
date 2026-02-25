@@ -108,6 +108,63 @@ render_progress_bar() {
   echo -e "${bar} ${pct}%"
 }
 
+extract_model_version() {
+  local raw=$1
+  local lower version
+  lower=$(printf '%s' "$raw" | tr '[:upper:]' '[:lower:]')
+
+  version=$(printf '%s\n' "$lower" | grep -Eo '[0-9]+\.[0-9]+' | head -n 1)
+  if [[ -z "$version" ]]; then
+    version=$(printf '%s\n' "$lower" | grep -Eo '[0-9]+-[0-9]+' | head -n 1 | tr '-' '.')
+  fi
+
+  printf '%s' "$version"
+}
+
+model_family_from_raw() {
+  local raw=$1
+  local lower
+  lower=$(printf '%s' "$raw" | tr '[:upper:]' '[:lower:]')
+
+  if [[ "$lower" == *"haiku"* ]]; then
+    echo "haiku"
+  elif [[ "$lower" == *"sonnet"* ]]; then
+    echo "sonnet"
+  elif [[ "$lower" == *"opus"* ]]; then
+    echo "opus"
+  else
+    echo ""
+  fi
+}
+
+label_for_family() {
+  case "$1" in
+    haiku) echo "Haiku" ;;
+    sonnet) echo "Sonnet" ;;
+    opus) echo "Opus" ;;
+    *) echo "Unknown Model" ;;
+  esac
+}
+
+normalize_model_name() {
+  local raw=$1
+  local family version label
+  family=$(model_family_from_raw "$raw")
+  version=$(extract_model_version "$raw")
+
+  label=$(label_for_family "$family")
+  if [[ "$label" == "Unknown Model" ]]; then
+    echo "$label"
+    return
+  fi
+
+  if [[ -n "$version" ]]; then
+    echo "${label} ${version//-/.}"
+  else
+    echo "$label"
+  fi
+}
+
 main() {
   local input
   input=$(cat)
@@ -115,12 +172,13 @@ main() {
   # Parse all needed fields in a single jq call
   local parsed
   parsed=$(echo "$input" | jq -r '[
-    (.model.display_name // "Claude"),
+    (.model.id // .model.name // .model.display_name // (if (.model | type) == "string" then .model else empty end) // ""),
     (.context_window.used_percentage // ""),
     (.workspace.current_dir // "")
   ] | join("|")')
-  local model_name pct work_dir
-  IFS='|' read -r model_name pct work_dir <<< "$parsed"
+  local model_raw model_name pct work_dir
+  IFS='|' read -r model_raw pct work_dir <<< "$parsed"
+  model_name=$(normalize_model_name "$model_raw")
 
   # Line 1: model + git info
   local line1="${C_CYAN}[${model_name}]${C_RESET}"
