@@ -16,6 +16,7 @@
       url = "github:ryoppippi/claude-code-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hl.url = "github:pamburus/hl";
     cf-page-to-md.url = "github:ayuukumakuma/cf-page-to-md";
     yazi.url = "github:sxyazi/yazi";
   };
