@@ -218,6 +218,8 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - `lazygit`
 - `octorus`
 - `openssl_3`
+- `hl`
+- `portless`
 
 #### CLIユーティリティ
 - `fzf`

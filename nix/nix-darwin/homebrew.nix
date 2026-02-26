@@ -64,6 +64,7 @@
       "codex" # nixpkgは更新が遅い
       "chatgpt"
       "thebrowsercompany-dia"
+      "visual-studio-code"
 
       ### Fonts
       "font-hackgen-nerd"
