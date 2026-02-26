@@ -35,9 +35,9 @@
 - そのため `git status` に `?? nix/local.nix` が表示されるのは想定どおり。
 - 秘密情報はコミットしない。Git の identity は `~/.config/git/config.local`（テンプレート: `git/config.local.example`）に保持し、その他の認証情報は 1Password CLI（`op signin`）を使用。
 - `flake.lock` を唯一の正とし、手動編集は避ける。依存更新時にはロックファイルもコミット。
-- 新しい cask やパッケージを追加する場合は `nix/nix-darwin/config.nix` と `nix/nix-darwin/home-manager.nix` を優先して宣言的に管理し、switch コマンドを再実行してシステムに反映。
+- 新しい cask やパッケージを追加する場合は `nix/nix-darwin/homebrew.nix` と `nix/nix-darwin/home-manager/packages.nix` を優先して宣言的に管理し、switch コマンドを再実行してシステムに反映。
 
 ## エージェントスキル
 - 再利用可能なスキルは `agents/skills/` に保存。
-- 現在の組み込みスキル: `code-simplifier`、`conventional-commit`、`frontend-design`、`skill-creator`、`skill-installer`。
+- 現在のリポジトリ内スキル: `code-simplifier`、`conventional-commit`、`frontend-design`、`web-to-md`。
 - タスクで特定のスキルが明示された場合は、そのスキルのワークフローを使用し、変更範囲は要求された領域に限定。

@@ -46,6 +46,7 @@
     imagemagick
     resvg
     poppler
+    inputs.arto.packages.${pkgs.system}.default
     inputs.hl.packages.${pkgs.system}.bin
     inputs.cf-page-to-md.packages.${pkgs.system}.default
     (callPackage ../../pkgs/git-cz/default.nix { })
