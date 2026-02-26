@@ -13,6 +13,16 @@ end
 if status is-interactive
   # remove welcome message
   set fish_greeting
+
+  # Configurations for pure
+  set --universal pure_check_for_new_release false
+  set --universal pure_separate_prompt_on_error true
+  set --universal pure_show_exit_status true
+  set --universal pure_enable_nixdevshell true
+  set --universal pure_symbol_nixdevshell_prefix " "
+  set -g async_prompt_functions _pure_prompt_git
+
+
   # Configurations for plugin: fish-autols
   set -gx autols_cmd eza -alh
 
