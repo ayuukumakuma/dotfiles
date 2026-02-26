@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "document_symbols": "on",
   "use_system_path_prompts": true,
   "agent": {
     "use_modifier_to_send": true,
@@ -58,12 +59,8 @@
     "**/.settings",
   ],
   "file_types": {
-    "Git Config": [
-      "**/git/**/config*"
-    ],
-    "Shell Script": [
-      ".envrc"
-    ],
+    "Git Config": ["**/git/**/config*"],
+    "Shell Script": [".envrc"],
   },
   "git": {
     "hunk_style": "unstaged_hollow",
@@ -73,7 +70,7 @@
   },
   "git_panel": {
     "collapse_untracked_diff": false,
-    "dock": "right",
+    "dock": "left",
     "tree_view": false,
     "sort_by_path": true,
     "status_style": "label_color",
@@ -95,7 +92,7 @@
     "allowed": true,
   },
   "project_panel": {
-    "hide_root": false,
+    "hide_root": true,
     "bold_folder_labels": true,
     "default_width": 320.0,
   },
@@ -128,7 +125,7 @@
   },
   "theme": "Catppuccin Frappé",
   "ui_font_family": "HackGen35 Console NF",
-  "ui_font_size": 15.0,
+  "ui_font_size": 18,
   "vim": {
     "cursor_shape": {
       "insert": "bar",
@@ -141,5 +138,11 @@
   "vim_mode": true,
   "which_key": {
     "enabled": true,
+    "delay_ms": 500,
+  },
+  "languages": {
+    "Markdown": {
+      "language_servers": ["!codebook", "..."],
+    },
   },
 }

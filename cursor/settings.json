@@ -1,23 +1,7 @@
 {
-  "Lua.codeLens.enable": true,
-  "Lua.diagnostics.globals": ["vim"],
-  "Lua.hint.enable": true,
-  "Lua.hint.setType": true,
-  "Lua.workspace.library": [
-    "/Users/nasuno.ayumu/.config/nvim",
-    "/Users/nasuno.ayumu/.local/share/nvim/site",
-    "/Users/nasuno.ayumu/.local/state/nix/profiles/per-user/nasuno.ayumu/profile/share/nvim/site",
-    "/nix/store/m1g5yqcx7a5v5s8rw5i3l22yplfg0czg-neovim-unwrapped-0.11.4/share/nvim/runtime",
-    "/nix/store/m1g5yqcx7a5v5s8rw5i3l22yplfg0czg-neovim-unwrapped-0.11.4/share/nvim/runtime/pack/dist/opt/netrw",
-    "/nix/store/m1g5yqcx7a5v5s8rw5i3l22yplfg0czg-neovim-unwrapped-0.11.4/share/nvim/runtime/pack/dist/opt/matchit",
-    "/nix/store/m1g5yqcx7a5v5s8rw5i3l22yplfg0czg-neovim-unwrapped-0.11.4/lib/nvim",
-    "${workspaceFolder}/nvim/types/stable",
-  ],
   "[markdown]": {
     "editor.defaultFormatter": "yzhang.markdown-all-in-one",
   },
-  "biome.lsp.trace.server": "messages",
-  "biome.suggestInstallingGlobally": false,
   "claudeCode.preferredLocation": "panel",
   "comments.thread.confirmOnCollapse": "never",
   "cursor.composer.cmdPFilePicker2": true,
@@ -79,8 +63,6 @@
   "githubPullRequests.pullBranch": "never",
   "githubPullRequests.showPullRequestNumberInTree": true,
   "githubPullRequests.terminalLinksHandler": "github",
-  "hediet.vscode-drawio.resizeImages": null,
-  "importCost.fontStyle": "italic",
   "javascript.format.semicolons": "insert",
   "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
   "javascript.inlayHints.parameterNames.enabled": "all",
@@ -91,14 +73,12 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnPaste.enabled": true,
   "liveServer.settings.donotShowInfoMsg": true,
-  "makefile.configureOnOpen": false,
   "markdown.preview.markEditorSelection": false,
   "markdown.preview.scrollEditorWithPreview": false,
   "markdown.preview.scrollPreviewWithEditor": false,
   "markdown.validate.enabled": true,
   "prettify-ts.maxDepth": 5,
-  "reactSnippets.settings.importReactOnTop": false,
-  "redhat.telemetry.enabled": true,
+  "redhat.telemetry.enabled": false,
   "rubyLsp.addonSettings": {
     "Ruby LSP RSpec": {
       "rspecCommand": "DATABASE_HOST=127.0.0.1 bundle exec rspec",
@@ -126,10 +106,6 @@
   },
   "rubyLsp.featureFlags": {
     "all": true,
-  },
-  "rubyLsp.rubyVersionManager": {
-    "identifier": "mise",
-    "miseExecutablePath": "/etc/profiles/per-user/nasuno.ayumu/bin/mise",
   },
   "search.globalFindClipboard": true,
   "search.useIgnoreFiles": false,
@@ -193,7 +169,7 @@
     "**/src/app/**/template.tsx": "${dirname}/template.tsx",
   },
   "workbench.experimental.share.enabled": true,
-  "workbench.iconTheme": "catppuccin-macchiato",
+  "workbench.iconTheme": "catppuccin-mocha",
   "workbench.list.smoothScrolling": true,
   "workbench.preferredLightColorTheme": "Catppuccin Mocha",
   "claudeCode.disableLoginPrompt": true,
@@ -219,4 +195,11 @@
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features",
   },
+  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
+  "rubyLsp.formatter": "rubocop_internal",
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "custom",
+  },
+  "rubyLsp.customRubyCommand": "/nix/store/agf3rzg9cbnaqhiyv1lylyfi3znlhlza-ruby-3.4.6/bin/ruby",
+  "rubyLsp.rubyExecutablePath": "/nix/store/agf3rzg9cbnaqhiyv1lylyfi3znlhlza-ruby-3.4.6/bin/ruby",
 }

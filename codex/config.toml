@@ -5,12 +5,14 @@ forced_login_method = "chatgpt"
 model = "gpt-5.3-codex"
 web_search = "live"
 notify = ["/Users/nasuno.ayumu/.codex/hooks/notify-terminal-notifier.sh"]
+suppress_unstable_features_warning = true
 
 [features]
 shell_snapshot = true
 apps = true
 multi_agent = true
 prevent_idle_sleep = true
+voice_transcription = true
 
 [feedback]
 enabled = false
@@ -38,11 +40,4 @@ trust_level = "trusted"
 
 [tui]
 status_line = ["model-with-reasoning", "project-root", "git-branch", "context-used", "five-hour-limit", "weekly-limit", "codex-version", "used-tokens"]
-
-[apps.connector_2128aebfecb84f64a069897515042a44]
-enabled = false
-disabled_reason = "user"
-
-[apps.connector_68df038e0ba48191908c8434991bbac2]
-enabled = false
-disabled_reason = "user"
+theme = "catppuccin-mocha"
