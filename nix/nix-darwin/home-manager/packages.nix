@@ -13,7 +13,6 @@
     git
     claude-code
     just
-    jankyborders
     mise
     kubectl
     jq
@@ -23,7 +22,6 @@
     ffmpeg
     hyperfine
     fd
-    zellij
     wget
     just-lsp
     tmux
@@ -47,11 +45,12 @@
     resvg
     poppler
     inputs.arto.packages.${pkgs.system}.default
-    inputs.hl.packages.${pkgs.system}.bin
     inputs.cf-page-to-md.packages.${pkgs.system}.default
+    (inputs.islands-dark.lib.${pkgs.system}.mkVscode {
+      vscodePackage = pkgs.vscode;
+    })
     (callPackage ../../pkgs/git-cz/default.nix { })
     (callPackage ../../pkgs/portless/default.nix { })
     (callPackage ../../pkgs/tree-sitter-cli/default.nix { })
-    # cursor command `curl https://cursor.com/install -fsS | bash`
   ];
 }
