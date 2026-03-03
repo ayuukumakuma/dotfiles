@@ -1,5 +1,5 @@
 #:schema https://developers.openai.com/codex/config-schema.json
-model_reasoning_effort = "xhigh"
+model_reasoning_effort = "medium"
 personality = "pragmatic"
 forced_login_method = "chatgpt"
 model = "gpt-5.3-codex"
@@ -36,6 +36,9 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/copy-url-as-markdown"]
+trust_level = "trusted"
+
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/repo-redirect-for-devin"]
 trust_level = "trusted"
 
 [tui]
