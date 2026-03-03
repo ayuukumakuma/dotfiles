@@ -16,10 +16,13 @@
       url = "github:ryoppippi/claude-code-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hl.url = "github:pamburus/hl";
     cf-page-to-md.url = "github:ayuukumakuma/cf-page-to-md";
     yazi.url = "github:sxyazi/yazi";
     arto.url = "github:arto-app/Arto";
+    islands-dark = {
+      url = "github:bwya77/vscode-dark-islands";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

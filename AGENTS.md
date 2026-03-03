@@ -4,14 +4,14 @@
 - `nix/`: Flake のエントリポイント（`flake.nix`）、ロックファイル、および macOS の system+Homebrew+Home Manager 状態を管理する `nix-darwin/default.nix` / `nix-darwin/system.nix` / `nix-darwin/homebrew.nix` / `nix-darwin/home-manager/default.nix`。
 - `fish/`: シェル設定（`config.fish`）、`fish_plugins`、およびカスタム functions/conf.d のスニペット。
 - `script/`: ユーティリティ Bash スクリプト（例: `set-fish-default.sh`）。
-- ツール設定はトップレベルに配置（例: `aerospace/`、`cursor/`、`wezterm/`、`raycast/`、`git/`、`mise/`、`nvim/`、`lazygit/`、`yazi/`、`claude/`、`codex/`、`zed/`、`zellij/`、`simple-bar/`）。
+- ツール設定はトップレベルに配置（例: `aerospace/`、`cursor/`、`wezterm/`、`raycast/`、`git/`、`mise/`、`nvim/`、`lazygit/`、`yazi/`、`claude/`、`codex/`、`zed/`、`simple-bar/`）。
 - エージェント固有のアセットは `agents/` 配下（スキル、プロンプト、補助ドキュメント）。
 
 ## ビルド・テスト・開発コマンド
 - `cd nix && nix flake check` — flake と darwin 設定を検証。
 - `cd nix && nix run nix-darwin -- switch --flake .#<darwinConfigName>` — system/Homebrew 設定を適用。
-- `cd nix && nix run .#update` — flake の入力、プロファイル、nix-darwin をまとめて更新。
-- `reload`（Fish エイリアス）— ログインシェルを再起動して新しい設定を読み込む。`fish_plugins` を変更した場合は `fisher update` を続けて実行。
+- `cd nix && nix run .#update` — flake の入力更新・`nix flake check`・nix-darwin の switch をまとめて実行。
+- `reload`（Fish 略語）— ログインシェルを再起動して新しい設定を読み込む。`fish_plugins` を変更した場合は `fisher update` を続けて実行。
 
 ## コーディングスタイルと命名規則
 - Nix: `nixfmt <file>` を実行。2 スペースインデントを保ち、可能な限り属性セットをソート。
