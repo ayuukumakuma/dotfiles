@@ -13,6 +13,7 @@
       "mole"
       "im-select"
       "git-delta"
+      "agent-browser"
 
       ### Ruby環境用はbrewの方が相性が良いのでこちらでインストールする
       "mysql@8.0"
@@ -64,6 +65,7 @@
       "codex" # nixpkgは更新が遅い
       "chatgpt"
       "thebrowsercompany-dia"
+      "visual-studio-code"
       "altserver"
       "zen"
       "claude"

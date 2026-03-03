@@ -109,24 +109,6 @@
         "type": "github"
       }
     },
-    "flake-utils_3": {
-      "inputs": {
-        "systems": "systems_3"
-      },
-      "locked": {
-        "lastModified": 1731533236,
-        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -144,27 +126,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "islands-dark": {
-      "inputs": {
-        "flake-utils": "flake-utils_2",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1772048925,
-        "narHash": "sha256-HvM7U7L8VqNl/innkiRO4jQ0Bqb15WFltcad1GC93Ao=",
-        "owner": "bwya77",
-        "repo": "vscode-dark-islands",
-        "rev": "6a1621a980053af19161594bf82322af7c911578",
-        "type": "github"
-      },
-      "original": {
-        "owner": "bwya77",
-        "repo": "vscode-dark-islands",
         "type": "github"
       }
     },
@@ -222,11 +183,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1772198003,
-        "narHash": "sha256-I45esRSssFtJ8p/gLHUZ1OUaaTaVLluNkABkk6arQwE=",
+        "lastModified": 1772433332,
+        "narHash": "sha256-izhTDFKsg6KeVBxJS9EblGeQ8y+O8eCa6RcW874vxEc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "dd9b079222d43e1943b6ebd802f04fd959dc8e61",
+        "rev": "cf59864ef8aa2e178cccedbe2c178185b0365705",
         "type": "github"
       },
       "original": {
@@ -258,7 +219,6 @@
         "cf-page-to-md": "cf-page-to-md",
         "claude-code-overlay": "claude-code-overlay",
         "home-manager": "home-manager",
-        "islands-dark": "islands-dark",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs_3",
         "yazi": "yazi"
@@ -315,33 +275,18 @@
         "type": "github"
       }
     },
-    "systems_3": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
-        "type": "github"
-      }
-    },
     "yazi": {
       "inputs": {
-        "flake-utils": "flake-utils_3",
+        "flake-utils": "flake-utils_2",
         "nixpkgs": "nixpkgs_4",
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1772254863,
-        "narHash": "sha256-w6RJF9uCx5Wt/ASC9sMiuod7nqYhJB0Z+t2pT/iSrzg=",
+        "lastModified": 1772441248,
+        "narHash": "sha256-HLplAZOZFAtr2gPh4lKStMzrs1f1gu+O68siidOGXek=",
         "owner": "sxyazi",
         "repo": "yazi",
-        "rev": "3cdc3ecb70c13da9325b8333dca8514a53bcbdc3",
+        "rev": "0a83f0bd270593ed3892888c46dfbd091810caaa",
         "type": "github"
       },
       "original": {
