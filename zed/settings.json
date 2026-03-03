@@ -10,8 +10,14 @@
   "document_symbols": "on",
   "use_system_path_prompts": true,
   "agent": {
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "ollama",
+      "model": "qwen3.5:9b",
+      "enable_thinking": false,
+    },
     "use_modifier_to_send": true,
-    "button": false,
+    "button": true,
     "play_sound_when_agent_done": true,
     "enable_feedback": false,
   },
@@ -43,7 +49,11 @@
   "edit_predictions": {
     "enabled_in_text_threads": true,
     "mode": "eager",
-    "provider": "zed",
+    "provider": "ollama",
+    "ollama": {
+      "model": "qwen3.5:9b",
+      "prompt_format": "qwen",
+    },
   },
   "file_finder": {
     "include_ignored": "smart",

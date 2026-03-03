@@ -33,7 +33,7 @@
     ],
     "defaultMode": "plan"
   },
-  "model": "opus",
+  "model": "sonnet",
   "enableAllProjectMcpServers": true,
   "hooks": {
     "SessionStart": [
@@ -71,7 +71,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "code \"$(ls -t ~/.claude/plans/*.md | head -1)\"",
+            "command": "arto \"$(ls -t ~/.claude/plans/*.md | head -1)\"",
             "timeout": 5
           }
         ]
