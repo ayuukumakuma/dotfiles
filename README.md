@@ -30,7 +30,7 @@ $EDITOR nix/local.nix
 
 # 3. nix-darwin設定を適用
 cd nix
-nix run nix-darwin -- switch --flake .#<darwinConfigName>
+nix run nix-darwin -- switch --flake path:.#<darwinConfigName>
 cd ..
 
 # 4. Fish shellをデフォルトに設定
@@ -42,7 +42,7 @@ cp git/config.local.example ~/.config/git/config.local
 # ~/.config/git/config.local の name/email/signingkey を編集
 
 # 6. 設定反映（Home Manager）
-# 必要に応じて再適用: cd nix && nix run nix-darwin -- switch --flake .#<darwinConfigName>
+# 必要に応じて再適用: cd nix && nix run nix-darwin -- switch --flake path:.#<darwinConfigName>
 ```
 
 ## 📦 インストール
@@ -76,7 +76,7 @@ $EDITOR nix/local.nix
 
 # nix-darwin設定を初回適用
 cd nix
-nix run nix-darwin -- switch --flake .#<darwinConfigName>
+nix run nix-darwin -- switch --flake path:.#<darwinConfigName>
 cd ..
 
 # Fish shellの設定
@@ -84,7 +84,7 @@ cd ..
 
 ```
 
-Home Manager で `~/.config/*` に加えて `~/.aerospace.toml`、`~/.agents`、`~/.claude/settings.json`/`~/.claude/statusline.sh`/`~/.claude/hooks/state-notify.sh`、`~/.codex/config.toml`/`~/.codex/hooks/notify-terminal-notifier.sh`、Cursor ユーザー設定を `nix run nix-darwin -- switch --flake .#<darwinConfigName>` で管理します。
+Home Manager で `~/.config/*` に加えて `~/.aerospace.toml`、`~/.agents`、`~/.claude/settings.json`/`~/.claude/statusline.sh`/`~/.claude/hooks/state-notify.sh`、`~/.codex/config.toml`/`~/.codex/hooks/notify-terminal-notifier.sh`、Cursor ユーザー設定を `nix run nix-darwin -- switch --flake path:.#<darwinConfigName>` で管理します。
 
 ### 4. Git個人設定の初期化
 
@@ -111,11 +111,11 @@ fisher update
 
 ```bash
 # すべてを更新（flake入力更新、flake check、nix-darwin）
-cd nix && nix run .#update
+cd nix && nix run path:.#update
 
 # 個別の更新
 cd nix && nix flake update                                   # flake入力を更新
-cd nix && nix run nix-darwin -- switch --flake .#<darwinConfigName> # nix-darwin設定を適用
+cd nix && nix run nix-darwin -- switch --flake path:.#<darwinConfigName> # nix-darwin設定を適用
 cd nix && nix profile upgrade nix                            # Nixプロファイルを更新
 ```
 
@@ -254,6 +254,7 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - `mole` - インジケーター
 - `im-select` - IM切替
 - `git-delta` - diffビューア
+- `agent-browser` - ブラウザ自動化ツール
 - `mysql@8.0` - MySQL（Ruby開発用）
 - `libyaml`, `pkg-config`, `vips` - ビルドツール
 
@@ -264,13 +265,12 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - **開発ツール**: OrbStack, Sequel Ace, Another Redis Desktop Manager, Visual Studio Code, AltServer
 - **デザイン/制作**: Figma, Affinity
 - **ドキュメント/ノート**: Obsidian, Notion
-- **ユーティリティ**: Raycast, Stats, Shottr, Scroll Reverser, KeyCastr, Gyazo, Google Drive, Ubersicht, AnkerWork, DeskPad, NotchNook, Cap
+- **ユーティリティ**: Raycast, Stats, Shottr, Scroll Reverser, Gyazo, Google Drive, Ubersicht, AnkerWork, DeskPad, NotchNook, Cap
 - **セキュリティ**: 1Password, 1Password CLI
 - **ウィンドウ管理**: AeroSpace
 - **ハードウェア**: Logitech G Hub, Logi Options+, HHKB
 - **音楽**: Spotify, MusaicFM
-- **AI**: ChatGPT, Claude
-- **その他**: codex-app, codex
+- **AI**: Claude, codex-app, codex
 
 #### フォント
 - HackGen Nerd Font
@@ -307,7 +307,7 @@ casks = [
 変更を適用：
 
 ```bash
-cd nix && nix run nix-darwin -- switch --flake .#<darwinConfigName>
+cd nix && nix run nix-darwin -- switch --flake path:.#<darwinConfigName>
 ```
 
 ### 新しい設定ディレクトリの追加
@@ -327,7 +327,7 @@ home.file = {
 変更を適用：
 
 ```bash
-cd nix && nix run nix-darwin -- switch --flake .#<darwinConfigName>
+cd nix && nix run nix-darwin -- switch --flake path:.#<darwinConfigName>
 ```
 
 ### Fish設定の変更
@@ -435,5 +435,5 @@ op signin
 cd nix && nix flake check
 
 # ログを確認
-cd nix && nix run nix-darwin -- switch --flake .#<darwinConfigName> --show-trace
+cd nix && nix run nix-darwin -- switch --flake path:.#<darwinConfigName> --show-trace
 ```

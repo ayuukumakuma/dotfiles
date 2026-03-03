@@ -9,8 +9,8 @@
 
 ## ビルド・テスト・開発コマンド
 - `cd nix && nix flake check` — flake と darwin 設定を検証。
-- `cd nix && nix run nix-darwin -- switch --flake .#<darwinConfigName>` — system/Homebrew 設定を適用。
-- `cd nix && nix run .#update` — flake の入力更新・`nix flake check`・nix-darwin の switch をまとめて実行。
+- `cd nix && nix run nix-darwin -- switch --flake path:.#<darwinConfigName>` — system/Homebrew 設定を適用。
+- `cd nix && nix run path:.#update` — flake の入力更新・`nix flake check`・nix-darwin の switch をまとめて実行。
 - `reload`（Fish 略語）— ログインシェルを再起動して新しい設定を読み込む。`fish_plugins` を変更した場合は `fisher update` を続けて実行。
 
 ## コーディングスタイルと命名規則
@@ -39,5 +39,5 @@
 
 ## エージェントスキル
 - 再利用可能なスキルは `agents/skills/` に保存。
-- 現在のリポジトリ内スキル: `code-simplifier`、`conventional-commit`、`frontend-design`、`web-to-md`。
+- 現在のリポジトリ内スキル: `code-simplifier`、`conventional-commit`、`electron`、`frontend-design`、`web-to-md`。
 - タスクで特定のスキルが明示された場合は、そのスキルのワークフローを使用し、変更範囲は要求された領域に限定。
