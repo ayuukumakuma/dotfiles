@@ -1,0 +1,36 @@
+{
+  "version": 3,
+  "skills": {
+    "electron": {
+      "source": "vercel-labs/agent-browser",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-browser.git",
+      "skillPath": "skills/electron/SKILL.md",
+      "skillFolderHash": "262130632e186c3ee2d153b6d5b5dd6e60b8236f",
+      "installedAt": "2026-03-02T22:13:43.649Z",
+      "updatedAt": "2026-03-02T22:13:43.649Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "c2f31172b6f256272305a5e6e7228b258446899f",
+      "installedAt": "2026-03-02T22:13:53.337Z",
+      "updatedAt": "2026-03-02T22:13:53.337Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "cline",
+    "codex",
+    "cursor",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-cli",
+    "opencode"
+  ]
+}
