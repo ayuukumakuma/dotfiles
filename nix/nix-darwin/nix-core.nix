@@ -1,12 +1,8 @@
-{ inputs, lib, ... }:
+{ inputs, ... }:
 {
   # nixpkgs の共通設定。
   nixpkgs = {
-    config = {
-      allowUnfree = false;
-      # unfree はテーマ拡張パッケージのみ個別許可する。
-      allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "islands-dark-vscode" ];
-    };
+    config.allowUnfree = true;
     overlays = [ inputs.claude-code-overlay.overlays.default ];
   };
 

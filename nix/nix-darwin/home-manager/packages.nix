@@ -46,9 +46,6 @@
     poppler
     inputs.arto.packages.${pkgs.system}.default
     inputs.cf-page-to-md.packages.${pkgs.system}.default
-    (inputs.islands-dark.lib.${pkgs.system}.mkVscode {
-      vscodePackage = pkgs.vscode;
-    })
     (callPackage ../../pkgs/git-cz/default.nix { })
     (callPackage ../../pkgs/portless/default.nix { })
     (callPackage ../../pkgs/tree-sitter-cli/default.nix { })
