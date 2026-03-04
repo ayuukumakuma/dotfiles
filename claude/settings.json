@@ -29,7 +29,9 @@
       "mcp__notion__API-post-page",
       "mcp__notion__API-create-a-database",
       "mcp__notion__API-update-a-database",
-      "mcp__notion__API-create-a-comment"
+      "mcp__notion__API-create-a-comment",
+      "WebSearch",
+      "WebFetch"
     ],
     "defaultMode": "plan"
   },
@@ -57,6 +59,24 @@
       }
     ],
     "PreToolUse": [
+      {
+        "matcher": "WebSearch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/nasuno.ayumu/.claude/hooks/block-web-search.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "WebFetch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/nasuno.ayumu/.claude/hooks/block-web-search.sh"
+          }
+        ]
+      },
       {
         "matcher": ".*",
         "hooks": [
