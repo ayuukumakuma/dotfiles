@@ -28,8 +28,9 @@ in
       source = oos "${dotfilesRoot}/yazi";
     };
     "wezterm/wezterm.lua".source = oos "${dotfilesRoot}/wezterm/wezterm.lua";
-    "zed/settings.json".source = oos "${dotfilesRoot}/zed/settings.json";
-    "zellij/config.kdl".source = oos "${dotfilesRoot}/zellij/config.kdl";
+    zed = {
+     source = oos "${dotfilesRoot}/zed";
+    };
 
     # direnvrc は ${pkgs.nix-direnv} の Nix Store パスを参照するため
     # dotfiles 側に静的ファイルとして管理できない。text で直接記述する。
@@ -43,13 +44,11 @@ in
     ".agents".source = oos "${dotfilesRoot}/agents";
     ".claude/settings.json".source = oos "${dotfilesRoot}/claude/settings.json";
     ".claude/statusline.sh".source = oos "${dotfilesRoot}/claude/statusline.sh";
-    ".claude/hooks/state-notify.sh".source = oos "${dotfilesRoot}/claude/hooks/state-notify.sh";
+    ".claude/hooks".source = oos "${dotfilesRoot}/claude/hooks";
+    ".claude/agents".source = oos "${dotfilesRoot}/claude/agents";
+    ".claude/skills".source = oos "${dotfilesRoot}/agents/skills";
     ".codex/config.toml".source = oos "${dotfilesRoot}/codex/config.toml";
     ".codex/hooks/notify-terminal-notifier.sh".source =
       oos "${dotfilesRoot}/codex/hooks/notify-terminal-notifier.sh";
-    "Library/Application Support/Cursor/User/settings.json".source =
-      oos "${dotfilesRoot}/cursor/settings.json";
-    "Library/Application Support/Cursor/User/keybindings.json".source =
-      oos "${dotfilesRoot}/cursor/keybindings.json";
   };
 }
