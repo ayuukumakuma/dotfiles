@@ -84,7 +84,7 @@ cd ..
 
 ```
 
-Home Manager で `~/.config/*` に加えて `~/.aerospace.toml`、`~/.agents`、`~/.claude/settings.json`/`~/.claude/statusline.sh`/`~/.claude/hooks/state-notify.sh`、`~/.codex/config.toml`/`~/.codex/hooks/notify-terminal-notifier.sh`、Cursor ユーザー設定を `nix run nix-darwin -- switch --flake path:.#<darwinConfigName>` で管理します。
+Home Manager で `~/.config/*` に加えて `~/.aerospace.toml`、`~/.agents`、`~/.claude/settings.json`/`~/.claude/statusline.sh`/`~/.claude/hooks`/`~/.claude/agents`/`~/.claude/skills`、`~/.codex/config.toml`/`~/.codex/hooks/notify-terminal-notifier.sh` を `nix run nix-darwin -- switch --flake path:.#<darwinConfigName>` で管理します。
 
 ### 4. Git個人設定の初期化
 
@@ -180,16 +180,16 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 ## 🛠 管理対象のツール
 
 ### Home Managerで管理する設定
-- `fish`, `git`, `lazygit`, `mise`, `nvim`, `yazi`, `wezterm/wezterm.lua`, `zed/settings.json`
+- `fish`, `git`, `lazygit`, `mise`, `nvim`, `yazi`, `wezterm/wezterm.lua`, `zed/`
 - `direnv/direnvrc` -> `~/.config/direnv/direnvrc`
 - `aerospace/.aerospace.toml` -> `~/.aerospace.toml`
 - `agents/` -> `~/.agents`
-- `claude/settings.json`, `claude/statusline.sh`, `claude/hooks/state-notify.sh` -> `~/.claude/`
+- `claude/settings.json`, `claude/statusline.sh`, `claude/hooks`, `claude/agents`, `agents/skills` -> `~/.claude/`
 - `codex/config.toml`, `codex/hooks/notify-terminal-notifier.sh` -> `~/.codex/`
-- `cursor/settings.json`, `cursor/keybindings.json` -> `~/Library/Application Support/Cursor/User/`
 
 ### Home Manager非対象（手動運用）
 - `raycast/*.rayconfig`（Raycast の `Import Settings & Data` で取り込み）
+- `cursor/settings.json`, `cursor/keybindings.json`（必要に応じて Cursor 側へ手動反映）
 - `~/.claude/settings.local.json`（機密・ローカル差分用）
 - `simple-bar/`（利用先パス依存のため、必要に応じて手動配置）
 
@@ -255,6 +255,7 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - `im-select` - IM切替
 - `git-delta` - diffビューア
 - `agent-browser` - ブラウザ自動化ツール
+- `gemini-cli` - Gemini CLI
 - `mysql@8.0` - MySQL（Ruby開発用）
 - `libyaml`, `pkg-config`, `vips` - ビルドツール
 
@@ -265,7 +266,7 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - **開発ツール**: OrbStack, Sequel Ace, Another Redis Desktop Manager, Visual Studio Code, AltServer
 - **デザイン/制作**: Figma, Affinity
 - **ドキュメント/ノート**: Obsidian, Notion
-- **ユーティリティ**: Raycast, Stats, Shottr, Scroll Reverser, Gyazo, Google Drive, Ubersicht, AnkerWork, DeskPad, NotchNook, Cap
+- **ユーティリティ**: Raycast, Stats, Shottr, Scroll Reverser, Gyazo, Google Drive, Ubersicht, AnkerWork, DeskPad, NotchNook, Cap, azookey
 - **セキュリティ**: 1Password, 1Password CLI
 - **ウィンドウ管理**: AeroSpace
 - **ハードウェア**: Logitech G Hub, Logi Options+, HHKB
