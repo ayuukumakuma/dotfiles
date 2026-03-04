@@ -69,8 +69,12 @@
     "**/.settings",
   ],
   "file_types": {
-    "Git Config": ["**/git/**/config*"],
-    "Shell Script": [".envrc"],
+    "Git Config": [
+      "**/git/**/config*"
+    ],
+    "Shell Script": [
+      ".envrc"
+    ],
   },
   "git": {
     "hunk_style": "unstaged_hollow",
@@ -152,7 +156,10 @@
   },
   "languages": {
     "Markdown": {
-      "language_servers": ["!codebook", "..."],
+      "language_servers": [
+        "!codebook",
+        "..."
+      ],
     },
   },
 }

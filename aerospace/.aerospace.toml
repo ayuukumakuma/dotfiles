@@ -60,9 +60,14 @@ on-mode-changed = []
 # ウィンドウが検出されたときに実行されるコールバック
 # 起動時やウィンドウが開かれたときに特定のアプリケーションを特定のワークスペースに移動
 # 参照: https://nikitabobko.github.io/AeroSpace/goodies#automation
+
 [[on-window-detected]]
-if.app-id = "company.thebrowser.dia"
-run = "move-node-to-workspace 1"  # Diaをワークスペース1に移動
+if.app-id = "com.gather.GatherV2"
+run = "move-node-to-workspace 0"  # Gatherをワークスペース0に移動
+
+[[on-window-detected]]
+if.app-id = "app.zen-browser.zen"
+run = "move-node-to-workspace 1"  # Zenをワークスペース1に移動
 
 [[on-window-detected]]
 if.app-id = "com.tinyspeck.slackmacgap"
@@ -71,6 +76,22 @@ run = "move-node-to-workspace 2"  # Slackをワークスペース2に移動
 [[on-window-detected]]
 if.app-id = "dev.zed.Zed"
 run = "move-node-to-workspace 3"  # Zedをワークスペース3に移動
+
+[[on-window-detected]]
+if.app-id = "com.openai.codex"
+run = "move-node-to-workspace 4"  # Codexをワークスペース4に移動
+
+[[on-window-detected]]
+if.app-id = "com.openai.chat"
+run = "move-node-to-workspace 6"  # ChatGPT
+
+[[on-window-detected]]
+if.app-id = "com.anthropic.claudefordesktop"
+run = "move-node-to-workspace 6"  # Claudeをワークスペース4に移動
+
+[[on-window-detected]]
+if.app-id = "com.spotify.client"
+run = "move-node-to-workspace 7"  # Spotifyをワークスペース8に移動
 
 [[on-window-detected]]
 if.app-id = "notion.id"
@@ -123,8 +144,8 @@ preset = "qwerty"
 3 = "main"  # ワークスペース3をメインモニターに割り当て
 4 = "main"  # ワークスペース4をメインモニターに割り当て
 5 = "main"  # ワークスペース5をメインモニターに割り当て
-6 = "main"  # ワークスペース6をメインモニターに割り当て
-7 = "Deskpad*"  # ワークスペース7をDeskpadに割り当て
+6 = "secondary"  # ワークスペース6をメインモニターに割り当て
+7 = "secondary"  # ワークスペース7をセカンダリモニターに割り当て
 8 = "secondary"  # ワークスペース8をセカンダリモニターに割り当て
 9 = "secondary"  # ワークスペース9をセカンダリモニターに割り当て
 

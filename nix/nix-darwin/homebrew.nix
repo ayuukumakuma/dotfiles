@@ -4,7 +4,7 @@
     enable = true;
     onActivation = {
       autoUpdate = true;
-      cleanup = "uninstall";
+      cleanup = "zap";
     };
     brews = [
       ### CLI Applications not available in nixpkgs
@@ -14,6 +14,7 @@
       "im-select"
       "git-delta"
       "agent-browser"
+      "gemini-cli"
 
       ### Ruby環境用はbrewの方が相性が良いのでこちらでインストールする
       "mysql@8.0"
@@ -45,11 +46,9 @@
       "sequel-ace"
       "scroll-reverser"
       "notchnook"
-      "keycastr"
       "orbstack"
       "logitech-g-hub"
       "hhkb"
-      "spotify"
       "another-redis-desktop-manager"
       "cap"
       "gyazo"
@@ -63,12 +62,12 @@
       "ankerwork"
       "codex-app"
       "codex" # nixpkgは更新が遅い
-      "chatgpt"
       "thebrowsercompany-dia"
       "visual-studio-code"
       "altserver"
       "zen"
       "claude"
+      "spotify"
 
       ### Fonts
       "font-hackgen-nerd"
