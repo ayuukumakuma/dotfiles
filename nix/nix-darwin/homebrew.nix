@@ -68,6 +68,7 @@
       "zen"
       "claude"
       "spotify"
+      "azookey"
 
       ### Fonts
       "font-hackgen-nerd"

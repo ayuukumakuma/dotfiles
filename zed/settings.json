@@ -7,19 +7,33 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent_servers": {
+    "cursor": {
+      "type": "registry",
+    },
+  },
+  "notification_panel": {
+    "button": false,
+  },
   "document_symbols": "on",
   "use_system_path_prompts": true,
   "agent": {
+    "message_editor_min_lines": 6,
+    "show_turn_stats": true,
     "default_profile": "ask",
     "default_model": {
       "provider": "ollama",
       "model": "qwen3.5:9b",
       "enable_thinking": false,
     },
+    "cancel_generation_on_terminal_stop": true,
     "use_modifier_to_send": true,
     "button": true,
     "play_sound_when_agent_done": true,
     "enable_feedback": false,
+    "expand_terminal_card": true,
+    "notify_when_agent_waiting": "primary_screen",
+    "single_file_review": true,
   },
   "always_treat_brackets_as_autoclosed": true,
   "audio": {
@@ -69,12 +83,8 @@
     "**/.settings",
   ],
   "file_types": {
-    "Git Config": [
-      "**/git/**/config*"
-    ],
-    "Shell Script": [
-      ".envrc"
-    ],
+    "Git Config": ["**/git/**/config*"],
+    "Shell Script": [".envrc"],
   },
   "git": {
     "hunk_style": "unstaged_hollow",
@@ -85,7 +95,7 @@
   "git_panel": {
     "collapse_untracked_diff": false,
     "dock": "left",
-    "tree_view": false,
+    "tree_view": true,
     "sort_by_path": true,
     "status_style": "label_color",
   },
@@ -109,6 +119,7 @@
     "hide_root": true,
     "bold_folder_labels": true,
     "default_width": 320.0,
+    "diagnostic_badges": true,
   },
   "search": {
     "include_ignored": false,
@@ -139,6 +150,7 @@
   },
   "theme": "Catppuccin Frappé",
   "ui_font_family": "HackGen35 Console NF",
+  "agent_buffer_font_size": 18,
   "ui_font_size": 18,
   "vim": {
     "cursor_shape": {
@@ -156,10 +168,7 @@
   },
   "languages": {
     "Markdown": {
-      "language_servers": [
-        "!codebook",
-        "..."
-      ],
+      "language_servers": ["!codebook", "..."],
     },
   },
 }

@@ -1,21 +1,25 @@
 #:schema https://developers.openai.com/codex/config-schema.json
-model_reasoning_effort = "medium"
+model_reasoning_effort = "xhigh"
 personality = "pragmatic"
 forced_login_method = "chatgpt"
 model = "gpt-5.3-codex"
 web_search = "live"
 notify = ["/Users/nasuno.ayumu/.codex/hooks/notify-terminal-notifier.sh"]
 suppress_unstable_features_warning = true
+plan_mode_reasoning_effort = "xhigh"
 
 [features]
 shell_snapshot = true
-apps = true
 multi_agent = true
 prevent_idle_sleep = true
 voice_transcription = true
+js_repl = true
 
 [feedback]
 enabled = false
+
+[sandbox_workspace_write]
+network_access = true
 
 [projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/dotfiles"]
 trust_level = "trusted"

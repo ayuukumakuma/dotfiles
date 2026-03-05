@@ -10,3 +10,6 @@ nix/result
 nix-dev-env-flake/*
 !nix-dev-env-flake/README*
 !nix-dev-env-flake/example/
+
+# Zed prompts library database (auto-generated when use_system_path_prompts is true)
+zed/prompts/prompts-library-db*/

@@ -14,10 +14,4 @@
       "tab": "editor::AcceptEditPrediction",
     },
   },
-  {
-    "context": "vim_mode == insert",
-    "bindings": {
-      "j j": "vim::NormalBefore",
-    },
-  },
 ]
