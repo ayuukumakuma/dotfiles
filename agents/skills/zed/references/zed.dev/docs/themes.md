@@ -1,0 +1,96 @@
+---
+title: "Themes | Themes - Zed"
+source_url: "https://zed.dev/docs/themes"
+fetched_at: "2026-03-05T02:24:06.365855+00:00"
+---
+
+
+
+# [Themes](https://zed.dev/docs/themes.html#themes)
+
+Zed comes with a number of built-in themes, with more themes available as extensions.
+
+## [Selecting a Theme](https://zed.dev/docs/themes.html#selecting-a-theme)
+
+See what themes are installed and preview them via the Theme Selector, which you can open from the command palette with the `theme selector: toggle` (bound to `cmd-k cmd-t|ctrl-k ctrl-t`) action.
+
+Navigating through the theme list by moving up and down will change the theme in real time and hitting enter will save the selected one to your settings file.
+
+## [Installing New Themes](https://zed.dev/docs/themes.html#installing-new-themes)
+
+You can find hundreds of different theme options in Zed's extensions store, which you can access via the command palette with `zed: extensions` or the [Zed website](https://zed.dev/extensions?filter=themes).
+
+Many popular themes have been ported to Zed, and if you're struggling to choose one, visit [zed-themes.com](https://zed-themes.com), a third-party gallery with visible previews for many of them.
+
+## [Build Your Theme](https://zed.dev/docs/themes.html#build-your-theme)
+
+You can use [Zed's Theme Builder](https://zed.dev/theme-builder) to design your own custom theme based on an existing one.
+
+This tool lets you fine-tune and preview how every surface in the Zed app will look.
+You can then export the JSON for [local use](https://zed.dev/docs/themes.html#local-themes) or for [publishing in Zed's extension store](https://zed.dev/docs/extensions/themes.html).
+
+## [Configuring a Theme](https://zed.dev/docs/themes.html#configuring-a-theme)
+
+Your selected theme is stored in your settings file.
+You can open your settings file from the command palette with `zed: open settings file` (bound to `cmd-alt-,|ctrl-alt-,`).
+
+By default, Zed maintains two themes: one for light mode and one for dark mode.
+You can set the mode to `"dark"` or `"light"` to ignore the current system mode.
+
+```
+{
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark"
+  }
+}
+```
+
+## [Theme Overrides](https://zed.dev/docs/themes.html#theme-overrides)
+
+To override specific attributes of a theme, use the `theme_overrides` setting.
+This setting can be used to configure theme-specific overrides.
+
+For example, add the following to your `settings.json` if you wish to override the background color of the editor and display comments and doc comments as italics:
+
+```
+{
+  "theme_overrides": {
+    "One Dark": {
+      "editor.background": "#333",
+      "syntax": {
+        "comment": {
+          "font_style": "italic"
+        },
+        "comment.doc": {
+          "font_style": "italic"
+        }
+      },
+      "accents": [
+        "#ff0000",
+        "#ff7f00",
+        "#ffff00",
+        "#00ff00",
+        "#0000ff",
+        "#8b00ff"
+      ]
+    }
+  }
+}
+```
+
+To see a comprehensive list of list of captures (like `comment` and `comment.doc`) see [Language Extensions: Syntax highlighting](https://zed.dev/docs/extensions/languages.html#syntax-highlighting).
+
+To see a list of available theme attributes look at the JSON file for your theme.
+For example, [assets/themes/one/one.json](https://github.com/zed-industries/zed/blob/main/assets/themes/one/one.json) for the default One Dark and One Light themes.
+
+## [Local Themes](https://zed.dev/docs/themes.html#local-themes)
+
+Store new themes locally by placing them in the `~/.config/zed/themes` directory (macOS and Linux) or `%USERPROFILE%\AppData\Roaming\Zed\themes\` (Windows).
+
+For example, to create a new theme called `my-cool-theme`, create a file called `my-cool-theme.json` in that directory.
+It will be available in the theme selector the next time Zed loads.
+
+[Appearance](https://zed.dev/docs/appearance.html "Appearance")
+[Icon Themes](https://zed.dev/docs/icon-themes.html "Icon Themes")

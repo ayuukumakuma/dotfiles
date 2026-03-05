@@ -35,7 +35,7 @@
     ],
     "defaultMode": "plan"
   },
-  "model": "sonnet",
+  "model": "opus",
   "enableAllProjectMcpServers": true,
   "hooks": {
     "SessionStart": [
@@ -59,24 +59,6 @@
       }
     ],
     "PreToolUse": [
-      {
-        "matcher": "WebSearch",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/nasuno.ayumu/.claude/hooks/block-web-search.sh"
-          }
-        ]
-      },
-      {
-        "matcher": "WebFetch",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/nasuno.ayumu/.claude/hooks/block-web-search.sh"
-          }
-        ]
-      },
       {
         "matcher": ".*",
         "hooks": [
