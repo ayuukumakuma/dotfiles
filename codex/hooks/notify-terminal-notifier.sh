@@ -116,7 +116,7 @@ can_play_custom_wav() {
 play_custom_wav() {
   local wav_path="${CODEX_NOTIFY_WAV:-}"
 
-  afplay -v 0.3 "$wav_path" >/dev/null 2>&1 &
+  afplay -v 0.2 "$wav_path" >/dev/null 2>&1 &
 }
 
 notify() {
