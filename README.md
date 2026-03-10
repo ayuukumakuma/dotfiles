@@ -218,9 +218,7 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - `site2skill`
 - `lazygit`
 - `octorus`
-- `arto`
 - `openssl_3`
-- `hl`
 - `portless`
 
 #### CLIユーティリティ
@@ -248,14 +246,13 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - `resvg`
 - `poppler`
 - `cf-page-to-md`
-- `similarity`
 
 ### Homebrewでインストールされるツール (`nix/nix-darwin/homebrew.nix`)
 
 #### CLI ツール
 - `fisher` - Fish プラグインマネージャー
 - `mas` - Mac App Store CLI
-- `mole` - インジケーター
+- `mo` - ブラウザ内 Markdown ビューア
 - `im-select` - IM切替
 - `git-delta` - diffビューア
 - `agent-browser` - ブラウザ自動化ツール
