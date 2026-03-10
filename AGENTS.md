@@ -39,5 +39,5 @@
 
 ## エージェントスキル
 - 再利用可能なスキルは `agents/skills/` に保存。
-- 現在のリポジトリ内スキル: `code-simplifier`、`conventional-commit`、`electron`、`frontend-design`、`gemini-web-search`、`web-to-md`。
+- 現在のリポジトリ内スキル: `code-simplifier`、`conventional-commit`、`electron`、`frontend-design`、`web-to-md`、`zed`。
 - タスクで特定のスキルが明示された場合は、そのスキルのワークフローを使用し、変更範囲は要求された領域に限定。

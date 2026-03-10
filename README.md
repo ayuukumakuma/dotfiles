@@ -185,6 +185,7 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - `aerospace/.aerospace.toml` -> `~/.aerospace.toml`
 - `agents/` -> `~/.agents`
 - `claude/settings.json`, `claude/statusline.sh`, `claude/hooks`, `claude/agents`, `agents/skills` -> `~/.claude/`
+- `agents/skills` -> `~/.cursor/skills`
 - `codex/config.toml`, `codex/hooks/notify-terminal-notifier.sh` -> `~/.codex/`
 
 ### Home Manager非対象（手動運用）
@@ -214,8 +215,10 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - `ruby`
 - `git-cz`
 - `tree-sitter-cli`
+- `site2skill`
 - `lazygit`
 - `octorus`
+- `arto`
 - `openssl_3`
 - `hl`
 - `portless`
@@ -245,6 +248,7 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - `resvg`
 - `poppler`
 - `cf-page-to-md`
+- `similarity`
 
 ### Homebrewでインストールされるツール (`nix/nix-darwin/homebrew.nix`)
 
