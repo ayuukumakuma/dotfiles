@@ -73,7 +73,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "arto \"$(ls -t ~/.claude/plans/*.md | head -1)\"",
+            "command": "PLAN=$(ls -t ~/.claude/plans/*.md 2>/dev/null | head -1); [ -n \"$PLAN\" ] && mo \"$PLAN\" --open",
             "timeout": 5
           }
         ]
@@ -135,7 +135,8 @@
     "sentry@claude-plugins-official": true,
     "code-simplifier@claude-plugins-official": true,
     "plugin-dev@claude-plugins-official": true,
-    "claude-md-management@claude-plugins-official": true
+    "claude-md-management@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true
   },
   "language": "日本語"
 }

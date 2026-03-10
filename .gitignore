@@ -13,3 +13,5 @@ nix-dev-env-flake/*
 
 # Zed prompts library database (auto-generated when use_system_path_prompts is true)
 zed/prompts/prompts-library-db*/
+
+build/

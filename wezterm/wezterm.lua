@@ -24,7 +24,10 @@ config.window_close_confirmation = 'NeverPrompt'
 
 -- Background Settings
 config.window_background_opacity = 0.7
-config.macos_window_background_blur = 0
+config.inactive_pane_hsb = {
+  saturation = 0.5,
+  brightness = 0.2,
+}
 
 -- Tab Bar Settings
 config.hide_tab_bar_if_only_one_tab = true
@@ -39,7 +42,13 @@ config.window_background_gradient = {
 config.show_new_tab_button_in_tab_bar = false
 
 config.keys = {
-  {key="Enter", mods="SHIFT", action=wezterm.action{SendString="\x1b\r"}},
+  { key = "Enter", mods = "SHIFT", action = wezterm.action { SendString = "\x1b\r" } },
+  { key = "d", mods = "CMD", action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" } },
+  { key = "d", mods = "CMD|SHIFT", action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" } },
+  { key = "h", mods = "CMD|CTRL", action = wezterm.action.ActivatePaneDirection "Left" },
+  { key = "j", mods = "CMD|CTRL", action = wezterm.action.ActivatePaneDirection "Down" },
+  { key = "k", mods = "CMD|CTRL", action = wezterm.action.ActivatePaneDirection "Up" },
+  { key = "l", mods = "CMD|CTRL", action = wezterm.action.ActivatePaneDirection "Right" },
 }
 
 return config

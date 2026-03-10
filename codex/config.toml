@@ -1,8 +1,8 @@
 #:schema https://developers.openai.com/codex/config-schema.json
-model_reasoning_effort = "xhigh"
+model_reasoning_effort = "medium"
 personality = "pragmatic"
 forced_login_method = "chatgpt"
-model = "gpt-5.3-codex"
+model = "gpt-5.4"
 web_search = "live"
 notify = ["/Users/nasuno.ayumu/.codex/hooks/notify-terminal-notifier.sh"]
 suppress_unstable_features_warning = true
@@ -45,6 +45,15 @@ trust_level = "trusted"
 [projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/repo-redirect-for-devin"]
 trust_level = "trusted"
 
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/always-show-github-reactions"]
+trust_level = "trusted"
+
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/browser-extantion-template"]
+trust_level = "trusted"
+
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/browser-extension-template"]
+trust_level = "trusted"
+
 [tui]
-status_line = ["model-with-reasoning", "project-root", "git-branch", "context-used", "five-hour-limit", "weekly-limit", "codex-version", "used-tokens"]
+status_line = ["model-with-reasoning", "project-root", "git-branch", "context-used", "five-hour-limit", "weekly-limit", "codex-version"]
 theme = "catppuccin-mocha"
