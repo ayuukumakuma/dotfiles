@@ -69,7 +69,7 @@ can_play_custom_wav() {
 play_custom_wav() {
   local wav_path="$1"
 
-  afplay -v 0.3 "$wav_path" >/dev/null 2>&1 &
+  afplay -v 0.2 "$wav_path" >/dev/null 2>&1 &
 }
 
 find_parent_app() {
