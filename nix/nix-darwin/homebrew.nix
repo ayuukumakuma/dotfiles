@@ -10,11 +10,11 @@
       ### CLI Applications not available in nixpkgs
       "fisher"
       "mas" # Mac App Store CLI
-      "mole"
       "im-select"
       "git-delta"
       "agent-browser"
       "gemini-cli"
+      "mo"
 
       ### Ruby環境用はbrewの方が相性が良いのでこちらでインストールする
       "mysql@8.0"
@@ -24,8 +24,8 @@
     ];
     taps = [
       "nikitabobko/tap" # aerospace
-      "tw93/tap" # mole
       "daipeihust/tap" # im-select
+      "k1LoW/tap" # mo (browser markdown viewer)
     ];
     casks = [
       ### GUI Applications
