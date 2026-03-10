@@ -1,0 +1,1957 @@
+---
+title: "Color Schemes with first letter \"a\" - Wez's Terminal Emulator"
+source_url: "https://wezterm.org/colorschemes/a/index"
+fetched_at: "2026-03-09T10:00:54.486573+00:00"
+---
+
+
+
+[![logo](https://wezterm.org/favicon.svg)](../../index.html "Wez's Terminal Emulator")
+Wez's Terminal Emulator
+
+[wezterm/wezterm](https://github.com/wezterm/wezterm "Go to repository")
+
+* [WezTerm](https://wezterm.org/index.html)
+
+  WezTerm
+  + [Features](https://wezterm.org/features.html)
+  + [Scrollback](https://wezterm.org/scrollback.html)
+  + [Quick Select Mode](https://wezterm.org/quickselect.html)
+  + [Copy Mode](https://wezterm.org/copymode.html)
+  + [Hyperlinks](https://wezterm.org/hyperlinks.html)
+  + [Shell Integration](https://wezterm.org/shell-integration.html)
+  + [iTerm Image Protocol](https://wezterm.org/imgcat.html)
+  + [SSH](https://wezterm.org/ssh.html)
+  + [Serial Ports & Arduino](https://wezterm.org/serial.html)
+  + [Multiplexing](https://wezterm.org/multiplexing.html)
+* Download
+
+  Download
+  + [Download](https://wezterm.org/installation.html)
+  + [Windows](https://wezterm.org/install/windows.html)
+  + [macOS](https://wezterm.org/install/macos.html)
+  + [Linux](https://wezterm.org/install/linux.html)
+  + [FreeBSD](https://wezterm.org/install/freebsd.html)
+  + [NetBSD](https://wezterm.org/install/netbsd.html)
+  + [Build from source](https://wezterm.org/install/source.html)
+* Configuration
+
+  Configuration
+  + [Configuration](https://wezterm.org/config/files.html)
+  + [Colors & Appearance](https://wezterm.org/config/appearance.html)
+  + [Launching Programs](https://wezterm.org/config/launch.html)
+  + [Fonts](https://wezterm.org/config/fonts.html)
+  + [Font Shaping](https://wezterm.org/config/font-shaping.html)
+  + [Keyboard Concepts](https://wezterm.org/config/keyboard-concepts.html)
+  + [Key Binding](https://wezterm.org/config/keys.html)
+  + [Key Tables](https://wezterm.org/config/key-tables.html)
+  + [Default Key Assignments](https://wezterm.org/config/default-keys.html)
+  + [Keyboard Encoding](https://wezterm.org/config/key-encoding.html)
+  + [Mouse Binding](https://wezterm.org/config/mouse.html)
+  + [Plugins](https://wezterm.org/config/plugins.html)
+  + [Color Schemes](https://wezterm.org/colorschemes/index.html)
+
+    Color Schemes
+    - [3](https://wezterm.org/colorschemes/3/index.html)
+    - a
+
+      [a](https://wezterm.org/colorschemes/a/index.html)
+
+      Table of contents
+      * [Aardvark Blue](https://wezterm.org/colorschemes/a/index.html#aardvark-blue)
+      * [Abernathy](https://wezterm.org/colorschemes/a/index.html#abernathy)
+      * [Aci (Gogh)](https://wezterm.org/colorschemes/a/index.html#aci-gogh)
+      * [Aco (Gogh)](https://wezterm.org/colorschemes/a/index.html#aco-gogh)
+      * [Adventure](https://wezterm.org/colorschemes/a/index.html#adventure)
+      * [Adventure Time (Gogh)](https://wezterm.org/colorschemes/a/index.html#adventure-time-gogh)
+      * [AdventureTime](https://wezterm.org/colorschemes/a/index.html#adventuretime)
+      * [Afterglow](https://wezterm.org/colorschemes/a/index.html#afterglow)
+      * [Afterglow (Gogh)](https://wezterm.org/colorschemes/a/index.html#afterglow-gogh)
+      * [aikofog (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#aikofog-terminalsexy)
+      * [Alabaster](https://wezterm.org/colorschemes/a/index.html#alabaster)
+      * [Alien Blood (Gogh)](https://wezterm.org/colorschemes/a/index.html#alien-blood-gogh)
+      * [AlienBlood](https://wezterm.org/colorschemes/a/index.html#alienblood)
+      * [Andromeda](https://wezterm.org/colorschemes/a/index.html#andromeda)
+      * [Apathy (base16)](https://wezterm.org/colorschemes/a/index.html#apathy-base16)
+      * [Apple Classic](https://wezterm.org/colorschemes/a/index.html#apple-classic)
+      * [Apple System Colors](https://wezterm.org/colorschemes/a/index.html#apple-system-colors)
+      * [Apprentice (base16)](https://wezterm.org/colorschemes/a/index.html#apprentice-base16)
+      * [Apprentice (Gogh)](https://wezterm.org/colorschemes/a/index.html#apprentice-gogh)
+      * [arcoiris](https://wezterm.org/colorschemes/a/index.html#arcoiris)
+      * [Argonaut](https://wezterm.org/colorschemes/a/index.html#argonaut)
+      * [Argonaut (Gogh)](https://wezterm.org/colorschemes/a/index.html#argonaut-gogh)
+      * [Arthur](https://wezterm.org/colorschemes/a/index.html#arthur)
+      * [Arthur (Gogh)](https://wezterm.org/colorschemes/a/index.html#arthur-gogh)
+      * [Ashes (base16)](https://wezterm.org/colorschemes/a/index.html#ashes-base16)
+      * [Ashes (dark) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#ashes-dark-terminalsexy)
+      * [Ashes (light) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#ashes-light-terminalsexy)
+      * [Astrodark (Gogh)](https://wezterm.org/colorschemes/a/index.html#astrodark-gogh)
+      * [astromouse (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#astromouse-terminalsexy)
+      * [Atelier Cave (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-cave-base16)
+      * [Atelier Cave Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-cave-light-base16)
+      * [Atelier Dune (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-dune-base16)
+      * [Atelier Dune Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-dune-light-base16)
+      * [Atelier Estuary (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-estuary-base16)
+      * [Atelier Estuary Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-estuary-light-base16)
+      * [Atelier Forest (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-forest-base16)
+      * [Atelier Forest Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-forest-light-base16)
+      * [Atelier Heath (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-heath-base16)
+      * [Atelier Heath Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-heath-light-base16)
+      * [Atelier Lakeside (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-lakeside-base16)
+      * [Atelier Lakeside Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-lakeside-light-base16)
+      * [Atelier Plateau (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-plateau-base16)
+      * [Atelier Plateau Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-plateau-light-base16)
+      * [Atelier Savanna (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-savanna-base16)
+      * [Atelier Savanna Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-savanna-light-base16)
+      * [Atelier Seaside (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-seaside-base16)
+      * [Atelier Seaside Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-seaside-light-base16)
+      * [Atelier Sulphurpool (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-sulphurpool-base16)
+      * [Atelier Sulphurpool Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-sulphurpool-light-base16)
+      * [Atelierdune (dark) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierdune-dark-terminalsexy)
+      * [Atelierdune (light) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierdune-light-terminalsexy)
+      * [Atelierforest (dark) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierforest-dark-terminalsexy)
+      * [Atelierforest (light) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierforest-light-terminalsexy)
+      * [Atelierheath (dark) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierheath-dark-terminalsexy)
+      * [Atelierheath (light) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierheath-light-terminalsexy)
+      * [Atelierlakeside (dark) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierlakeside-dark-terminalsexy)
+      * [Atelierlakeside (light) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierlakeside-light-terminalsexy)
+      * [Atelierseaside (dark) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierseaside-dark-terminalsexy)
+      * [Atelierseaside (light) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierseaside-light-terminalsexy)
+      * [AtelierSulphurpool](https://wezterm.org/colorschemes/a/index.html#ateliersulphurpool)
+      * [Atlas (base16)](https://wezterm.org/colorschemes/a/index.html#atlas-base16)
+      * [Atom](https://wezterm.org/colorschemes/a/index.html#atom)
+      * [Atom (Gogh)](https://wezterm.org/colorschemes/a/index.html#atom-gogh)
+      * [AtomOneLight](https://wezterm.org/colorschemes/a/index.html#atomonelight)
+      * [Aura (Gogh)](https://wezterm.org/colorschemes/a/index.html#aura-gogh)
+      * [Aurora](https://wezterm.org/colorschemes/a/index.html#aurora)
+      * [ayu](https://wezterm.org/colorschemes/a/index.html#ayu)
+      * [Ayu Dark (Gogh)](https://wezterm.org/colorschemes/a/index.html#ayu-dark-gogh)
+      * [Ayu Light (Gogh)](https://wezterm.org/colorschemes/a/index.html#ayu-light-gogh)
+      * [Ayu Mirage](https://wezterm.org/colorschemes/a/index.html#ayu-mirage)
+      * [Ayu Mirage (Gogh)](https://wezterm.org/colorschemes/a/index.html#ayu-mirage-gogh)
+      * [ayu\_light](https://wezterm.org/colorschemes/a/index.html#ayu_light)
+      * [Azu (Gogh)](https://wezterm.org/colorschemes/a/index.html#azu-gogh)
+    - [b](https://wezterm.org/colorschemes/b/index.html)
+    - [c](https://wezterm.org/colorschemes/c/index.html)
+    - [d](https://wezterm.org/colorschemes/d/index.html)
+    - [e](https://wezterm.org/colorschemes/e/index.html)
+    - [f](https://wezterm.org/colorschemes/f/index.html)
+    - [g](https://wezterm.org/colorschemes/g/index.html)
+    - [h](https://wezterm.org/colorschemes/h/index.html)
+    - [i](https://wezterm.org/colorschemes/i/index.html)
+    - [j](https://wezterm.org/colorschemes/j/index.html)
+    - [k](https://wezterm.org/colorschemes/k/index.html)
+    - [l](https://wezterm.org/colorschemes/l/index.html)
+    - [m](https://wezterm.org/colorschemes/m/index.html)
+    - [n](https://wezterm.org/colorschemes/n/index.html)
+    - [o](https://wezterm.org/colorschemes/o/index.html)
+    - [p](https://wezterm.org/colorschemes/p/index.html)
+    - [q](https://wezterm.org/colorschemes/q/index.html)
+    - [r](https://wezterm.org/colorschemes/r/index.html)
+    - [s](https://wezterm.org/colorschemes/s/index.html)
+    - [t](https://wezterm.org/colorschemes/t/index.html)
+    - [u](https://wezterm.org/colorschemes/u/index.html)
+    - [v](https://wezterm.org/colorschemes/v/index.html)
+    - [w](https://wezterm.org/colorschemes/w/index.html)
+    - [x](https://wezterm.org/colorschemes/x/index.html)
+    - [y](https://wezterm.org/colorschemes/y/index.html)
+    - [z](https://wezterm.org/colorschemes/z/index.html)
+  + [Recipes](https://wezterm.org/recipes/index.html)
+
+    Recipes
+    - [Use hyperlinks directly in the terminal](https://wezterm.org/recipes/hyperlinks.html)
+    - [Passing Data from a pane to Lua](https://wezterm.org/recipes/passing-data.html)
+    - [Workspaces / Sessions](https://wezterm.org/recipes/workspaces.html)
+* Full Config & Lua Reference
+
+  Full Config & Lua Reference
+  + [Full Config & Lua Reference](https://wezterm.org/config/lua/general.html)
+  + [Config Options](https://wezterm.org/config/lua/config/index.html)
+
+    Config Options
+    - [adjust\_window\_size\_when\_changing\_font\_size](https://wezterm.org/config/lua/config/adjust_window_size_when_changing_font_size.html)
+    - [allow\_square\_glyphs\_to\_overflow\_width](https://wezterm.org/config/lua/config/allow_square_glyphs_to_overflow_width.html)
+    - [allow\_win32\_input\_mode](https://wezterm.org/config/lua/config/allow_win32_input_mode.html)
+    - [alternate\_buffer\_wheel\_scroll\_speed](https://wezterm.org/config/lua/config/alternate_buffer_wheel_scroll_speed.html)
+    - [animation\_fps](https://wezterm.org/config/lua/config/animation_fps.html)
+    - [anti\_alias\_custom\_block\_glyphs](https://wezterm.org/config/lua/config/anti_alias_custom_block_glyphs.html)
+    - [audible\_bell](https://wezterm.org/config/lua/config/audible_bell.html)
+    - [automatically\_reload\_config](https://wezterm.org/config/lua/config/automatically_reload_config.html)
+    - [background](https://wezterm.org/config/lua/config/background.html)
+    - [bold\_brightens\_ansi\_colors](https://wezterm.org/config/lua/config/bold_brightens_ansi_colors.html)
+    - [bypass\_mouse\_reporting\_modifiers](https://wezterm.org/config/lua/config/bypass_mouse_reporting_modifiers.html)
+    - [canonicalize\_pasted\_newlines](https://wezterm.org/config/lua/config/canonicalize_pasted_newlines.html)
+    - [cell\_width](https://wezterm.org/config/lua/config/cell_width.html)
+    - [cell\_widths](https://wezterm.org/config/lua/config/cell_widths.html)
+    - [char\_select\_bg\_color](https://wezterm.org/config/lua/config/char_select_bg_color.html)
+    - [char\_select\_fg\_color](https://wezterm.org/config/lua/config/char_select_fg_color.html)
+    - [char\_select\_font](https://wezterm.org/config/lua/config/char_select_font.html)
+    - [char\_select\_font\_size](https://wezterm.org/config/lua/config/char_select_font_size.html)
+    - [check\_for\_updates](https://wezterm.org/config/lua/config/check_for_updates.html)
+    - [clean\_exit\_codes](https://wezterm.org/config/lua/config/clean_exit_codes.html)
+    - [color\_schemes](https://wezterm.org/config/lua/config/color_schemes.html)
+    - [colors](https://wezterm.org/config/lua/config/colors.html)
+    - [command\_palette\_bg\_color](https://wezterm.org/config/lua/config/command_palette_bg_color.html)
+    - [command\_palette\_fg\_color](https://wezterm.org/config/lua/config/command_palette_fg_color.html)
+    - [command\_palette\_font](https://wezterm.org/config/lua/config/command_palette_font.html)
+    - [command\_palette\_font\_size](https://wezterm.org/config/lua/config/command_palette_font_size.html)
+    - [command\_palette\_rows](https://wezterm.org/config/lua/config/command_palette_rows.html)
+    - [cursor\_blink\_ease\_in](https://wezterm.org/config/lua/config/cursor_blink_ease_in.html)
+    - [cursor\_blink\_ease\_out](https://wezterm.org/config/lua/config/cursor_blink_ease_out.html)
+    - [cursor\_blink\_rate](https://wezterm.org/config/lua/config/cursor_blink_rate.html)
+    - [cursor\_thickness](https://wezterm.org/config/lua/config/cursor_thickness.html)
+    - [custom\_block\_glyphs](https://wezterm.org/config/lua/config/custom_block_glyphs.html)
+    - [daemon\_options](https://wezterm.org/config/lua/config/daemon_options.html)
+    - [debug\_key\_events](https://wezterm.org/config/lua/config/debug_key_events.html)
+    - [default\_cursor\_style](https://wezterm.org/config/lua/config/default_cursor_style.html)
+    - [default\_cwd](https://wezterm.org/config/lua/config/default_cwd.html)
+    - [default\_domain](https://wezterm.org/config/lua/config/default_domain.html)
+    - [default\_gui\_startup\_args](https://wezterm.org/config/lua/config/default_gui_startup_args.html)
+    - [default\_mux\_server\_domain](https://wezterm.org/config/lua/config/default_mux_server_domain.html)
+    - [default\_prog](https://wezterm.org/config/lua/config/default_prog.html)
+    - [default\_ssh\_auth\_sock](https://wezterm.org/config/lua/config/default_ssh_auth_sock.html)
+    - [default\_workspace](https://wezterm.org/config/lua/config/default_workspace.html)
+    - [detect\_password\_input](https://wezterm.org/config/lua/config/detect_password_input.html)
+    - [disable\_default\_mouse\_bindings](https://wezterm.org/config/lua/config/disable_default_mouse_bindings.html)
+    - [disable\_default\_quick\_select\_patterns](https://wezterm.org/config/lua/config/disable_default_quick_select_patterns.html)
+    - [display\_pixel\_geometry](https://wezterm.org/config/lua/config/display_pixel_geometry.html)
+    - [dpi](https://wezterm.org/config/lua/config/dpi.html)
+    - [enable\_csi\_u\_key\_encoding](https://wezterm.org/config/lua/config/enable_csi_u_key_encoding.html)
+    - [enable\_kitty\_keyboard](https://wezterm.org/config/lua/config/enable_kitty_keyboard.html)
+    - [enable\_scroll\_bar](https://wezterm.org/config/lua/config/enable_scroll_bar.html)
+    - [enable\_tab\_bar](https://wezterm.org/config/lua/config/enable_tab_bar.html)
+    - [enable\_wayland](https://wezterm.org/config/lua/config/enable_wayland.html)
+    - [exit\_behavior](https://wezterm.org/config/lua/config/exit_behavior.html)
+    - [exit\_behavior\_messaging](https://wezterm.org/config/lua/config/exit_behavior_messaging.html)
+    - [font](https://wezterm.org/config/lua/config/font.html)
+    - [font\_antialias](https://wezterm.org/config/lua/config/font_antialias.html)
+    - [font\_dirs](https://wezterm.org/config/lua/config/font_dirs.html)
+    - [font\_hinting](https://wezterm.org/config/lua/config/font_hinting.html)
+    - [font\_locator](https://wezterm.org/config/lua/config/font_locator.html)
+    - [font\_rasterizer](https://wezterm.org/config/lua/config/font_rasterizer.html)
+    - [font\_rules](https://wezterm.org/config/lua/config/font_rules.html)
+    - [font\_shaper](https://wezterm.org/config/lua/config/font_shaper.html)
+    - [font\_size](https://wezterm.org/config/lua/config/font_size.html)
+    - [force\_reverse\_video\_cursor](https://wezterm.org/config/lua/config/force_reverse_video_cursor.html)
+    - [foreground\_text\_hsb](https://wezterm.org/config/lua/config/foreground_text_hsb.html)
+    - [freetype\_interpreter\_version](https://wezterm.org/config/lua/config/freetype_interpreter_version.html)
+    - [freetype\_load\_flags](https://wezterm.org/config/lua/config/freetype_load_flags.html)
+    - [freetype\_load\_target](https://wezterm.org/config/lua/config/freetype_load_target.html)
+    - [freetype\_pcf\_long\_family\_names](https://wezterm.org/config/lua/config/freetype_pcf_long_family_names.html)
+    - [freetype\_render\_target](https://wezterm.org/config/lua/config/freetype_render_target.html)
+    - [front\_end](https://wezterm.org/config/lua/config/front_end.html)
+    - [harfbuzz\_features](https://wezterm.org/config/lua/config/harfbuzz_features.html)
+    - [hide\_mouse\_cursor\_when\_typing](https://wezterm.org/config/lua/config/hide_mouse_cursor_when_typing.html)
+    - [hide\_tab\_bar\_if\_only\_one\_tab](https://wezterm.org/config/lua/config/hide_tab_bar_if_only_one_tab.html)
+    - [hyperlink\_rules](https://wezterm.org/config/lua/config/hyperlink_rules.html)
+    - [ime\_preedit\_rendering](https://wezterm.org/config/lua/config/ime_preedit_rendering.html)
+    - [initial\_cols](https://wezterm.org/config/lua/config/initial_cols.html)
+    - [initial\_rows](https://wezterm.org/config/lua/config/initial_rows.html)
+    - [integrated\_title\_button\_alignment](https://wezterm.org/config/lua/config/integrated_title_button_alignment.html)
+    - [integrated\_title\_button\_color](https://wezterm.org/config/lua/config/integrated_title_button_color.html)
+    - [integrated\_title\_button\_style](https://wezterm.org/config/lua/config/integrated_title_button_style.html)
+    - [integrated\_title\_buttons](https://wezterm.org/config/lua/config/integrated_title_buttons.html)
+    - [kde\_window\_background\_blur](https://wezterm.org/config/lua/config/kde_window_background_blur.html)
+    - [key\_map\_preference](https://wezterm.org/config/lua/config/key_map_preference.html)
+    - [key\_tables](https://wezterm.org/config/lua/config/key_tables.html)
+    - [launch\_menu](https://wezterm.org/config/lua/config/launch_menu.html)
+    - [launcher\_alphabet](https://wezterm.org/config/lua/config/launcher_alphabet.html)
+    - [line\_height](https://wezterm.org/config/lua/config/line_height.html)
+    - [log\_unknown\_escape\_sequences](https://wezterm.org/config/lua/config/log_unknown_escape_sequences.html)
+    - [macos\_forward\_to\_ime\_modifier\_mask](https://wezterm.org/config/lua/config/macos_forward_to_ime_modifier_mask.html)
+    - [macos\_fullscreen\_extend\_behind\_notch](https://wezterm.org/config/lua/config/macos_fullscreen_extend_behind_notch.html)
+    - [macos\_window\_background\_blur](https://wezterm.org/config/lua/config/macos_window_background_blur.html)
+    - [max\_fps](https://wezterm.org/config/lua/config/max_fps.html)
+    - [min\_scroll\_bar\_height](https://wezterm.org/config/lua/config/min_scroll_bar_height.html)
+    - [mouse\_wheel\_scrolls\_tabs](https://wezterm.org/config/lua/config/mouse_wheel_scrolls_tabs.html)
+    - [mux\_enable\_ssh\_agent](https://wezterm.org/config/lua/config/mux_enable_ssh_agent.html)
+    - [mux\_env\_remove](https://wezterm.org/config/lua/config/mux_env_remove.html)
+    - [native\_macos\_fullscreen\_mode](https://wezterm.org/config/lua/config/native_macos_fullscreen_mode.html)
+    - [normalize\_output\_to\_unicode\_nfc](https://wezterm.org/config/lua/config/normalize_output_to_unicode_nfc.html)
+    - [notification\_handling](https://wezterm.org/config/lua/config/notification_handling.html)
+    - [pane\_focus\_follows\_mouse](https://wezterm.org/config/lua/config/pane_focus_follows_mouse.html)
+    - [pane\_select\_font](https://wezterm.org/config/lua/config/pane_select_font.html)
+    - [prefer\_egl](https://wezterm.org/config/lua/config/prefer_egl.html)
+    - [prefer\_to\_spawn\_tabs](https://wezterm.org/config/lua/config/prefer_to_spawn_tabs.html)
+    - [quick\_select\_alphabet](https://wezterm.org/config/lua/config/quick_select_alphabet.html)
+    - [quick\_select\_patterns](https://wezterm.org/config/lua/config/quick_select_patterns.html)
+    - [quick\_select\_remove\_styling](https://wezterm.org/config/lua/config/quick_select_remove_styling.html)
+    - [quit\_when\_all\_windows\_are\_closed](https://wezterm.org/config/lua/config/quit_when_all_windows_are_closed.html)
+    - [quote\_dropped\_files](https://wezterm.org/config/lua/config/quote_dropped_files.html)
+    - [reverse\_video\_cursor\_min\_contrast](https://wezterm.org/config/lua/config/reverse_video_cursor_min_contrast.html)
+    - [scroll\_to\_bottom\_on\_input](https://wezterm.org/config/lua/config/scroll_to_bottom_on_input.html)
+    - [scrollback\_lines](https://wezterm.org/config/lua/config/scrollback_lines.html)
+    - [selection\_word\_boundary](https://wezterm.org/config/lua/config/selection_word_boundary.html)
+    - [serial\_ports](https://wezterm.org/config/lua/config/serial_ports.html)
+    - [set\_environment\_variables](https://wezterm.org/config/lua/config/set_environment_variables.html)
+    - [show\_close\_tab\_button\_in\_tabs](https://wezterm.org/config/lua/config/show_close_tab_button_in_tabs.html)
+    - [show\_new\_tab\_button\_in\_tab\_bar](https://wezterm.org/config/lua/config/show_new_tab_button_in_tab_bar.html)
+    - [show\_tab\_index\_in\_tab\_bar](https://wezterm.org/config/lua/config/show_tab_index_in_tab_bar.html)
+    - [show\_tabs\_in\_tab\_bar](https://wezterm.org/config/lua/config/show_tabs_in_tab_bar.html)
+    - [show\_update\_window](https://wezterm.org/config/lua/config/show_update_window.html)
+    - [skip\_close\_confirmation\_for\_processes\_named](https://wezterm.org/config/lua/config/skip_close_confirmation_for_processes_named.html)
+    - [ssh\_backend](https://wezterm.org/config/lua/config/ssh_backend.html)
+    - [ssh\_domains](https://wezterm.org/config/lua/config/ssh_domains.html)
+    - [status\_update\_interval](https://wezterm.org/config/lua/config/status_update_interval.html)
+    - [strikethrough\_position](https://wezterm.org/config/lua/config/strikethrough_position.html)
+    - [swallow\_mouse\_click\_on\_pane\_focus](https://wezterm.org/config/lua/config/swallow_mouse_click_on_pane_focus.html)
+    - [swallow\_mouse\_click\_on\_window\_focus](https://wezterm.org/config/lua/config/swallow_mouse_click_on_window_focus.html)
+    - [swap\_backspace\_and\_delete](https://wezterm.org/config/lua/config/swap_backspace_and_delete.html)
+    - [switch\_to\_last\_active\_tab\_when\_closing\_tab](https://wezterm.org/config/lua/config/switch_to_last_active_tab_when_closing_tab.html)
+    - [tab\_and\_split\_indices\_are\_zero\_based](https://wezterm.org/config/lua/config/tab_and_split_indices_are_zero_based.html)
+    - [tab\_bar\_at\_bottom](https://wezterm.org/config/lua/config/tab_bar_at_bottom.html)
+    - [tab\_bar\_style](https://wezterm.org/config/lua/config/tab_bar_style.html)
+    - [tab\_max\_width](https://wezterm.org/config/lua/config/tab_max_width.html)
+    - [term](https://wezterm.org/config/lua/config/term.html)
+    - [text\_blink\_ease\_in](https://wezterm.org/config/lua/config/text_blink_ease_in.html)
+    - [text\_blink\_ease\_out](https://wezterm.org/config/lua/config/text_blink_ease_out.html)
+    - [text\_blink\_rapid\_ease\_in](https://wezterm.org/config/lua/config/text_blink_rapid_ease_in.html)
+    - [text\_blink\_rapid\_ease\_out](https://wezterm.org/config/lua/config/text_blink_rapid_ease_out.html)
+    - [text\_blink\_rate](https://wezterm.org/config/lua/config/text_blink_rate.html)
+    - [text\_blink\_rate\_rapid](https://wezterm.org/config/lua/config/text_blink_rate_rapid.html)
+    - [text\_min\_contrast\_ratio](https://wezterm.org/config/lua/config/text_min_contrast_ratio.html)
+    - [tiling\_desktop\_environments](https://wezterm.org/config/lua/config/tiling_desktop_environments.html)
+    - [tls\_clients](https://wezterm.org/config/lua/config/tls_clients.html)
+    - [tls\_servers](https://wezterm.org/config/lua/config/tls_servers.html)
+    - [treat\_east\_asian\_ambiguous\_width\_as\_wide](https://wezterm.org/config/lua/config/treat_east_asian_ambiguous_width_as_wide.html)
+    - [treat\_left\_ctrlalt\_as\_altgr](https://wezterm.org/config/lua/config/treat_left_ctrlalt_as_altgr.html)
+    - [ui\_key\_cap\_rendering](https://wezterm.org/config/lua/config/ui_key_cap_rendering.html)
+    - [ulimit\_nofile](https://wezterm.org/config/lua/config/ulimit_nofile.html)
+    - [ulimit\_nproc](https://wezterm.org/config/lua/config/ulimit_nproc.html)
+    - [underline\_position](https://wezterm.org/config/lua/config/underline_position.html)
+    - [underline\_thickness](https://wezterm.org/config/lua/config/underline_thickness.html)
+    - [unicode\_version](https://wezterm.org/config/lua/config/unicode_version.html)
+    - [unix\_domains](https://wezterm.org/config/lua/config/unix_domains.html)
+    - [unzoom\_on\_switch\_pane](https://wezterm.org/config/lua/config/unzoom_on_switch_pane.html)
+    - [use\_cap\_height\_to\_scale\_fallback\_fonts](https://wezterm.org/config/lua/config/use_cap_height_to_scale_fallback_fonts.html)
+    - [use\_fancy\_tab\_bar](https://wezterm.org/config/lua/config/use_fancy_tab_bar.html)
+    - [use\_ime](https://wezterm.org/config/lua/config/use_ime.html)
+    - [use\_resize\_increments](https://wezterm.org/config/lua/config/use_resize_increments.html)
+    - [visual\_bell](https://wezterm.org/config/lua/config/visual_bell.html)
+    - [warn\_about\_missing\_glyphs](https://wezterm.org/config/lua/config/warn_about_missing_glyphs.html)
+    - [webgpu\_force\_fallback\_adapter](https://wezterm.org/config/lua/config/webgpu_force_fallback_adapter.html)
+    - [webgpu\_power\_preference](https://wezterm.org/config/lua/config/webgpu_power_preference.html)
+    - [webgpu\_preferred\_adapter](https://wezterm.org/config/lua/config/webgpu_preferred_adapter.html)
+    - [win32\_acrylic\_accent\_color](https://wezterm.org/config/lua/config/win32_acrylic_accent_color.html)
+    - [win32\_system\_backdrop](https://wezterm.org/config/lua/config/win32_system_backdrop.html)
+    - [window\_background\_gradient](https://wezterm.org/config/lua/config/window_background_gradient.html)
+    - [window\_close\_confirmation](https://wezterm.org/config/lua/config/window_close_confirmation.html)
+    - [window\_content\_alignment](https://wezterm.org/config/lua/config/window_content_alignment.html)
+    - [window\_decorations](https://wezterm.org/config/lua/config/window_decorations.html)
+    - [window\_frame](https://wezterm.org/config/lua/config/window_frame.html)
+    - [window\_padding](https://wezterm.org/config/lua/config/window_padding.html)
+    - [wsl\_domains](https://wezterm.org/config/lua/config/wsl_domains.html)
+    - [xim\_im\_name](https://wezterm.org/config/lua/config/xim_im_name.html)
+  + [module: wezterm](https://wezterm.org/config/lua/wezterm/index.html)
+
+    module: wezterm
+    - [GLOBAL](https://wezterm.org/config/lua/wezterm/GLOBAL.html)
+    - [action](https://wezterm.org/config/lua/wezterm/action.html)
+    - [action\_callback](https://wezterm.org/config/lua/wezterm/action_callback.html)
+    - [add\_to\_config\_reload\_watch\_list](https://wezterm.org/config/lua/wezterm/add_to_config_reload_watch_list.html)
+    - [background\_child\_process](https://wezterm.org/config/lua/wezterm/background_child_process.html)
+    - [battery\_info](https://wezterm.org/config/lua/wezterm/battery_info.html)
+    - [column\_width](https://wezterm.org/config/lua/wezterm/column_width.html)
+    - [config\_builder](https://wezterm.org/config/lua/wezterm/config_builder.html)
+    - [config\_dir](https://wezterm.org/config/lua/wezterm/config_dir.html)
+    - [config\_file](https://wezterm.org/config/lua/wezterm/config_file.html)
+    - [default\_hyperlink\_rules](https://wezterm.org/config/lua/wezterm/default_hyperlink_rules.html)
+    - [default\_ssh\_domains](https://wezterm.org/config/lua/wezterm/default_ssh_domains.html)
+    - [default\_wsl\_domains](https://wezterm.org/config/lua/wezterm/default_wsl_domains.html)
+    - [emit](https://wezterm.org/config/lua/wezterm/emit.html)
+    - [enumerate\_ssh\_hosts](https://wezterm.org/config/lua/wezterm/enumerate_ssh_hosts.html)
+    - [executable\_dir](https://wezterm.org/config/lua/wezterm/executable_dir.html)
+    - [font](https://wezterm.org/config/lua/wezterm/font.html)
+    - [font\_with\_fallback](https://wezterm.org/config/lua/wezterm/font_with_fallback.html)
+    - [format](https://wezterm.org/config/lua/wezterm/format.html)
+    - [get\_builtin\_color\_schemes](https://wezterm.org/config/lua/wezterm/get_builtin_color_schemes.html)
+    - [glob](https://wezterm.org/config/lua/wezterm/glob.html)
+    - [gradient\_colors](https://wezterm.org/config/lua/wezterm/gradient_colors.html)
+    - [has\_action](https://wezterm.org/config/lua/wezterm/has_action.html)
+    - [home\_dir](https://wezterm.org/config/lua/wezterm/home_dir.html)
+    - [hostname](https://wezterm.org/config/lua/wezterm/hostname.html)
+    - [json\_encode](https://wezterm.org/config/lua/wezterm/json_encode.html)
+    - [json\_parse](https://wezterm.org/config/lua/wezterm/json_parse.html)
+    - [log\_error](https://wezterm.org/config/lua/wezterm/log_error.html)
+    - [log\_info](https://wezterm.org/config/lua/wezterm/log_info.html)
+    - [log\_warn](https://wezterm.org/config/lua/wezterm/log_warn.html)
+    - [nerdfonts](https://wezterm.org/config/lua/wezterm/nerdfonts.html)
+    - [on](https://wezterm.org/config/lua/wezterm/on.html)
+    - [open\_with](https://wezterm.org/config/lua/wezterm/open_with.html)
+    - [pad\_left](https://wezterm.org/config/lua/wezterm/pad_left.html)
+    - [pad\_right](https://wezterm.org/config/lua/wezterm/pad_right.html)
+    - [permute\_any\_mods](https://wezterm.org/config/lua/wezterm/permute_any_mods.html)
+    - [permute\_any\_or\_no\_mods](https://wezterm.org/config/lua/wezterm/permute_any_or_no_mods.html)
+    - [read\_dir](https://wezterm.org/config/lua/wezterm/read_dir.html)
+    - [reload\_configuration](https://wezterm.org/config/lua/wezterm/reload_configuration.html)
+    - [run\_child\_process](https://wezterm.org/config/lua/wezterm/run_child_process.html)
+    - [running\_under\_wsl](https://wezterm.org/config/lua/wezterm/running_under_wsl.html)
+    - [shell\_join\_args](https://wezterm.org/config/lua/wezterm/shell_join_args.html)
+    - [shell\_quote\_arg](https://wezterm.org/config/lua/wezterm/shell_quote_arg.html)
+    - [shell\_split](https://wezterm.org/config/lua/wezterm/shell_split.html)
+    - [sleep\_ms](https://wezterm.org/config/lua/wezterm/sleep_ms.html)
+    - [split\_by\_newlines](https://wezterm.org/config/lua/wezterm/split_by_newlines.html)
+    - [strftime](https://wezterm.org/config/lua/wezterm/strftime.html)
+    - [strftime\_utc](https://wezterm.org/config/lua/wezterm/strftime_utc.html)
+    - [target\_triple](https://wezterm.org/config/lua/wezterm/target_triple.html)
+    - [to\_string](https://wezterm.org/config/lua/wezterm/to_string.html)
+    - [truncate\_left](https://wezterm.org/config/lua/wezterm/truncate_left.html)
+    - [truncate\_right](https://wezterm.org/config/lua/wezterm/truncate_right.html)
+    - [utf16\_to\_utf8](https://wezterm.org/config/lua/wezterm/utf16_to_utf8.html)
+    - [version](https://wezterm.org/config/lua/wezterm/version.html)
+  + [module: wezterm.color](https://wezterm.org/config/lua/wezterm.color/index.html)
+
+    module: wezterm.color
+    - [extract\_colors\_from\_image](https://wezterm.org/config/lua/wezterm.color/extract_colors_from_image.html)
+    - [from\_hsla](https://wezterm.org/config/lua/wezterm.color/from_hsla.html)
+    - [get\_builtin\_schemes](https://wezterm.org/config/lua/wezterm.color/get_builtin_schemes.html)
+    - [get\_default\_colors](https://wezterm.org/config/lua/wezterm.color/get_default_colors.html)
+    - [gradient](https://wezterm.org/config/lua/wezterm.color/gradient.html)
+    - [load\_base16\_scheme](https://wezterm.org/config/lua/wezterm.color/load_base16_scheme.html)
+    - [load\_scheme](https://wezterm.org/config/lua/wezterm.color/load_scheme.html)
+    - [load\_terminal\_sexy\_scheme](https://wezterm.org/config/lua/wezterm.color/load_terminal_sexy_scheme.html)
+    - [parse](https://wezterm.org/config/lua/wezterm.color/parse.html)
+    - [save\_scheme](https://wezterm.org/config/lua/wezterm.color/save_scheme.html)
+  + [module: wezterm.gui](https://wezterm.org/config/lua/wezterm.gui/index.html)
+
+    module: wezterm.gui
+    - [default\_key\_tables](https://wezterm.org/config/lua/wezterm.gui/default_key_tables.html)
+    - [default\_keys](https://wezterm.org/config/lua/wezterm.gui/default_keys.html)
+    - [enumerate\_gpus](https://wezterm.org/config/lua/wezterm.gui/enumerate_gpus.html)
+    - [get\_appearance](https://wezterm.org/config/lua/wezterm.gui/get_appearance.html)
+    - [gui\_window\_for\_mux\_window](https://wezterm.org/config/lua/wezterm.gui/gui_window_for_mux_window.html)
+    - [gui\_windows](https://wezterm.org/config/lua/wezterm.gui/gui_windows.html)
+    - [screens](https://wezterm.org/config/lua/wezterm.gui/screens.html)
+  + [module: wezterm.mux](https://wezterm.org/config/lua/wezterm.mux/index.html)
+
+    module: wezterm.mux
+    - [all\_domains](https://wezterm.org/config/lua/wezterm.mux/all_domains.html)
+    - [all\_windows](https://wezterm.org/config/lua/wezterm.mux/all_windows.html)
+    - [get\_active\_workspace](https://wezterm.org/config/lua/wezterm.mux/get_active_workspace.html)
+    - [get\_domain](https://wezterm.org/config/lua/wezterm.mux/get_domain.html)
+    - [get\_pane](https://wezterm.org/config/lua/wezterm.mux/get_pane.html)
+    - [get\_tab](https://wezterm.org/config/lua/wezterm.mux/get_tab.html)
+    - [get\_window](https://wezterm.org/config/lua/wezterm.mux/get_window.html)
+    - [get\_workspace\_names](https://wezterm.org/config/lua/wezterm.mux/get_workspace_names.html)
+    - [rename\_workspace](https://wezterm.org/config/lua/wezterm.mux/rename_workspace.html)
+    - [set\_active\_workspace](https://wezterm.org/config/lua/wezterm.mux/set_active_workspace.html)
+    - [set\_default\_domain](https://wezterm.org/config/lua/wezterm.mux/set_default_domain.html)
+    - [spawn\_window](https://wezterm.org/config/lua/wezterm.mux/spawn_window.html)
+  + [module: wezterm.plugin](https://wezterm.org/config/lua/wezterm.plugin/index.html)
+
+    module: wezterm.plugin
+    - [list](https://wezterm.org/config/lua/wezterm.plugin/list.html)
+    - [require](https://wezterm.org/config/lua/wezterm.plugin/require.html)
+    - [update\_all](https://wezterm.org/config/lua/wezterm.plugin/update_all.html)
+  + [module: wezterm.procinfo](https://wezterm.org/config/lua/wezterm.procinfo/index.html)
+
+    module: wezterm.procinfo
+    - [current\_working\_dir\_for\_pid](https://wezterm.org/config/lua/wezterm.procinfo/current_working_dir_for_pid.html)
+    - [executable\_path\_for\_pid](https://wezterm.org/config/lua/wezterm.procinfo/executable_path_for_pid.html)
+    - [get\_info\_for\_pid](https://wezterm.org/config/lua/wezterm.procinfo/get_info_for_pid.html)
+    - [pid](https://wezterm.org/config/lua/wezterm.procinfo/pid.html)
+  + [module: wezterm.serde](https://wezterm.org/config/lua/wezterm.serde/index.html)
+
+    module: wezterm.serde
+    - [json\_decode](https://wezterm.org/config/lua/wezterm.serde/json_decode.html)
+    - [json\_encode](https://wezterm.org/config/lua/wezterm.serde/json_encode.html)
+    - [json\_encode\_pretty](https://wezterm.org/config/lua/wezterm.serde/json_encode_pretty.html)
+    - [toml\_decode](https://wezterm.org/config/lua/wezterm.serde/toml_decode.html)
+    - [toml\_encode](https://wezterm.org/config/lua/wezterm.serde/toml_encode.html)
+    - [toml\_encode\_pretty](https://wezterm.org/config/lua/wezterm.serde/toml_encode_pretty.html)
+    - [yaml\_decode](https://wezterm.org/config/lua/wezterm.serde/yaml_decode.html)
+    - [yaml\_encode](https://wezterm.org/config/lua/wezterm.serde/yaml_encode.html)
+  + [module: wezterm.time](https://wezterm.org/config/lua/wezterm.time/index.html)
+
+    module: wezterm.time
+    - [call\_after](https://wezterm.org/config/lua/wezterm.time/call_after.html)
+    - [now](https://wezterm.org/config/lua/wezterm.time/now.html)
+    - [parse](https://wezterm.org/config/lua/wezterm.time/parse.html)
+    - [parse\_rfc3339](https://wezterm.org/config/lua/wezterm.time/parse_rfc3339.html)
+  + [module: wezterm.url](https://wezterm.org/config/lua/wezterm.url/index.html)
+
+    module: wezterm.url
+    - [Url](https://wezterm.org/config/lua/wezterm.url/Url.html)
+    - [parse](https://wezterm.org/config/lua/wezterm.url/parse.html)
+  + [enum: KeyAssignment](https://wezterm.org/config/lua/keyassignment/index.html)
+
+    enum: KeyAssignment
+    - [ActivateCommandPalette](https://wezterm.org/config/lua/keyassignment/ActivateCommandPalette.html)
+    - [ActivateCopyMode](https://wezterm.org/config/lua/keyassignment/ActivateCopyMode.html)
+    - [ActivateKeyTable](https://wezterm.org/config/lua/keyassignment/ActivateKeyTable.html)
+    - [ActivateLastTab](https://wezterm.org/config/lua/keyassignment/ActivateLastTab.html)
+    - [ActivatePaneByIndex](https://wezterm.org/config/lua/keyassignment/ActivatePaneByIndex.html)
+    - [ActivatePaneDirection](https://wezterm.org/config/lua/keyassignment/ActivatePaneDirection.html)
+    - [ActivateTab](https://wezterm.org/config/lua/keyassignment/ActivateTab.html)
+    - [ActivateTabRelative](https://wezterm.org/config/lua/keyassignment/ActivateTabRelative.html)
+    - [ActivateTabRelativeNoWrap](https://wezterm.org/config/lua/keyassignment/ActivateTabRelativeNoWrap.html)
+    - [ActivateWindow](https://wezterm.org/config/lua/keyassignment/ActivateWindow.html)
+    - [ActivateWindowRelative](https://wezterm.org/config/lua/keyassignment/ActivateWindowRelative.html)
+    - [ActivateWindowRelativeNoWrap](https://wezterm.org/config/lua/keyassignment/ActivateWindowRelativeNoWrap.html)
+    - [AdjustPaneSize](https://wezterm.org/config/lua/keyassignment/AdjustPaneSize.html)
+    - [AttachDomain](https://wezterm.org/config/lua/keyassignment/AttachDomain.html)
+    - [CharSelect](https://wezterm.org/config/lua/keyassignment/CharSelect.html)
+    - [ClearKeyTableStack](https://wezterm.org/config/lua/keyassignment/ClearKeyTableStack.html)
+    - [ClearScrollback](https://wezterm.org/config/lua/keyassignment/ClearScrollback.html)
+    - [ClearSelection](https://wezterm.org/config/lua/keyassignment/ClearSelection.html)
+    - [CloseCurrentPane](https://wezterm.org/config/lua/keyassignment/CloseCurrentPane.html)
+    - [CloseCurrentTab](https://wezterm.org/config/lua/keyassignment/CloseCurrentTab.html)
+    - [CompleteSelection](https://wezterm.org/config/lua/keyassignment/CompleteSelection.html)
+    - [CompleteSelectionOrOpenLinkAtMouseCursor](https://wezterm.org/config/lua/keyassignment/CompleteSelectionOrOpenLinkAtMouseCursor.html)
+    - [Confirmation](https://wezterm.org/config/lua/keyassignment/Confirmation.html)
+    - [Copy](https://wezterm.org/config/lua/keyassignment/Copy.html)
+    - [CopyTo](https://wezterm.org/config/lua/keyassignment/CopyTo.html)
+    - [DecreaseFontSize](https://wezterm.org/config/lua/keyassignment/DecreaseFontSize.html)
+    - [DetachDomain](https://wezterm.org/config/lua/keyassignment/DetachDomain.html)
+    - [DisableDefaultAssignment](https://wezterm.org/config/lua/keyassignment/DisableDefaultAssignment.html)
+    - [EmitEvent](https://wezterm.org/config/lua/keyassignment/EmitEvent.html)
+    - [ExtendSelectionToMouseCursor](https://wezterm.org/config/lua/keyassignment/ExtendSelectionToMouseCursor.html)
+    - [Hide](https://wezterm.org/config/lua/keyassignment/Hide.html)
+    - [HideApplication](https://wezterm.org/config/lua/keyassignment/HideApplication.html)
+    - [IncreaseFontSize](https://wezterm.org/config/lua/keyassignment/IncreaseFontSize.html)
+    - [InputSelector](https://wezterm.org/config/lua/keyassignment/InputSelector.html)
+    - [MoveTab](https://wezterm.org/config/lua/keyassignment/MoveTab.html)
+    - [MoveTabRelative](https://wezterm.org/config/lua/keyassignment/MoveTabRelative.html)
+    - [Multiple](https://wezterm.org/config/lua/keyassignment/Multiple.html)
+    - [Nop](https://wezterm.org/config/lua/keyassignment/Nop.html)
+    - [OpenLinkAtMouseCursor](https://wezterm.org/config/lua/keyassignment/OpenLinkAtMouseCursor.html)
+    - [PaneSelect](https://wezterm.org/config/lua/keyassignment/PaneSelect.html)
+    - [Paste](https://wezterm.org/config/lua/keyassignment/Paste.html)
+    - [PasteFrom](https://wezterm.org/config/lua/keyassignment/PasteFrom.html)
+    - [PastePrimarySelection](https://wezterm.org/config/lua/keyassignment/PastePrimarySelection.html)
+    - [PopKeyTable](https://wezterm.org/config/lua/keyassignment/PopKeyTable.html)
+    - [PromptInputLine](https://wezterm.org/config/lua/keyassignment/PromptInputLine.html)
+    - [QuickSelect](https://wezterm.org/config/lua/keyassignment/QuickSelect.html)
+    - [QuickSelectArgs](https://wezterm.org/config/lua/keyassignment/QuickSelectArgs.html)
+    - [QuitApplication](https://wezterm.org/config/lua/keyassignment/QuitApplication.html)
+    - [ReloadConfiguration](https://wezterm.org/config/lua/keyassignment/ReloadConfiguration.html)
+    - [ResetFontAndWindowSize](https://wezterm.org/config/lua/keyassignment/ResetFontAndWindowSize.html)
+    - [ResetFontSize](https://wezterm.org/config/lua/keyassignment/ResetFontSize.html)
+    - [ResetTerminal](https://wezterm.org/config/lua/keyassignment/ResetTerminal.html)
+    - [RotatePanes](https://wezterm.org/config/lua/keyassignment/RotatePanes.html)
+    - [ScrollByCurrentEventWheelDelta](https://wezterm.org/config/lua/keyassignment/ScrollByCurrentEventWheelDelta.html)
+    - [ScrollByLine](https://wezterm.org/config/lua/keyassignment/ScrollByLine.html)
+    - [ScrollByPage](https://wezterm.org/config/lua/keyassignment/ScrollByPage.html)
+    - [ScrollToBottom](https://wezterm.org/config/lua/keyassignment/ScrollToBottom.html)
+    - [ScrollToPrompt](https://wezterm.org/config/lua/keyassignment/ScrollToPrompt.html)
+    - [ScrollToTop](https://wezterm.org/config/lua/keyassignment/ScrollToTop.html)
+    - [Search](https://wezterm.org/config/lua/keyassignment/Search.html)
+    - [SelectTextAtMouseCursor](https://wezterm.org/config/lua/keyassignment/SelectTextAtMouseCursor.html)
+    - [SendKey](https://wezterm.org/config/lua/keyassignment/SendKey.html)
+    - [SendString](https://wezterm.org/config/lua/keyassignment/SendString.html)
+    - [SetPaneZoomState](https://wezterm.org/config/lua/keyassignment/SetPaneZoomState.html)
+    - [SetWindowLevel](https://wezterm.org/config/lua/keyassignment/SetWindowLevel.html)
+    - [Show](https://wezterm.org/config/lua/keyassignment/Show.html)
+    - [ShowDebugOverlay](https://wezterm.org/config/lua/keyassignment/ShowDebugOverlay.html)
+    - [ShowLauncher](https://wezterm.org/config/lua/keyassignment/ShowLauncher.html)
+    - [ShowLauncherArgs](https://wezterm.org/config/lua/keyassignment/ShowLauncherArgs.html)
+    - [ShowTabNavigator](https://wezterm.org/config/lua/keyassignment/ShowTabNavigator.html)
+    - [SpawnCommandInNewTab](https://wezterm.org/config/lua/keyassignment/SpawnCommandInNewTab.html)
+    - [SpawnCommandInNewWindow](https://wezterm.org/config/lua/keyassignment/SpawnCommandInNewWindow.html)
+    - [SpawnTab](https://wezterm.org/config/lua/keyassignment/SpawnTab.html)
+    - [SpawnWindow](https://wezterm.org/config/lua/keyassignment/SpawnWindow.html)
+    - [SplitHorizontal](https://wezterm.org/config/lua/keyassignment/SplitHorizontal.html)
+    - [SplitPane](https://wezterm.org/config/lua/keyassignment/SplitPane.html)
+    - [SplitVertical](https://wezterm.org/config/lua/keyassignment/SplitVertical.html)
+    - [StartWindowDrag](https://wezterm.org/config/lua/keyassignment/StartWindowDrag.html)
+    - [SwitchToWorkspace](https://wezterm.org/config/lua/keyassignment/SwitchToWorkspace.html)
+    - [SwitchWorkspaceRelative](https://wezterm.org/config/lua/keyassignment/SwitchWorkspaceRelative.html)
+    - [ToggleAlwaysOnBottom](https://wezterm.org/config/lua/keyassignment/ToggleAlwaysOnBottom.html)
+    - [ToggleAlwaysOnTop](https://wezterm.org/config/lua/keyassignment/ToggleAlwaysOnTop.html)
+    - [ToggleFullScreen](https://wezterm.org/config/lua/keyassignment/ToggleFullScreen.html)
+    - [TogglePaneZoomState](https://wezterm.org/config/lua/keyassignment/TogglePaneZoomState.html)
+  + [enum: CopyModeAssignment](https://wezterm.org/config/lua/keyassignment/CopyMode/index.html)
+
+    enum: CopyModeAssignment
+    - [AcceptPattern](https://wezterm.org/config/lua/keyassignment/CopyMode/AcceptPattern.html)
+    - [ClearPattern](https://wezterm.org/config/lua/keyassignment/CopyMode/ClearPattern.html)
+    - [ClearSelectionMode](https://wezterm.org/config/lua/keyassignment/CopyMode/ClearSelectionMode.html)
+    - [Close](https://wezterm.org/config/lua/keyassignment/CopyMode/Close.html)
+    - [CycleMatchType](https://wezterm.org/config/lua/keyassignment/CopyMode/CycleMatchType.html)
+    - [EditPattern](https://wezterm.org/config/lua/keyassignment/CopyMode/EditPattern.html)
+    - [MoveBackwardSemanticZone](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveBackwardSemanticZone.html)
+    - [MoveBackwardSemanticZoneOfType](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveBackwardSemanticZoneOfType.html)
+    - [MoveBackwardWord](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveBackwardWord.html)
+    - [MoveDown](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveDown.html)
+    - [MoveForwardSemanticZone](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveForwardSemanticZone.html)
+    - [MoveForwardSemanticZoneOfType](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveForwardSemanticZoneOfType.html)
+    - [MoveForwardWord](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveForwardWord.html)
+    - [MoveForwardWordEnd](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveForwardWordEnd.html)
+    - [MoveLeft](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveLeft.html)
+    - [MoveRight](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveRight.html)
+    - [MoveToEndOfLineContent](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveToEndOfLineContent.html)
+    - [MoveToScrollbackBottom](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveToScrollbackBottom.html)
+    - [MoveToScrollbackTop](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveToScrollbackTop.html)
+    - [MoveToSelectionOtherEnd](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveToSelectionOtherEnd.html)
+    - [MoveToSelectionOtherEndHoriz](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveToSelectionOtherEndHoriz.html)
+    - [MoveToStartOfLine](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveToStartOfLine.html)
+    - [MoveToStartOfLineContent](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveToStartOfLineContent.html)
+    - [MoveToStartOfNextLine](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveToStartOfNextLine.html)
+    - [MoveToViewportBottom](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveToViewportBottom.html)
+    - [MoveToViewportMiddle](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveToViewportMiddle.html)
+    - [MoveToViewportTop](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveToViewportTop.html)
+    - [MoveUp](https://wezterm.org/config/lua/keyassignment/CopyMode/MoveUp.html)
+    - [NextMatch](https://wezterm.org/config/lua/keyassignment/CopyMode/NextMatch.html)
+    - [NextMatchPage](https://wezterm.org/config/lua/keyassignment/CopyMode/NextMatchPage.html)
+    - [PriorMatch](https://wezterm.org/config/lua/keyassignment/CopyMode/PriorMatch.html)
+    - [PriorMatchPage](https://wezterm.org/config/lua/keyassignment/CopyMode/PriorMatchPage.html)
+    - [SetSelectionMode](https://wezterm.org/config/lua/keyassignment/CopyMode/SetSelectionMode.html)
+  + [object: Color](https://wezterm.org/config/lua/color/index.html)
+
+    object: Color
+    - [adjust\_hue\_fixed](https://wezterm.org/config/lua/color/adjust_hue_fixed.html)
+    - [adjust\_hue\_fixed\_ryb](https://wezterm.org/config/lua/color/adjust_hue_fixed_ryb.html)
+    - [complement](https://wezterm.org/config/lua/color/complement.html)
+    - [complement\_ryb](https://wezterm.org/config/lua/color/complement_ryb.html)
+    - [contrast\_ratio](https://wezterm.org/config/lua/color/contrast_ratio.html)
+    - [darken](https://wezterm.org/config/lua/color/darken.html)
+    - [darken\_fixed](https://wezterm.org/config/lua/color/darken_fixed.html)
+    - [delta\_e](https://wezterm.org/config/lua/color/delta_e.html)
+    - [desaturate](https://wezterm.org/config/lua/color/desaturate.html)
+    - [desaturate\_fixed](https://wezterm.org/config/lua/color/desaturate_fixed.html)
+    - [hsla](https://wezterm.org/config/lua/color/hsla.html)
+    - [laba](https://wezterm.org/config/lua/color/laba.html)
+    - [lighten](https://wezterm.org/config/lua/color/lighten.html)
+    - [lighten\_fixed](https://wezterm.org/config/lua/color/lighten_fixed.html)
+    - [linear\_rgba](https://wezterm.org/config/lua/color/linear_rgba.html)
+    - [saturate](https://wezterm.org/config/lua/color/saturate.html)
+    - [saturate\_fixed](https://wezterm.org/config/lua/color/saturate_fixed.html)
+    - [square](https://wezterm.org/config/lua/color/square.html)
+    - [srgb\_u8](https://wezterm.org/config/lua/color/srgb_u8.html)
+    - [triad](https://wezterm.org/config/lua/color/triad.html)
+  + [object: ExecDomain](https://wezterm.org/config/lua/ExecDomain.html)
+  + [object: LocalProcessInfo](https://wezterm.org/config/lua/LocalProcessInfo.html)
+  + [object: MuxDomain](https://wezterm.org/config/lua/MuxDomain/index.html)
+
+    object: MuxDomain
+    - [attach](https://wezterm.org/config/lua/MuxDomain/attach.html)
+    - [detach](https://wezterm.org/config/lua/MuxDomain/detach.html)
+    - [domain\_id](https://wezterm.org/config/lua/MuxDomain/domain_id.html)
+    - [has\_any\_panes](https://wezterm.org/config/lua/MuxDomain/has_any_panes.html)
+    - [is\_spawnable](https://wezterm.org/config/lua/MuxDomain/is_spawnable.html)
+    - [label](https://wezterm.org/config/lua/MuxDomain/label.html)
+    - [name](https://wezterm.org/config/lua/MuxDomain/name.html)
+    - [state](https://wezterm.org/config/lua/MuxDomain/state.html)
+  + [object: MuxWindow](https://wezterm.org/config/lua/mux-window/index.html)
+
+    object: MuxWindow
+    - [active\_pane](https://wezterm.org/config/lua/mux-window/active_pane.html)
+    - [active\_tab](https://wezterm.org/config/lua/mux-window/active_tab.html)
+    - [get\_title](https://wezterm.org/config/lua/mux-window/get_title.html)
+    - [get\_workspace](https://wezterm.org/config/lua/mux-window/get_workspace.html)
+    - [gui\_window](https://wezterm.org/config/lua/mux-window/gui_window.html)
+    - [set\_title](https://wezterm.org/config/lua/mux-window/set_title.html)
+    - [set\_workspace](https://wezterm.org/config/lua/mux-window/set_workspace.html)
+    - [spawn\_tab](https://wezterm.org/config/lua/mux-window/spawn_tab.html)
+    - [tabs](https://wezterm.org/config/lua/mux-window/tabs.html)
+    - [tabs\_with\_info](https://wezterm.org/config/lua/mux-window/tabs_with_info.html)
+    - [window\_id](https://wezterm.org/config/lua/mux-window/window_id.html)
+  + [object: MuxTab](https://wezterm.org/config/lua/MuxTab/index.html)
+
+    object: MuxTab
+    - [activate](https://wezterm.org/config/lua/MuxTab/activate.html)
+    - [active\_pane](https://wezterm.org/config/lua/MuxTab/active_pane.html)
+    - [get\_pane\_direction](https://wezterm.org/config/lua/MuxTab/get_pane_direction.html)
+    - [get\_size](https://wezterm.org/config/lua/MuxTab/get_size.html)
+    - [get\_title](https://wezterm.org/config/lua/MuxTab/get_title.html)
+    - [panes](https://wezterm.org/config/lua/MuxTab/panes.html)
+    - [panes\_with\_info](https://wezterm.org/config/lua/MuxTab/panes_with_info.html)
+    - [rotate\_clockwise](https://wezterm.org/config/lua/MuxTab/rotate_clockwise.html)
+    - [rotate\_counter\_clockwise](https://wezterm.org/config/lua/MuxTab/rotate_counter_clockwise.html)
+    - [set\_title](https://wezterm.org/config/lua/MuxTab/set_title.html)
+    - [set\_zoomed](https://wezterm.org/config/lua/MuxTab/set_zoomed.html)
+    - [tab\_id](https://wezterm.org/config/lua/MuxTab/tab_id.html)
+    - [window](https://wezterm.org/config/lua/MuxTab/window.html)
+  + [object: PaneInformation](https://wezterm.org/config/lua/PaneInformation.html)
+  + [object: TabInformation](https://wezterm.org/config/lua/TabInformation.html)
+  + [object: SshDomain](https://wezterm.org/config/lua/SshDomain.html)
+  + [object: SpawnCommand](https://wezterm.org/config/lua/SpawnCommand.html)
+  + [object: Time](https://wezterm.org/config/lua/wezterm.time/Time/index.html)
+
+    object: Time
+    - [format](https://wezterm.org/config/lua/wezterm.time/Time/format.html)
+    - [format\_utc](https://wezterm.org/config/lua/wezterm.time/Time/format_utc.html)
+    - [sun\_times](https://wezterm.org/config/lua/wezterm.time/Time/sun_times.html)
+  + [object: TlsDomainClient](https://wezterm.org/config/lua/TlsDomainClient.html)
+  + [object: TlsDomainServer](https://wezterm.org/config/lua/TlsDomainServer.html)
+  + [object: Pane](https://wezterm.org/config/lua/pane/index.html)
+
+    object: Pane
+    - [activate](https://wezterm.org/config/lua/pane/activate.html)
+    - [get\_current\_working\_dir](https://wezterm.org/config/lua/pane/get_current_working_dir.html)
+    - [get\_cursor\_position](https://wezterm.org/config/lua/pane/get_cursor_position.html)
+    - [get\_dimensions](https://wezterm.org/config/lua/pane/get_dimensions.html)
+    - [get\_domain\_name](https://wezterm.org/config/lua/pane/get_domain_name.html)
+    - [get\_foreground\_process\_info](https://wezterm.org/config/lua/pane/get_foreground_process_info.html)
+    - [get\_foreground\_process\_name](https://wezterm.org/config/lua/pane/get_foreground_process_name.html)
+    - [get\_lines\_as\_escapes](https://wezterm.org/config/lua/pane/get_lines_as_escapes.html)
+    - [get\_lines\_as\_text](https://wezterm.org/config/lua/pane/get_lines_as_text.html)
+    - [get\_logical\_lines\_as\_text](https://wezterm.org/config/lua/pane/get_logical_lines_as_text.html)
+    - [get\_metadata](https://wezterm.org/config/lua/pane/get_metadata.html)
+    - [get\_progress](https://wezterm.org/config/lua/pane/get_progress.html)
+    - [get\_semantic\_zone\_at](https://wezterm.org/config/lua/pane/get_semantic_zone_at.html)
+    - [get\_semantic\_zones](https://wezterm.org/config/lua/pane/get_semantic_zones.html)
+    - [get\_text\_from\_region](https://wezterm.org/config/lua/pane/get_text_from_region.html)
+    - [get\_text\_from\_semantic\_zone](https://wezterm.org/config/lua/pane/get_text_from_semantic_zone.html)
+    - [get\_title](https://wezterm.org/config/lua/pane/get_title.html)
+    - [get\_tty\_name](https://wezterm.org/config/lua/pane/get_tty_name.html)
+    - [get\_user\_vars](https://wezterm.org/config/lua/pane/get_user_vars.html)
+    - [has\_unseen\_output](https://wezterm.org/config/lua/pane/has_unseen_output.html)
+    - [inject\_output](https://wezterm.org/config/lua/pane/inject_output.html)
+    - [is\_alt\_screen\_active](https://wezterm.org/config/lua/pane/is_alt_screen_active.html)
+    - [move\_to\_new\_tab](https://wezterm.org/config/lua/pane/move_to_new_tab.html)
+    - [move\_to\_new\_window](https://wezterm.org/config/lua/pane/move_to_new_window.html)
+    - [mux\_pane](https://wezterm.org/config/lua/pane/mux_pane.html)
+    - [pane\_id](https://wezterm.org/config/lua/pane/pane_id.html)
+    - [paste](https://wezterm.org/config/lua/pane/paste.html)
+    - [send\_paste](https://wezterm.org/config/lua/pane/send_paste.html)
+    - [send\_text](https://wezterm.org/config/lua/pane/send_text.html)
+    - [split](https://wezterm.org/config/lua/pane/split.html)
+    - [tab](https://wezterm.org/config/lua/pane/tab.html)
+    - [window](https://wezterm.org/config/lua/pane/window.html)
+  + [object: Window](https://wezterm.org/config/lua/window/index.html)
+
+    object: Window
+    - [active\_key\_table](https://wezterm.org/config/lua/window/active_key_table.html)
+    - [active\_pane](https://wezterm.org/config/lua/window/active_pane.html)
+    - [active\_tab](https://wezterm.org/config/lua/window/active_tab.html)
+    - [active\_workspace](https://wezterm.org/config/lua/window/active_workspace.html)
+    - [composition\_status](https://wezterm.org/config/lua/window/composition_status.html)
+    - [copy\_to\_clipboard](https://wezterm.org/config/lua/window/copy_to_clipboard.html)
+    - [current\_event](https://wezterm.org/config/lua/window/current_event.html)
+    - [effective\_config](https://wezterm.org/config/lua/window/effective_config.html)
+    - [focus](https://wezterm.org/config/lua/window/focus.html)
+    - [get\_appearance](https://wezterm.org/config/lua/window/get_appearance.html)
+    - [get\_config\_overrides](https://wezterm.org/config/lua/window/get_config_overrides.html)
+    - [get\_dimensions](https://wezterm.org/config/lua/window/get_dimensions.html)
+    - [get\_selection\_escapes\_for\_pane](https://wezterm.org/config/lua/window/get_selection_escapes_for_pane.html)
+    - [get\_selection\_text\_for\_pane](https://wezterm.org/config/lua/window/get_selection_text_for_pane.html)
+    - [is\_focused](https://wezterm.org/config/lua/window/is_focused.html)
+    - [keyboard\_modifiers](https://wezterm.org/config/lua/window/keyboard_modifiers.html)
+    - [leader\_is\_active](https://wezterm.org/config/lua/window/leader_is_active.html)
+    - [maximize](https://wezterm.org/config/lua/window/maximize.html)
+    - [mux\_window](https://wezterm.org/config/lua/window/mux_window.html)
+    - [perform\_action](https://wezterm.org/config/lua/window/perform_action.html)
+    - [restore](https://wezterm.org/config/lua/window/restore.html)
+    - [set\_config\_overrides](https://wezterm.org/config/lua/window/set_config_overrides.html)
+    - [set\_inner\_size](https://wezterm.org/config/lua/window/set_inner_size.html)
+    - [set\_left\_status](https://wezterm.org/config/lua/window/set_left_status.html)
+    - [set\_position](https://wezterm.org/config/lua/window/set_position.html)
+    - [set\_right\_status](https://wezterm.org/config/lua/window/set_right_status.html)
+    - [toast\_notification](https://wezterm.org/config/lua/window/toast_notification.html)
+    - [toggle\_fullscreen](https://wezterm.org/config/lua/window/toggle_fullscreen.html)
+    - [window\_id](https://wezterm.org/config/lua/window/window_id.html)
+  + [object: WslDomain](https://wezterm.org/config/lua/WslDomain.html)
+  + [events: Gui](https://wezterm.org/config/lua/gui-events/index.html)
+
+    events: Gui
+    - [gui-attached](https://wezterm.org/config/lua/gui-events/gui-attached.html)
+    - [gui-startup](https://wezterm.org/config/lua/gui-events/gui-startup.html)
+  + [events: Multiplexer](https://wezterm.org/config/lua/mux-events/index.html)
+
+    events: Multiplexer
+    - [mux-is-process-stateful](https://wezterm.org/config/lua/mux-events/mux-is-process-stateful.html)
+    - [mux-startup](https://wezterm.org/config/lua/mux-events/mux-startup.html)
+  + [events: Window](https://wezterm.org/config/lua/window-events/index.html)
+
+    events: Window
+    - [augment-command-palette](https://wezterm.org/config/lua/window-events/augment-command-palette.html)
+    - [bell](https://wezterm.org/config/lua/window-events/bell.html)
+    - [format-tab-title](https://wezterm.org/config/lua/window-events/format-tab-title.html)
+    - [format-window-title](https://wezterm.org/config/lua/window-events/format-window-title.html)
+    - [new-tab-button-click](https://wezterm.org/config/lua/window-events/new-tab-button-click.html)
+    - [open-uri](https://wezterm.org/config/lua/window-events/open-uri.html)
+    - [update-right-status](https://wezterm.org/config/lua/window-events/update-right-status.html)
+    - [update-status](https://wezterm.org/config/lua/window-events/update-status.html)
+    - [user-var-changed](https://wezterm.org/config/lua/window-events/user-var-changed.html)
+    - [window-config-reloaded](https://wezterm.org/config/lua/window-events/window-config-reloaded.html)
+    - [window-focus-changed](https://wezterm.org/config/lua/window-events/window-focus-changed.html)
+    - [window-resized](https://wezterm.org/config/lua/window-events/window-resized.html)
+* CLI Reference
+
+  CLI Reference
+  + [CLI Reference](https://wezterm.org/cli/general.html)
+  + [wezterm cli](https://wezterm.org/cli/cli/index.html)
+
+    wezterm cli
+    - [activate-pane-direction](https://wezterm.org/cli/cli/activate-pane-direction.html)
+    - [activate-pane](https://wezterm.org/cli/cli/activate-pane.html)
+    - [activate-tab](https://wezterm.org/cli/cli/activate-tab.html)
+    - [adjust-pane-size](https://wezterm.org/cli/cli/adjust-pane-size.html)
+    - [get-pane-direction](https://wezterm.org/cli/cli/get-pane-direction.html)
+    - [get-text](https://wezterm.org/cli/cli/get-text.html)
+    - [kill-pane](https://wezterm.org/cli/cli/kill-pane.html)
+    - [list-clients](https://wezterm.org/cli/cli/list-clients.html)
+    - [list](https://wezterm.org/cli/cli/list.html)
+    - [move-pane-to-new-tab](https://wezterm.org/cli/cli/move-pane-to-new-tab.html)
+    - [rename-workspace](https://wezterm.org/cli/cli/rename-workspace.html)
+    - [send-text](https://wezterm.org/cli/cli/send-text.html)
+    - [set-tab-title](https://wezterm.org/cli/cli/set-tab-title.html)
+    - [set-window-title](https://wezterm.org/cli/cli/set-window-title.html)
+    - [spawn](https://wezterm.org/cli/cli/spawn.html)
+    - [split-pane](https://wezterm.org/cli/cli/split-pane.html)
+    - [zoom-pane](https://wezterm.org/cli/cli/zoom-pane.html)
+  + [wezterm connect](https://wezterm.org/cli/connect.html)
+  + [wezterm imgcat](https://wezterm.org/cli/imgcat.html)
+  + [wezterm ls-fonts](https://wezterm.org/cli/ls-fonts.html)
+  + [wezterm record](https://wezterm.org/cli/record.html)
+  + [wezterm replay](https://wezterm.org/cli/replay.html)
+  + [wezterm serial](https://wezterm.org/cli/serial.html)
+  + [wezterm set-working-directory](https://wezterm.org/cli/set-working-directory.html)
+  + [wezterm show-keys](https://wezterm.org/cli/show-keys.html)
+  + [wezterm ssh](https://wezterm.org/cli/ssh.html)
+  + [wezterm start](https://wezterm.org/cli/start.html)
+* Reference
+
+  Reference
+  + [Escape Sequences](https://wezterm.org/escape-sequences.html)
+  + [What is a Terminal?](https://wezterm.org/what-is-a-terminal.html)
+* Get Help
+
+  Get Help
+  + [Troubleshooting](https://wezterm.org/troubleshooting.html)
+  + [F.A.Q.](https://wezterm.org/faq.html)
+  + [Getting Help](https://wezterm.org/help.html)
+  + [Contributing](https://wezterm.org/contributing.html)
+* [Change Log](https://wezterm.org/changelog.html)
+* [Sponsor](https://wezterm.org/sponsor.html)
+
+Table of contents
+
+* [Aardvark Blue](https://wezterm.org/colorschemes/a/index.html#aardvark-blue)
+* [Abernathy](https://wezterm.org/colorschemes/a/index.html#abernathy)
+* [Aci (Gogh)](https://wezterm.org/colorschemes/a/index.html#aci-gogh)
+* [Aco (Gogh)](https://wezterm.org/colorschemes/a/index.html#aco-gogh)
+* [Adventure](https://wezterm.org/colorschemes/a/index.html#adventure)
+* [Adventure Time (Gogh)](https://wezterm.org/colorschemes/a/index.html#adventure-time-gogh)
+* [AdventureTime](https://wezterm.org/colorschemes/a/index.html#adventuretime)
+* [Afterglow](https://wezterm.org/colorschemes/a/index.html#afterglow)
+* [Afterglow (Gogh)](https://wezterm.org/colorschemes/a/index.html#afterglow-gogh)
+* [aikofog (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#aikofog-terminalsexy)
+* [Alabaster](https://wezterm.org/colorschemes/a/index.html#alabaster)
+* [Alien Blood (Gogh)](https://wezterm.org/colorschemes/a/index.html#alien-blood-gogh)
+* [AlienBlood](https://wezterm.org/colorschemes/a/index.html#alienblood)
+* [Andromeda](https://wezterm.org/colorschemes/a/index.html#andromeda)
+* [Apathy (base16)](https://wezterm.org/colorschemes/a/index.html#apathy-base16)
+* [Apple Classic](https://wezterm.org/colorschemes/a/index.html#apple-classic)
+* [Apple System Colors](https://wezterm.org/colorschemes/a/index.html#apple-system-colors)
+* [Apprentice (base16)](https://wezterm.org/colorschemes/a/index.html#apprentice-base16)
+* [Apprentice (Gogh)](https://wezterm.org/colorschemes/a/index.html#apprentice-gogh)
+* [arcoiris](https://wezterm.org/colorschemes/a/index.html#arcoiris)
+* [Argonaut](https://wezterm.org/colorschemes/a/index.html#argonaut)
+* [Argonaut (Gogh)](https://wezterm.org/colorschemes/a/index.html#argonaut-gogh)
+* [Arthur](https://wezterm.org/colorschemes/a/index.html#arthur)
+* [Arthur (Gogh)](https://wezterm.org/colorschemes/a/index.html#arthur-gogh)
+* [Ashes (base16)](https://wezterm.org/colorschemes/a/index.html#ashes-base16)
+* [Ashes (dark) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#ashes-dark-terminalsexy)
+* [Ashes (light) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#ashes-light-terminalsexy)
+* [Astrodark (Gogh)](https://wezterm.org/colorschemes/a/index.html#astrodark-gogh)
+* [astromouse (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#astromouse-terminalsexy)
+* [Atelier Cave (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-cave-base16)
+* [Atelier Cave Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-cave-light-base16)
+* [Atelier Dune (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-dune-base16)
+* [Atelier Dune Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-dune-light-base16)
+* [Atelier Estuary (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-estuary-base16)
+* [Atelier Estuary Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-estuary-light-base16)
+* [Atelier Forest (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-forest-base16)
+* [Atelier Forest Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-forest-light-base16)
+* [Atelier Heath (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-heath-base16)
+* [Atelier Heath Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-heath-light-base16)
+* [Atelier Lakeside (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-lakeside-base16)
+* [Atelier Lakeside Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-lakeside-light-base16)
+* [Atelier Plateau (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-plateau-base16)
+* [Atelier Plateau Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-plateau-light-base16)
+* [Atelier Savanna (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-savanna-base16)
+* [Atelier Savanna Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-savanna-light-base16)
+* [Atelier Seaside (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-seaside-base16)
+* [Atelier Seaside Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-seaside-light-base16)
+* [Atelier Sulphurpool (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-sulphurpool-base16)
+* [Atelier Sulphurpool Light (base16)](https://wezterm.org/colorschemes/a/index.html#atelier-sulphurpool-light-base16)
+* [Atelierdune (dark) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierdune-dark-terminalsexy)
+* [Atelierdune (light) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierdune-light-terminalsexy)
+* [Atelierforest (dark) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierforest-dark-terminalsexy)
+* [Atelierforest (light) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierforest-light-terminalsexy)
+* [Atelierheath (dark) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierheath-dark-terminalsexy)
+* [Atelierheath (light) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierheath-light-terminalsexy)
+* [Atelierlakeside (dark) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierlakeside-dark-terminalsexy)
+* [Atelierlakeside (light) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierlakeside-light-terminalsexy)
+* [Atelierseaside (dark) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierseaside-dark-terminalsexy)
+* [Atelierseaside (light) (terminal.sexy)](https://wezterm.org/colorschemes/a/index.html#atelierseaside-light-terminalsexy)
+* [AtelierSulphurpool](https://wezterm.org/colorschemes/a/index.html#ateliersulphurpool)
+* [Atlas (base16)](https://wezterm.org/colorschemes/a/index.html#atlas-base16)
+* [Atom](https://wezterm.org/colorschemes/a/index.html#atom)
+* [Atom (Gogh)](https://wezterm.org/colorschemes/a/index.html#atom-gogh)
+* [AtomOneLight](https://wezterm.org/colorschemes/a/index.html#atomonelight)
+* [Aura (Gogh)](https://wezterm.org/colorschemes/a/index.html#aura-gogh)
+* [Aurora](https://wezterm.org/colorschemes/a/index.html#aurora)
+* [ayu](https://wezterm.org/colorschemes/a/index.html#ayu)
+* [Ayu Dark (Gogh)](https://wezterm.org/colorschemes/a/index.html#ayu-dark-gogh)
+* [Ayu Light (Gogh)](https://wezterm.org/colorschemes/a/index.html#ayu-light-gogh)
+* [Ayu Mirage](https://wezterm.org/colorschemes/a/index.html#ayu-mirage)
+* [Ayu Mirage (Gogh)](https://wezterm.org/colorschemes/a/index.html#ayu-mirage-gogh)
+* [ayu\_light](https://wezterm.org/colorschemes/a/index.html#ayu_light)
+* [Azu (Gogh)](https://wezterm.org/colorschemes/a/index.html#azu-gogh)
+
+# a
+
+## Aardvark Blue[¶](https://wezterm.org/colorschemes/a/index.html#aardvark-blue "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+
+*Since: Version 20240127-113634-bbcac864*
+
+*The functionality described in this section requires version 20240127-113634-bbcac864 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Aardvark Blue'
+```
+
+## Abernathy[¶](https://wezterm.org/colorschemes/a/index.html#abernathy "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Abernathy'
+```
+
+## Aci (Gogh)[¶](https://wezterm.org/colorschemes/a/index.html#aci-gogh "Permanent link")
+
+Source: <https://github.com/Gogh-Co/Gogh>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Aci (Gogh)'
+```
+
+## Aco (Gogh)[¶](https://wezterm.org/colorschemes/a/index.html#aco-gogh "Permanent link")
+
+Source: <https://github.com/Gogh-Co/Gogh>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Aco (Gogh)'
+```
+
+## Adventure[¶](https://wezterm.org/colorschemes/a/index.html#adventure "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Adventure'
+```
+
+## Adventure Time (Gogh)[¶](https://wezterm.org/colorschemes/a/index.html#adventure-time-gogh "Permanent link")
+
+Source: <https://github.com/Gogh-Co/Gogh>
+
+*Since: Version 20230712-072601-f4abf8fd*
+
+*The functionality described in this section requires version 20230712-072601-f4abf8fd of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Adventure Time (Gogh)'
+```
+
+## AdventureTime[¶](https://wezterm.org/colorschemes/a/index.html#adventuretime "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+This scheme is also known as `Adventure Time (Gogh)`.
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'AdventureTime'
+```
+
+## Afterglow[¶](https://wezterm.org/colorschemes/a/index.html#afterglow "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Afterglow'
+```
+
+## Afterglow (Gogh)[¶](https://wezterm.org/colorschemes/a/index.html#afterglow-gogh "Permanent link")
+
+Source: <https://github.com/Gogh-Co/Gogh>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Afterglow (Gogh)'
+```
+
+## aikofog (terminal.sexy)[¶](https://wezterm.org/colorschemes/a/index.html#aikofog-terminalsexy "Permanent link")
+
+Author: `Gutterslob`
+Source: <https://github.com/stayradiated/terminal.sexy>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'aikofog (terminal.sexy)'
+```
+
+## Alabaster[¶](https://wezterm.org/colorschemes/a/index.html#alabaster "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Alabaster'
+```
+
+## Alien Blood (Gogh)[¶](https://wezterm.org/colorschemes/a/index.html#alien-blood-gogh "Permanent link")
+
+Source: <https://github.com/Gogh-Co/Gogh>
+
+*Since: Version 20230712-072601-f4abf8fd*
+
+*The functionality described in this section requires version 20230712-072601-f4abf8fd of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Alien Blood (Gogh)'
+```
+
+## AlienBlood[¶](https://wezterm.org/colorschemes/a/index.html#alienblood "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+This scheme is also known as `Alien Blood (Gogh)`.
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'AlienBlood'
+```
+
+## Andromeda[¶](https://wezterm.org/colorschemes/a/index.html#andromeda "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Andromeda'
+```
+
+## Apathy (base16)[¶](https://wezterm.org/colorschemes/a/index.html#apathy-base16 "Permanent link")
+
+Author: `Jannik Siebert (https://github.com/janniks)`
+Source: <https://github.com/chriskempson/base16-unclaimed-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Apathy (base16)'
+```
+
+## Apple Classic[¶](https://wezterm.org/colorschemes/a/index.html#apple-classic "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+
+*Since: Version 20230320-124340-559cb7b0*
+
+*The functionality described in this section requires version 20230320-124340-559cb7b0 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Apple Classic'
+```
+
+## Apple System Colors[¶](https://wezterm.org/colorschemes/a/index.html#apple-system-colors "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+
+*Since: Version 20240127-113634-bbcac864*
+
+*The functionality described in this section requires version 20240127-113634-bbcac864 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Apple System Colors'
+```
+
+## Apprentice (base16)[¶](https://wezterm.org/colorschemes/a/index.html#apprentice-base16 "Permanent link")
+
+Author: `romainl`
+Source: <https://github.com/casonadams/base16-apprentice-scheme>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Apprentice (base16)'
+```
+
+## Apprentice (Gogh)[¶](https://wezterm.org/colorschemes/a/index.html#apprentice-gogh "Permanent link")
+
+Source: <https://github.com/Gogh-Co/Gogh>
+
+*Since: Version 20230712-072601-f4abf8fd*
+
+*The functionality described in this section requires version 20230712-072601-f4abf8fd of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Apprentice (Gogh)'
+```
+
+## arcoiris[¶](https://wezterm.org/colorschemes/a/index.html#arcoiris "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'arcoiris'
+```
+
+## Argonaut[¶](https://wezterm.org/colorschemes/a/index.html#argonaut "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+This scheme is also known as `Argonaut (Gogh)`.
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Argonaut'
+```
+
+## Argonaut (Gogh)[¶](https://wezterm.org/colorschemes/a/index.html#argonaut-gogh "Permanent link")
+
+Source: <https://github.com/Gogh-Co/Gogh>
+
+*Since: Version 20230712-072601-f4abf8fd*
+
+*The functionality described in this section requires version 20230712-072601-f4abf8fd of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Argonaut (Gogh)'
+```
+
+## Arthur[¶](https://wezterm.org/colorschemes/a/index.html#arthur "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+This scheme is also known as `Arthur (Gogh)`.
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Arthur'
+```
+
+## Arthur (Gogh)[¶](https://wezterm.org/colorschemes/a/index.html#arthur-gogh "Permanent link")
+
+Source: <https://github.com/Gogh-Co/Gogh>
+
+*Since: Version 20230712-072601-f4abf8fd*
+
+*The functionality described in this section requires version 20230712-072601-f4abf8fd of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Arthur (Gogh)'
+```
+
+## Ashes (base16)[¶](https://wezterm.org/colorschemes/a/index.html#ashes-base16 "Permanent link")
+
+Author: `Jannik Siebert (https://github.com/janniks)`
+Source: <https://github.com/chriskempson/base16-unclaimed-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+This scheme is also known as `Ashes (dark) (terminal.sexy)`.
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Ashes (base16)'
+```
+
+## Ashes (dark) (terminal.sexy)[¶](https://wezterm.org/colorschemes/a/index.html#ashes-dark-terminalsexy "Permanent link")
+
+Author: `Chris Kempson`
+Source: <https://github.com/stayradiated/terminal.sexy>
+
+*Since: Version 20230712-072601-f4abf8fd*
+
+*The functionality described in this section requires version 20230712-072601-f4abf8fd of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Ashes (dark) (terminal.sexy)'
+```
+
+## Ashes (light) (terminal.sexy)[¶](https://wezterm.org/colorschemes/a/index.html#ashes-light-terminalsexy "Permanent link")
+
+Author: `Chris Kempson`
+Source: <https://github.com/stayradiated/terminal.sexy>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Ashes (light) (terminal.sexy)'
+```
+
+## Astrodark (Gogh)[¶](https://wezterm.org/colorschemes/a/index.html#astrodark-gogh "Permanent link")
+
+Source: <https://github.com/Gogh-Co/Gogh>
+
+*Since: Version nightly builds only*
+
+*The functionality described in this section requires version nightly builds only of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Astrodark (Gogh)'
+```
+
+## astromouse (terminal.sexy)[¶](https://wezterm.org/colorschemes/a/index.html#astromouse-terminalsexy "Permanent link")
+
+Source: <https://github.com/stayradiated/terminal.sexy>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'astromouse (terminal.sexy)'
+```
+
+## Atelier Cave (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-cave-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Cave (base16)'
+```
+
+## Atelier Cave Light (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-cave-light-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Cave Light (base16)'
+```
+
+## Atelier Dune (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-dune-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Dune (base16)'
+```
+
+## Atelier Dune Light (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-dune-light-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Dune Light (base16)'
+```
+
+## Atelier Estuary (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-estuary-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Estuary (base16)'
+```
+
+## Atelier Estuary Light (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-estuary-light-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Estuary Light (base16)'
+```
+
+## Atelier Forest (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-forest-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Forest (base16)'
+```
+
+## Atelier Forest Light (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-forest-light-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Forest Light (base16)'
+```
+
+## Atelier Heath (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-heath-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Heath (base16)'
+```
+
+## Atelier Heath Light (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-heath-light-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Heath Light (base16)'
+```
+
+## Atelier Lakeside (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-lakeside-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Lakeside (base16)'
+```
+
+## Atelier Lakeside Light (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-lakeside-light-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Lakeside Light (base16)'
+```
+
+## Atelier Plateau (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-plateau-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Plateau (base16)'
+```
+
+## Atelier Plateau Light (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-plateau-light-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Plateau Light (base16)'
+```
+
+## Atelier Savanna (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-savanna-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Savanna (base16)'
+```
+
+## Atelier Savanna Light (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-savanna-light-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Savanna Light (base16)'
+```
+
+## Atelier Seaside (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-seaside-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Seaside (base16)'
+```
+
+## Atelier Seaside Light (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-seaside-light-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Seaside Light (base16)'
+```
+
+## Atelier Sulphurpool (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-sulphurpool-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Sulphurpool (base16)'
+```
+
+## Atelier Sulphurpool Light (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atelier-sulphurpool-light-base16 "Permanent link")
+
+Author: `Bram de Haan (http://atelierbramdehaan.nl)`
+Source: <https://github.com/atelierbram/base16-atelier-schemes>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelier Sulphurpool Light (base16)'
+```
+
+## Atelierdune (dark) (terminal.sexy)[¶](https://wezterm.org/colorschemes/a/index.html#atelierdune-dark-terminalsexy "Permanent link")
+
+Author: `Chris Kempson`
+Source: <https://github.com/stayradiated/terminal.sexy>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelierdune (dark) (terminal.sexy)'
+```
+
+## Atelierdune (light) (terminal.sexy)[¶](https://wezterm.org/colorschemes/a/index.html#atelierdune-light-terminalsexy "Permanent link")
+
+Author: `Chris Kempson`
+Source: <https://github.com/stayradiated/terminal.sexy>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelierdune (light) (terminal.sexy)'
+```
+
+## Atelierforest (dark) (terminal.sexy)[¶](https://wezterm.org/colorschemes/a/index.html#atelierforest-dark-terminalsexy "Permanent link")
+
+Author: `Chris Kempson`
+Source: <https://github.com/stayradiated/terminal.sexy>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelierforest (dark) (terminal.sexy)'
+```
+
+## Atelierforest (light) (terminal.sexy)[¶](https://wezterm.org/colorschemes/a/index.html#atelierforest-light-terminalsexy "Permanent link")
+
+Author: `Chris Kempson`
+Source: <https://github.com/stayradiated/terminal.sexy>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelierforest (light) (terminal.sexy)'
+```
+
+## Atelierheath (dark) (terminal.sexy)[¶](https://wezterm.org/colorschemes/a/index.html#atelierheath-dark-terminalsexy "Permanent link")
+
+Author: `Chris Kempson`
+Source: <https://github.com/stayradiated/terminal.sexy>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelierheath (dark) (terminal.sexy)'
+```
+
+## Atelierheath (light) (terminal.sexy)[¶](https://wezterm.org/colorschemes/a/index.html#atelierheath-light-terminalsexy "Permanent link")
+
+Author: `Chris Kempson`
+Source: <https://github.com/stayradiated/terminal.sexy>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelierheath (light) (terminal.sexy)'
+```
+
+## Atelierlakeside (dark) (terminal.sexy)[¶](https://wezterm.org/colorschemes/a/index.html#atelierlakeside-dark-terminalsexy "Permanent link")
+
+Author: `Chris Kempson`
+Source: <https://github.com/stayradiated/terminal.sexy>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelierlakeside (dark) (terminal.sexy)'
+```
+
+## Atelierlakeside (light) (terminal.sexy)[¶](https://wezterm.org/colorschemes/a/index.html#atelierlakeside-light-terminalsexy "Permanent link")
+
+Author: `Chris Kempson`
+Source: <https://github.com/stayradiated/terminal.sexy>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelierlakeside (light) (terminal.sexy)'
+```
+
+## Atelierseaside (dark) (terminal.sexy)[¶](https://wezterm.org/colorschemes/a/index.html#atelierseaside-dark-terminalsexy "Permanent link")
+
+Author: `Chris Kempson`
+Source: <https://github.com/stayradiated/terminal.sexy>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelierseaside (dark) (terminal.sexy)'
+```
+
+## Atelierseaside (light) (terminal.sexy)[¶](https://wezterm.org/colorschemes/a/index.html#atelierseaside-light-terminalsexy "Permanent link")
+
+Author: `Chris Kempson`
+Source: <https://github.com/stayradiated/terminal.sexy>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atelierseaside (light) (terminal.sexy)'
+```
+
+## AtelierSulphurpool[¶](https://wezterm.org/colorschemes/a/index.html#ateliersulphurpool "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'AtelierSulphurpool'
+```
+
+## Atlas (base16)[¶](https://wezterm.org/colorschemes/a/index.html#atlas-base16 "Permanent link")
+
+Author: `Alex Lende (https://ajlende.com)`
+Source: <https://github.com/ajlende/base16-atlas-scheme>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atlas (base16)'
+```
+
+## Atom[¶](https://wezterm.org/colorschemes/a/index.html#atom "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+This scheme is also known as `Atom (Gogh)`.
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atom'
+```
+
+## Atom (Gogh)[¶](https://wezterm.org/colorschemes/a/index.html#atom-gogh "Permanent link")
+
+Source: <https://github.com/Gogh-Co/Gogh>
+
+*Since: Version 20230712-072601-f4abf8fd*
+
+*The functionality described in this section requires version 20230712-072601-f4abf8fd of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Atom (Gogh)'
+```
+
+## AtomOneLight[¶](https://wezterm.org/colorschemes/a/index.html#atomonelight "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'AtomOneLight'
+```
+
+## Aura (Gogh)[¶](https://wezterm.org/colorschemes/a/index.html#aura-gogh "Permanent link")
+
+Source: <https://github.com/Gogh-Co/Gogh>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Aura (Gogh)'
+```
+
+## Aurora[¶](https://wezterm.org/colorschemes/a/index.html#aurora "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Aurora'
+```
+
+## ayu[¶](https://wezterm.org/colorschemes/a/index.html#ayu "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'ayu'
+```
+
+## Ayu Dark (Gogh)[¶](https://wezterm.org/colorschemes/a/index.html#ayu-dark-gogh "Permanent link")
+
+Source: <https://github.com/Gogh-Co/Gogh>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+This scheme is also known as `AyuDark (Gogh)`.
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Ayu Dark (Gogh)'
+```
+
+## Ayu Light (Gogh)[¶](https://wezterm.org/colorschemes/a/index.html#ayu-light-gogh "Permanent link")
+
+Source: <https://github.com/Gogh-Co/Gogh>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+This scheme is also known as `AyuLight (Gogh)`.
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Ayu Light (Gogh)'
+```
+
+## Ayu Mirage[¶](https://wezterm.org/colorschemes/a/index.html#ayu-mirage "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Ayu Mirage'
+```
+
+## Ayu Mirage (Gogh)[¶](https://wezterm.org/colorschemes/a/index.html#ayu-mirage-gogh "Permanent link")
+
+Source: <https://github.com/Gogh-Co/Gogh>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+This scheme is also known as `AyuMirage (Gogh)`.
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Ayu Mirage (Gogh)'
+```
+
+## ayu\_light[¶](https://wezterm.org/colorschemes/a/index.html#ayu_light "Permanent link")
+
+Source: <https://github.com/mbadolato/iTerm2-Color-Schemes>
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'ayu_light'
+```
+
+## Azu (Gogh)[¶](https://wezterm.org/colorschemes/a/index.html#azu-gogh "Permanent link")
+
+Source: <https://github.com/Gogh-Co/Gogh>
+
+*Since: Version 20220807-113146-c2fee766*
+
+*The functionality described in this section requires version 20220807-113146-c2fee766 of wezterm,
+or a more recent version.*
+
+To use this scheme, add this to your config:
+
+```
+config.color_scheme = 'Azu (Gogh)'
+```
+
+Back to top
