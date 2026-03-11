@@ -23,6 +23,13 @@
   "notification_panel": {
     "button": false,
   },
+  "toolbar": {
+    "agent_review": false,
+    "breadcrumbs": false,
+    "code_actions": false,
+    "quick_actions": false,
+    "selections_menu": false
+  },
   "document_symbols": "on",
   "use_system_path_prompts": true,
   "agent": {
@@ -36,7 +43,7 @@
     },
     "cancel_generation_on_terminal_stop": true,
     "use_modifier_to_send": true,
-    "button": true,
+    "button": false,
     "play_sound_when_agent_done": true,
     "enable_feedback": false,
     "expand_terminal_card": true,
@@ -91,8 +98,12 @@
     "**/.settings",
   ],
   "file_types": {
-    "Git Config": ["**/git/**/config*"],
-    "Shell Script": [".envrc"],
+    "Git Config": [
+      "**/git/**/config*"
+    ],
+    "Shell Script": [
+      ".envrc"
+    ],
   },
   "git": {
     "hunk_style": "unstaged_hollow",
@@ -101,6 +112,7 @@
     },
   },
   "git_panel": {
+    "button": false,
     "collapse_untracked_diff": false,
     "dock": "left",
     "tree_view": true,
@@ -124,6 +136,7 @@
     "allowed": true,
   },
   "project_panel": {
+    "button": false,
     "hide_root": true,
     "bold_folder_labels": true,
     "default_width": 320.0,
@@ -131,6 +144,10 @@
   },
   "search": {
     "include_ignored": false,
+    "button": false
+  },
+  "outline_panel": {
+    "button": false,
   },
   "session": {
     "trust_all_worktrees": true,
@@ -152,11 +169,13 @@
     "metrics": false,
   },
   "terminal": {
+    "button": false,
     "dock": "bottom",
     "default_height": 400.0,
     "copy_on_select": true,
+    "minimum_contrast": 0,
   },
-  "theme": "Catppuccin Frappé",
+  "theme": "Catppuccin Frappé Transparent",
   "ui_font_family": "HackGen35 Console NF",
   "agent_buffer_font_size": 18,
   "ui_font_size": 18,
@@ -176,7 +195,10 @@
   },
   "languages": {
     "Markdown": {
-      "language_servers": ["!codebook", "..."],
+      "language_servers": [
+        "!codebook",
+        "..."
+      ],
     },
   },
 }
