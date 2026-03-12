@@ -10,12 +10,12 @@
   "agent_servers": {
     "cursor": {
       "default_config_options": {
-        "model": "composer-1.5[]"
+        "model": "composer-1.5[]",
       },
       "favorite_config_option_values": {
         "model": [
           "composer-1.5[]"
-        ]
+        ],
       },
       "type": "registry",
     },
@@ -28,7 +28,7 @@
     "breadcrumbs": false,
     "code_actions": false,
     "quick_actions": false,
-    "selections_menu": false
+    "selections_menu": false,
   },
   "document_symbols": "on",
   "use_system_path_prompts": true,
@@ -61,7 +61,7 @@
   "buffer_font_features": {
     "calt": false,
   },
-  "buffer_font_size": 14.0,
+  "buffer_font_size": 16.0,
   "calls": {
     "mute_on_join": true,
   },
@@ -70,6 +70,11 @@
   },
   "colorize_brackets": true,
   "diagnostics": {
+    "lsp_pull_diagnostics": {
+      "enabled": true,
+    },
+    "button": true,
+    "include_warnings": true,
     "inline": {
       "enabled": true,
     },
@@ -129,7 +134,7 @@
     "line_width": 2,
   },
   "inlay_hints": {
-    "show_background": true,
+    "show_background": false,
     "enabled": true,
   },
   "prettier": {
@@ -139,12 +144,12 @@
     "button": false,
     "hide_root": true,
     "bold_folder_labels": true,
-    "default_width": 320.0,
+    "default_width": 400.0,
     "diagnostic_badges": true,
   },
   "search": {
     "include_ignored": false,
-    "button": false
+    "button": false,
   },
   "outline_panel": {
     "button": false,
@@ -155,14 +160,17 @@
   "show_edit_predictions": true,
   "show_signature_help_after_edits": true,
   "sticky_scroll": {
-    "enabled": true,
+    "enabled": false,
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": false,
   },
   "tab_size": 2,
   "tabs": {
     "git_status": true,
   },
   "tasks": {
-    "enabled": true,
+    "enabled": false,
   },
   "telemetry": {
     "diagnostics": false,
@@ -171,14 +179,14 @@
   "terminal": {
     "button": false,
     "dock": "bottom",
-    "default_height": 400.0,
+    "default_height": 1000.0,
     "copy_on_select": true,
     "minimum_contrast": 0,
   },
   "theme": "Catppuccin Frappé Transparent",
-  "ui_font_family": "HackGen35 Console NF",
+  "ui_font_family": "HackGen Console NF",
   "agent_buffer_font_size": 18,
-  "ui_font_size": 18,
+  "ui_font_size": 20,
   "vim": {
     "cursor_shape": {
       "insert": "bar",
