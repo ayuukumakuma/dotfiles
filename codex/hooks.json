@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/nasuno.ayumu/.codex/hooks/state-notify.sh working"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/nasuno.ayumu/.codex/hooks/state-notify.sh complete"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -49,7 +49,8 @@ in
     ".claude/skills".source = oos "${dotfilesRoot}/agents/skills";
     ".cursor/skills".source = oos "${dotfilesRoot}/agents/skills";
     ".codex/config.toml".source = oos "${dotfilesRoot}/codex/config.toml";
-    ".codex/hooks/notify-terminal-notifier.sh".source =
-      oos "${dotfilesRoot}/codex/hooks/notify-terminal-notifier.sh";
+    ".codex/hooks".source =
+      oos "${dotfilesRoot}/codex/hooks";
+    ".codex/hooks.json".source = oos "${dotfilesRoot}/codex/hooks.json";
   };
 }
