@@ -4,13 +4,22 @@ config-version = 2
 # AeroSpace起動後に実行するコマンドを追加できます
 # 利用可能なコマンド: https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = []
-exec-on-workspace-change = [
-  "/bin/zsh",
-  "-c",
-  '/usr/bin/osascript -e "tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\""',
-]
+# exec-on-workspace-change = [
+#   "/bin/zsh",
+#   "-c",
+#   '/usr/bin/osascript -e "tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\""',
+# ]
+# on-focus-changed = [
+#   "exec-and-forget osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'",
+# ]
 on-focus-changed = [
-  "exec-and-forget osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'",
+  "exec-and-forget osascript -e 'tell application \"a-bar\" to refresh \"aerospace\"'",
+]
+
+exec-on-workspace-change = [
+  '/bin/zsh',
+  '-c',
+  '/usr/bin/osascript -e "tell application \"a-bar\" to refresh \"aerospace\""',
 ]
 # ログイン時にAeroSpaceを起動する
 start-at-login = true
@@ -161,7 +170,7 @@ preset = "qwerty"
 inner.horizontal = 5
 inner.vertical = 5
 outer.left = 5
-outer.bottom = 5
+outer.bottom = [{ monitor.secondary = 3 }, { monitor.'^built-in retina display$' = 3 }, 38]
 outer.top = [{ monitor.secondary = 7 }, { monitor.'^built-in retina display$' = 3 }, 38]
 outer.right = 5
 

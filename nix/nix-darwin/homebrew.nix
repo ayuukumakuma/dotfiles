@@ -26,6 +26,7 @@
       "nikitabobko/tap" # aerospace
       "daipeihust/tap" # im-select
       "k1LoW/tap" # mo (browser markdown viewer)
+      "Jean-Tinland/a-bar" # menubar
     ];
     casks = [
       ### GUI Applications
@@ -69,6 +70,7 @@
       "claude"
       "spotify"
       "azookey"
+      "a-bar"
 
       ### Fonts
       "font-hackgen-nerd"
