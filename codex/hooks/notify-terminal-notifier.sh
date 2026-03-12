@@ -16,53 +16,36 @@ extract_json_field() {
   printf '%s' "$payload" | jq -r --arg key "$key" '.[$key] // empty' 2>/dev/null || true
 }
 
-normalize_app_name() {
-  local app_name="$1"
+print_existing_bundle_path() {
+  local bundle_path="$1"
 
-  case "$app_name" in
-    *wezterm-gui*|*WezTerm*)
-      printf '%s' "WezTerm"
-      return 0
-      ;;
-    *iTerm2*|*iTerm*)
-      printf '%s' "iTerm"
-      return 0
-      ;;
-    */Terminal|*Terminal.app/*|*Terminal*)
-      printf '%s' "Terminal"
-      return 0
-      ;;
-    *Cursor*)
-      printf '%s' "Cursor"
-      return 0
-      ;;
-    *Zed*)
-      printf '%s' "Zed"
-      return 0
-      ;;
-    *Visual\ Studio\ Code*|*Code*)
-      printf '%s' "Visual Studio Code"
-      return 0
-      ;;
-    *Codex*)
-      printf '%s' "Codex"
-      return 0
-      ;;
-  esac
+  bundle_path="$(printf '%s' "$bundle_path" | xargs || true)"
+  [[ -n "$bundle_path" && -d "$bundle_path" ]] || return 1
 
-  return 1
+  printf '%s' "$bundle_path"
 }
 
-find_parent_app() {
+extract_app_bundle_path_from_command() {
+  local command_line="$1"
+  local bundle_path=""
+
+  [[ "$command_line" == *".app/"* || "$command_line" == *".app"* ]] || return 1
+
+  bundle_path="$(printf '%s\n' "$command_line" | grep -o '/[^"]*\.app' | head -1 || true)"
+
+  print_existing_bundle_path "$bundle_path"
+}
+
+find_parent_app_bundle_path() {
   local pid="$PPID"
-  local command_name
-  local normalized_name
+  local command_line
+  local bundle_path
 
   while [[ -n "$pid" && "$pid" -gt 1 ]]; do
-    command_name="$(ps -p "$pid" -o comm= 2>/dev/null | xargs || true)"
+    command_line="$(ps -p "$pid" -o command= 2>/dev/null || true)"
 
-    if normalized_name="$(normalize_app_name "$command_name")"; then
-      printf '%s' "$normalized_name"
+    if bundle_path="$(extract_app_bundle_path_from_command "$command_line")"; then
+      printf '%s' "$bundle_path"
       return 0
     fi
 
@@ -72,37 +55,39 @@ find_parent_app() {
   return 1
 }
 
-get_frontmost_app() {
-  local frontmost_app
-  local normalized_name
+get_frontmost_app_bundle_path() {
+  local frontmost_app_path=""
 
   command -v osascript >/dev/null 2>&1 || return 1
 
-  frontmost_app="$(
-    osascript -e 'tell application "System Events" to get name of first application process whose frontmost is true' 2>/dev/null || true
+  frontmost_app_path="$(
+    osascript -e 'POSIX path of (path to frontmost application)' 2>/dev/null || true
   )"
-  frontmost_app="$(printf '%s' "$frontmost_app" | xargs || true)"
-  [[ -n "$frontmost_app" ]] || return 1
+  if frontmost_app_path="$(print_existing_bundle_path "$frontmost_app_path")"; then
+    printf '%s' "$frontmost_app_path"
+    return 0
+  fi
 
-  normalized_name="$(normalize_app_name "$frontmost_app" || true)"
-  [[ -n "$normalized_name" ]] || return 1
+  frontmost_app_path="$(
+    osascript -e 'tell application "System Events" to POSIX path of (application file of first application process whose frontmost is true as alias)' 2>/dev/null || true
+  )"
 
-  printf '%s' "$normalized_name"
+  print_existing_bundle_path "$frontmost_app_path"
 }
 
 should_skip_notification() {
-  local parent_name
-  local frontmost_name
+  local parent_app_path
+  local frontmost_app_path
 
-  if ! parent_name="$(find_parent_app)"; then
+  if ! parent_app_path="$(find_parent_app_bundle_path)"; then
     return 1
   fi
 
-  if ! frontmost_name="$(get_frontmost_app)"; then
+  if ! frontmost_app_path="$(get_frontmost_app_bundle_path)"; then
     return 1
   fi
 
-  [[ "$parent_name" == "$frontmost_name" ]]
+  [[ "$parent_app_path" == "$frontmost_app_path" ]]
 }
 
 can_play_custom_wav() {
@@ -120,17 +105,15 @@ play_custom_wav() {
 }
 
 notify() {
-  local parent_app=""
-  local execute_command=""
+  local parent_app_bundle_path=""
   local -a notify_args=(
     -title "$title"
     -message "$message"
   )
 
-  if parent_app="$(find_parent_app)"; then
-    execute_command="open -a \"${parent_app}\""
+  if parent_app_bundle_path="$(find_parent_app_bundle_path)"; then
     notify_args+=(
-      -execute "$execute_command"
+      -execute "open -a \"${parent_app_bundle_path}\""
     )
   fi
 
