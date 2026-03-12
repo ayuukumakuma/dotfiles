@@ -7,6 +7,7 @@
       "name": "Catppuccin Frappé Transparent",
       "appearance": "dark",
       "style": {
+        // 基本パレット
         "accents": [
           "#ca9ee6",
           "#babbf1",
@@ -16,6 +17,7 @@
           "#ef9f76",
           "#e78284"
         ],
+        // Vim / Helix モード色
         "vim.mode.text": "#232634",
         "vim.normal.foreground": "#232634",
         "vim.helix_normal.foreground": "#232634",
@@ -33,7 +35,8 @@
         "vim.visual_line.background": "#babbf1",
         "vim.visual_block.background": "#ca9ee6",
         "vim.replace.background": "#ea999c",
-        "background.appearance": "opaque",
+        // ウィンドウとサーフェス
+        "background.appearance": "blurred",
         "border": "#414559",
         "border.variant": "#af8cca",
         "border.focused": "#babbf1",
@@ -42,7 +45,7 @@
         "border.disabled": "#737994",
         "elevated_surface.background": "#303446",
         "surface.background": "#303446",
-        "background": "#303446",
+        "background": "#303446E6",
         "element.background": "#303446",
         "element.hover": "#414559",
         "element.active": "#6268804d",
@@ -54,6 +57,7 @@
         "ghost_element.active": "#62688099",
         "ghost_element.selected": "#7c829a66",
         "ghost_element.disabled": "#737994",
+        // 共通の文字色とアイコン色
         "text": "#c6d0f5",
         "text.muted": "#b5bfe2",
         "text.placeholder": "#626880",
@@ -64,38 +68,41 @@
         "icon.disabled": "#737994",
         "icon.placeholder": "#626880",
         "icon.accent": "#ca9ee6",
-        "status_bar.background": "#303446",
-        "title_bar.background": "#303446",
-        "title_bar.inactive_background": "#303446",
-        "toolbar.background": "#303446",
-        "tab_bar.background": "#303446",
-        "tab.inactive_background": "#303446",
-        "tab.active_background": "#303446",
+        // バー、タブ、検索ハイライト
+        "status_bar.background": "#303446E6",
+        "title_bar.background": "#303446E6",
+        "title_bar.inactive_background": "#303446E6",
+        "toolbar.background": "#30344600",
+        "tab_bar.background": "#30344600",
+        "tab.inactive_background": "#30344600",
+        "tab.active_background": "#3034461A",
         "search.match_background": "#81c8be4d",
         "search.active_match_background": "#e782844d",
-        "panel.background": "#303446",
+        // パネル、ペイン、ナビゲーション補助
+        "panel.background": "#30344600",
         "panel.focused_border": "#c6d0f5",
         "panel.indent_guide": "#41455999",
         "panel.indent_guide_active": "#626880",
         "panel.indent_guide_hover": "#ca9ee6",
-        "panel.overlay_background": "#303446",
+        "panel.overlay_background": "#30344600",
         "pane.focused_border": "#c6d0f5",
         "pane_group.border": "#414559",
         "scrollbar.thumb.background": "#62688080",
         "scrollbar.thumb.hover_background": "#737994",
         "scrollbar.thumb.active_background": null,
         "scrollbar.thumb.border": null,
-        "scrollbar.track.background": "#303446",
+        "scrollbar.track.background": "#30344600",
         "scrollbar.track.border": "#c6d0f512",
         "minimap.thumb.background": "#ca9ee633",
         "minimap.thumb.hover_background": "#ca9ee666",
         "minimap.thumb.active_background": "#ca9ee699",
         "minimap.thumb.border": null,
+        // エディタ面とガイド
         "editor.foreground": "#c6d0f5",
-        "editor.background": "#303446",
-        "editor.gutter.background": "#303446",
+        "editor.background": "#30344600",
+        "editor.gutter.background": "#30344600",
         "editor.subheader.background": "#292c3c",
-        "editor.active_line.background": "#c6d0f512",
+        "editor.active_line.background": "#c6d0f51A",
         "editor.highlighted_line.background": null,
         "editor.line_number": "#838ba7",
         "editor.active_line_number": "#ca9ee6",
@@ -107,8 +114,9 @@
         "editor.document_highlight.write_background": "#a5adce29",
         "editor.indent_guide": "#41455999",
         "editor.indent_guide_active": "#626880",
-        "terminal.background": "#303446",
-        "terminal.ansi.background": "#303446",
+        // ターミナルパレット
+        "terminal.background": "#30344600",
+        "terminal.ansi.background": "#30344600",
         "terminal.foreground": "#c6d0f5",
         "terminal.dim_foreground": "#838ba7",
         "terminal.bright_foreground": "#c6d0f5",
@@ -136,6 +144,7 @@
         "terminal.ansi.dim_blue": "#8caaee",
         "terminal.ansi.dim_magenta": "#f4b8e4",
         "terminal.ansi.dim_cyan": "#81c8be",
+        // リンクホバーと状態色
         "link_text.hover": "#99d1db",
         "conflict": "#ef9f76",
         "conflict.border": "#ef9f76",
@@ -163,22 +172,37 @@
         "predictive.background": "#292c3c",
         "renamed": "#85c1dc",
         "renamed.border": "#85c1dc",
-        "renamed.background": "#85c1dc26",
+        // "info": "#81c8be",
+        // "info.border": "#81c8be",
+        // "info.background": "#949cbb",
+        // "warning": "#e5c890",
+        // "warning.border": "#e5c890",
+        // "warning.background": "#e5c890",
+        // "error": "#e78284",
+        // "error.border": "#e78284",
+        // "error.background": "#e78284",
+        // "success": "#a6d189",
+        // "success.border": "#a6d189",
+        // "success.background": "#a6d189",
+        // "unreachable": "#e78284",
+        // "unreachable.border": "#e78284",
+        // "unreachable.background": "#e78284",       "renamed.background": "#85c1dc26",
         "info": "#81c8be",
         "info.border": "#81c8be",
-        "info.background": "#949cbb33",
+        "info.background": "#303446",
         "warning": "#e5c890",
         "warning.border": "#e5c890",
-        "warning.background": "#e5c8901f",
+        "warning.background": "#303446",
         "error": "#e78284",
         "error.border": "#e78284",
-        "error.background": "#e782841f",
+        "error.background": "#303446",
         "success": "#a6d189",
         "success.border": "#a6d189",
-        "success.background": "#a6d1891f",
+        "success.background": "#303446",
         "unreachable": "#e78284",
         "unreachable.border": "#e78284",
-        "unreachable.background": "#e782841f",
+        "unreachable.background": "#303446",
+        // 共同編集カーソル
         "players": [
           {
             "cursor": "#f2d5cf",
@@ -221,6 +245,7 @@
             "background": "#e78284"
           }
         ],
+        // バージョン管理とデバッガ
         "version_control.added": "#a6d189",
         "version_control.deleted": "#e78284",
         "version_control.modified": "#e5c890",
@@ -231,7 +256,9 @@
         "version_control.ignored": "#737994",
         "debugger.accent": "#e78284",
         "editor.debugger_active_line.background": "#ef9f7612",
+        // シンタックスハイライト
         "syntax": {
+          // 変数と定数
           "variable": {
             "color": "#c6d0f5",
             "font_style": null,
@@ -272,6 +299,7 @@
             "font_style": null,
             "font_weight": null
           },
+          // モジュール、ラベル、リテラル
           "module": {
             "color": "#e5c890",
             "font_style": "italic",
@@ -347,6 +375,7 @@
             "font_style": null,
             "font_weight": null
           },
+          // マークアップと型
           "tag": {
             "color": "#8caaee",
             "font_style": null,
@@ -392,6 +421,7 @@
             "font_style": null,
             "font_weight": null
           },
+          // プロパティ、関数、演算子
           "property": {
             "color": "#8caaee",
             "font_style": null,
@@ -437,6 +467,7 @@
             "font_style": null,
             "font_weight": null
           },
+          // キーワード
           "keyword": {
             "color": "#ca9ee6",
             "font_style": null,
@@ -517,6 +548,7 @@
             "font_style": null,
             "font_weight": null
           },
+          // 記号とコメント
           "punctuation": {
             "color": "#949cbb",
             "font_style": null,
@@ -607,6 +639,7 @@
             "font_style": null,
             "font_weight": null
           },
+          // 拡張セマンティックトークンとマークアップ
           "parameter": {
             "color": "#ea999c",
             "font_style": null,
