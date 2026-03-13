@@ -172,7 +172,7 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
     ├── claude/       # Claude Codeの設定
     ├── cursor/       # Cursorエディタの設定
     ├── raycast/      # Raycastの設定
-    ├── simple-bar/   # simple-barの設定
+    ├── menubar-script/ # A-Bar用メニューバースクリプト
     ├── wezterm/      # WezTermターミナルの設定
     └── zed/          # zed設定
 ```
@@ -192,7 +192,7 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - `raycast/*.rayconfig`（Raycast の `Import Settings & Data` で取り込み）
 - `cursor/settings.json`, `cursor/keybindings.json`（必要に応じて Cursor 側へ手動反映）
 - `~/.claude/settings.local.json`（機密・ローカル差分用）
-- `simple-bar/`（利用先パス依存のため、必要に応じて手動配置）
+- `menubar-script/`（A-Bar のスクリプトを必要に応じて手動配置）
 
 ### Home ManagerでインストールされるCLIツール (`nix/nix-darwin/home-manager/packages.nix`)
 
@@ -267,7 +267,7 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - **開発ツール**: OrbStack, Sequel Ace, Another Redis Desktop Manager, Visual Studio Code, AltServer
 - **デザイン/制作**: Figma, Affinity
 - **ドキュメント/ノート**: Obsidian, Notion
-- **ユーティリティ**: Raycast, Stats, Shottr, Scroll Reverser, Gyazo, Google Drive, Ubersicht, AnkerWork, DeskPad, NotchNook, Cap, azookey
+- **ユーティリティ**: Raycast, Stats, Shottr, Scroll Reverser, Gyazo, Google Drive, Ubersicht, AnkerWork, DeskPad, NotchNook, Cap, azookey, a-bar
 - **セキュリティ**: 1Password, 1Password CLI
 - **ウィンドウ管理**: AeroSpace
 - **ハードウェア**: Logitech G Hub, Logi Options+, HHKB
