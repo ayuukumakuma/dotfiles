@@ -4,7 +4,7 @@
 - `nix/`: Flake のエントリポイント（`flake.nix`）、ロックファイル、および macOS の system+Homebrew+Home Manager 状態を管理する `nix-darwin/default.nix` / `nix-darwin/system.nix` / `nix-darwin/homebrew.nix` / `nix-darwin/home-manager/default.nix`。
 - `fish/`: シェル設定（`config.fish`）、`fish_plugins`、およびカスタム functions/conf.d のスニペット。
 - `script/`: ユーティリティ Bash スクリプト（例: `set-fish-default.sh`）。
-- ツール設定はトップレベルに配置（例: `aerospace/`、`cursor/`、`wezterm/`、`raycast/`、`git/`、`mise/`、`nvim/`、`lazygit/`、`yazi/`、`claude/`、`codex/`、`zed/`、`simple-bar/`）。
+- ツール設定はトップレベルに配置（例: `aerospace/`、`cursor/`、`wezterm/`、`raycast/`、`git/`、`mise/`、`nvim/`、`lazygit/`、`yazi/`、`claude/`、`codex/`、`zed/`、`menubar-script/`）。
 - エージェント固有のアセットは `agents/` 配下（スキル、プロンプト、補助ドキュメント）。
 
 ## ビルド・テスト・開発コマンド
@@ -39,5 +39,5 @@
 
 ## エージェントスキル
 - 再利用可能なスキルは `agents/skills/` に保存。
-- 現在のリポジトリ内スキル: `code-simplifier`、`conventional-commit`、`electron`、`frontend-design`、`web-to-md`、`wezterm`、`zed`。
+- 現在のリポジトリ内スキル: `a-bar`、`code-simplifier`、`conventional-commit`、`electron`、`frontend-design`、`web-to-md`、`wezterm`、`zed`。
 - タスクで特定のスキルが明示された場合は、そのスキルのワークフローを使用し、変更範囲は要求された領域に限定。
