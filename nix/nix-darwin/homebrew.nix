@@ -1,7 +1,13 @@
-{ pkgs, ... }:
+{ local, pkgs, ... }:
 {
+  environment.systemPath = [
+    # `homebrew.goPackages` uses `go install`, which writes binaries to `$HOME/go/bin` by default.
+    "${local.homeDirectory}/go/bin"
+  ];
+
   homebrew = {
     enable = true;
+    enableFishIntegration = true;
     onActivation = {
       autoUpdate = true;
       cleanup = "zap";
@@ -28,6 +34,7 @@
       "k1LoW/tap" # mo (browser markdown viewer)
       "Jean-Tinland/a-bar" # menubar
     ];
+
     casks = [
       ### GUI Applications
       # "slack"
@@ -80,5 +87,8 @@
       "Klack" = 6446206067;
       "Grila" = 6444335028;
     };
+
+    goPackages = [
+    ];
   };
 }

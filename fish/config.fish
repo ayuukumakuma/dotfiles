@@ -5,6 +5,13 @@ if test -d /etc/profiles/per-user/$USER/bin
   end
 end
 
+# `homebrew.goPackages` installs Go CLI binaries into `~/go/bin`.
+if test -d ~/go/bin
+  if not contains ~/go/bin $PATH
+    set -gx PATH ~/go/bin $PATH
+  end
+end
+
 # brewでインストールしたfisherをnixpkgsでインストールしたfishで使う
 if test -d /opt/homebrew/share/fish/vendor_functions.d
     set -p fish_function_path /opt/homebrew/share/fish/vendor_functions.d
