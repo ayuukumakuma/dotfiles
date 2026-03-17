@@ -139,5 +139,6 @@
     "typescript-lsp@claude-plugins-official": true
   },
   "language": "日本語",
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "model": "haiku"
 }
