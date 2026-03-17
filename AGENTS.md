@@ -5,7 +5,7 @@
 - `fish/`: シェル設定（`config.fish`）、`fish_plugins`、およびカスタム functions/conf.d のスニペット。
 - `script/`: ユーティリティ Bash スクリプト（例: `set-fish-default.sh`）。
 - ツール設定はトップレベルに配置（例: `aerospace/`、`cursor/`、`wezterm/`、`raycast/`、`git/`、`mise/`、`nvim/`、`lazygit/`、`yazi/`、`claude/`、`codex/`、`zed/`、`menubar-script/`）。
-- エージェント固有のアセットは `agents/` 配下（スキル、プロンプト、補助ドキュメント）。
+- エージェント固有のアセットは `agents/` 配下（主に `skills/` の再利用可能スキル群）。
 
 ## ビルド・テスト・開発コマンド
 - `cd nix && nix flake check` — flake と darwin 設定を検証。

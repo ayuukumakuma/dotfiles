@@ -84,7 +84,7 @@ cd ..
 
 ```
 
-Home Manager で `~/.config/*` に加えて `~/.aerospace.toml`、`~/.agents`、`~/.claude/settings.json`/`~/.claude/statusline.sh`/`~/.claude/hooks`/`~/.claude/agents`/`~/.claude/skills`、`~/.codex/config.toml`/`~/.codex/hooks.json`/`~/.codex/hooks/notify-terminal-notifier.sh`/`~/.codex/hooks/state-notify.sh` を `nix run nix-darwin -- switch --flake path:.#<darwinConfigName>` で管理します。
+Home Manager で `~/.config/*` に加えて `~/.aerospace.toml`、`~/.agents`、`~/.claude/settings.json`/`~/.claude/statusline.sh`/`~/.claude/hooks`/`~/.claude/skills`、`~/.codex/config.toml`/`~/.codex/hooks`/`~/.codex/hooks.json` を `nix run nix-darwin -- switch --flake path:.#<darwinConfigName>` で管理します。
 
 ### 4. Git個人設定の初期化
 
@@ -184,9 +184,9 @@ launchctl kickstart -k gui/$(id -u)/org.nixos.jankyborders
 - `direnv/direnvrc` -> `~/.config/direnv/direnvrc`
 - `aerospace/.aerospace.toml` -> `~/.aerospace.toml`
 - `agents/` -> `~/.agents`
-- `claude/settings.json`, `claude/statusline.sh`, `claude/hooks`, `claude/agents`, `agents/skills` -> `~/.claude/`
+- `claude/settings.json`, `claude/statusline.sh`, `claude/hooks`, `agents/skills` -> `~/.claude/`
 - `agents/skills` -> `~/.cursor/skills`
-- `codex/config.toml`, `codex/hooks.json`, `codex/hooks/notify-terminal-notifier.sh`, `codex/hooks/state-notify.sh` -> `~/.codex/`
+- `codex/config.toml`, `codex/hooks`, `codex/hooks.json` -> `~/.codex/`
 
 ### Home Manager非対象（手動運用）
 - `raycast/*.rayconfig`（Raycast の `Import Settings & Data` で取り込み）
