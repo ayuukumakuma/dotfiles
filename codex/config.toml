@@ -57,4 +57,4 @@ trust_level = "trusted"
 
 [tui]
 status_line = ["model-with-reasoning", "project-root", "git-branch", "context-used", "five-hour-limit", "weekly-limit", "codex-version"]
-theme = "catppuccin-mocha"
+theme = "github"

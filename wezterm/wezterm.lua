@@ -3,11 +3,11 @@ local wezterm = require('wezterm')
 local config = wezterm.config_builder()
 
 -- Color Scheme
-config.color_scheme = 'nord'
+config.color_scheme = 'Catppuccin Latte'
 
 -- Font Settings
 config.font = wezterm.font_with_fallback {
-  'HackGen35 Console NF',
+  'HackGen Console NF',
   'Noto Color Emoji',
 }
 config.font_size = 14
@@ -37,7 +37,7 @@ config.window_frame = {
   active_titlebar_bg = "none",
 }
 config.window_background_gradient = {
-  colors = { "000" },
+  colors = { "F0EEE9" },
 }
 config.show_new_tab_button_in_tab_bar = false
 
