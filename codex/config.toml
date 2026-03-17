@@ -7,6 +7,8 @@ web_search = "live"
 notify = ["/Users/nasuno.ayumu/.codex/hooks/notify-terminal-notifier.sh"]
 suppress_unstable_features_warning = true
 plan_mode_reasoning_effort = "medium"
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
 
 [features]
 shell_snapshot = true

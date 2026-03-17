@@ -8,6 +8,12 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "agent_servers": {
+    "codex-acp": {
+      "type": "registry",
+    },
+    "claude-acp": {
+      "type": "registry",
+    },
     "cursor": {
       "default_config_options": {
         "model": "composer-1.5[]",
@@ -85,7 +91,7 @@
     "mode": "eager",
     "provider": "ollama",
     "ollama": {
-      "model": "qwen3.5:9b",
+      "model": "qwen3.5:2b",
       "prompt_format": "qwen",
     },
   },
@@ -164,6 +170,7 @@
   },
   "tab_bar": {
     "show_nav_history_buttons": false,
+    "show_tab_bar_buttons": false
   },
   "tab_size": 2,
   "tabs": {
