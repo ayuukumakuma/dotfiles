@@ -78,6 +78,8 @@
       "spotify"
       "azookey"
       "a-bar"
+      "beekeeper-studio"
+      "keycastr"
 
       ### Fonts
       "font-hackgen-nerd"

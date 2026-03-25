@@ -29,7 +29,7 @@ in
     };
     "wezterm/wezterm.lua".source = oos "${dotfilesRoot}/wezterm/wezterm.lua";
     zed = {
-     source = oos "${dotfilesRoot}/zed";
+      source = oos "${dotfilesRoot}/zed";
     };
 
     # direnvrc は ${pkgs.nix-direnv} の Nix Store パスを参照するため
@@ -43,14 +43,14 @@ in
     ".aerospace.toml".source = oos "${dotfilesRoot}/aerospace/.aerospace.toml";
     ".agents".source = oos "${dotfilesRoot}/agents";
     ".claude/settings.json".source = oos "${dotfilesRoot}/claude/settings.json";
-    ".claude/statusline.sh".source = oos "${dotfilesRoot}/claude/statusline.sh";
+    ".claude/statusline.py".source = oos "${dotfilesRoot}/claude/statusline.py";
     ".claude/hooks".source = oos "${dotfilesRoot}/claude/hooks";
     ".claude/agents".source = oos "${dotfilesRoot}/claude/agents";
     ".claude/skills".source = oos "${dotfilesRoot}/agents/skills";
+    ".claude/CLAUDE.md".source = oos "${dotfilesRoot}/claude/CLAUDE.md";
     ".cursor/skills".source = oos "${dotfilesRoot}/agents/skills";
     ".codex/config.toml".source = oos "${dotfilesRoot}/codex/config.toml";
-    ".codex/hooks".source =
-      oos "${dotfilesRoot}/codex/hooks";
+    ".codex/hooks".source = oos "${dotfilesRoot}/codex/hooks";
     ".codex/hooks.json".source = oos "${dotfilesRoot}/codex/hooks.json";
   };
 }
