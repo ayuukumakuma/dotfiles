@@ -39,5 +39,5 @@
 
 ## エージェントスキル
 - 再利用可能なスキルは `agents/skills/` に保存。
-- 現在のリポジトリ内スキル: `a-bar`、`code-simplifier`、`conventional-commit`、`electron`、`frontend-design`、`web-to-md`、`wezterm`、`zed`。
+- 現在のリポジトリ内スキル: `a-bar`、`adapt`、`animate`、`arrange`、`audit`、`bolder`、`clarify`、`code-simplifier`、`colorize`、`conventional-commit`、`critique`、`delight`、`distill`、`electron`、`extract`、`frontend-design`、`harden`、`normalize`、`onboard`、`optimize`、`overdrive`、`polish`、`quieter`、`teach-impeccable`、`typeset`、`web-to-md`、`wezterm`、`zed`。
 - タスクで特定のスキルが明示された場合は、そのスキルのワークフローを使用し、変更範囲は要求された領域に限定。
