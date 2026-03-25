@@ -30,8 +30,9 @@
 [interactive]
     diffFilter = delta --color-only
 [delta]
+    syntax-theme = Catppuccin Latte
+    light = true
     navigate = true  # use n and N to move between diff section
-    dark     = true
     side-by-side = true
     line-numbers = true
 [merge]
