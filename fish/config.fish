@@ -65,10 +65,8 @@ if status is-interactive
   abbr -a v 'nvim'
   abbr -a cdg 'cd-gitroot'
   abbr -a cat 'bat'
-  abbr -a zl 'zellij'
   abbr -a wt 'git gtr'
   abbr -a co 'codex'
-  abbr -a oct 'command or'
   abbr -a lg 'lazygit'
 end
 
@@ -76,3 +74,5 @@ end
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
 export PATH="$HOME/.local/bin:$PATH"
+
+source "$HOME/.vite-plus/env.fish"
