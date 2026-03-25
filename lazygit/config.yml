@@ -37,7 +37,7 @@ git:
   # 参照: https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Pagers.md
   # 詳細は上記を参照。
   pagers:
-    - pager: delta --dark --paging=never --side-by-side --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+    - pager: delta --syntax-theme "Catppuccin Latte" --paging=never --side-by-side --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
 
   # true の場合、コミットメッセージ内の絵文字文字列を解釈（例: :rocket: -> 🚀）
   # （本来は 'git' ではなく 'gui' 配下にあるべき設定）

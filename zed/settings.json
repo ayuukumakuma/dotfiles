@@ -42,11 +42,6 @@
     "message_editor_min_lines": 6,
     "show_turn_stats": true,
     "default_profile": "ask",
-    "default_model": {
-      "provider": "ollama",
-      "model": "qwen3.5:9b",
-      "enable_thinking": false,
-    },
     "cancel_generation_on_terminal_stop": true,
     "use_modifier_to_send": true,
     "button": false,
@@ -87,12 +82,15 @@
   },
   "disable_ai": false,
   "edit_predictions": {
-    "enabled_in_text_threads": true,
-    "mode": "eager",
-    "provider": "ollama",
     "ollama": {
       "model": "qwen3.5:2b",
       "prompt_format": "qwen",
+    },
+    "mode": "eager",
+    "provider": "open_ai_compatible_api",
+    "open_ai_compatible_api": {
+      "api_url": "https://api.openai.com/v1/chat/completions",
+      "model": "gpt-5.4-nano",
     },
   },
   "file_finder": {
@@ -115,6 +113,9 @@
     "Shell Script": [
       ".envrc"
     ],
+    "Dockerfile": [
+      "Dockerfile.*"
+    ]
   },
   "git": {
     "hunk_style": "unstaged_hollow",
@@ -126,7 +127,7 @@
     "button": false,
     "collapse_untracked_diff": false,
     "dock": "left",
-    "tree_view": true,
+    "tree_view": false,
     "sort_by_path": true,
     "status_style": "label_color",
   },
@@ -170,7 +171,7 @@
   },
   "tab_bar": {
     "show_nav_history_buttons": false,
-    "show_tab_bar_buttons": false
+    "show_tab_bar_buttons": false,
   },
   "tab_size": 2,
   "tabs": {
