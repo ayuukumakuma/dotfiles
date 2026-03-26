@@ -1,0 +1,36 @@
+presets:
+  claude-code:
+    allow:
+      # プロジェクト作業ディレクトリ
+      - path: "."
+        eval-symlinks: true
+      # 一時ファイル (macOS: /tmp -> /private/tmp)
+      - path: "/tmp"
+        eval-symlinks: true
+      # ターミナル操作
+      - "/dev/tty"
+      # Claude Code データ
+      - path: "$HOME/.claude"
+        eval-symlinks: true
+      - "$HOME/.claude.json"
+      - "$HOME/.claude.json.backup"
+      - "$HOME/.claude.json.lock"
+      - "$HOME/.claude.lock"
+      # npm/npx キャッシュ (MCP サーバー等)
+      - "$HOME/.npm"
+      # bun キャッシュ (bunx for ccstatusline 等)
+      - "$HOME/.bun"
+      # 各種キャッシュ
+      - "$HOME/.cache"
+      # ローカル state/bin (nvim, pnpm, mise 等)
+      - "$HOME/.local"
+      # ランタイムで書き込まれるツール設定 (op, gcloud 等)
+      - path: "$HOME/.config"
+        eval-symlinks: true
+    allow-keychain: true
+    allow-git: true
+
+auto-presets:
+  - command: claude
+    presets:
+      - claude-code

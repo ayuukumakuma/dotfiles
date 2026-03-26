@@ -9,6 +9,7 @@
     enable = true;
     enableFishIntegration = true;
     onActivation = {
+      upgrade = true;
       autoUpdate = true;
       cleanup = "zap";
     };
@@ -33,6 +34,7 @@
       "daipeihust/tap" # im-select
       "k1LoW/tap" # mo (browser markdown viewer)
       "Jean-Tinland/a-bar" # menubar
+      "Warashi/tap" # cage
     ];
 
     casks = [
@@ -80,11 +82,17 @@
       "a-bar"
       "beekeeper-studio"
       "keycastr"
+      "cage"
 
       ### Fonts
       "font-hackgen-nerd"
       "font-monaspace"
     ];
+
+    caskArgs = {
+      no_quarantine = true;
+    };
+
     masApps = {
       "Klack" = 6446206067;
       "Grila" = 6444335028;
