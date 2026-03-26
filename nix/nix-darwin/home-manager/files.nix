@@ -31,6 +31,10 @@ in
     zed = {
       source = oos "${dotfilesRoot}/zed";
     };
+    cage = {
+      source = oos "${dotfilesRoot}/cage";
+    };
+    "guard-and-guide/rules.toml".source = oos "${dotfilesRoot}/guard-and-guide/rules.toml";
 
     # direnvrc は ${pkgs.nix-direnv} の Nix Store パスを参照するため
     # dotfiles 側に静的ファイルとして管理できない。text で直接記述する。

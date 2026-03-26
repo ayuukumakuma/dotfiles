@@ -44,7 +44,7 @@
     resvg
     poppler
     rtk
-    inputs.cf-page-to-md.packages.${pkgs.system}.default
+    inputs.guard-and-guide.packages.${pkgs.system}.default
     (callPackage ../../pkgs/git-cz/default.nix { })
     (callPackage ../../pkgs/portless/default.nix { })
     (callPackage ../../pkgs/site2skill/default.nix { })
