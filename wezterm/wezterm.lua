@@ -23,7 +23,7 @@ config.window_decorations = 'RESIZE'
 config.window_close_confirmation = 'NeverPrompt'
 
 -- Background Settings
-config.window_background_opacity = 0.7
+config.window_background_opacity = 0.9
 config.inactive_pane_hsb = {
   saturation = 0.5,
   brightness = 0.2,
@@ -42,13 +42,13 @@ config.window_background_gradient = {
 config.show_new_tab_button_in_tab_bar = false
 
 config.keys = {
-  { key = "Enter", mods = "SHIFT", action = wezterm.action { SendString = "\x1b\r" } },
-  { key = "d", mods = "CMD", action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" } },
-  { key = "d", mods = "CMD|SHIFT", action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" } },
-  { key = "h", mods = "CMD|CTRL", action = wezterm.action.ActivatePaneDirection "Left" },
-  { key = "j", mods = "CMD|CTRL", action = wezterm.action.ActivatePaneDirection "Down" },
-  { key = "k", mods = "CMD|CTRL", action = wezterm.action.ActivatePaneDirection "Up" },
-  { key = "l", mods = "CMD|CTRL", action = wezterm.action.ActivatePaneDirection "Right" },
+  { key = "Enter", mods = "SHIFT",     action = wezterm.action { SendString = "\x1b\r" } },
+  { key = "d",     mods = "CMD",       action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" } },
+  { key = "d",     mods = "CMD|SHIFT", action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" } },
+  { key = "h",     mods = "CMD|CTRL",  action = wezterm.action.ActivatePaneDirection "Left" },
+  { key = "j",     mods = "CMD|CTRL",  action = wezterm.action.ActivatePaneDirection "Down" },
+  { key = "k",     mods = "CMD|CTRL",  action = wezterm.action.ActivatePaneDirection "Up" },
+  { key = "l",     mods = "CMD|CTRL",  action = wezterm.action.ActivatePaneDirection "Right" },
 }
 
 return config

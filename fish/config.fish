@@ -61,13 +61,16 @@ if status is-interactive
   abbr -a g 'git'
   abbr -a pn 'pnpm'
   abbr -a j 'just'
-  abbr -a cc 'claude'
+  abbr -a cc 'cage claude --enable-auto-mode'
   abbr -a v 'nvim'
   abbr -a cdg 'cd-gitroot'
   abbr -a cat 'bat'
   abbr -a wt 'git gtr'
   abbr -a co 'codex'
   abbr -a lg 'lazygit'
+  abbr -a prf 'gh prism (gh pr list | fzf --preview "gh pr view {1}" | awk "{print $1}")' # pr review fzf
+  abbr -a prr 'gh prism'
+
 end
 
 # Added by OrbStack: command-line tools and integration
