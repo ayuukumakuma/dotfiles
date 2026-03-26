@@ -15,13 +15,10 @@
       "type": "registry",
     },
     "cursor": {
-      "default_config_options": {
-        "model": "composer-1.5[]",
-      },
       "favorite_config_option_values": {
         "model": [
-          "composer-1.5[]"
-        ],
+          "composer-2[fast=true]"
+        ]
       },
       "type": "registry",
     },
@@ -55,7 +52,7 @@
   "audio": {
     "experimental.auto_speaker_volume": false,
   },
-  "auto_signature_help": true,
+  "auto_signature_help": false,
   "autosave": "on_focus_change",
   "base_keymap": "VSCode",
   "buffer_font_family": "HackGen Console NF",
@@ -86,12 +83,8 @@
       "model": "qwen3.5:2b",
       "prompt_format": "qwen",
     },
-    "mode": "eager",
-    "provider": "open_ai_compatible_api",
-    "open_ai_compatible_api": {
-      "api_url": "https://api.openai.com/v1/chat/completions",
-      "model": "gpt-5.4-nano",
-    },
+    "mode": "subtle",
+    "provider": "ollama",
   },
   "file_finder": {
     "include_ignored": "smart",
@@ -130,6 +123,8 @@
     "tree_view": false,
     "sort_by_path": true,
     "status_style": "label_color",
+    "show_count_badge": true,
+    "file_icons": true,
   },
   "hard_tabs": false,
   "helix_mode": false,
@@ -145,7 +140,7 @@
     "enabled": true,
   },
   "prettier": {
-    "allowed": true,
+    "allowed": false,
   },
   "project_panel": {
     "button": false,

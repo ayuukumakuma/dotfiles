@@ -15,26 +15,13 @@
       "Read(id_rsa)",
       "Read(id_ed25519)",
       "Read(**/*token*)",
-      "Read(**/*key*)",
       "Write(.env*)",
       "Write(**/secrets/**)",
-      "Bash(curl:*)",
-      "Bash(wget:*)",
       "Bash(nc:*)",
       "Bash(pnpm uninstall:*)",
       "Bash(pnpm remove:*)",
       "Bash(psql:*)",
-      "Bash(mysql:*)",
-      "mcp__notion__API-patch-block-children",
-      "mcp__notion__API-update-a-block",
-      "mcp__notion__API-delete-a-block",
-      "mcp__notion__API-patch-page",
-      "mcp__notion__API-post-page",
-      "mcp__notion__API-create-a-database",
-      "mcp__notion__API-update-a-database",
-      "mcp__notion__API-create-a-comment",
-      "WebSearch",
-      "WebFetch"
+      "Bash(mysql:*)"
     ],
     "defaultMode": "plan"
   },
@@ -67,6 +54,10 @@
           {
             "type": "command",
             "command": "/Users/nasuno.ayumu/.claude/hooks/state-notify.sh working"
+          },
+          {
+            "type": "command",
+            "command": "guard-and-guide"
           }
         ]
       },
@@ -155,5 +146,6 @@
     "terraform@claude-plugins-official": true
   },
   "language": "日本語",
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "skipAutoPermissionPrompt": true
 }
