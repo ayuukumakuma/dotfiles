@@ -29,7 +29,6 @@ if status is-interactive
   set --universal pure_symbol_nixdevshell_prefix " "
   set -g async_prompt_functions _pure_prompt_git
 
-
   # Configurations for plugin: fish-autols
   set -gx autols_cmd eza -alh
 
@@ -70,6 +69,7 @@ if status is-interactive
   abbr -a lg 'lazygit'
   abbr -a prf 'gh prism (gh pr list | fzf --preview "gh pr view {1}" | awk "{print $1}")' # pr review fzf
   abbr -a prr 'gh prism'
+  abbr -a ns 'notify-sound'
 
 end
 
