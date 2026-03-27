@@ -116,7 +116,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "mo --shutdown && mo --clear",
+            "command": "mo --shutdown && echo 'Y' | mo --clear",
             "async": true
           }
         ]
