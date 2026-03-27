@@ -106,6 +106,7 @@ play_custom_wav() {
 
 notify() {
   local parent_app_bundle_path=""
+  local sound_disabled_flag="$HOME/.config/notify-sound-disabled"
   local -a notify_args=(
     -title "$title"
     -message "$message"
@@ -115,6 +116,11 @@ notify() {
     notify_args+=(
       -execute "open -a \"${parent_app_bundle_path}\""
     )
+  fi
+
+  if [[ -f "$sound_disabled_flag" ]]; then
+    terminal-notifier "${notify_args[@]}"
+    return
   fi
 
   if can_play_custom_wav; then
@@ -128,14 +134,8 @@ notify() {
 
 title="$(extract_json_field "title")"
 message="$(extract_json_field "message")"
-
-if [[ -z "$title" ]]; then
-  title="Codex"
-fi
-
-if [[ -z "$message" ]]; then
-  message="Task update"
-fi
+title="${title:-Codex}"
+message="${message:-Task update}"
 
 if should_skip_notification; then
   exit 0

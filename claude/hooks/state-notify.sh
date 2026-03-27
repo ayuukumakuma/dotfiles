@@ -118,6 +118,7 @@ find_parent_app() {
 
 notify() {
   local wav_path="$1"
+  local sound_disabled_flag="$HOME/.config/notify-sound-disabled"
   local -a notify_args=(
     -title "$title"
     -message "$message"
@@ -129,10 +130,15 @@ notify() {
     )
   fi
 
+  if [[ -f "$sound_disabled_flag" ]]; then
+    terminal-notifier "${notify_args[@]}"
+    return
+  fi
+
   if can_play_custom_wav "$wav_path"; then
     terminal-notifier "${notify_args[@]}"
     play_custom_wav "$wav_path" || true
-    return 0
+    return
   fi
 
   terminal-notifier "${notify_args[@]}" -sound Funk
