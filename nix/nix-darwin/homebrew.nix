@@ -83,6 +83,7 @@
       "beekeeper-studio"
       "keycastr"
       "cage"
+      "chatgpt"
 
       ### Fonts
       "font-hackgen-nerd"
