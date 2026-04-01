@@ -21,12 +21,14 @@ presets:
       # bun キャッシュ (bunx for ccstatusline 等)
       - "$HOME/.bun"
       # 各種キャッシュ
-      - "$HOME/.cache"
+      - path: "$HOME/.cache"
+        eval-symlinks: true
       # ローカル state/bin (nvim, pnpm, mise 等)
       - "$HOME/.local"
       # ランタイムで書き込まれるツール設定 (op, gcloud 等)
       - path: "$HOME/.config"
         eval-symlinks: true
+  git:
     allow-keychain: true
     allow-git: true
 
@@ -34,3 +36,4 @@ auto-presets:
   - command: claude
     presets:
       - claude-code
+      - git
