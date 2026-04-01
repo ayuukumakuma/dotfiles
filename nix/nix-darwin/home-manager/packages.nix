@@ -14,7 +14,6 @@
     claude-code
     just
     mise
-    kubectl
     jq
     jnv
     neovim
@@ -29,10 +28,6 @@
     terminal-notifier
     direnv
     nix-direnv
-    bun
-    nodejs_25
-    python315
-    ruby
     awscli2
     lazygit
     openssl_3
@@ -44,6 +39,7 @@
     resvg
     poppler
     rtk
+    github-copilot-cli
     inputs.guard-and-guide.packages.${pkgs.system}.default
     (callPackage ../../pkgs/git-cz/default.nix { })
     (callPackage ../../pkgs/portless/default.nix { })

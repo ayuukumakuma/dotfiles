@@ -19,15 +19,7 @@
       "mas" # Mac App Store CLI
       "im-select"
       "git-delta"
-      "agent-browser"
-      "gemini-cli"
       "mo"
-
-      ### Ruby環境用はbrewの方が相性が良いのでこちらでインストールする
-      "mysql@8.0"
-      "libyaml"
-      "pkg-config"
-      "vips"
     ];
     taps = [
       "nikitabobko/tap" # aerospace
