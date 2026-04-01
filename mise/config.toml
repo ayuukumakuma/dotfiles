@@ -1,0 +1,8 @@
+[settings]
+
+[settings.ruby]
+compile = false
+
+[tools]
+bun = "latest"
+python = "latest"
