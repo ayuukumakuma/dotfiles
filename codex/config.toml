@@ -14,7 +14,6 @@ sandbox_mode = "workspace-write"
 shell_snapshot = true
 multi_agent = true
 prevent_idle_sleep = true
-voice_transcription = true
 js_repl = true
 codex_hooks = true
 
@@ -58,5 +57,13 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [tui]
-status_line = ["model-with-reasoning", "project-root", "git-branch", "context-used", "five-hour-limit", "weekly-limit", "codex-version"]
+status_line = [
+  "model-with-reasoning",
+  "project-root",
+  "git-branch",
+  "context-used",
+  "five-hour-limit",
+  "weekly-limit",
+  "codex-version",
+]
 theme = "github"

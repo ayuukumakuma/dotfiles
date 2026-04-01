@@ -147,6 +147,6 @@
   },
   "language": "日本語",
   "voiceEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "autoMemoryEnabled": false
+  "autoMemoryEnabled": false,
+  "skipAutoPermissionPrompt": true
 }
