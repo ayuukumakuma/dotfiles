@@ -44,6 +44,9 @@ if status is-interactive
   # Set Editor
   set -gx EDITOR nvim
 
+  # 1Password SSH Agent (tmux内でも署名が動作するように固定)
+  set -gx SSH_AUTH_SOCK ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
   # Load git gtr completions
   if test -f ~/.config/fish/completions/gtr.fish
     source ~/.config/fish/completions/gtr.fish
@@ -60,7 +63,8 @@ if status is-interactive
   abbr -a g 'git'
   abbr -a pn 'pnpm'
   abbr -a j 'just'
-  abbr -a cc 'cage claude --enable-auto-mode'
+  abbr -a cc 'CLAUDE_CODE_NO_FLICKER=1 cage claude --enable-auto-mode'
+  abbr -a ccs 'CLAUDE_CODE_NO_FLICKER=1 cage claude --enable-auto-mode --model sonnet --permission-mode auto'
   abbr -a v 'nvim'
   abbr -a cdg 'cd-gitroot'
   abbr -a cat 'bat'
@@ -69,6 +73,7 @@ if status is-interactive
   abbr -a lg 'lazygit'
   abbr -a ns 'notify-sound'
   abbr -a cpi 'copilot'
+  abbr -a tm 'tmux'
 
 end
 
