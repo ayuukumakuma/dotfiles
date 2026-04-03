@@ -143,6 +143,7 @@
     "allowed": false,
   },
   "project_panel": {
+    "git_status_indicator": true,
     "button": false,
     "hide_root": true,
     "bold_folder_labels": true,
