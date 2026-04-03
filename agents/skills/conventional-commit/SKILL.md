@@ -1,7 +1,7 @@
 ---
 name: conventional-commit
 description: Use this skill when creating git commits, writing commit messages, or when the user asks to commit changes. Generates Conventional Commits messages with automatic type/scope inference, optional commit splitting, and explicit approval gating before git commit.
-argument-hint: "message/type hint"
+argument-hint: "[auto-approve] [message/type hint]"
 disable-model-invocation: true
 ---
 
@@ -18,10 +18,20 @@ disable-model-invocation: true
 
 ## Arguments
 
-`$ARGUMENTS` は次のヒントとして解釈します。
+`$ARGUMENTS` はスペース区切りで解釈する。第1トークンが `true` または `false` の場合は auto-approve フラグとして扱い、それ以外はすべてヒントとして扱う。
 
-- type ヒント（例: `/conventional-commit feat`）
-- subject ヒント（例: `/conventional-commit "認証エラーを修正"`）
+| 位置 | 名前 | 省略 | 説明 |
+|------|------|------|------|
+| 1 | auto-approve | 可 | `true` で承認スキップ。`false` または省略時は承認を求める |
+| 2+ | ヒント | 可 | type（例: `feat`）や subject（例: `"認証エラーを修正"`） |
+
+### 使用例
+
+- `/conventional-commit` -- 全自動推定、承認あり
+- `/conventional-commit true` -- 全自動推定、承認スキップ
+- `/conventional-commit true feat` -- type 指定、承認スキップ
+- `/conventional-commit feat` -- type 指定、承認あり
+- `/conventional-commit "認証エラーを修正"` -- subject 指定、承認あり
 
 ## Commit Message Rules
 
@@ -85,14 +95,21 @@ disable-model-invocation: true
 
 ## Confirmation Policy
 
-### When interactive question tool is available
+### auto-approve が `true` の場合
+
+確認をすべてスキップし、生成したコミットメッセージでそのまま `git commit` を実行する。
+分割提案がある場合も自動で分割コミットを実行する。
+
+### auto-approve が `false` または未指定の場合
+
+#### When interactive question tool is available
 
 AskUserQuestion 相当の選択式確認を使う。
 
 - 分割するかどうか
 - 最終コミット案を承認するかどうか
 
-### Fallback
+#### Fallback
 
 選択式ツールがない場合はテキストで確認する。
 
@@ -104,9 +121,9 @@ AskUserQuestion 相当の選択式確認を使う。
 1. 変更内容を確認する
 2. `type` / `scope` / `subject` / `body` を自動生成する
 3. 分割可能性を判定し、必要なら分割案を提示する
-4. 単一または複数コミット案を表示して最終確認を 1 回行う
-5. 承認された場合のみコミットを実行する
-6. 実行後に結果を確認する
+4. コミット案を表示し、Confirmation Policy に従って承認を得る
+5. コミットを実行する
+6. 実行結果を確認する
 
 ## Commands
 
@@ -138,7 +155,7 @@ git status
 
 ## Safety Requirements
 
-1. ユーザー承認前に `git commit` を実行しない
-2. 実行前にコミットメッセージ案を必ず表示する
+1. auto-approve が `true` でない限り、ユーザー承認前に `git commit` を実行しない
+2. 実行前にコミットメッセージ案を必ず表示する（auto-approve 時も表示はする）
 3. 分割案では各コミットの対象ファイルを明示する
 4. 失敗時はエラー内容を示し、再実行可能な形で案内する
