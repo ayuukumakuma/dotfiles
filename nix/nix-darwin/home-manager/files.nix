@@ -11,29 +11,16 @@ in
 {
   xdg.enable = true;
   xdg.configFile = {
-    fish = {
-      source = oos "${dotfilesRoot}/fish";
-    };
-    git = {
-      source = oos "${dotfilesRoot}/git";
-    };
+    fish.source = oos "${dotfilesRoot}/fish";
+    git.source = oos "${dotfilesRoot}/git";
     "mise/config.toml".source = oos "${dotfilesRoot}/mise/config.toml";
-    nvim = {
-      source = oos "${dotfilesRoot}/nvim";
-    };
-    lazygit = {
-      source = oos "${dotfilesRoot}/lazygit";
-    };
-    yazi = {
-      source = oos "${dotfilesRoot}/yazi";
-    };
+    nvim.source = oos "${dotfilesRoot}/nvim";
+    lazygit.source = oos "${dotfilesRoot}/lazygit";
+    yazi.source = oos "${dotfilesRoot}/yazi";
+    tmux.source = oos "${dotfilesRoot}/tmux";
     "wezterm/wezterm.lua".source = oos "${dotfilesRoot}/wezterm/wezterm.lua";
-    zed = {
-      source = oos "${dotfilesRoot}/zed";
-    };
-    cage = {
-      source = oos "${dotfilesRoot}/cage";
-    };
+    zed.source = oos "${dotfilesRoot}/zed";
+    cage.source = oos "${dotfilesRoot}/cage";
     "guard-and-guide/rules.toml".source = oos "${dotfilesRoot}/guard-and-guide/rules.toml";
 
     # direnvrc は ${pkgs.nix-direnv} の Nix Store パスを参照するため
