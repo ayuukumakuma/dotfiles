@@ -8,7 +8,7 @@ presets:
       - path: "/tmp"
         eval-symlinks: true
       # ターミナル操作
-      - "/dev/tty"
+      - "/dev"
       # Claude Code データ
       - path: "$HOME/.claude"
         eval-symlinks: true
