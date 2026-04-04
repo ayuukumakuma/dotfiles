@@ -207,6 +207,15 @@
       "skillFolderHash": "800e46942f0d7e50b0b5d57860659eca75dcc813",
       "installedAt": "2026-03-18T01:59:17.791Z",
       "updatedAt": "2026-03-18T01:59:17.791Z"
+    },
+    "difit-review": {
+      "source": "yoshiko-pg/difit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/yoshiko-pg/difit.git",
+      "skillPath": "skills/difit-review/SKILL.md",
+      "skillFolderHash": "faf57eb1985cda1f74101afa4a14e5905e248d0c",
+      "installedAt": "2026-04-03T00:54:31.578Z",
+      "updatedAt": "2026-04-03T00:54:31.578Z"
     }
   },
   "dismissed": {
@@ -214,9 +223,12 @@
   },
   "lastSelectedAgents": [
     "amp",
+    "antigravity",
     "cline",
     "codex",
     "cursor",
+    "deepagents",
+    "firebender",
     "gemini-cli",
     "github-copilot",
     "kimi-cli",
