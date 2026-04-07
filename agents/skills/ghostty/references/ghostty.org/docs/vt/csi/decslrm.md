@@ -1,0 +1,154 @@
+---
+title: "Set Left and Right Margins (DECSLRM) - CSI"
+source_url: "https://ghostty.org/docs/vt/csi/decslrm"
+fetched_at: "2026-04-07T02:34:27.768926+00:00"
+---
+
+
+
+* [Ghostty Docs](https://ghostty.org/docs.html)
+* [Terminal API (VT)](https://ghostty.org/docs/vt.html)
+* CSI
+* [Set Left and Right Margins (DECSLRM)](https://ghostty.org/docs/vt/csi/decslrm.html)
+
+# Set Left and Right Margins (DECSLRM)
+
+Set the left and right margins.
+
+1. 0x1B
+   :   ESC
+2. 0x5B
+   :   [
+3. \_\_\_\_
+   :   l
+4. 0x3B
+   :   ;
+5. \_\_\_\_
+   :   r
+6. 0x73
+   :   s
+
+Sets the left and right margins, otherwise known as the scroll region.
+To learn more about scroll regions in general, see
+[Set Top and Bottom Margins](https://ghostty.org/docs/vt/csi/decstbm.html).
+
+Parameters `l` and `r` are integer values. If either value is zero the
+value will be reset to default values. The default value for `l` is `1`
+and the default value of `r` is the number of columns in the screen.
+
+Values `l` and `r` can be omitted. If either value is omitted, their
+default values will be used. Note that it is impossible to omit `l`
+and not omit `r`.
+
+This sequence requires [enable left and right margin (mode 69)](https://ghostty.org/docs/vt/csi/decslrm.html#TODO)
+to be set. If mode 69 is not set, this sequence does nothing and left
+and right margins will not be set.
+
+This sequence conflicts with [save cursor (`CSI s`)](https://ghostty.org/docs/vt/csi/decslrm.html#TODO). If
+mode 69 is disabled, save cursor will be invoked. If mode 69 is enabled,
+the `CSI s` save cursor sequence will be disabled, but save cursor is always
+also available as `ESC 7`.
+
+If left is larger or equal to right, this sequence does nothing. A
+scroll region must be at least two columns (`r` must be greater than `l`).
+The rest of this sequence description assumes valid values for `l` and `r`.
+
+This sequence unsets the pending wrap state and moves the cursor to
+the top-left of the screen. If [origin mode](https://ghostty.org/docs/vt/csi/decslrm.html#TODO) is set, the cursor is
+moved to the top-left of the scroll region.
+
+To reset the left and right margins, call this sequence with both values set to
+"0". This will force the default values for both `l` and `r` which is
+the full screen. Unsetting mode 69 will also reset the left and right margins.
+
+## Validation
+
+### DECSLRM V-1: Full Screen
+
+```
+printf "\033[1;1H" # move to top-left
+printf "\033[0J" # clear screen
+printf "ABC\n"
+printf "DEF\n"
+printf "GHI\n"
+printf "\033[?69h" # enable left/right margins
+printf "\033[s" # scroll region left/right
+printf "\033[X"
+```
+
+```
+|cBC_____|
+|DEF_____|
+|GHI_____|
+```
+
+### DECSLRM V-2: Left Only
+
+```
+printf "\033[1;1H" # move to top-left
+printf "\033[0J" # clear screen
+printf "ABC\n"
+printf "DEF\n"
+printf "GHI\n"
+printf "\033[?69h" # enable left/right margins
+printf "\033[2s" # scroll region left/right
+printf "\033[2G" # move cursor to column 2
+printf "\033[L"
+```
+
+```
+|Ac______|
+|DBC_____|
+|GEF_____|
+| HI_____|
+```
+
+### DECSLRM V-3: Left And Right
+
+```
+printf "\033[1;1H" # move to top-left
+printf "\033[0J" # clear screen
+printf "ABC\n"
+printf "DEF\n"
+printf "GHI\n"
+printf "\033[?69h" # enable left/right margins
+printf "\033[1;2s" # scroll region left/right
+printf "\033[2G" # move cursor to column 2
+printf "\033[L"
+```
+
+```
+|_cC_____|
+|ABF_____|
+|DEI_____|
+|GH______|
+```
+
+### DECSLRM V-4: Left Equal to Right
+
+```
+printf "\033[1;1H" # move to top-left
+printf "\033[0J" # clear screen
+printf "ABC\n"
+printf "DEF\n"
+printf "GHI\n"
+printf "\033[?69h" # enable left/right margins
+printf "\033[2;2s" # scroll region left/right
+printf "\033[X"
+```
+
+```
+|cBC_____|
+|DEF_____|
+|GHI_____|
+```
+
+
+
+[Edit on GitHub](https://github.com/ghostty-org/website/edit/main/docs/vt/csi/decslrm.mdx)
+
+* [Validation](https://ghostty.org/docs/vt/csi/decslrm.html#validation)
+* [DECSLRM V-1: Full Screen](https://ghostty.org/docs/vt/csi/decslrm.html#decslrm-v-1:-full-screen)
+* [DECSLRM V-2: Left Only](https://ghostty.org/docs/vt/csi/decslrm.html#decslrm-v-2:-left-only)
+* [DECSLRM V-3: Left And Right](https://ghostty.org/docs/vt/csi/decslrm.html#decslrm-v-3:-left-and-right)
+* [DECSLRM V-4: Left Equal to Right](https://ghostty.org/docs/vt/csi/decslrm.html#decslrm-v-4:-left-equal-to-right)

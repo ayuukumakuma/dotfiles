@@ -1,0 +1,190 @@
+---
+title: "Keybindings - Configuration"
+source_url: "https://ghostty.org/docs/config/keybind"
+fetched_at: "2026-04-07T02:34:27.768926+00:00"
+---
+
+
+
+* [Ghostty Docs](https://ghostty.org/docs.html)
+* [Configuration](https://ghostty.org/docs/config.html)
+* [Keybindings](https://ghostty.org/docs/config/keybind.html)
+
+# Custom Keybindings
+
+Associate a keypress with a specific action.
+
+Ghostty supports flexible, custom keybindings through the
+[`keybind` configuration option](https://ghostty.org/docs/config/reference.html#keybind).
+The configuration reference has detailed reference documentation
+for the option, but this page will give a high-level overview
+of how to specify keybindings in Ghostty.
+
+> Note
+>
+> The CLI command `list-keybinds` can be used to list all the available keybinds for Ghostty.
+> You can run this to see the default ones:
+>
+> ```
+> ghostty +list-keybinds --default
+> ```
+
+The basic syntax of a keybinding configuration is:
+
+```
+keybind = trigger=action
+```
+
+## Trigger
+
+The `trigger` part of a keybinding specifies the keypress events
+that will trigger the action. The trigger can be a single key,
+a single key with modifiers, or a sequence of keys.
+
+A trigger has zero or more modifiers combined with one key.
+For example, `a`, `ctrl+a`, `ctrl+shift+a`, `ctrl+alt+a` are
+all valid triggers.
+
+The set of possible keys is currently only available for
+reference by [viewing the source code](https://github.com/ghostty-org/ghostty/blob/485b6b73bf8007dee396ca515c5b45cddfc2f5d3/src/input/key.zig#L260).
+This list is derived from Chromium's keycodes and is closely
+associated with keys that have associated USB HID codes.
+
+If a key is not in the list, **you can also specify a Unicode codepoint**.
+If your key can decode into a single Unicode codepoint, Ghostty
+will consider it a valid trigger and the trigger will activate
+when a keypress event occurs which generates that codepoint. This
+is particularly useful on non-US keyboard layouts.
+
+For example, on a German keyboard you could bind "ö" with the
+configuration below. This would trigger when the "ö" key is pressed
+(";" on a US physical keyboard) because that key generates "ö"
+in Unicode.
+
+```
+keybind = ctrl+ö=action
+```
+
+### Modifiers
+
+Valid modifiers are:
+
+* `shift`
+* `ctrl` (alias: `control`)
+* `alt` (alias: `opt`, `option`)
+* `super` (alias: `cmd`, `command`)
+
+> Note
+>
+> The fn or "globe" key on keyboards are not supported as a
+> modifier. This is a limitation of the operating systems and GUI toolkits
+> that Ghostty uses.
+
+### Trigger Prefixes
+
+A trigger can also be prefixed with some special values
+to change the behavior of the keybind. These are listed below.
+
+Keybind triggers are not unique per prefix combination. For example,
+`ctrl+a` and `global:ctrl+a` are not two separate keybinds. The keybind
+set later will overwrite the keybind set earlier. In this case, the
+`global:` keybind will be used.
+
+Multiple prefixes can be specified. For example,
+`global:unconsumed:ctrl+a=reload_config` will make the keybind global
+in addition to not consuming the input to reload the config.
+
+#### `all:`
+
+Make the keybind apply to all terminal surfaces. By default,
+keybinds only apply to the focused terminal surface. If this is true,
+then the keybind will be sent to all terminal surfaces. This only
+applies to actions that are surface-specific. For actions that
+are already global (i.e. `quit`), this prefix has no effect.
+
+#### `global:`
+
+Make the keybind global. By default, keybinds only work
+within Ghostty and under the right conditions (application focused,
+sometimes terminal focused, etc.). If you want a keybind to work
+globally across your system (i.e. even when Ghostty is not focused),
+specify this prefix. This prefix implies `all:`. Note: this does not
+work in all environments; see the additional notes below for more
+information.
+
+This feature is only supported on macOS. On macOS, this feature
+requires accessibility permissions to be granted to Ghostty.
+When a `global:` keybind is specified and Ghostty is launched or reloaded,
+Ghostty will attempt to request these permissions. If the permissions are
+not granted, the keybind will not work. On macOS, you can find these
+permissions in System Preferences -> Privacy & Security -> Accessibility.
+
+> Note
+>
+> The `global:` prefix is only available on macOS.
+
+#### `unconsumed:`
+
+Do not consume the input. By default, a keybind
+will consume the input, meaning that the associated encoding (if
+any) will not be sent to the running program in the terminal. If
+you wish to send the encoded value to the program, specify the
+`unconsumed:` prefix before the entire keybind. For example:
+`unconsumed:ctrl+a=reload_config`.
+
+`global:` and `all:`-prefixed
+keybinds will always consume the input regardless of this setting.
+Since they are not associated with a specific terminal surface,
+they're never encoded.
+
+#### `performable:`
+
+Only consume the input if the action is able to be performed. For example,
+the `copy_to_clipboard` action will only consume the input if there is a
+selection to copy. If there is no selection, Ghostty behaves as if the
+keybind was not set. This has no effect with `global:` or `all:`-prefixed
+keybinds. For key sequences, this will reset the sequence if the action is
+not performable (acting identically to not having a keybind set at all).
+
+Performable keybinds will not appear as menu shortcuts in the application
+menu. This is because the menu shortcuts force the action to be performed
+regardless of the state of the terminal. Performable keybinds will still
+work, they just won't appear as a shortcut label in the menu.
+
+Example:
+
+```
+keybind = performable:ctrl+c=copy_to_clipboard
+```
+
+## Action
+
+Action is what happens when the trigger is activated. It is
+in the format of `action` or `action:parameter` if the action
+requires a parameter.
+
+Here are some common actions that can be used in keybinds.
+Please view the
+[full list of actions](https://ghostty.org/docs/config/keybind/reference.html)
+for a complete list. Ghostty supports dozens of actions.
+
+| Action | Description |
+| --- | --- |
+| `ignore` | Do nothing, ignore the key input. This can be used to black hole certain inputs to have no effect and no encoding. |
+| `unbind` | Remove the binding. This makes it so the previous action is removed, and the key will be sent through to the child command if it is printable. |
+| `text:text` | Send a string. Uses Zig string literal syntax. i.e. `text:\x15` sends Ctrl-U. By using a prefix of `\x1b[` you can send control sequences but the convenience actions `csi:` and `esc:` are recommended instead. |
+| `csi:text` | Send a CSI sequence. i.e. `csi:A` sends "cursor up". |
+| `esc:text` | Send an escape sequence. i.e. `esc:d` deletes to the end of the word to the right. |
+
+
+
+[Edit on GitHub](https://github.com/ghostty-org/website/edit/main/docs/config/keybind/index.mdx)
+
+* [Trigger](https://ghostty.org/docs/config/keybind.html#trigger)
+* [Modifiers](https://ghostty.org/docs/config/keybind.html#modifiers)
+* [Trigger Prefixes](https://ghostty.org/docs/config/keybind.html#trigger-prefixes)
+* [all:](https://ghostty.org/docs/config/keybind.html#all:)
+* [global:](https://ghostty.org/docs/config/keybind.html#global:)
+* [unconsumed:](https://ghostty.org/docs/config/keybind.html#unconsumed:)
+* [performable:](https://ghostty.org/docs/config/keybind.html#performable:)
+* [Action](https://ghostty.org/docs/config/keybind.html#action)

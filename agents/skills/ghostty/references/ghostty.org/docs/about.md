@@ -1,0 +1,161 @@
+---
+title: "About Ghostty"
+source_url: "https://ghostty.org/docs/about"
+fetched_at: "2026-04-07T02:34:27.768926+00:00"
+---
+
+
+
+* [Ghostty Docs](https://ghostty.org/docs.html)
+* [About Ghostty](https://ghostty.org/docs/about.html)
+
+# About Ghostty
+
+Ghostty is a terminal emulator that differentiates itself by being
+fast, feature-rich, and native. While there are many excellent terminal
+emulators available, they all force you to choose between speed,
+features, or native UIs. Ghostty provides all three.
+
+In all categories, I am not trying to claim that Ghostty is the
+best (i.e. the fastest, most feature-rich, or most native). But
+when I set out to create Ghostty, I felt all terminals made
+you choose at most two of these categories. I wanted to create
+a terminal that was competitive in all three categories and I
+believe Ghostty achieves that goal.
+
+Before diving into the details, I also want to note that Ghostty
+is a passion project started by [Mitchell Hashimoto](https://mitchellh.com)
+(that's me!). It's something I work on in my free time and is a
+labor of love. Please don't forget this when interacting with
+the project. I'm doing my best to make something great along with
+the lovely contributors, but it's not a full-time job for any of us.
+
+## Native
+
+The big picture of "native" is that Ghostty is designed to look,
+feel, and behave like you expect an application to behave in your
+desktop environment.
+
+Importantly, Ghostty *is* a native application for macOS and Linux.
+On macOS, the GUI is written in Swift and uses AppKit and SwiftUI.
+On Linux, the GUI is written in Zig and uses the GTK4 C API[1](https://ghostty.org/docs/about.html#user-content-fn-1).
+The GUIs interface with a shared core written in Zig that we
+call "libghostty". For those unfamiliar with Zig, it is a
+systems programming language that compiles to native machine code.
+
+Part of this is using native UI components[2](https://ghostty.org/docs/about.html#user-content-fn-2) for features like tabs,
+splits, error messages, etc. in contrast to many other terminal
+emulators that either use text UIs and custom widgets or
+don't support these features at all.
+
+Another part is using standard keyboard and mouse shortcuts
+that you're already familiar with. Ghostty uses different default
+bindings on macOS and Linux to match the conventions of each
+platform.
+
+And a third part is Ghostty integrates with system capabilities
+that are unique to the platform it is running on. For example,
+on macOS, Ghostty supports Quick Look, force touch, the macOS
+secure input API, built-in window state recovery on restart,
+etc. These are all native APIs provided by macOS that don't have
+equivalents in Linux desktop environments.
+
+## Feature-rich
+
+Ghostty tries to provide a rich set of features that are useful
+for everyday use. These can be split into two categories:
+terminal features and application features.
+
+Terminal features include the capabilities that programs running
+inside the terminal can use. For example, Ghostty supports
+the Kitty graphics protocol, light/dark mode notifications,
+hyperlinks, and more.
+This lets terminal applications like Neovim, Zellij, and
+others do more than they could in other terminal emulators[3](https://ghostty.org/docs/about.html#user-content-fn-3).
+
+Application features are higher-level features that are useful
+for interacting with the terminal emulator itself. For example,
+Ghostty supports native tabs, splits, a drop-down terminal
+on macOS, theme switching on system dark/light mode, etc.
+
+## Fast
+
+Ghostty aims to be fast.
+
+Performance is a category where people start getting really
+argumentative, so the only claim I make is that Ghostty aims
+to be in the same class as the fastest terminal emulators.
+In some benchmarks it is faster, in others it is slower, but
+in every case it should be impossible to say that Ghostty is
+slow.
+
+"Fast" is also a loaded term since "fast" can mean different
+things to different people. For example, here is just a
+small list of the things that can be "fast": startup time,
+scrolling speed, IO throughput, control sequence throughput,
+framerates, etc.
+
+In the future, I'd like to provide detailed benchmarks and
+explanations about how Ghostty performs in various performance
+categories. For the initial public release, I'll just say that
+Ghostty aims to be "fast" as described above.
+
+I know many don't believe that speed is that important for a
+terminal emulator, but new users to Ghostty repeatedly told me
+that they were very surprised how noticeable the speed
+improvements were to their everyday use. I hope you'll feel the
+same way.
+
+## libghostty
+
+Ghostty also differentiates itself with its architecture. The
+core of Ghostty is a cross-platform, C-ABI compatible library called
+`libghostty`. `libghostty` provides the core terminal emulation, font handling,
+and rendering capabilities.
+
+The Ghostty GUI applications are consumers of `libghostty`. The macOS app is
+written in Swift, uses AppKit and SwiftUI, and links against the `libghostty`
+C API. The Linux app is written in Zig, uses the GTK4 C API, and also links
+against `libghostty`[4](https://ghostty.org/docs/about.html#user-content-fn-4).
+
+This architecture allows for a clean separation between the terminal
+emulation and the GUI. It is the key architecture that allows Ghostty
+to achieve its goal of being [native](https://ghostty.org/docs/about.html#native).
+
+This architecture makes Ghostty unique since Ghostty the project also aims
+to enable other terminal emulator projects to be built on top of a shared
+core. This allows for a more diverse ecosystem of terminal emulators that
+can focus on higher-level features and UIs without needing to reimplement
+the core terminal emulation.
+
+> Note
+>
+> As of the initial public release, `libghostty` is not yet a stable API
+> and has not been released as a standalone, stable library. However, it is
+> already in use by the macOS and Linux GUI applications. The goal is to
+> stabilize the API and release it as a standalone library in the future.
+
+## Footnotes
+
+1. Linux doesn't have a "native" GUI toolkit like macOS, but
+   GTK4 is the closest thing to a standard GUI toolkit that exists.
+   Most importantly, we don't draw custom widgets and Ghostty will
+   fit right into your desktop environment. [↩](https://ghostty.org/docs/about.html#user-content-fnref-1)
+2. Linux uses GTK4 and (optionally) Adwaita, so Ghostty will
+   look and feel like a GTK4 application which may or may not be "native"
+   depending on your desktop environment and definition of "native". See
+   note 1 too. [↩](https://ghostty.org/docs/about.html#user-content-fnref-2)
+3. For example, Neovim uses synchronized rendering to prevent
+   tearing between frames. [↩](https://ghostty.org/docs/about.html#user-content-fnref-3)
+4. Since the GTK4 app is written in Zig, it doesn't link in the traditional
+   sense. Instead, it uses the public `libghostty` APIs and compiles as a single
+   Zig compilation unit. [↩](https://ghostty.org/docs/about.html#user-content-fnref-4)
+
+
+
+[Edit on GitHub](https://github.com/ghostty-org/website/edit/main/docs/about.mdx)
+
+* [Native](https://ghostty.org/docs/about.html#native)
+* [Feature-rich](https://ghostty.org/docs/about.html#feature-rich)
+* [Fast](https://ghostty.org/docs/about.html#fast)
+* [libghostty](https://ghostty.org/docs/about.html#libghostty)

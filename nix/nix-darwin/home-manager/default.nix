@@ -24,7 +24,7 @@
         home.homeDirectory = local.homeDirectory;
 
         launchd.agents.gazectl = {
-          enable = false;
+          enable = true;
           config = {
             Label = "com.gazectl.agent";
             ProgramArguments = [

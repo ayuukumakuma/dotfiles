@@ -1,0 +1,199 @@
+---
+title: "Control Sequences - Concepts"
+source_url: "https://ghostty.org/docs/vt/concepts/sequences"
+fetched_at: "2026-04-07T02:34:27.768926+00:00"
+---
+
+
+
+* [Ghostty Docs](https://ghostty.org/docs.html)
+* [Terminal API (VT)](https://ghostty.org/docs/vt.html)
+* Concepts
+* [Control Sequences](https://ghostty.org/docs/vt/concepts/sequences.html)
+
+# Control Sequences
+
+Control sequences are a way for programs to interact with the terminal.
+
+Control sequences are used to do things like move the cursor, change
+text color, clear the screen, and more. They are the primary way
+that programs interact with the terminal.
+
+Programs running within terminals only have a single way to communicate
+with the terminal: writing bytes to the connected file descriptor
+(typically a pseudo-terminal, or a "pty" for short). In order to
+differentiate between text to be displayed and commands to be executed,
+terminals use special syntax known collectively as **control sequences**.
+
+Each type of control sequence has a different format and purpose.
+They are described below along with their specific syntax. The
+[reference](https://ghostty.org/docs/vt/reference.html) contains a full list of supported
+control sequences grouped by type.
+
+## C0 control characters
+
+Each control sequence starts with a special, unprintable character, known
+as a **control character**. The simplest control characters, known as
+**C0 control characters**, lie between `0x00` and `0x20` in the ASCII
+encoding and take no parameters other than themselves.
+
+There are very few control characters, but they're important
+to be aware of because the single byte value impacts the terminal
+state.
+
+C0 characters meaningful to terminal emulation include:
+
+| C0 | Abbr | Full name | Function |
+| --- | --- | --- | --- |
+| `0x07` | [`BEL`](https://ghostty.org/docs/vt/control/bel.html) | Bell | Raise the attention of the user. |
+| `0x08` | [`BS`](https://ghostty.org/docs/vt/control/bs.html) | Backspace | Move the cursor backward one position. |
+| `0x09` | [`TAB`](https://ghostty.org/docs/vt/control/tab.html) | Tab | Move the cursor right to the next tab stop. |
+| `0x0A` | [`LF`](https://ghostty.org/docs/vt/control/lf.html) | Linefeed | Move the cursor down one line. |
+| `0x0D` | [`CR`](https://ghostty.org/docs/vt/control/cr.html) | Carriage Return | Move the cursor to the leftmost column. |
+
+## Escape sequences
+
+One of the C0 characters, Escape (`0x1b`, `ESC`), is special. It can either
+start a few discrete sequences or begin entire families of sequences, which is
+also why control sequences are also *pars pro toto* commonly known as
+**escape sequences**.
+
+Not all sequences that begin with Escape are Escape sequences as defined here
+(they are more likely to be [C1 sequences](https://ghostty.org/docs/vt/concepts/sequences.html#c1-sequences)),
+but a true Escape sequence like `ESC D` are in the format below.
+
+```
+esc_sequence = "0x1B" intermediates final
+intermediates = [0x20-0x2F]*
+final = [0x30-0x7E]
+```
+
+## `Fe` sequences
+
+When Escape is followed by certain printable characters, for various historical
+reasons they are instead interpreted together as **C1 control characters**,
+some of which are responsible for many families of sequences known collectively
+as `Fe` sequences. These characters can also be represented by single 8-bit
+characters, but they remain **predominantly** encoded with Escape characters as
+to avoid conflicting with UTF-8 and other high-byte encodings usually used in
+modern terminals.
+
+| ESC code | C1 | Abbr | Full name | Function |
+| --- | --- | --- | --- | --- |
+| `ESC [` | `0x9b` | CSI | Control Sequence Introducer | By far the most common. Uses integers to control the cursor, the screen, modes, cells, and their styles. |
+| `ESC ]` | `0x9d` | OSC | Operating System Command | Often used in modern terminal extensions to transmit string data. |
+| `ESC P` | `0x90` | DCS | Device Control Sequence | Most often used when querying the terminal's capabilities (XTGETTCAP). Rare otherwise. |
+| `ESC _` | `0x9f` | APC | Application Program Command | Used in very complex protocols like the Kitty Graphics Protocol that require arbitrary payloads. |
+| `ESC X` | `0x98` | SOS | Start of String | Obsolete. Ignored by Ghostty. |
+| `ESC ^` | `0x9e` | PM | Private Message | Obsolete. Ignored by Ghostty. |
+
+### CSI
+
+CSI sequences are *by far* the most common type of C1 sequences.
+They use integer parameters separated either with colons (`:`) or semicolons
+(`;`) to move the cursor, set the terminal's mode, scroll up or down, insert
+and delete cells and lines, change the styles of cells, etc.
+
+Their primary limitation is that they can **only** encode integer values.
+Other sequence types such as OSC or DCS are needed to encode string data.
+
+CSI sequences follow the format below. An example CSI sequence is `ESC [ 1 ; 2 m`.
+
+```
+csi_sequence = "0x1B" "[" params intermediates final
+params = param | param sep params
+param = [0-9]
+sep = ";" | ":"
+intermediates = [0x20-0x2F]*
+final = [0x40-0x7E]
+```
+
+### OSC
+
+OSC sequences are typically used to encode strings or other non-integer data to
+transmit between the terminal and an application. They usually alter variables
+regarding the terminal emulator itself, such as its title, palette,
+clipboard, etc., or instruct it on extra features like hyperlinks, progress
+reports, the current working directory, and so on.
+
+As a result of its flexibility, OSC sequences are very often used by modern
+extensions to offer new functionality that older terminals can simply ignore.
+
+An OSC sequence begins with OSC (`ESC ]` or `0x9d`). Then, by convention, an
+integer is added to identify the operation
+
+The format of an OSC sequence is below. By convention, OSC sequences are
+identified by an integer identifier followed by a semicolon (`;`), although
+this is never required by the standard. Certain obsolete OSC sequences use
+non-numeric identifiers before the semicolon, but Ghostty does not support these.
+
+> Note
+>
+> Due to yet more convoluted historical reasons, OSC sequences in xterm (and
+> by extension Ghostty) may be terminated with the Bell character (`BEL`,
+> `0x07`) instead of the standard String Terminator (`ST`, `ESC \` or `0x9c`).
+>
+> While they are in most cases interchangeable, Ghostty will try to echo back
+> the terminator used in an OSC sequence when replying, to ensure maximum
+> compatibility with older programs and terminals. New code should always
+> prefer `ST` due to standards compliance.
+
+them. An example OSC sequence is `OSC 2 ; 👻 Ghostty 👻 ST` (where `ST` is
+the String Terminator).
+
+```
+osc_sequence = "0x1B" "]" data terminator
+data = [0x20-0xFF]
+terminator = "0x1B" "0x5C"
+```
+
+### DCS
+
+DCS Sequences are like a CSI sequence combined with an OSC sequence: they
+natively support integer parameters as well as string values. An example DSC
+sequence is `DCS + P q <string> ST`
+
+```
+dsc_sequence = "0x1B" "P" params intermediates final data ST
+params = param | param ";" params
+param = [0-9]
+intermediates = [0x20-0x2F]*
+final = [0x40-0x7E]
+data = [0x20-0xFF]
+ST = "0x1B" "0x5C"
+```
+
+### APC
+
+Ghostty supports APC sequences. Currently there is only one supported APC
+sequence: the Kitty Graphics Protocol sequence. This is documented [here](https://sw.kovidgoyal.net/kitty/graphics-protocol/).
+
+```
+apc_sequence = "0x1B" "_" data ST
+data = [0x20-0xFF]
+ST = "0x1B" "0x5C"
+```
+
+### SOS and PM
+
+SOS and PM sequences are entirely ignored by Ghostty.
+
+```
+sos_sequence = "0x1B" "X" data ST
+pm_sequence = "0x1B" "^" data ST
+data = [0x20-0xFF]
+ST = "0x1B" "0x5C"
+```
+
+
+
+[Edit on GitHub](https://github.com/ghostty-org/website/edit/main/docs/vt/concepts/sequences.mdx)
+
+* [C0 control characters](https://ghostty.org/docs/vt/concepts/sequences.html#c0-control-characters)
+* [Escape sequences](https://ghostty.org/docs/vt/concepts/sequences.html#escape-sequences)
+* [Fe sequences](https://ghostty.org/docs/vt/concepts/sequences.html#fe-sequences)
+* [CSI](https://ghostty.org/docs/vt/concepts/sequences.html#csi)
+* [OSC](https://ghostty.org/docs/vt/concepts/sequences.html#osc)
+* [DCS](https://ghostty.org/docs/vt/concepts/sequences.html#dcs)
+* [APC](https://ghostty.org/docs/vt/concepts/sequences.html#apc)
+* [SOS and PM](https://ghostty.org/docs/vt/concepts/sequences.html#sos-and-pm)
