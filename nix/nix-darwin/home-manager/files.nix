@@ -14,6 +14,8 @@ in
     fish.source = oos "${dotfilesRoot}/fish";
     git.source = oos "${dotfilesRoot}/git";
     "mise/config.toml".source = oos "${dotfilesRoot}/mise/config.toml";
+    ghostty.source = oos "${dotfilesRoot}/ghostty";
+    cmux.source = oos "${dotfilesRoot}/cmux";
     nvim.source = oos "${dotfilesRoot}/nvim";
     lazygit.source = oos "${dotfilesRoot}/lazygit";
     yazi.source = oos "${dotfilesRoot}/yazi";

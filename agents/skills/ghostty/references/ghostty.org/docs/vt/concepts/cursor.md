@@ -1,0 +1,79 @@
+---
+title: "Cursor - Concepts"
+source_url: "https://ghostty.org/docs/vt/concepts/cursor"
+fetched_at: "2026-04-07T02:34:27.768926+00:00"
+---
+
+
+
+* [Ghostty Docs](https://ghostty.org/docs.html)
+* [Terminal API (VT)](https://ghostty.org/docs/vt.html)
+* Concepts
+* [Cursor](https://ghostty.org/docs/vt/concepts/cursor.html)
+
+# Cursor
+
+The cursor is the row and column where the next
+character will be printed or location-sensitive control
+sequence will be executed.
+
+The cursor is always present in a terminal and is located at
+some row and column within the active screen area. The cursor
+may be visually hidden, but the terminal internal state always
+has a cursor, and it is always located at some active position.
+
+The cursor most commonly is associated with where the next
+printed character will be placed. However, the cursor is also
+used for location-sensitive control sequences. For example,
+when an [erase line control sequence](https://ghostty.org/docs/vt/csi/el.html) is
+executed, the cursor determines the first line to erase.
+
+The terminal has a single cursor [per screen](https://ghostty.org/docs/vt/concepts/screen.html).
+**Note that this document is about the cursor as it relates
+to the [terminal API](https://ghostty.org/docs/vt.html).** Applications such as editors may
+have their own concept known as a "cursor" that is completely
+unrelated to the terminal cursor. For example, an editor may support
+"multiple cursors", but the underlying terminal API is both a separate
+concept and only supports a single cursor at any given moment.
+
+## Initial State
+
+The cursor is always initially located at the top-left corner of the screen.
+
+## Pending Wrap State
+
+The pending wrap state is a boolean value that is set when a character
+is printed in the rightmost column of the screen to indicate that the
+next printed character should wrap to the next line.
+
+If the pending wrap state is set, the next printed character will
+move the cursor to the leftmost column of the next line, unset
+the pending wrap state, and then print the character[1](https://ghostty.org/docs/vt/concepts/cursor.html#user-content-fn-1).
+
+The pending wrap state may feel like an obvious and inconsequential
+feature, but it has a significant (but subtle) impact on cursor
+behavior. For example, print followed by [backspace](https://ghostty.org/docs/vt/control/bs.html)
+behaves differently depending on if you're printing in the rightmost
+column of the screen or not.
+
+If you print a character in any column other than the rightmost column
+and then send a [backspace](https://ghostty.org/docs/vt/control/bs.html) control character, the
+cursor will move back on top of the most recently printed character.
+But if you print a character in the rightmost column and then send a
+[backspace](https://ghostty.org/docs/vt/control/bs.html) control character, the cursor will move
+to the left of the character most recently printed. This is the
+source of [bugs in multiple popular shell prompts](https://github.com/ghostty-org/ghostty/issues/884).
+
+You will see that many control sequences note that they
+"unset the pending wrap state". This is just as it sounds: if the
+pending wrap state is set on the cursor, it becomes unset. The next
+printed character will not wrap to the next line.
+
+## Footnotes
+
+1. This isn't strictly true. Wraparound modes and scroll regions
+   can change this behavior. [↩](https://ghostty.org/docs/vt/concepts/cursor.html#user-content-fnref-1)
+
+
+
+[Edit on GitHub](https://github.com/ghostty-org/website/edit/main/docs/vt/concepts/cursor.mdx)

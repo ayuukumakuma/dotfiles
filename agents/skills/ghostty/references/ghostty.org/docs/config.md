@@ -1,0 +1,191 @@
+---
+title: "Configuration"
+source_url: "https://ghostty.org/docs/config"
+fetched_at: "2026-04-07T02:34:27.768926+00:00"
+---
+
+
+
+* [Ghostty Docs](https://ghostty.org/docs.html)
+* [Configuration](https://ghostty.org/docs/config.html)
+
+# Configuration
+
+Ghostty supports hundreds of configuration options to make
+it look and behave exactly how you want.
+
+## Zero Configuration Philosophy
+
+Ghostty is designed to work out of the box with no configuration
+for most users. Ghostty has sensible defaults, embeds a default
+font (JetBrains Mono), has built-in nerd fonts, and more. We are
+constantly challenging ourself as a project to eliminate any
+*necessary configuration* to use Ghostty.
+
+To that end, if you find yourself needing to configure something
+other than highly subjective things like the theme and you think
+it should be a default, please
+[open a discussion](https://github.com/ghostty-org/ghostty/discussions).
+
+And, if you're used to feeling you need to configure your terminal,
+maybe give Ghostty a try without any configuration first. You might
+be surprised!
+
+## Configuration Format
+
+Ghostty is configured using a text-based configuration file.
+
+> Note
+>
+> In the future, we plan to also support native GUIs for
+> configuration in line with our native UI philosophy. This will
+> be in addition to the text-based configuration. Presently, the
+> text-based configuration is the only way to configure Ghostty.
+
+### File Location
+
+The configuration file is named `config.ghostty` (or `config` before 1.2.3),
+is loaded from these locations in the following order:
+
+#### XDG configuration Path (all platforms):
+
+* `$XDG_CONFIG_HOME/ghostty/config.ghostty`
+* `$XDG_CONFIG_HOME/ghostty/config`
+* if **XDG\_CONFIG\_HOME** is not defined, it defaults to `$HOME/.config`.
+
+#### macOS-specific Path (macOS only):
+
+* `$HOME/Library/Application\ Support/com.mitchellh.ghostty/config.ghostty`.
+* `$HOME/Library/Application\ Support/com.mitchellh.ghostty/config`.
+* macOS also supports the XDG configuration path mentioned above.
+
+If both locations exist, they are loaded in the order above with
+conflicting values in later files overriding earlier ones.
+Configuration is optional and if no configuration file is found,
+Ghostty will use its defaults. Note that all macOS-specific files are
+loaded *after* all XDG files.
+
+### Syntax
+
+Ghostty uses a custom, but very simplistic `key = value` syntax.
+The syntax is documented below using comments in a sample configuration
+file.
+
+```
+# The syntax is "key = value". The whitespace around the
+# equals doesn't matter.
+background = 282c34
+foreground = ffffff
+
+# Comments start with a `#` and are only valid on their own line.
+# Blank lines are ignored!
+
+keybind = ctrl+z=close_surface
+keybind = ctrl+d=new_split:right
+
+# Empty values reset the configuration to the default value
+font-family =
+```
+
+Some other notes about the syntax:
+
+* Keys are case-sensitive. `background` and `Background` are not
+  the same. Ghostty always uses lowercase keys.
+* Values can be quoted or unquoted. `font-family = "JetBrains Mono"`
+  is the same as `font-family = JetBrains Mono`.
+* Every configuration key is a valid CLI flag when launching
+  Ghostty from the command-line. For example, the `background`
+  key can be set with `ghostty --background=282c34`. Or the
+  `font-family` key can be set with `ghostty --font-family="JetBrains Mono"`.
+
+### Splitting into Multiple Files
+
+You can split your configuration into multiple files by using
+the `config-file` key in your configuration file. This key specifies
+a path to another configuration file to load and can be specified
+multiple times (cycles are detected and produce a warning).
+
+Note that any `config-file` keys are processed at the *end* of the
+current file. This means that any keys after a `config-file` key
+will not override the keys in the loaded file if they are set.
+
+If the value is a relative path, it is relative to the configuration
+file that contains the `config-file` key.
+
+If the value is prefixed with `?`, the file is optional and if it
+doesn't exist, it is ignored. This is particularly useful for
+platform-specific or machine-specific configuration files.
+(If for some cursed reason you have a file you want to load
+that actually starts with `?`, you can escape by quoting
+the entire value with double quotes.)
+
+Example combining all of the above concepts:
+
+```
+config-file = some/relative/sub/config
+config-file = ?optional/config
+config-file = /absolute/path/config
+```
+
+## Reloading the Configuration
+
+The configuration can be reloaded at runtime by pressing
+`ctrl+shift+,` (Linux) or `cmd+shift+,` (macOS). These are
+the default keybindings, but it is possible to define your
+own via the `reload_config` action.
+
+> Note
+>
+> Some configuration options cannot be reloaded at runtime;
+> others may only apply to newly created terminals. See the
+> specific configuration option for details.
+
+## Offline Reference Documentation
+
+There are multiple places to find documentation on the configuration
+options besides the website. All locations are identical (they're all
+generated from the same source).
+
+> Tip
+>
+> The online reference documentation
+> [is available here](https://ghostty.org/docs/config/reference.html).
+
+1. There are HTML and Markdown formatted docs in the
+   `$prefix/share/ghostty/docs` directory. This directory is created
+   when you build or install Ghostty. The `$prefix` is `zig-out` if you're
+   building from source (or the specified `--prefix` flag). On macOS,
+   `$prefix` is the `Contents/Resources` subdirectory of the `.app` bundle.
+2. There are man pages in the `$prefix/share/man` directory. This directory
+   is created when you build or install Ghostty.
+3. In the CLI, you can run `ghostty +show-config --default --docs`.
+   Note that this will output the full default configuration with docs to
+   stdout, so you may want to pipe that through a pager, an editor, etc.
+4. In the source code, you can find the configuration structure in the
+   [Config structure](https://github.com/ghostty-org/ghostty/blob/main/src/config/Config.zig).
+   The available keys are the keys verbatim, and their possible values are typically
+   documented in the comments.
+5. Not documentation per se, but you can search for the
+   [public config files](https://github.com/search?q=path%3Aghostty%2Fconfig&type=code)
+   of many Ghostty users for examples and inspiration.
+
+> Note
+>
+> You may see strange looking blank configurations like `font-family =`. This
+> is a valid syntax to specify the default behavior (no value). The
+> `+show-config` outputs it so it's clear that key is defaulting and also
+> to have something to attach the doc comment to.
+
+
+
+[Edit on GitHub](https://github.com/ghostty-org/website/edit/main/docs/config/index.mdx)
+
+* [Zero Configuration Philosophy](https://ghostty.org/docs/config.html#zero-configuration-philosophy)
+* [Configuration Format](https://ghostty.org/docs/config.html#configuration-format)
+* [File Location](https://ghostty.org/docs/config.html#file-location)
+* [XDG configuration Path (all platforms):](https://ghostty.org/docs/config.html#xdg-configuration-path-(all-platforms):)
+* [macOS-specific Path (macOS only):](https://ghostty.org/docs/config.html#macos-specific-path-(macos-only):)
+* [Syntax](https://ghostty.org/docs/config.html#syntax)
+* [Splitting into Multiple Files](https://ghostty.org/docs/config.html#splitting-into-multiple-files)
+* [Reloading the Configuration](https://ghostty.org/docs/config.html#reloading-the-configuration)
+* [Offline Reference Documentation](https://ghostty.org/docs/config.html#offline-reference-documentation)

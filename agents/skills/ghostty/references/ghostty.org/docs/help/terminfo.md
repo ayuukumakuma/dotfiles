@@ -1,0 +1,132 @@
+---
+title: "Terminfo - Help"
+source_url: "https://ghostty.org/docs/help/terminfo"
+fetched_at: "2026-04-07T02:34:27.768926+00:00"
+---
+
+
+
+* [Ghostty Docs](https://ghostty.org/docs.html)
+* [Help](https://ghostty.org/docs/help.html)
+* [Terminfo](https://ghostty.org/docs/help/terminfo.html)
+
+# Terminfo
+
+Terminfo is used to tell software about the terminal's capabilities.
+Ghostty ships with its own terminfo entry to advertise its features.
+
+[Terminfo](https://en.wikipedia.org/wiki/Terminfo) is an archaic format
+still in use by many terminal applications to determine the capabilities
+of the terminal. Ghostty ships with its own terminfo entry to advertise
+its features.
+
+Ghostty uses the `TERM` value of `xterm-ghostty`.
+
+> Note
+>
+> **Why the `xterm` prefix?** Unfortunately, many terminal applications string
+> search for "xterm" in the `TERM` value to *assume capabilities*. During the
+> private beta, we experimented with a pure `ghostty` value, but found that too
+> many applications broke and fixing the entire ecosystem was unrealistic. We
+> settled on `xterm-ghostty` to maintain compatibility.
+
+Ghostty packages include the terminfo entry and set the proper filesystem
+layouts or environment variables to make it available to the system.
+When you run Ghostty, it will automatically set the `TERM` environment
+variable to `xterm-ghostty` so long as it detects that the terminfo entry
+is available.
+
+> Important
+>
+> **Ghostty's terminfo entry is available in ncurses 6.5-20241228 and above.**
+> As distros update their ncurses packages, Ghostty's terminfo entry will be
+> available by default system-wide. This will take time to propagate.
+
+## Sudo
+
+If you use `sudo`, sudo may reset your environment variables and you may see
+an error about `missing or unsuitable terminal: xterm-ghostty` or `'xterm-ghostty': unknown terminal type.` when running
+some programs.
+
+To resolve this, you must either configure sudo to preserve
+the `TERMINFO` environment variable, or you can use shell-integration with
+the `sudo` feature enabled and Ghostty will alias sudo to automatically do
+this for you. To enable the shell-integration feature specify
+`shell-integration-features = sudo` in your configuration.
+
+See
+[`shell-integration-features`](https://ghostty.org/docs/config/reference.html#shell-integration-features)
+for more about this configuration option.
+
+## SSH
+
+If you use SSH to connect to other machines that do not have Ghostty's
+terminfo entry, you will see error messages like `missing or unsuitable terminal: xterm-ghostty`, `Error opening terminal: xterm-ghostty.` or
+`WARNING: terminal is not fully functional`.
+
+Hopefully someday Ghostty will have terminfo entries pre-distributed
+everywhere, but in the meantime there are two ways to resolve the situation:
+
+1. Copy Ghostty's terminfo entry to the remote machine. The easiest way is using
+   the following one-liner:
+
+   ```
+   infocmp -x xterm-ghostty | ssh YOUR-SERVER -- tic -x -
+   ```
+2. Configure SSH to fall back to a known terminfo entry using the following SSH
+   configuration (**requires [OpenSSH 8.7](https://www.openssh.com/txt/release-8.7)
+   or newer**):
+
+   ```
+   # .ssh/config
+   Host example.com
+     SetEnv TERM=xterm-256color
+   ```
+
+Both variants can be automated by specifying one or both of the following in
+your Ghostty configuration:
+
+1. `shell-integration-features = ssh-terminfo` to copy the terminfo entry the
+   first time you log into a new server over SSH.
+2. `shell-integration-features = ssh-env` to configure SSH to fall back to
+   `xterm-256color`.
+
+If both features are enabled
+(`shell-integration-features = ssh-terminfo,ssh-env`), Ghostty will try to
+install the terminfo entry first and use the fallback if installation failed.
+
+See
+[`shell-integration-features`](https://ghostty.org/docs/config/reference.html#shell-integration-features)
+for more about this configuration option.
+
+> Note
+>
+> The `tic` command on the server may give the warning `"<stdin>", line 2, col 31, terminal 'xterm-ghostty': older tic versions may treat the description field as an alias` which can be safely ignored.
+
+> Note
+>
+> `tic` will normally place its results in the system database,
+> `/usr/share/terminfo`. This location can be overridden with the `TERMINFO`
+> environment variable. If `TERMINFO` is not set and `tic` cannot write to the
+> system location, it will place the results in `$HOME/.terminfo` if it exists.
+> `man tic` for details.
+
+> Note
+>
+> **macOS versions before Sonoma cannot use the system-bundled `infocmp`.** The
+> bundled version of `ncurses` is too old to emit a terminfo entry that can be
+> read by more recent versions of `tic`, and the command will fail with a bunch
+> of `Illegal character` messages. You can fix this by using Homebrew to install
+> a recent version of `ncurses` with `brew install ncurses` and replacing
+> `infocmp` above with the full path `/opt/homebrew/opt/ncurses/bin/infocmp` or
+> `/usr/local/opt/ncurses/bin/infocmp`.
+
+> Warning
+>
+> **Fallback does not support advanced terminal features.** Because
+> `xterm-256color` does not include all of Ghostty's capabilities, terminal
+> features beyond xterm's like colored and styled underlines will not work.
+
+
+
+[Edit on GitHub](https://github.com/ghostty-org/website/edit/main/docs/help/terminfo.mdx)

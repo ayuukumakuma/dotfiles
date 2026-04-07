@@ -27,6 +27,7 @@
       "k1LoW/tap" # mo (browser markdown viewer)
       "Jean-Tinland/a-bar" # menubar
       "Warashi/tap" # cage
+      "manaflow-ai/cmux" # cmux
     ];
 
     casks = [
@@ -76,6 +77,8 @@
       "keycastr"
       "cage"
       "chatgpt"
+      "cmux"
+      "drawio"
 
       ### Fonts
       "font-hackgen-nerd"
@@ -83,7 +86,7 @@
     ];
 
     caskArgs = {
-      no_quarantine = true;
+      no_quarantine = false;
     };
 
     masApps = {
