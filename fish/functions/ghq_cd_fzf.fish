@@ -51,7 +51,7 @@ end
 "
 
     set -l selected_repo (
-        ghq list | fzf \
+        ghq list | _fzf_wrapper \
             --ansi \
             --height 80% \
             --layout=reverse \
