@@ -24,13 +24,11 @@
         home.homeDirectory = local.homeDirectory;
 
         launchd.agents.gazectl = {
-          enable = true;
+          enable = false;
           config = {
             Label = "com.gazectl.agent";
             ProgramArguments = [
-              "${config.home.profileDirectory}/bin/bun"
-              "x"
-              "gazectl@latest"
+              "${config.home.profileDirectory}/bin/gazectl"
             ];
             RunAtLoad = true;
             KeepAlive = true;

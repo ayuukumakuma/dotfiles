@@ -40,7 +40,7 @@
         # Dockのホバー時の拡大を有効にする
         magnification = true;
         # Dockの位置を左側に設定する
-        orientation = "left";
+        orientation = "right";
         # 最近使用したアプリケーションをDockに表示しない
         show-recents = false;
         # 開いているアプリケーションのみをDockに表示する
