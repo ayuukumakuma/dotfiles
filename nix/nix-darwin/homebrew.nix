@@ -1,10 +1,4 @@
-{ local, pkgs, ... }:
 {
-  environment.systemPath = [
-    # `homebrew.goPackages` uses `go install`, which writes binaries to `$HOME/go/bin` by default.
-    "${local.homeDirectory}/go/bin"
-  ];
-
   homebrew = {
     enable = true;
     enableFishIntegration = true;
@@ -27,7 +21,6 @@
       "k1LoW/tap" # mo (browser markdown viewer)
       "Jean-Tinland/a-bar" # menubar
       "Warashi/tap" # cage
-      "manaflow-ai/cmux" # cmux
     ];
 
     casks = [
@@ -61,13 +54,11 @@
       "logi-options+"
       "affinity"
       "notion"
-      "ubersicht"
       "ankerwork"
       "codex-app"
-      "codex" # nixpkgは更新が遅い
+      "codex"
       "thebrowsercompany-dia"
       "visual-studio-code"
-      "altserver"
       "zen"
       "claude"
       "spotify"
@@ -77,7 +68,6 @@
       "keycastr"
       "cage"
       "chatgpt"
-      "cmux"
       "drawio"
 
       ### Fonts
@@ -85,16 +75,9 @@
       "font-monaspace"
     ];
 
-    caskArgs = {
-      no_quarantine = false;
-    };
-
     masApps = {
       "Klack" = 6446206067;
       "Grila" = 6444335028;
     };
-
-    goPackages = [
-    ];
   };
 }
