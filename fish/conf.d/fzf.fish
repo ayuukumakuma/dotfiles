@@ -9,6 +9,20 @@ end
 # This variable is global so that it can be referenced by fzf_configure_bindings and in tests
 set --global _fzf_search_vars_command '_fzf_search_variables (set --show | psub) (set --names | psub)'
 
+# Match the rest of the dotfiles' light-theme defaults inside Fish previews and pickers.
+set --global --export BAT_THEME 'Catppuccin Latte'
+set --global --export FZF_DEFAULT_OPTS "\
+--cycle \
+--layout=reverse \
+--border \
+--height=90% \
+--preview-window=wrap \
+--marker='*' \
+--color=fg:#4c4f69,bg:#eff1f5,hl:#d20f39 \
+--color=fg+:#4c4f69,bg+:#ccd0da,hl+:#d20f39 \
+--color=info:#8839ef,prompt:#dc8a78,pointer:#d20f39 \
+--color=marker:#df8e1d,spinner:#8839ef,header:#1e66f5 \
+--color=border:#acb0be"
 
 # Install the default bindings, which are mnemonic and minimally conflict with fish's preset bindings
 fzf_configure_bindings
