@@ -4,7 +4,7 @@ personality = "pragmatic"
 forced_login_method = "chatgpt"
 model = "gpt-5.4"
 web_search = "live"
-notify = ["/Users/nasuno.ayumu/.codex/hooks/notify-terminal-notifier.sh"]
+notify = ["$HOME/.codex/hooks/notify-terminal-notifier.sh"]
 suppress_unstable_features_warning = true
 plan_mode_reasoning_effort = "medium"
 approval_policy = "on-request"
@@ -27,9 +27,6 @@ network_access = true
 trust_level = "trusted"
 
 [projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/mario-chrome-extensions"]
-trust_level = "trusted"
-
-[projects."/Users/nasuno.ayumu/dev/github.com/smartcamp/shogun"]
 trust_level = "trusted"
 
 [projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/smartcamp-fy26"]
@@ -56,6 +53,9 @@ trust_level = "trusted"
 [projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/browser-extension-template"]
 trust_level = "trusted"
 
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/notion-enhancer"]
+trust_level = "trusted"
+
 [tui]
 status_line = [
   "model-with-reasoning",
@@ -66,4 +66,16 @@ status_line = [
   "weekly-limit",
   "codex-version",
 ]
-theme = "github"
+theme = "catppuccin-latte"
+
+[plugins."google-calendar@openai-curated"]
+enabled = true
+
+[plugins."gmail@openai-curated"]
+enabled = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."google-drive@openai-curated"]
+enabled = true
