@@ -36,7 +36,6 @@ in
     ".claude/settings.json".source = oos "${dotfilesRoot}/claude/settings.json";
     ".claude/statusline.py".source = oos "${dotfilesRoot}/claude/statusline.py";
     ".claude/hooks".source = oos "${dotfilesRoot}/claude/hooks";
-    ".claude/agents".source = oos "${dotfilesRoot}/claude/agents";
     ".claude/skills".source = oos "${dotfilesRoot}/agents/skills";
     ".claude/CLAUDE.md".source = oos "${dotfilesRoot}/claude/CLAUDE.md";
     ".cursor/skills".source = oos "${dotfilesRoot}/agents/skills";
