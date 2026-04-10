@@ -89,12 +89,8 @@ cd nix && nix flake update
 - `nix-darwin/home-manager/files.nix`
   - dotfiles のシンボリックリンク管理（`~/.config` や `~/.codex` など）
   - `direnv/direnvrc` は `pkgs.nix-direnv` の store path を参照するため `text` で生成
-- `pkgs/git-cz/default.nix`
-  - npm 配布の `git-cz` をラップして `home.packages` で利用可能にする
 - `pkgs/tree-sitter-cli/default.nix`
   - `tree-sitter` を Rust ビルドして `home.packages` で利用可能にする
-- `pkgs/portless/default.nix`
-  - npm 配布の `portless` をラップして `home.packages` で利用可能にする
 
 ## 変更時の運用フロー
 
