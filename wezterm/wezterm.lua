@@ -41,6 +41,8 @@ config.window_background_gradient = {
 }
 config.show_new_tab_button_in_tab_bar = false
 
+config.macos_forward_to_ime_modifier_mask = "SHIFT|CTRL"
+
 config.keys = {
   { key = "Enter", mods = "SHIFT",     action = wezterm.action { SendString = "\x1b\r" } },
   { key = "d",     mods = "CMD",       action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" } },

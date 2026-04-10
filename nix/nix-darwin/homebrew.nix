@@ -21,6 +21,7 @@
       "k1LoW/tap" # mo (browser markdown viewer)
       "Jean-Tinland/a-bar" # menubar
       "Warashi/tap" # cage
+      "mtgto/macskk" # macskk
     ];
 
     casks = [
@@ -69,6 +70,7 @@
       "cage"
       "chatgpt"
       "drawio"
+      "macskk"
 
       ### Fonts
       "font-hackgen-nerd"

@@ -1,11 +1,11 @@
 # リポジトリガイドライン
 
 ## プロジェクト構成とモジュール構成
-- `nix/`: Flake のエントリポイント（`flake.nix` / `flake.lock` / `local.nix.example`）と、macOS の system+Homebrew+Home Manager 状態を管理する `nix-darwin/`、カスタム package 定義の `pkgs/` を持つ。
+- `nix/`: Flake のエントリポイント（`flake.nix` / `flake.lock` / `local.nix.example` / `local.nix`）と、macOS の system+Homebrew+Home Manager 状態を管理する `nix-darwin/`、カスタム package 定義の `pkgs/` を持つ。
 - `fish/`: シェル設定（`config.fish`）、`fish_plugins`、および `functions/` / `conf.d/` / `completions/` のスニペット。
 - `script/`: ユーティリティ Bash スクリプト（現状は `set-fish-default.sh`）。
-- ツール設定はトップレベルに配置（例: `aerospace/`、`claude/`、`codex/`、`cursor/`、`gh/`、`git/`、`lazygit/`、`mise/`、`nvim/`、`raycast/`、`tmux/`、`wezterm/`、`yazi/`、`zed/`、`menubar-script/`）。
-- 補助アセットや生成物として `build/`、`cage/`、`guard-and-guide/`、トップレベルの `justfile` がある。
+- ツール設定はトップレベルに配置（例: `aerospace/`、`claude/`、`codex/`、`gh/`、`git/`、`lazygit/`、`mise/`、`nvim/`、`raycast/`、`tmux/`、`wezterm/`、`yazi/`、`zed/`、`menubar-script/`）。
+- 補助アセットや生成物として `build/`、`cage/`、`guard-and-guide/`、`result`、トップレベルの `justfile` がある。隠しディレクトリとして `.zed/` も存在する。
 - エージェント固有のアセットは `agents/` 配下（主に `skills/` の再利用可能スキル群）。
 
 ## ビルド・テスト・開発コマンド
@@ -40,5 +40,5 @@
 
 ## エージェントスキル
 - 再利用可能なスキルは `agents/skills/` に保存。
-- 現在のリポジトリ内スキル: `a-bar`、`cmux`、`code-simplifier`、`conventional-commit`、`difit-review`、`electron`、`frontend-design`、`ghostty`、`justfile`、`viteplus`、`wezterm`、`zed`。
+- 現在のリポジトリ内スキル: `a-bar`、`cmux`、`code-simplifier`、`conventional-commit`、`difit-review`、`electron`、`frontend-design`、`ghostty`、`grill-me`、`justfile`、`viteplus`、`wezterm`、`zed`。
 - タスクで特定のスキルが明示された場合は、そのスキルのワークフローを使用し、変更範囲は要求された領域に限定。

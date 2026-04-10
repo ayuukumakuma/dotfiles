@@ -19,6 +19,7 @@ cd ..
 
 ```text
 .
+├── .zed/
 ├── AGENTS.md
 ├── README.md
 ├── aerospace/
@@ -28,24 +29,27 @@ cd ..
 ├── cage/
 ├── claude/
 ├── codex/
-├── cursor/
 ├── nix/
 │   ├── flake.nix
 │   ├── flake.lock
+│   ├── local.nix
 │   ├── local.nix.example
 │   ├── nix-darwin/
 │   │   ├── default.nix
+│   │   ├── ime.nix
 │   │   ├── nix-core.nix
 │   │   ├── users.nix
 │   │   ├── system.nix
 │   │   ├── homebrew.nix
 │   │   ├── home-manager/
 │   │   │   ├── default.nix
+│   │   │   ├── ime.nix
 │   │   │   ├── packages.nix
 │   │   │   └── files.nix
 │   └── pkgs/
 │       ├── site2skill/
-│       └── tree-sitter-cli/
+│       ├── tree-sitter-cli/
+│       └── yaskkserv2/
 ├── fish/
 ├── gh/
 ├── git/
@@ -56,6 +60,7 @@ cd ..
 ├── mise/
 ├── nvim/
 ├── raycast/
+├── result
 ├── script/
 ├── tmux/
 ├── wezterm/
