@@ -1,16 +1,17 @@
 # リポジトリガイドライン
 
 ## プロジェクト構成とモジュール構成
-- `nix/`: Flake のエントリポイント（`flake.nix`）、ロックファイル、および macOS の system+Homebrew+Home Manager 状態を管理する `nix-darwin/default.nix` / `nix-darwin/system.nix` / `nix-darwin/homebrew.nix` / `nix-darwin/home-manager/default.nix`。
-- `fish/`: シェル設定（`config.fish`）、`fish_plugins`、およびカスタム functions/conf.d のスニペット。
-- `script/`: ユーティリティ Bash スクリプト（例: `set-fish-default.sh`）。
-- ツール設定はトップレベルに配置（例: `aerospace/`、`cursor/`、`wezterm/`、`raycast/`、`git/`、`mise/`、`nvim/`、`lazygit/`、`yazi/`、`claude/`、`codex/`、`zed/`、`menubar-script/`）。
+- `nix/`: Flake のエントリポイント（`flake.nix` / `flake.lock` / `local.nix.example`）と、macOS の system+Homebrew+Home Manager 状態を管理する `nix-darwin/`、カスタム package 定義の `pkgs/` を持つ。
+- `fish/`: シェル設定（`config.fish`）、`fish_plugins`、および `functions/` / `conf.d/` / `completions/` のスニペット。
+- `script/`: ユーティリティ Bash スクリプト（現状は `set-fish-default.sh`）。
+- ツール設定はトップレベルに配置（例: `aerospace/`、`claude/`、`codex/`、`cursor/`、`gh/`、`git/`、`lazygit/`、`mise/`、`nvim/`、`raycast/`、`tmux/`、`wezterm/`、`yazi/`、`zed/`、`menubar-script/`）。
+- 補助アセットや生成物として `build/`、`cage/`、`guard-and-guide/`、トップレベルの `justfile` がある。
 - エージェント固有のアセットは `agents/` 配下（主に `skills/` の再利用可能スキル群）。
 
 ## ビルド・テスト・開発コマンド
 - `cd nix && nix flake check` — flake と darwin 設定を検証。
-- `cd nix && nix run nix-darwin -- switch --flake path:.#<darwinConfigName>` — system/Homebrew 設定を適用。
-- `cd nix && nix run path:.#update` — flake の入力更新・`nix flake check`・nix-darwin の switch をまとめて実行。
+- `cd nix && sudo -H nix run nix-darwin -- switch --flake path:.#<darwinConfigName>` — system/Homebrew 設定を適用。
+- `cd nix && nix flake update` — flake 入力を更新。
 - `reload`（Fish 略語）— ログインシェルを再起動して新しい設定を読み込む。`fish_plugins` を変更した場合は `fisher update` を続けて実行。
 
 ## コーディングスタイルと命名規則
@@ -39,5 +40,5 @@
 
 ## エージェントスキル
 - 再利用可能なスキルは `agents/skills/` に保存。
-- 現在のリポジトリ内スキル: `a-bar`、`adapt`、`animate`、`arrange`、`audit`、`bolder`、`clarify`、`code-simplifier`、`colorize`、`conventional-commit`、`critique`、`delight`、`distill`、`electron`、`extract`、`frontend-design`、`harden`、`normalize`、`onboard`、`optimize`、`overdrive`、`polish`、`quieter`、`teach-impeccable`、`typeset`、`web-to-md`、`wezterm`、`zed`。
+- 現在のリポジトリ内スキル: `a-bar`、`cmux`、`code-simplifier`、`conventional-commit`、`difit-review`、`electron`、`frontend-design`、`ghostty`、`justfile`、`viteplus`、`wezterm`、`zed`。
 - タスクで特定のスキルが明示された場合は、そのスキルのワークフローを使用し、変更範囲は要求された領域に限定。
