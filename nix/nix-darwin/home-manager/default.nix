@@ -12,7 +12,7 @@
     };
 
     users.${local.userName} =
-      { config, ... }:
+      { ... }:
       {
         imports = [
           ./packages.nix
@@ -22,20 +22,6 @@
         home.stateVersion = "24.11";
         home.username = local.userName;
         home.homeDirectory = local.homeDirectory;
-
-        launchd.agents.gazectl = {
-          enable = false;
-          config = {
-            Label = "com.gazectl.agent";
-            ProgramArguments = [
-              "${config.home.profileDirectory}/bin/gazectl"
-            ];
-            RunAtLoad = true;
-            KeepAlive = true;
-            StandardOutPath = "/tmp/gazectl-stdout.log";
-            StandardErrorPath = "/tmp/gazectl-stderr.log";
-          };
-        };
       };
   };
 }

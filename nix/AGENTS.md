@@ -7,7 +7,7 @@
 - `nix-darwin/`: system と Home Manager のモジュール群。
 - `default.nix`、`nix-core.nix`、`users.nix`、`system.nix`、`homebrew.nix`
 - `home-manager/`（`default.nix`、`packages.nix`、`files.nix`）
-- `pkgs/`: nixpkgs にないカスタムパッケージ定義（例: `git-cz`、`tree-sitter-cli`、`portless`）。
+- `pkgs/`: nixpkgs にないカスタムパッケージ定義（例: `site2skill`、`tree-sitter-cli`）。
 - `local.nix` / `local.nix.example`: ローカルマシン固有の上書き設定。
 
 変更は責務に合わせて配置してください。システム設定は `nix-darwin/`、カスタムパッケージは `pkgs/` に分離します。

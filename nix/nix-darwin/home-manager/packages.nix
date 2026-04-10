@@ -41,10 +41,7 @@
     rtk
     github-copilot-cli
     inputs.guard-and-guide.packages.${pkgs.system}.default
-    (callPackage ../../pkgs/git-cz/default.nix { })
-    (callPackage ../../pkgs/portless/default.nix { })
     (callPackage ../../pkgs/site2skill/default.nix { })
-    (callPackage ../../pkgs/gazectl/default.nix { })
     (callPackage ../../pkgs/tree-sitter-cli/default.nix { })
   ];
 }
