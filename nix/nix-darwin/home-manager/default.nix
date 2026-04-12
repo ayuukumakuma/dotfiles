@@ -17,7 +17,6 @@
         imports = [
           ./packages.nix
           ./files.nix
-          ./ime.nix
         ];
 
         home.stateVersion = "24.11";

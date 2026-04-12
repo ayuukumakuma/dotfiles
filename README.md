@@ -36,20 +36,17 @@ cd ..
 │   ├── local.nix.example
 │   ├── nix-darwin/
 │   │   ├── default.nix
-│   │   ├── ime.nix
 │   │   ├── nix-core.nix
 │   │   ├── users.nix
 │   │   ├── system.nix
 │   │   ├── homebrew.nix
 │   │   ├── home-manager/
 │   │   │   ├── default.nix
-│   │   │   ├── ime.nix
 │   │   │   ├── packages.nix
 │   │   │   └── files.nix
 │   └── pkgs/
 │       ├── site2skill/
-│       ├── tree-sitter-cli/
-│       └── yaskkserv2/
+│       └── tree-sitter-cli/
 ├── fish/
 ├── gh/
 ├── git/
