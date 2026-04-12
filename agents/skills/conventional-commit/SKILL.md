@@ -1,7 +1,7 @@
 ---
 name: conventional-commit
-description: Use this skill when creating git commits, writing commit messages, or when the user asks to commit changes. Generates Conventional Commits messages with automatic type/scope inference, optional commit splitting, and explicit approval gating before git commit.
-argument-hint: "[auto-approve] [message/type hint]"
+description: Use this skill when creating git commits, writing commit messages, or when the user asks to commit changes. Generates Conventional Commits messages with automatic type/scope inference, optional commit splitting, and asks the user only when split decisions are ambiguous.
+argument-hint: "message/type hint"
 disable-model-invocation: true
 ---
 
@@ -9,29 +9,19 @@ disable-model-invocation: true
 
 ## Overview
 
-このスキルは Conventional Commits 形式のコミットメッセージを自動生成し、ユーザー承認後に `git commit` を実行します。
+このスキルは Conventional Commits 形式のコミットメッセージを自動生成し、通常はユーザー承認なしで `git commit` まで実行します。
 
 - 変更内容を分析して `type` / `scope` / `subject` / `body` を推定する
-- 複数の論理単位が混在する場合はコミット分割を提案する
-- コミット前に必ず最終確認を行う
+- 複数の論理単位が混在する場合はコミット分割を検討する
+- 分割方針が曖昧な場合のみユーザーに確認する
 - 既定言語は日本語（ユーザーまたはプロジェクト規約の指定があれば従う）
 
 ## Arguments
 
-`$ARGUMENTS` はスペース区切りで解釈する。第1トークンが `true` または `false` の場合は auto-approve フラグとして扱い、それ以外はすべてヒントとして扱う。
+`$ARGUMENTS` は次のヒントとして解釈します。
 
-| 位置 | 名前 | 省略 | 説明 |
-|------|------|------|------|
-| 1 | auto-approve | 可 | `true` で承認スキップ。`false` または省略時は承認を求める |
-| 2+ | ヒント | 可 | type（例: `feat`）や subject（例: `"認証エラーを修正"`） |
-
-### 使用例
-
-- `/conventional-commit` -- 全自動推定、承認あり
-- `/conventional-commit true` -- 全自動推定、承認スキップ
-- `/conventional-commit true feat` -- type 指定、承認スキップ
-- `/conventional-commit feat` -- type 指定、承認あり
-- `/conventional-commit "認証エラーを修正"` -- subject 指定、承認あり
+- type ヒント（例: `/conventional-commit feat`）
+- subject ヒント（例: `/conventional-commit "認証エラーを修正"`）
 
 ## Commit Message Rules
 
@@ -85,45 +75,46 @@ disable-model-invocation: true
 
 ## Split Decision Rules
 
-次の条件に当てはまる場合、分割提案を行う。
+次の条件に当てはまる場合、分割を検討する。
 
 1. 変更が明確に複数責務へ分かれる
 2. 異なる type が強く混在する
 3. 変更対象の領域が独立している
 
-分割提案時は、コミット案ごとに対象ファイル一覧を示す。
+分割が明確な場合は、コミット案ごとに対象ファイル一覧を整理したうえで、そのまま自動で分割コミットしてよい。
 
-## Confirmation Policy
+次のような場合だけユーザーに確認する。
 
-### auto-approve が `true` の場合
+- どのファイルをどのコミットに含めるべきか複数案が成立する
+- 単一コミットでも妥当だが分割コミットも妥当で、履歴上の意図が読み切れない
+- 変更の依存関係が曖昧で、分割すると壊れる可能性がある
 
-確認をすべてスキップし、生成したコミットメッセージでそのまま `git commit` を実行する。
-分割提案がある場合も自動で分割コミットを実行する。
+## Question Policy
 
-### auto-approve が `false` または未指定の場合
+### When an interactive question tool is available
 
-#### When interactive question tool is available
+`AskUserQuestion` や `request_user_input` のような選択式ツールが使えるなら、それを優先して使う。
 
-AskUserQuestion 相当の選択式確認を使う。
+- 確認が必要なのは、分割判断が曖昧なときだけ
+- 単一コミットで問題ない場合や、分割方針が明確な場合は質問しない
 
-- 分割するかどうか
-- 最終コミット案を承認するかどうか
+### Fallback
 
-#### Fallback
+選択式ツールがない場合は、通常のテキスト質問で必要最小限の確認を行う。
 
-選択式ツールがない場合はテキストで確認する。
-
-- 承認扱い: `y`, `yes`, `はい`, `ok`, `OK`
-- 拒否扱い: `n`, `no`, `いいえ`
+- 単一コミットで問題ない場合は確認せずそのまま実行する
+- 分割が明確な場合は確認せずそのまま実行する
+- 質問するときは、判断に必要な選択肢と推奨案を短く示す
 
 ## Workflow
 
 1. 変更内容を確認する
 2. `type` / `scope` / `subject` / `body` を自動生成する
-3. 分割可能性を判定し、必要なら分割案を提示する
-4. コミット案を表示し、Confirmation Policy に従って承認を得る
-5. コミットを実行する
-6. 実行結果を確認する
+3. 分割可能性を判定する
+4. 単一コミットで十分ならそのままコミットを実行する
+5. 分割が明確ならそのまま複数コミットを実行する
+6. 分割判断が曖昧な場合のみ、推奨案つきでユーザーに質問する
+7. 実行後に結果を確認する
 
 ## Commands
 
@@ -155,7 +146,7 @@ git status
 
 ## Safety Requirements
 
-1. auto-approve が `true` でない限り、ユーザー承認前に `git commit` を実行しない
-2. 実行前にコミットメッセージ案を必ず表示する（auto-approve 時も表示はする）
-3. 分割案では各コミットの対象ファイルを明示する
+1. 分割判断が曖昧な場合を除き、不要な確認を挟まない
+2. 実行前にコミットメッセージ案を必ず確定させる
+3. 分割コミット時は各コミットの対象ファイルを明示する
 4. 失敗時はエラー内容を示し、再実行可能な形で案内する
