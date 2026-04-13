@@ -143,13 +143,22 @@
     "notion@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
     "ruby-lsp@claude-plugins-official": true,
-    "terraform@claude-plugins-official": true
+    "terraform@claude-plugins-official": true,
+    "genshijin@genshijin": true
   },
   "language": "日本語",
+  "sandbox": {
+    "enabled": false
+  },
   "voiceEnabled": true,
   "autoMemoryEnabled": false,
   "skipAutoPermissionPrompt": true,
-  "sandbox": {
-    "enabled": false
+  "extraKnownMarketplaces": {
+    "genshijin": {
+      "source": {
+        "source": "github",
+        "repo": "InterfaceX-co-jp/genshijin"
+      }
+    }
   }
 }

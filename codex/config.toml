@@ -12,10 +12,13 @@ sandbox_mode = "workspace-write"
 
 [features]
 shell_snapshot = true
-multi_agent = true
+multi_agent_v2 = true
 prevent_idle_sleep = true
 js_repl = true
 codex_hooks = true
+undo = true
+tool_search = true
+remote_control = true
 
 [feedback]
 enabled = false
