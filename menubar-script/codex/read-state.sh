@@ -3,11 +3,10 @@
 set -euo pipefail
 
 state_file="$HOME/.codex/codex_state.json"
+state="idle"
 
 if [[ -f "$state_file" ]]; then
   state=$(jq -r '.status // "idle"' "$state_file" 2>/dev/null || echo "idle")
-else
-  state="idle"
 fi
 
 case "$state" in
