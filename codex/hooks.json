@@ -5,6 +5,27 @@
         "hooks": [
           {
             "type": "command",
+            "command": "/Users/nasuno.ayumu/.codex/hooks/state-notify.sh idle"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/nasuno.ayumu/.codex/hooks/state-notify.sh working"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
             "command": "/Users/nasuno.ayumu/.codex/hooks/state-notify.sh working"
           }
         ]
