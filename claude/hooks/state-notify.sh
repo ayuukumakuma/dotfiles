@@ -72,43 +72,38 @@ play_custom_wav() {
   afplay -v 0.2 "$wav_path" >/dev/null 2>&1 &
 }
 
-find_parent_app() {
+print_existing_bundle_path() {
+  local bundle_path="$1"
+
+  bundle_path="$(printf '%s' "$bundle_path" | xargs || true)"
+  [[ -n "$bundle_path" && -d "$bundle_path" ]] || return 1
+
+  printf '%s' "$bundle_path"
+}
+
+extract_app_bundle_path_from_command() {
+  local command_line="$1"
+  local bundle_path=""
+
+  [[ "$command_line" == *".app"* ]] || return 1
+
+  bundle_path="$(printf '%s\n' "$command_line" | grep -o '/[^"]*\.app' | head -1 || true)"
+
+  print_existing_bundle_path "$bundle_path"
+}
+
+find_parent_app_bundle_path() {
   local pid="$PPID"
-  local command_name
+  local command_line
+  local bundle_path
 
   while [[ -n "$pid" && "$pid" -gt 1 ]]; do
-    command_name="$(ps -p "$pid" -o comm= 2>/dev/null | xargs || true)"
+    command_line="$(ps -p "$pid" -o command= 2>/dev/null || true)"
 
-    case "$command_name" in
-      *wezterm-gui*|*WezTerm*)
-        printf '%s' "WezTerm"
-        return 0
-        ;;
-      *iTerm2*)
-        printf '%s' "iTerm"
-        return 0
-        ;;
-      */Terminal|*Terminal.app/*)
-        printf '%s' "Terminal"
-        return 0
-        ;;
-      *Cursor*)
-        printf '%s' "Cursor"
-        return 0
-        ;;
-      *Zed*)
-        printf '%s' "Zed"
-        return 0
-        ;;
-      *Visual\ Studio\ Code*|*Code*)
-        printf '%s' "Visual Studio Code"
-        return 0
-        ;;
-      *Claude*)
-        printf '%s' "Claude"
-        return 0
-        ;;
-    esac
+    if bundle_path="$(extract_app_bundle_path_from_command "$command_line")"; then
+      printf '%s' "$bundle_path"
+      return 0
+    fi
 
     pid="$(ps -p "$pid" -o ppid= 2>/dev/null | xargs || true)"
   done
@@ -119,14 +114,15 @@ find_parent_app() {
 notify() {
   local wav_path="$1"
   local sound_disabled_flag="$HOME/.config/notify-sound-disabled"
+  local parent_app_bundle_path=""
   local -a notify_args=(
     -title "$title"
     -message "$message"
   )
 
-  if parent_app="$(find_parent_app)"; then
+  if parent_app_bundle_path="$(find_parent_app_bundle_path)"; then
     notify_args+=(
-      -execute "open -a \"${parent_app}\""
+      -execute "open -a \"${parent_app_bundle_path}\""
     )
   fi
 
@@ -150,7 +146,6 @@ fi
 
 title=""
 message=""
-parent_app=""
 wav_path=""
 
 if ! build_notification "$event_type"; then

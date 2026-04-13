@@ -225,6 +225,15 @@
       "skillFolderHash": "2a1ad17028306ebe45f0e49703fa28b9b2e7f499",
       "installedAt": "2026-04-10T00:12:06.707Z",
       "updatedAt": "2026-04-10T00:12:06.707Z"
+    },
+    "genshijin": {
+      "source": "InterfaceX-co-jp/genshijin",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/InterfaceX-co-jp/genshijin.git",
+      "skillPath": "skills/genshijin/SKILL.md",
+      "skillFolderHash": "e460db1c1f976a0199398d82c5186b0eebfacaa3",
+      "installedAt": "2026-04-13T00:41:00.031Z",
+      "updatedAt": "2026-04-13T00:41:00.031Z"
     }
   },
   "dismissed": {
@@ -242,7 +251,6 @@
     "github-copilot",
     "kimi-cli",
     "opencode",
-    "warp",
-    "claude-code"
+    "warp"
   ]
 }
