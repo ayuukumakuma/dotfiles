@@ -6,7 +6,7 @@
 git clone https://github.com/ayuukumakuma/dotfiles.git <dotfiles_directory>
 cd <dotfiles_directory>
 
-cp nix/local.nix.example nix/local.nix
+# ひな形は nix/local.nix.example を参照
 $EDITOR nix/local.nix # local.nix edit
 
 cd nix && sudo -H nix run nix-darwin -- switch --flake path:.#<darwinConfigName>
@@ -15,10 +15,13 @@ cd ..
 ./script/set-fish-default.sh
 ```
 
-## directory structure
+## directory structure (major paths)
 
 ```text
 .
+├── .editorconfig
+├── .gitignore
+├── .nvimlog
 ├── .zed/
 ├── AGENTS.md
 ├── README.md
@@ -29,6 +32,20 @@ cd ..
 ├── cage/
 ├── claude/
 ├── codex/
+├── fish/
+│   ├── completions/
+│   ├── conf.d/
+│   ├── functions/
+│   ├── themes/
+│   ├── config.fish
+│   └── fish_plugins
+├── gh/
+├── git/
+├── guard-and-guide/
+├── justfile
+├── lazygit/
+├── menubar-script/
+├── mise/
 ├── nix/
 │   ├── flake.nix
 │   ├── flake.lock
@@ -47,21 +64,14 @@ cd ..
 │   └── pkgs/
 │       ├── site2skill/
 │       └── tree-sitter-cli/
-├── fish/
-├── gh/
-├── git/
-├── guard-and-guide/
-├── justfile
-├── lazygit/
-├── menubar-script/
-├── mise/
 ├── nvim/
 ├── raycast/
 ├── result
 ├── script/
+│   └── set-fish-default.sh
 ├── tmux/
+├── typos.toml
 ├── wezterm/
 ├── yazi/
-├── zed/
-└── typos.toml
+└── zed/
 ```
