@@ -59,6 +59,9 @@ trust_level = "trusted"
 [projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/notion-enhancer"]
 trust_level = "trusted"
 
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/github-pr-copy"]
+trust_level = "trusted"
+
 [tui]
 status_line = [
   "model-with-reasoning",

@@ -2,10 +2,10 @@
 
 ## プロジェクト構成とモジュール構成
 - `nix/`: Flake のエントリポイント（`flake.nix` / `flake.lock` / `local.nix.example` / `local.nix`）と、macOS の system+Homebrew+Home Manager 状態を管理する `nix-darwin/`、カスタム package 定義の `pkgs/` を持つ。
-- `fish/`: シェル設定（`config.fish`）、`fish_plugins`、および `functions/` / `conf.d/` / `completions/` のスニペット。
+- `fish/`: シェル設定（`config.fish`）、`fish_plugins`、`themes/`、および `functions/` / `conf.d/` / `completions/` のスニペットを持つ。
 - `script/`: ユーティリティ Bash スクリプト（現状は `set-fish-default.sh`）。
 - ツール設定はトップレベルに配置（例: `aerospace/`、`claude/`、`codex/`、`gh/`、`git/`、`lazygit/`、`mise/`、`nvim/`、`raycast/`、`tmux/`、`wezterm/`、`yazi/`、`zed/`、`menubar-script/`）。
-- 補助アセットや生成物として `build/`、`cage/`、`guard-and-guide/`、`result`、トップレベルの `justfile` がある。隠しディレクトリとして `.zed/` も存在する。
+- 補助アセットや生成物として `build/`、`cage/`、`guard-and-guide/`、`result`、トップレベルの `justfile` と `typos.toml` がある。隠しディレクトリとして `.zed/` も存在する。
 - エージェント固有のアセットは `agents/` 配下（主に `skills/` の再利用可能スキル群）。
 
 ## ビルド・テスト・開発コマンド
@@ -31,14 +31,14 @@
 - PR には以下を含める: 簡単な概要、影響範囲（Nix/Fish/アプリ設定）、実行したコマンド（`cd nix && nix flake check`、apply switch）、UI 変更がある場合はスクリーンショット。
 
 ## セキュリティ & 設定の注意点
-- `nix/local.nix` はローカル専用ファイルとしてコミットしない。
+- `nix/local.nix` はこのリポジトリで追跡されている設定ファイルで、各環境の値に合わせて編集して使う。
+- `nix/local.nix.example` は初期値の参照用テンプレートとして保持し、必要に応じて `nix/local.nix` と見比べて更新する。
 - `nix/local.nix` を ignore に入れると flake の pure 評価で参照できず失敗するため、ignore しない。
-- そのため `git status` に `?? nix/local.nix` が表示されるのは想定どおり。
 - 秘密情報はコミットしない。Git の identity は `~/.config/git/config.local`（テンプレート: `git/config.local.example`）に保持し、その他の認証情報は 1Password CLI（`op signin`）を使用。
 - `flake.lock` を唯一の正とし、手動編集は避ける。依存更新時にはロックファイルもコミット。
 - 新しい cask やパッケージを追加する場合は `nix/nix-darwin/homebrew.nix` と `nix/nix-darwin/home-manager/packages.nix` を優先して宣言的に管理し、switch コマンドを再実行してシステムに反映。
 
 ## エージェントスキル
 - 再利用可能なスキルは `agents/skills/` に保存。
-- 現在のリポジトリ内スキル: `a-bar`、`cmux`、`code-simplifier`、`conventional-commit`、`difit-review`、`electron`、`frontend-design`、`ghostty`、`grill-me`、`justfile`、`viteplus`、`wezterm`、`zed`。
+- 現在のリポジトリ内スキル: `a-bar`、`cmux`、`code-simplifier`、`conventional-commit`、`difit-review`、`electron`、`frontend-design`、`genshijin`、`ghostty`、`grill-me`、`justfile`、`viteplus`、`wezterm`、`zed`。
 - タスクで特定のスキルが明示された場合は、そのスキルのワークフローを使用し、変更範囲は要求された領域に限定。
