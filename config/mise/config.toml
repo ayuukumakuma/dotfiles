@@ -6,3 +6,4 @@ compile = false
 [tools]
 bun = "latest"
 python = "latest"
+lua = "5.1"

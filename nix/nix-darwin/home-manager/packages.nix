@@ -16,6 +16,7 @@
     mise
     jq
     jnv
+    luarocks
     neovim
     tre-command
     ffmpeg
