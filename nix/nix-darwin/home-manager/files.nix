@@ -6,22 +6,23 @@
 }:
 let
   dotfilesRoot = local.dotfilesRoot;
+  configRoot = "${dotfilesRoot}/config";
   oos = config.lib.file.mkOutOfStoreSymlink;
 in
 {
   xdg.enable = true;
   xdg.configFile = {
-    fish.source = oos "${dotfilesRoot}/fish";
-    git.source = oos "${dotfilesRoot}/git";
-    "mise/config.toml".source = oos "${dotfilesRoot}/mise/config.toml";
-    nvim.source = oos "${dotfilesRoot}/nvim";
-    lazygit.source = oos "${dotfilesRoot}/lazygit";
-    yazi.source = oos "${dotfilesRoot}/yazi";
-    tmux.source = oos "${dotfilesRoot}/tmux";
-    "wezterm/wezterm.lua".source = oos "${dotfilesRoot}/wezterm/wezterm.lua";
-    zed.source = oos "${dotfilesRoot}/zed";
-    cage.source = oos "${dotfilesRoot}/cage";
-    "guard-and-guide/rules.toml".source = oos "${dotfilesRoot}/guard-and-guide/rules.toml";
+    fish.source = oos "${configRoot}/fish";
+    git.source = oos "${configRoot}/git";
+    "mise/config.toml".source = oos "${configRoot}/mise/config.toml";
+    nvim.source = oos "${configRoot}/nvim";
+    lazygit.source = oos "${configRoot}/lazygit";
+    yazi.source = oos "${configRoot}/yazi";
+    tmux.source = oos "${configRoot}/tmux";
+    "wezterm/wezterm.lua".source = oos "${configRoot}/wezterm/wezterm.lua";
+    zed.source = oos "${configRoot}/zed";
+    cage.source = oos "${configRoot}/cage";
+    "guard-and-guide/rules.toml".source = oos "${configRoot}/guard-and-guide/rules.toml";
 
     # direnvrc は ${pkgs.nix-direnv} の Nix Store パスを参照するため
     # dotfiles 側に静的ファイルとして管理できない。text で直接記述する。
@@ -31,16 +32,16 @@ in
   };
 
   home.file = {
-    ".aerospace.toml".source = oos "${dotfilesRoot}/aerospace/.aerospace.toml";
-    ".agents".source = oos "${dotfilesRoot}/agents";
-    ".claude/settings.json".source = oos "${dotfilesRoot}/claude/settings.json";
-    ".claude/statusline.py".source = oos "${dotfilesRoot}/claude/statusline.py";
-    ".claude/hooks".source = oos "${dotfilesRoot}/claude/hooks";
-    ".claude/skills".source = oos "${dotfilesRoot}/agents/skills";
-    ".claude/CLAUDE.md".source = oos "${dotfilesRoot}/claude/CLAUDE.md";
-    ".cursor/skills".source = oos "${dotfilesRoot}/agents/skills";
-    ".codex/config.toml".source = oos "${dotfilesRoot}/codex/config.toml";
-    ".codex/hooks".source = oos "${dotfilesRoot}/codex/hooks";
-    ".codex/hooks.json".source = oos "${dotfilesRoot}/codex/hooks.json";
+    ".aerospace.toml".source = oos "${configRoot}/aerospace/.aerospace.toml";
+    ".agents".source = oos "${configRoot}/agents";
+    ".claude/settings.json".source = oos "${configRoot}/claude/settings.json";
+    ".claude/statusline.py".source = oos "${configRoot}/claude/statusline.py";
+    ".claude/hooks".source = oos "${configRoot}/claude/hooks";
+    ".claude/skills".source = oos "${configRoot}/agents/skills";
+    ".claude/CLAUDE.md".source = oos "${configRoot}/claude/CLAUDE.md";
+    ".cursor/skills".source = oos "${configRoot}/agents/skills";
+    ".codex/config.toml".source = oos "${configRoot}/codex/config.toml";
+    ".codex/hooks".source = oos "${configRoot}/codex/hooks";
+    ".codex/hooks.json".source = oos "${configRoot}/codex/hooks.json";
   };
 }
