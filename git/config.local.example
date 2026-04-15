@@ -1,7 +1,0 @@
-[user]
-  name = <your-name>
-  email = <your-email>
-  signingkey = ssh-ed25519 <your-public-key>
-
-[ghq]
-  user = <your-name>
