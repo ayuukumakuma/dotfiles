@@ -37,7 +37,7 @@ config.window_frame = {
   active_titlebar_bg = "none",
 }
 config.window_background_gradient = {
-  colors = { "F0EEE9" },
+  colors = { "eff1f5" },
 }
 config.show_new_tab_button_in_tab_bar = false
 
