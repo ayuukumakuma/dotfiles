@@ -1,0 +1,6 @@
+[user]
+  name = ayuukumakuma
+  email = ayuu.kumakuma@gmail.com
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHbwpJQI3qrOlpdvoreDKK++TlZPhHtRrU02Iaa1UfjW
+[ghq]
+  user = ayuukumakuma

@@ -1,0 +1,87 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+model_reasoning_effort = "medium"
+personality = "pragmatic"
+forced_login_method = "chatgpt"
+model = "gpt-5.4"
+web_search = "live"
+notify = ["$HOME/.codex/hooks/notify-terminal-notifier.sh"]
+suppress_unstable_features_warning = true
+plan_mode_reasoning_effort = "medium"
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+
+[features]
+shell_snapshot = true
+multi_agent_v2 = true
+prevent_idle_sleep = true
+js_repl = true
+codex_hooks = true
+undo = true
+tool_search = true
+remote_control = true
+
+[feedback]
+enabled = false
+
+[sandbox_workspace_write]
+network_access = true
+
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/mario-chrome-extensions"]
+trust_level = "trusted"
+
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/smartcamp-fy26"]
+trust_level = "trusted"
+
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/cf-page-to-md"]
+trust_level = "trusted"
+
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/shogun-nix-flake"]
+trust_level = "trusted"
+
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/copy-url-as-markdown"]
+trust_level = "trusted"
+
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/repo-redirect-for-devin"]
+trust_level = "trusted"
+
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/always-show-github-reactions"]
+trust_level = "trusted"
+
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/browser-extantion-template"]
+trust_level = "trusted"
+
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/browser-extension-template"]
+trust_level = "trusted"
+
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/notion-enhancer"]
+trust_level = "trusted"
+
+[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/github-pr-copy"]
+trust_level = "trusted"
+
+[tui]
+status_line = [
+  "model-with-reasoning",
+  "project-root",
+  "git-branch",
+  "context-used",
+  "five-hour-limit",
+  "weekly-limit",
+  "codex-version",
+]
+theme = "catppuccin-latte"
+
+[plugins."google-calendar@openai-curated"]
+enabled = true
+
+[plugins."gmail@openai-curated"]
+enabled = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."google-drive@openai-curated"]
+enabled = true
