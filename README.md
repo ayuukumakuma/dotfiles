@@ -19,33 +19,31 @@ cd ..
 
 ```text
 .
-├── .editorconfig
-├── .gitignore
-├── .nvimlog
 ├── .zed/
 ├── AGENTS.md
 ├── README.md
-├── aerospace/
-├── agents/
-│   └── skills/
 ├── build/
-├── cage/
-├── claude/
-├── codex/
-├── fish/
-│   ├── completions/
-│   ├── conf.d/
-│   ├── functions/
-│   ├── themes/
-│   ├── config.fish
-│   └── fish_plugins
-├── gh/
-├── git/
-├── guard-and-guide/
+├── config/
+│   ├── aerospace/
+│   ├── agents/
+│   │   └── skills/
+│   ├── cage/
+│   ├── claude/
+│   ├── codex/
+│   ├── fish/
+│   ├── gh/
+│   ├── git/
+│   ├── guard-and-guide/
+│   ├── lazygit/
+│   ├── mise/
+│   ├── nvim/
+│   ├── raycast/
+│   ├── tmux/
+│   ├── wezterm/
+│   ├── yazi/
+│   └── zed/
 ├── justfile
-├── lazygit/
 ├── menubar-script/
-├── mise/
 ├── nix/
 │   ├── flake.nix
 │   ├── flake.lock
@@ -64,14 +62,8 @@ cd ..
 │   └── pkgs/
 │       ├── site2skill/
 │       └── tree-sitter-cli/
-├── nvim/
-├── raycast/
 ├── result
 ├── script/
 │   └── set-fish-default.sh
-├── tmux/
 ├── typos.toml
-├── wezterm/
-├── yazi/
-└── zed/
 ```
