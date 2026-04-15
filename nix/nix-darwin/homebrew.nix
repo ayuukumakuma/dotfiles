@@ -71,6 +71,7 @@
       "chatgpt"
       "drawio"
       "portkiller"
+      "tablepro"
 
       ### Fonts
       "font-hackgen-nerd"
