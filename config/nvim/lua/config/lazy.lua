@@ -30,3 +30,5 @@ require("lazy").setup({
 })
 
 require("config.colorscheme")
+require("config.config")
+require("config.keymap")

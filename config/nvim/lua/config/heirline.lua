@@ -595,10 +595,6 @@ local StatusLine = {
 function M.setup()
   local heirline = require("heirline")
 
-  vim.opt.laststatus = 3
-  vim.opt.showmode = false
-  vim.opt.showtabline = 2
-
   heirline.setup({
     statusline = StatusLine,
     tabline = TabLine,
