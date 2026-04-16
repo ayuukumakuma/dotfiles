@@ -166,7 +166,47 @@ local function is_special_buffer(bufnr)
   return vim.bo[bufnr].buftype ~= ""
 end
 
+local function executable_name(command)
+  local executable = vim.split(command, " ", { plain = true })[1]
+
+  if executable and executable ~= "" then
+    return vim.fn.fnamemodify(executable, ":t")
+  end
+end
+
+local function terminal_process_name(bufnr)
+  local term_title = vim.b[bufnr].term_title
+
+  if type(term_title) == "string" and term_title ~= "" then
+    local name = executable_name(term_title)
+
+    if name then
+      return name
+    end
+  end
+
+  local tail = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
+  local toggleterm_name = tail:match("^(.-);#toggleterm#%d+$")
+
+  if toggleterm_name and toggleterm_name ~= "" then
+    tail = toggleterm_name
+  end
+
+  local command = tail:match("^%d+:(.+)$") or tail
+  local name = executable_name(command)
+
+  if name then
+    return name
+  end
+
+  return special_buffer_labels.terminal
+end
+
 local function buffer_label(bufnr)
+  if vim.bo[bufnr].buftype == "terminal" then
+    return terminal_process_name(bufnr)
+  end
+
   local bufname = vim.api.nvim_buf_get_name(bufnr)
 
   if bufname ~= "" then
@@ -555,6 +595,7 @@ local StatusLine = {
 function M.setup()
   local heirline = require("heirline")
 
+  vim.opt.laststatus = 3
   vim.opt.showmode = false
   vim.opt.showtabline = 2
 
