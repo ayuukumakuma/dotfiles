@@ -67,5 +67,4 @@ cd ..
 ├── nvim.log
 ├── script/
 │   └── set-fish-default.sh
-├── typos.toml
 ```
