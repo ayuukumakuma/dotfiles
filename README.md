@@ -19,6 +19,8 @@ cd ..
 
 ```text
 .
+├── .editorconfig
+├── .gitignore
 ├── .zed/
 ├── AGENTS.md
 ├── README.md
@@ -62,7 +64,7 @@ cd ..
 │   └── pkgs/
 │       ├── site2skill/
 │       └── tree-sitter-cli/
-├── result
+├── nvim.log
 ├── script/
 │   └── set-fish-default.sh
 ├── typos.toml
