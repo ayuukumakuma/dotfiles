@@ -1,25 +1,24 @@
 return {
-  "mikavilpas/yazi.nvim",
-  version = "*",
-  event = "VeryLazy",
+  "stevearc/oil.nvim",
+  lazy = false,
   dependencies = {
-    { "nvim-lua/plenary.nvim", lazy = true },
+    {
+      "nvim-mini/mini.icons",
+      opts = {},
+    },
   },
   keys = {
     {
-      "<leader>-",
-      mode = { "n", "v" },
-      "<cmd>Yazi<cr>",
-      desc = "Open yazi at the current file",
+      "<leader>e",
+      "<cmd>Oil<cr>",
+      desc = "Open file explorer",
     },
   },
   opts = {
-    open_for_directories = true,
-    keymaps = {
-      show_help = "<f1>",
-    },
+    default_file_explorer = true,
   },
   init = function()
+    vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
   end,
 }
