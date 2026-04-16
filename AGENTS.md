@@ -5,7 +5,7 @@
 - `config/`: 各種ツール設定を集約するディレクトリ。`config/fish/` にシェル設定、`config/git/` に Git 設定、`config/nvim/` や `config/wezterm/` などにツール別設定を配置し、`config/agents/skills/` に再利用可能なエージェントスキルを保存する。
 - `script/`: ユーティリティ Bash スクリプト（現状は `set-fish-default.sh`）。
 - `menubar-script/`: メニューバー連携用の補助スクリプト群。
-- 補助アセットや生成物として `build/`、トップレベルの `justfile` と `typos.toml` がある。隠しディレクトリとして `.zed/` も存在する。
+- 補助アセットや生成物として `build/` とトップレベルの `justfile` がある。隠しディレクトリとして `.zed/` も存在する。
 
 ## ビルド・テスト・開発コマンド
 - `cd nix && nix flake check` — flake と darwin 設定を検証。
