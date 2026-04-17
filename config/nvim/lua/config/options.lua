@@ -39,5 +39,5 @@ vim.opt.backspace = { "indent", "eol", "start" }
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.updatetime = 250
-vim.opt.timeoutlen = 250
+vim.opt.timeoutlen = 500
 vim.opt.hidden = true
