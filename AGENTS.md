@@ -2,15 +2,16 @@
 
 ## プロジェクト構成とモジュール構成
 - `nix/`: Flake のエントリポイント（`flake.nix` / `flake.lock` / `local.nix.example` / `local.nix`）と、macOS の system+Homebrew+Home Manager 状態を管理する `nix-darwin/`、カスタム package 定義の `pkgs/` を持つ。
-- `config/`: 各種ツール設定を集約するディレクトリ。`config/fish/` にシェル設定、`config/git/` に Git 設定、`config/nvim/` や `config/wezterm/` などにツール別設定を配置し、`config/agents/skills/` に再利用可能なエージェントスキルを保存する。
-- `script/`: ユーティリティ Bash スクリプト（現状は `set-fish-default.sh`）。
-- `menubar-script/`: メニューバー連携用の補助スクリプト群。
-- 補助アセットや生成物として `build/` とトップレベルの `justfile` がある。隠しディレクトリとして `.zed/` も存在する。
+- `config/`: 各種ツール設定を集約するディレクトリ。`config/fish/` にシェル設定、`config/git/` に Git 設定、`config/nvim/` や `config/wezterm/` などにツール別設定を配置し、`config/agents/skills/` に再利用可能なエージェントスキルを保存する。`config/claude/hooks/` と `config/codex/hooks/` もここに含まれる。
+- `script/`: ユーティリティ Bash スクリプトを配置するディレクトリ。現状は `set-fish-default.sh` がある。
+- `menubar-script/`: `claude/`、`codex/`、`ime/`、`media/`、`notify-sound/` などのメニューバー連携用スクリプト群。
+- 補助アセットや生成物として `build/`、運用コマンドの入口としてトップレベルの `justfile` がある。隠しディレクトリとして `.claude/` と `.zed/` も存在する。
 
 ## ビルド・テスト・開発コマンド
-- `cd nix && nix flake check` — flake と darwin 設定を検証。
-- `cd nix && sudo -H nix run nix-darwin -- switch --flake path:.#<darwinConfigName>` — system/Homebrew 設定を適用。
-- `cd nix && nix flake update` — flake 入力を更新。
+- `just check` — `nix/` で `nix flake check` を実行し、flake と darwin 設定を検証。
+- `just switch` — `nix/local.nix` の `darwinConfigName` を使って system/Homebrew 設定を適用。
+- `just update` — `nix/` で flake 入力を更新。
+- `just update-and-switch` — flake 更新と darwin 反映を連続で実行。
 - `reload`（Fish 略語）— ログインシェルを再起動して新しい設定を読み込む。`fish_plugins` を変更した場合は `fisher update` を続けて実行。
 
 ## コーディングスタイルと命名規則
