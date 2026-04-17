@@ -9,8 +9,7 @@ cd <dotfiles_directory>
 # ひな形は nix/local.nix.example を参照
 $EDITOR nix/local.nix # local.nix edit
 
-cd nix && sudo -H nix run nix-darwin -- switch --flake path:.#<darwinConfigName>
-cd ..
+just switch
 
 ./script/set-fish-default.sh
 ```
@@ -19,19 +18,25 @@ cd ..
 
 ```text
 .
+├── .claude/
+│   └── settings.local.json
 ├── .editorconfig
 ├── .gitignore
 ├── .zed/
 ├── AGENTS.md
 ├── README.md
 ├── build/
+│   ├── download/
+│   └── markdown/
 ├── config/
 │   ├── aerospace/
 │   ├── agents/
 │   │   └── skills/
 │   ├── cage/
 │   ├── claude/
+│   │   └── hooks/
 │   ├── codex/
+│   │   └── hooks/
 │   ├── fish/
 │   ├── gh/
 │   ├── git/
@@ -46,6 +51,11 @@ cd ..
 │   └── zed/
 ├── justfile
 ├── menubar-script/
+│   ├── claude/
+│   ├── codex/
+│   ├── ime/
+│   ├── media/
+│   └── notify-sound/
 ├── nix/
 │   ├── flake.nix
 │   ├── flake.lock
