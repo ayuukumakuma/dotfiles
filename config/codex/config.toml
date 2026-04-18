@@ -85,3 +85,11 @@ enabled = true
 
 [plugins."google-drive@openai-curated"]
 enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[marketplaces.openai-bundled]
+last_updated = "2026-04-18T04:10:59Z"
+source_type = "local"
+source = "/Users/nasuno.ayumu/.codex/.tmp/bundled-marketplaces/openai-bundled"

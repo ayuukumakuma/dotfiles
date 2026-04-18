@@ -21,12 +21,12 @@ return {
     {
       "<leader>p",
       find_files,
-      desc = "Find files",
+      desc = "ファイルを検索",
     },
     {
       "<leader>f",
       live_grep(),
-      desc = "Live grep",
+      desc = "文字列を検索",
     },
   },
 }

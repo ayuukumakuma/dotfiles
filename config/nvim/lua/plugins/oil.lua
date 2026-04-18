@@ -11,7 +11,7 @@ return {
     {
       "<leader>e",
       "<cmd>Oil<cr>",
-      desc = "Open file explorer",
+      desc = "ファイルエクスプローラーを開く",
     },
   },
   opts = {
