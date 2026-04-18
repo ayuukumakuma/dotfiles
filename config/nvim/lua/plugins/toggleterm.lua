@@ -54,30 +54,30 @@ return {
     {
       "<leader>t",
       toggle_terminal,
-      desc = "Toggle terminal",
+      desc = "ターミナルを切り替え",
     },
     {
       "<leader>t",
       from_terminal(toggle_terminal),
       mode = "t",
-      desc = "Toggle terminal",
+      desc = "ターミナルを切り替え",
     },
     {
       "<S-Esc>",
       cycle_terminal_direction,
-      desc = "Cycle terminal layout",
+      desc = "ターミナル配置を切り替え",
     },
     {
       "<S-Esc>",
       from_terminal(cycle_terminal_direction),
       mode = "t",
-      desc = "Cycle terminal layout",
+      desc = "ターミナル配置を切り替え",
     },
     {
       "<Esc>",
       "<C-\\><C-n>",
       mode = "t",
-      desc = "Exit terminal mode",
+      desc = "ターミナルモードを終了",
     },
   },
   opts = {

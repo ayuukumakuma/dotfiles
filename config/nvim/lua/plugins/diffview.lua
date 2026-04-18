@@ -24,17 +24,17 @@ return {
     {
       "<leader>gd",
       toggle_diffview,
-      desc = "Toggle diff view",
+      desc = "差分ビューを切り替え",
     },
     {
       "<leader>gh",
       "<cmd>DiffviewFileHistory %<cr>",
-      desc = "Current file history",
+      desc = "現在のファイルの履歴",
     },
     {
       "<leader>gH",
       "<cmd>DiffviewFileHistory<cr>",
-      desc = "Repository history",
+      desc = "リポジトリ履歴",
     },
   },
   opts = {
@@ -47,7 +47,7 @@ return {
           function()
             require("diffview.actions").goto_file_edit()
           end,
-          { desc = "Open the selected file" },
+          { desc = "選択したファイルを開く" },
         },
       },
     },

@@ -22,52 +22,52 @@ return {
     {
       "<leader>gb",
       call("toggle_current_line_blame"),
-      desc = "Toggle Git blame",
+      desc = "現在行の blame 表示を切り替え",
     },
     {
       "<leader>gw",
       call("toggle_word_diff"),
-      desc = "Toggle Git word diff",
+      desc = "単語差分を切り替え",
     },
     {
       "<leader>gp",
       call("preview_hunk"),
-      desc = "Preview Git hunk",
+      desc = "差分ブロックをプレビュー",
     },
     {
       "<leader>gr",
       call("reset_hunk"),
-      desc = "Reset Git hunk",
+      desc = "差分ブロックをリセット",
     },
     {
       "<leader>gs",
       call("stage_hunk"),
-      desc = "Stage Git hunk",
+      desc = "差分ブロックをステージ",
     },
     {
       "<leader>gu",
       call("undo_stage_hunk"),
-      desc = "Undo Git stage hunk",
+      desc = "差分ブロックのステージを取り消す",
     },
     {
       "<leader>gR",
       call("reset_buffer"),
-      desc = "Reset Git buffer",
+      desc = "バッファ全体の変更をリセット",
     },
     {
       "<leader>gS",
       call("stage_buffer"),
-      desc = "Stage Git buffer",
+      desc = "バッファ全体の変更をステージ",
     },
     {
       "<leader>gn",
       move_hunk("next_hunk", "]c"),
-      desc = "Next Git hunk",
+      desc = "次の差分ブロック",
     },
     {
       "<leader>gN",
       move_hunk("prev_hunk", "[c"),
-      desc = "Previous Git hunk",
+      desc = "前の差分ブロック",
     },
   },
   opts = {

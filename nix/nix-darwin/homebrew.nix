@@ -1,3 +1,4 @@
+{ local, ... }:
 {
   homebrew = {
     enable = true;
@@ -14,6 +15,11 @@
       "im-select"
       "git-delta"
       "mo"
+      # mole は `mo` バイナリが k1Low/tap の mo と衝突するため link せず、mole バイナリのみ後段で symlink する。
+      {
+        name = "mole";
+        link = false;
+      }
     ];
     taps = [
       "nikitabobko/tap" # aerospace
@@ -83,4 +89,12 @@
       "Grila" = 6444335028;
     };
   };
+
+  # mole formula は `mo` バイナリが k1Low/tap の mo と衝突するため un-linked。
+  # activation は root 実行だが /opt/homebrew/bin の owner に揃えるため sudo -u でユーザー権限に降りる。
+  system.activationScripts.postActivation.text = ''
+    if [ -x /opt/homebrew/opt/mole/bin/mole ]; then
+      sudo -u ${local.userName} ln -sfn /opt/homebrew/opt/mole/bin/mole /opt/homebrew/bin/mole
+    fi
+  '';
 }
