@@ -31,6 +31,8 @@ return {
     },
     spec = {
       { "<leader>g", group = "Git操作" },
+      { "<leader>l", group = "LSP" },
+      { "<leader>n", group = "通知・Noice" },
     },
     win = {
       border = "rounded",

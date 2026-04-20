@@ -1,4 +1,11 @@
 { local, ... }:
+let
+  homebrewPrefix = "/opt/homebrew";
+  brewBin = "${homebrewPrefix}/bin/brew";
+  homebrewBinDir = "${homebrewPrefix}/bin";
+  moBin = "${homebrewPrefix}/opt/mo/bin/mo";
+  moleBin = "${homebrewPrefix}/opt/mole/bin/mole";
+in
 {
   homebrew = {
     enable = true;
@@ -14,8 +21,12 @@
       "mas" # Mac App Store CLI
       "im-select"
       "git-delta"
-      "mo"
-      # mole は `mo` バイナリが k1Low/tap の mo と衝突するため link せず、mole バイナリのみ後段で symlink する。
+      # `mo` と `mole` はどちらも `mo` バイナリを持つため、brew 管理の link は使わない。
+      # activation の前後で unlink/link を明示的に制御する。
+      {
+        name = "mo";
+        link = false;
+      }
       {
         name = "mole";
         link = false;
@@ -90,11 +101,23 @@
     };
   };
 
-  # mole formula は `mo` バイナリが k1Low/tap の mo と衝突するため un-linked。
+  # `mo` と `mole` はどちらも `mo` バイナリを持つため、brew 実行前に両方 unlink して衝突を避ける。
+  system.activationScripts.preActivation.text = ''
+    if [ -x ${brewBin} ]; then
+      ${brewBin} unlink mo >/dev/null 2>&1 || true
+      ${brewBin} unlink mole >/dev/null 2>&1 || true
+    fi
+  '';
+
+  # brew 管理の link を避けた上で、必要なコマンドだけ /opt/homebrew/bin に戻す。
   # activation は root 実行だが /opt/homebrew/bin の owner に揃えるため sudo -u でユーザー権限に降りる。
   system.activationScripts.postActivation.text = ''
-    if [ -x /opt/homebrew/opt/mole/bin/mole ]; then
-      sudo -u ${local.userName} ln -sfn /opt/homebrew/opt/mole/bin/mole /opt/homebrew/bin/mole
+    if [ -x ${moBin} ]; then
+      sudo -u ${local.userName} ln -sfn ${moBin} ${homebrewBinDir}/mo
+    fi
+
+    if [ -x ${moleBin} ]; then
+      sudo -u ${local.userName} ln -sfn ${moleBin} ${homebrewBinDir}/mole
     fi
   '';
 }
