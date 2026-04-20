@@ -49,6 +49,7 @@ just switch
 │   ├── wezterm/
 │   ├── yazi/
 │   └── zed/
+├── docs/
 ├── justfile
 ├── menubar-script/
 │   ├── claude/

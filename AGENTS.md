@@ -5,7 +5,7 @@
 - `config/`: 各種ツール設定を集約するディレクトリ。`config/fish/` にシェル設定、`config/git/` に Git 設定、`config/nvim/` や `config/wezterm/` などにツール別設定を配置し、`config/agents/skills/` に再利用可能なエージェントスキルを保存する。`config/claude/hooks/` と `config/codex/hooks/` もここに含まれる。
 - `script/`: ユーティリティ Bash スクリプトを配置するディレクトリ。現状は `set-fish-default.sh` がある。
 - `menubar-script/`: `claude/`、`codex/`、`ime/`、`media/`、`notify-sound/` などのメニューバー連携用スクリプト群。
-- 補助アセットや生成物として `build/`、運用コマンドの入口としてトップレベルの `justfile` がある。隠しディレクトリとして `.claude/` と `.zed/` も存在する。
+- 補助アセットや生成物として `build/` と `docs/`、運用コマンドの入口としてトップレベルの `justfile` がある。隠しディレクトリとして `.claude/` と `.zed/` も存在する。
 
 ## ビルド・テスト・開発コマンド
 - `just check` — `nix/` で `nix flake check` を実行し、flake と darwin 設定を検証。
@@ -40,5 +40,5 @@
 
 ## エージェントスキル
 - 再利用可能なスキルは `config/agents/skills/` に保存。
-- 現在のリポジトリ内スキル: `a-bar`、`cmux`、`code-simplifier`、`conventional-commit`、`difit-review`、`electron`、`frontend-design`、`genshijin`、`ghostty`、`grill-me`、`justfile`、`lazy.nvim`、`viteplus`、`wezterm`、`zed`。
+- 現在のリポジトリ内スキル: `a-bar`、`cmux`、`code-simplifier`、`conventional-commit`、`difit-review`、`electron`、`empirical-prompt-tuning`、`frontend-design`、`genshijin`、`ghostty`、`grill-me`、`justfile`、`lazy.nvim`、`viteplus`、`wezterm`、`zed`。
 - タスクで特定のスキルが明示された場合は、そのスキルのワークフローを使用し、変更範囲は要求された領域に限定。
