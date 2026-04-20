@@ -43,6 +43,7 @@
     github-copilot-cli
     socat
     ov
+    mergiraf
     inputs.guard-and-guide.packages.${pkgs.system}.default
     (callPackage ../../pkgs/site2skill/default.nix { })
     (callPackage ../../pkgs/tree-sitter-cli/default.nix { })

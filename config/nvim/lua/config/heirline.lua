@@ -446,6 +446,31 @@ local FileType = {
   hl = { fg = "muted" },
 }
 
+local LspClients = {
+  condition = function()
+    return #vim.lsp.get_clients({ bufnr = 0 }) > 0
+  end,
+  init = function(self)
+    local names = {}
+
+    for _, client in ipairs(vim.lsp.get_clients({ bufnr = 0 })) do
+      names[#names + 1] = client.name
+    end
+
+    table.sort(names)
+    self.names = names
+  end,
+  provider = function(self)
+    return " 󰒋 " .. table.concat(self.names, ", ") .. " "
+  end,
+  hl = { fg = "green" },
+  update = {
+    "BufEnter",
+    "LspAttach",
+    "LspDetach",
+  },
+}
+
 local Ruler = {
   provider = function()
     return " " .. symbols.ruler .. " %l:%c "
@@ -587,6 +612,7 @@ local StatusLine = {
   FileFlags,
   Align,
   pill(Diagnostics, "mantle", "text"),
+  pill(LspClients, "surface", "green"),
   pill(FileType, "surface", "muted"),
   pill(Ruler, "mantle", "text"),
   pill(Scroll, "surface", "muted"),

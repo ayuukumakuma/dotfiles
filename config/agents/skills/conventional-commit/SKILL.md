@@ -1,8 +1,7 @@
 ---
-name: conventional-commit
+name: Conventional Commit
 description: Use this skill when creating git commits, writing commit messages, or when the user asks to commit changes. Generates Conventional Commits messages with automatic type/scope inference, optional commit splitting, and asks the user only when split decisions are ambiguous.
 argument-hint: "message/type hint"
-disable-model-invocation: true
 ---
 
 # Conventional Commit Message and Commit Execution
@@ -15,6 +14,13 @@ disable-model-invocation: true
 - 複数の論理単位が混在する場合はコミット分割を検討する
 - 分割方針が曖昧な場合のみユーザーに確認する
 - 既定言語は日本語（ユーザーまたはプロジェクト規約の指定があれば従う）
+
+最初に次の原則で迷いを減らす。
+
+- 変更が 1 つの論理単位なら、確認せず 1 コミットで完了させる
+- `scope` は「共通モジュール名が自然に 1 語で言えるときだけ」付ける
+- 振る舞いが変わる設定変更は `fix` または `feat` を優先し、単なる整理なら `refactor` / `chore` を使う
+- 分割コミットでは、毎回 `git add <対象>` -> `git commit` の順で 1 コミットずつ閉じる
 
 ## Arguments
 
@@ -65,6 +71,13 @@ disable-model-invocation: true
 - 振る舞いを変えない構造改善: `refactor`
 - その他の雑多な調整: `chore`
 
+迷いやすい境界は次で固定する。
+
+- 設定・スクリプト変更で実行時の挙動や失敗条件が改善される: `fix`
+- 設定整理、命名整理、コメント整理のみで挙動不変: `refactor` または `chore`
+- README やガイド、コメント文面だけの更新: `docs`
+- 新しい設定スイッチや新規の利用者向け導線を追加する: `feat`
+
 ### scope inference
 
 変更ファイルの共通ディレクトリやモジュール名から推定する。
@@ -72,6 +85,17 @@ disable-model-invocation: true
 - 例: `frontend`, `backend`, `api`, `auth`, `docs`, `config`
 - 明確に推定できない場合は scope を省略する
 - プロジェクト固有の scope 規約がある場合はそれを優先する
+
+次のときは scope を省略してよい。
+
+- 単一ファイル変更でも、そのファイル名を scope にすると不自然
+- 複数ファイル変更だが、共通モジュール名より上位ディレクトリしか共有していない
+- README や雑多なトップレベルファイル変更で、scope を足すとかえって冗長になる
+
+次のときは scope を付ける。
+
+- 変更が特定サブディレクトリやモジュールに閉じている
+- その scope を付けることで履歴検索がしやすくなる
 
 ## Split Decision Rules
 
@@ -111,8 +135,8 @@ disable-model-invocation: true
 1. 変更内容を確認する
 2. `type` / `scope` / `subject` / `body` を自動生成する
 3. 分割可能性を判定する
-4. 単一コミットで十分ならそのままコミットを実行する
-5. 分割が明確ならそのまま複数コミットを実行する
+4. 単一コミットで十分なら、必要なファイルを stage してそのままコミットを実行する
+5. 分割が明確なら、コミットごとに対象ファイルを stage して複数コミットを実行する
 6. 分割判断が曖昧な場合のみ、推奨案つきでユーザーに質問する
 7. 実行後に結果を確認する
 
@@ -123,6 +147,9 @@ disable-model-invocation: true
 git status --short
 git diff --staged
 git diff
+
+# 単一コミット前の stage
+git add <対象ファイル>
 
 # 単一コミット（body なし）
 git commit -m "type(scope): subject"
@@ -142,7 +169,11 @@ git log -1 --oneline
 git status
 ```
 
-分割コミットの場合は、対象ファイル単位で `git add` と `git commit` を順に実行する。
+分割コミットの場合は、各コミットで次の順序を守る。
+
+1. そのコミットに含めるファイルだけ `git add <対象ファイル...>` する
+2. 対応するメッセージで `git commit` する
+3. 残りの変更に対して 1, 2 を繰り返す
 
 ## Safety Requirements
 
