@@ -27,15 +27,23 @@ just switch
 ├── README.md
 ├── build/
 │   ├── download/
+│   │   └── crawl/
 │   └── markdown/
+│       └── lazy.folke.io/
 ├── config/
 │   ├── aerospace/
 │   ├── agents/
 │   │   └── skills/
 │   ├── cage/
 │   ├── claude/
-│   │   └── hooks/
+│   │   ├── CLAUDE.md
+│   │   ├── hooks/
+│   │   ├── settings.json
+│   │   └── statusline.py
 │   ├── codex/
+│   │   ├── AGENTS.md
+│   │   ├── config.toml
+│   │   ├── hooks.json
 │   │   └── hooks/
 │   ├── fish/
 │   ├── gh/
@@ -58,6 +66,7 @@ just switch
 │   ├── media/
 │   └── notify-sound/
 ├── nix/
+│   ├── AGENTS.md
 │   ├── flake.nix
 │   ├── flake.lock
 │   ├── local.nix
