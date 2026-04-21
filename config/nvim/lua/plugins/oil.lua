@@ -16,6 +16,9 @@ return {
   },
   opts = {
     default_file_explorer = true,
+    view_options = {
+      show_hidden = true,
+    },
   },
   init = function()
     vim.g.loaded_netrw = 1
