@@ -20,15 +20,7 @@ return {
   event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",
-    {
-      "rcarriga/nvim-notify",
-      opts = {
-        background_colour = "#eff1f5",
-        render = "compact",
-        timeout = 3000,
-        top_down = false,
-      },
-    },
+    "rcarriga/nvim-notify",
   },
   keys = {
     {
