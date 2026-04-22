@@ -4,6 +4,12 @@ local function telescope_builtin(name, options)
   end
 end
 
+local function telescope_extension(extension, method, options)
+  return function()
+    require("telescope").extensions[extension][method](options)
+  end
+end
+
 local function flash_telescope(prompt_bufnr)
   require("flash").jump({
     pattern = "^",
@@ -26,10 +32,6 @@ local function flash_telescope(prompt_bufnr)
   })
 end
 
-local hidden_files = {
-  hidden = true,
-}
-
 local hidden_grep = {
   additional_args = function()
     return {
@@ -45,12 +47,23 @@ return {
   cmd = "Telescope",
   dependencies = {
     "nvim-lua/plenary.nvim",
+    "kkharji/sqlite.lua",
+    "danielfalk/smart-open.nvim",
   },
   keys = {
     {
       "<leader>p",
-      telescope_builtin("find_files", hidden_files),
-      desc = "ファイルを検索",
+      telescope_extension("smart_open", "smart_open", {
+        result_limit = 200,
+      }),
+      desc = "ファイルを検索(smart-open)",
+    },
+    {
+      "<leader>P",
+      telescope_builtin("find_files", {
+        hidden = true,
+      }),
+      desc = "ファイルを検索(find_files)",
     },
     {
       "<leader>f",
@@ -72,5 +85,11 @@ return {
       selection_caret = "❯ ",
       path_display = { "smart" },
     })
+  end,
+  config = function(_, opts)
+    local telescope = require("telescope")
+
+    telescope.setup(opts)
+    telescope.load_extension("smart_open")
   end,
 }
