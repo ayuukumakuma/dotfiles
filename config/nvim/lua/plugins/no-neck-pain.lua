@@ -20,6 +20,7 @@ return {
     },
   },
   opts = {
+    width = 120,
     autocmds = {
       enableOnVimEnter = "safe",
     },
