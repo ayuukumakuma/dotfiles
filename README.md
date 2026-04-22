@@ -18,11 +18,15 @@ just switch
 
 ```text
 .
+├── .cache/
+├── .data/
+├── .state/
 ├── .claude/
 │   └── settings.local.json
 ├── .editorconfig
 ├── .gitignore
 ├── .zed/
+│   └── settings.json
 ├── AGENTS.md
 ├── README.md
 ├── build/
@@ -45,6 +49,8 @@ just switch
 │   │   ├── config.toml
 │   │   ├── hooks.json
 │   │   └── hooks/
+│   │       ├── notify-terminal-notifier.sh
+│   │       └── state-notify.sh
 │   ├── fish/
 │   ├── gh/
 │   ├── git/
@@ -73,14 +79,14 @@ just switch
 │   ├── local.nix.example
 │   ├── nix-darwin/
 │   │   ├── default.nix
-│   │   ├── nix-core.nix
-│   │   ├── users.nix
-│   │   ├── system.nix
-│   │   ├── homebrew.nix
 │   │   ├── home-manager/
 │   │   │   ├── default.nix
-│   │   │   ├── packages.nix
-│   │   │   └── files.nix
+│   │   │   ├── files.nix
+│   │   │   └── packages.nix
+│   │   ├── homebrew.nix
+│   │   ├── nix-core.nix
+│   │   ├── system.nix
+│   │   └── users.nix
 │   └── pkgs/
 │       ├── site2skill/
 │       └── tree-sitter-cli/
