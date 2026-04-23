@@ -32,6 +32,7 @@ return {
     spec = {
       { "<leader>g", group = "Git操作" },
       { "<leader>l", group = "LSP" },
+      { "<leader>m", group = "Markdown" },
       { "<leader>n", group = "通知・Noice" },
       { "<leader>z", group = "Zen" },
     },

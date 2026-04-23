@@ -16,3 +16,4 @@ nix-dev-env-flake/*
 zed/prompts/prompts-library-db*/
 
 build/
+.data/

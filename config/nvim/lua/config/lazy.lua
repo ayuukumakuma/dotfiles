@@ -19,6 +19,10 @@ end
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+if vim.uv.os_uname().sysname == "Darwin" then
+  vim.g.sqlite_clib_path = "libsqlite3"
+end
+
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
@@ -32,3 +36,4 @@ require("lazy").setup({
 require("config.colorscheme")
 require("config.options")
 require("config.keymap")
+require("config.autocmds").setup()

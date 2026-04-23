@@ -53,10 +53,10 @@ return {
   keys = {
     {
       "<leader>p",
-      telescope_extension("smart_open", "smart_open", {
-        result_limit = 200,
+      telescope_extension("md_render", "find_files", {
+        hidden = true,
       }),
-      desc = "ファイルを検索(smart-open)",
+      desc = "ファイルを検索(md-render)",
     },
     {
       "<leader>P",
@@ -67,8 +67,8 @@ return {
     },
     {
       "<leader>f",
-      telescope_builtin("live_grep", hidden_grep),
-      desc = "文字列を検索",
+      telescope_extension("md_render", "live_grep", hidden_grep),
+      desc = "文字列を検索(md-render)",
     },
   },
   opts = function(_, opts)
@@ -85,11 +85,16 @@ return {
       selection_caret = "❯ ",
       path_display = { "smart" },
     })
+
+    opts.extensions = vim.tbl_deep_extend("force", opts.extensions or {}, {
+      md_render = {},
+    })
   end,
   config = function(_, opts)
     local telescope = require("telescope")
 
     telescope.setup(opts)
+    telescope.load_extension("md_render")
     telescope.load_extension("smart_open")
   end,
 }

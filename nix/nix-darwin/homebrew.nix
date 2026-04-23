@@ -3,7 +3,12 @@ let
   homebrewPrefix = "/opt/homebrew";
   brewBin = "${homebrewPrefix}/bin/brew";
   homebrewBinDir = "${homebrewPrefix}/bin";
-  moBin = "${homebrewPrefix}/opt/mo/bin/mo";
+  moLinkPaths = [
+    "${homebrewPrefix}/bin/mo"
+    "${homebrewPrefix}/etc/bash_completion.d/mo"
+    "${homebrewPrefix}/share/fish/vendor_completions.d/mo.fish"
+    "${homebrewPrefix}/share/zsh/site-functions/_mo"
+  ];
   moleBin = "${homebrewPrefix}/opt/mole/bin/mole";
 in
 {
@@ -21,12 +26,9 @@ in
       "mas" # Mac App Store CLI
       "im-select"
       "git-delta"
-      # `mo` と `mole` はどちらも `mo` バイナリを持つため、brew 管理の link は使わない。
-      # activation の前後で unlink/link を明示的に制御する。
-      {
-        name = "mo";
-        link = false;
-      }
+      # `mo` は Homebrew に通常 link させる。
+      # `mole` だけ link を止め、`mole` コマンドを別名で戻す。
+      "mo"
       {
         name = "mole";
         link = false;
@@ -101,21 +103,24 @@ in
     };
   };
 
-  # `mo` と `mole` はどちらも `mo` バイナリを持つため、brew 実行前に両方 unlink して衝突を避ける。
+  # `mo` の手作り symlink が残っていると brew link が自分自身と衝突する。
+  # `mole` も `mo` バイナリを持つため、brew 管理の link を外して衝突を避ける。
   system.activationScripts.preActivation.text = ''
     if [ -x ${brewBin} ]; then
       ${brewBin} unlink mo >/dev/null 2>&1 || true
       ${brewBin} unlink mole >/dev/null 2>&1 || true
     fi
+
+    for path in ${toString moLinkPaths}; do
+      if [ -L "$path" ]; then
+        rm -f "$path"
+      fi
+    done
   '';
 
-  # brew 管理の link を避けた上で、必要なコマンドだけ /opt/homebrew/bin に戻す。
+  # `mole` だけ brew 管理の link を避けた上で、必要なコマンドを /opt/homebrew/bin に戻す。
   # activation は root 実行だが /opt/homebrew/bin の owner に揃えるため sudo -u でユーザー権限に降りる。
   system.activationScripts.postActivation.text = ''
-    if [ -x ${moBin} ]; then
-      sudo -u ${local.userName} ln -sfn ${moBin} ${homebrewBinDir}/mo
-    fi
-
     if [ -x ${moleBin} ]; then
       sudo -u ${local.userName} ln -sfn ${moleBin} ${homebrewBinDir}/mole
     fi
