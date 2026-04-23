@@ -52,17 +52,29 @@ just switch
 │   │       ├── notify-terminal-notifier.sh
 │   │       └── state-notify.sh
 │   ├── fish/
+│   │   ├── completions/
+│   │   ├── conf.d/
+│   │   ├── functions/
+│   │   └── fish_plugins
 │   ├── gh/
 │   ├── git/
 │   ├── guard-and-guide/
 │   ├── lazygit/
 │   ├── mise/
 │   ├── nvim/
+│   │   ├── lsp/
+│   │   └── lua/
 │   ├── raycast/
+│   │   ├── README.md
+│   │   └── scripts/
 │   ├── tmux/
 │   ├── wezterm/
 │   ├── yazi/
+│   │   └── flavors/
 │   └── zed/
+│       ├── prompts/
+│       ├── settings.json
+│       └── themes/
 ├── docs/
 ├── justfile
 ├── menubar-script/
