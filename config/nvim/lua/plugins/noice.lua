@@ -20,28 +20,17 @@ return {
   event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",
-    "rcarriga/nvim-notify",
   },
   keys = {
     {
-      "<leader>nh",
-      noice_command("history"),
-      desc = "通知履歴を開く",
-    },
-    {
       "<leader>nl",
       noice_command("last"),
-      desc = "直近の通知を開く",
+      desc = "直近のメッセージを開く",
     },
     {
       "<leader>ne",
       noice_command("errors"),
-      desc = "エラー通知を開く",
-    },
-    {
-      "<leader>nd",
-      noice_command("dismiss"),
-      desc = "表示中の通知を閉じる",
+      desc = "エラー一覧を開く",
     },
   },
   opts = {
@@ -55,8 +44,7 @@ return {
       enabled = true,
     },
     notify = {
-      enabled = true,
-      view = "notify",
+      enabled = false,
     },
     lsp = {
       override = {
