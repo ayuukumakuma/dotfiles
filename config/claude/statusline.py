@@ -16,15 +16,51 @@ DIM = "\033[2m"
 PURPLE = "\033[38;2;180;140;255m"
 GREEN = "\033[38;2;80;200;120m"
 CYAN = "\033[38;2;80;200;200m"
+LIGHT_LABEL = "\033[38;2;95;102;118m"
+
+
+def rgb(r, g, b):
+    return f"\033[38;2;{r};{g};{b}m"
+
+
+def blend(start, end, ratio):
+    ratio = max(0.0, min(ratio, 1.0))
+    return tuple(
+        round(channel + (target - channel) * ratio)
+        for channel, target in zip(start, end)
+    )
+
+
+def is_dark_mode():
+    try:
+        result = subprocess.run(
+            ["defaults", "read", "-g", "AppleInterfaceStyle"],
+            capture_output=True,
+            text=True,
+        )
+    except OSError:
+        return False
+    return result.returncode == 0 and result.stdout.strip() == "Dark"
+
+
+IS_DARK_MODE = is_dark_mode()
+LABEL_COLOR = DIM if IS_DARK_MODE else LIGHT_LABEL
 
 
 def gradient(pct):
-    if pct < 50:
-        r = int(pct * 5.1)
-        return f"\033[38;2;{r};200;80m"
-    else:
+    if IS_DARK_MODE:
+        if pct < 50:
+            r = int(pct * 5.1)
+            return rgb(r, 200, 80)
         g = int(200 - (pct - 50) * 4)
-        return f"\033[38;2;255;{max(g, 0)};60m"
+        return rgb(255, max(g, 0), 60)
+
+    pct = min(max(pct, 0), 100)
+    if pct < 70:
+        color = blend((46, 125, 50), (198, 124, 28), pct / 70)
+    else:
+        color = blend((198, 124, 28), (198, 40, 40), (pct - 70) / 30)
+    return rgb(*color)
 
 
 def braille_bar(pct, width=8):
@@ -46,7 +82,8 @@ def braille_bar(pct, width=8):
 
 def fmt(label, pct):
     p = round(pct)
-    return f"{DIM}{label}{R} {gradient(pct)}{braille_bar(pct)}{R} ({p}%)"
+    color = gradient(pct)
+    return f"{LABEL_COLOR}{label}{R} {color}{braille_bar(pct)} ({p}%){R}"
 
 
 def git_run(*args):
