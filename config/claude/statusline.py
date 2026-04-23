@@ -13,9 +13,6 @@ except (json.JSONDecodeError, ValueError):
 BRAILLE = " ⣀⣄⣤⣦⣶⣷⣿"
 R = "\033[0m"
 DIM = "\033[2m"
-PURPLE = "\033[38;2;180;140;255m"
-GREEN = "\033[38;2;80;200;120m"
-CYAN = "\033[38;2;80;200;200m"
 LIGHT_LABEL = "\033[38;2;95;102;118m"
 
 
@@ -45,6 +42,16 @@ def is_dark_mode():
 
 IS_DARK_MODE = is_dark_mode()
 LABEL_COLOR = DIM if IS_DARK_MODE else LIGHT_LABEL
+if IS_DARK_MODE:
+    HEADER_MODEL_COLOR = rgb(180, 140, 255)
+    HEADER_BRANCH_COLOR = rgb(80, 200, 120)
+    HEADER_REPO_COLOR = rgb(80, 200, 200)
+    HEADER_SEPARATOR_COLOR = DIM
+else:
+    HEADER_MODEL_COLOR = rgb(112, 76, 182)
+    HEADER_BRANCH_COLOR = rgb(46, 125, 50)
+    HEADER_REPO_COLOR = rgb(2, 132, 199)
+    HEADER_SEPARATOR_COLOR = LIGHT_LABEL
 
 
 def gradient(pct):
@@ -107,10 +114,16 @@ model = data.get("model", {}).get("display_name", "Claude")
 
 lines = []
 
-parts = [f"{PURPLE}\uf444 {model}{R}"]
+parts = [f"{HEADER_MODEL_COLOR}\uf444 {model}{R}"]
 repo, branch = git_info()
 if repo:
-    parts.append(f"{DIM}│{R} {GREEN}\ue725 {branch}{R}  {CYAN}\uf114 {repo}{R}")
+    parts.append(
+        (
+            f"{HEADER_SEPARATOR_COLOR}│{R} "
+            f"{HEADER_BRANCH_COLOR}\ue725 {branch}{R}  "
+            f"{HEADER_REPO_COLOR}\uf114 {repo}{R}"
+        )
+    )
 lines.append(" ".join(parts))
 
 metrics = [
