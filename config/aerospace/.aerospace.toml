@@ -4,14 +4,6 @@ config-version = 2
 # AeroSpace起動後に実行するコマンドを追加できます
 # 利用可能なコマンド: https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = []
-# exec-on-workspace-change = [
-#   "/bin/zsh",
-#   "-c",
-#   '/usr/bin/osascript -e "tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\""',
-# ]
-# on-focus-changed = [
-#   "exec-and-forget osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'",
-# ]
 on-focus-changed = [
   "exec-and-forget osascript -e 'tell application \"a-bar\" to refresh \"aerospace\"'",
 ]
@@ -29,7 +21,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 # 参照: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # 'accordion-padding'はアコーディオンのパディングサイズを指定します
 # 0に設定するとパディング機能を無効にできます
-accordion-padding = 30
+accordion-padding = 20
 # 設定可能な値: tiles|accordion
 default-root-container-layout = "accordion"
 # 設定可能な値: horizontal|vertical|auto
@@ -49,18 +41,7 @@ automatically-unhide-macos-hidden-apps = true
 # ウィンドウがない状態でも、非表示の場合でも維持されるワークスペースのリスト
 # この設定は 'config-version = 2' 以降でのみ利用可能です
 # デフォルト値（キーを省略した場合）: persistent-workspaces = []
-persistent-workspaces = [
-  "0",
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-]
+persistent-workspaces = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 # バインディングモードが変更されるたびに実行されるコールバック
 # 参照: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 参照: https://nikitabobko.github.io/AeroSpace/commands#mode
@@ -75,40 +56,36 @@ if.app-id = "com.gather.GatherV2"
 run = "move-node-to-workspace 0"  # Gatherをワークスペース0に移動
 
 [[on-window-detected]]
-if.app-id = "app.zen-browser.zen"
-run = "move-node-to-workspace 1"  # Zenをワークスペース1に移動
+if.app-id = "company.thebrowser.dia"
+run = "move-node-to-workspace 1"     # Diaをワークスペース1に移動
 
 [[on-window-detected]]
 if.app-id = "com.tinyspeck.slackmacgap"
-run = "move-node-to-workspace 2"  # Slackをワークスペース2に移動
+run = "move-node-to-workspace 2"        # Slackをワークスペース2に移動
 
 [[on-window-detected]]
 if.app-id = "dev.zed.Zed"
-run = "move-node-to-workspace 3"  # Zedをワークスペース3に移動
+run = "move-node-to-workspace 3" # Zedをワークスペース3に移動
 
 [[on-window-detected]]
 if.app-id = "com.openai.codex"
-run = "move-node-to-workspace 4"  # Codexをワークスペース4に移動
-
-[[on-window-detected]]
-if.app-id = "com.openai.chat"
-run = "move-node-to-workspace 6"  # ChatGPT
+run = "move-node-to-workspace 4" # Codexをワークスペース4に移動
 
 [[on-window-detected]]
 if.app-id = "com.anthropic.claudefordesktop"
-run = "move-node-to-workspace 6"  # Claudeをワークスペース4に移動
-
-[[on-window-detected]]
-if.app-id = "com.spotify.client"
-run = "move-node-to-workspace 7"  # Spotifyをワークスペース8に移動
+run = "move-node-to-workspace 5"             # Claudeをワークスペース5に移動
 
 [[on-window-detected]]
 if.app-id = "notion.id"
-run = "move-node-to-workspace 8"  # Notionをワークスペース8に移動
+run = "move-node-to-workspace 6" # Notionをワークスペース6に移動
+
+[[on-window-detected]]
+if.app-id = "com.spotify.client"
+run = "move-node-to-workspace 8" # Spotifyをワークスペース8に移動
 
 [[on-window-detected]]
 if.app-id = "md.obsidian"
-run = "move-node-to-workspace 9"  # Obsidianをワークスペース9に移動
+run = "move-node-to-workspace 9" # Obsidianをワークスペース9に移動
 
 # フローティングで扱うアプリ
 [[on-window-detected]]
@@ -131,6 +108,14 @@ run = "layout floating"
 if.app-id = "so.cap.desktop"
 run = "layout floating"
 
+[[on-window-detected]]
+if.app-id = "jp.kiok.nani"
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = "com.openai.chat"
+run = "layout floating"
+
 # 設定可能な値: (qwerty|dvorak|colemak)
 # 参照: https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 [key-mapping]
@@ -147,16 +132,16 @@ preset = "qwerty"
 #   複数のパターンを配列で指定可能（最初にマッチしたものが使用される）
 
 [workspace-to-monitor-force-assignment]
-0 = "main"  # ワークスペース0をメインモニターに割り当て
-1 = "main"  # ワークスペース1をメインモニターに割り当て
-2 = "main"  # ワークスペース2をメインモニターに割り当て
-3 = "main"  # ワークスペース3をメインモニターに割り当て
-4 = "main"  # ワークスペース4をメインモニターに割り当て
-5 = "main"  # ワークスペース5をメインモニターに割り当て
-6 = "secondary"  # ワークスペース6をメインモニターに割り当て
-7 = "secondary"  # ワークスペース7をセカンダリモニターに割り当て
-8 = "secondary"  # ワークスペース8をセカンダリモニターに割り当て
-9 = "secondary"  # ワークスペース9をセカンダリモニターに割り当て
+0 = "main"      # ワークスペース0をメインモニターに割り当て
+1 = "main"      # ワークスペース1をメインモニターに割り当て
+2 = "main"      # ワークスペース2をメインモニターに割り当て
+3 = "main"      # ワークスペース3をメインモニターに割り当て
+4 = "main"      # ワークスペース4をメインモニターに割り当て
+5 = "main"      # ワークスペース5をメインモニターに割り当て
+6 = "main"      # ワークスペース6をメインモニターに割り当て
+7 = "main"      # ワークスペース7をセカンダリモニターに割り当て
+8 = "secondary" # ワークスペース8をセカンダリモニターに割り当て
+9 = "secondary" # ワークスペース9をセカンダリモニターに割り当て
 
 # ウィンドウ間のギャップ(inner-*)とモニター端とのギャップ(outer-*)
 # 設定可能な値:
@@ -170,8 +155,16 @@ preset = "qwerty"
 inner.horizontal = 5
 inner.vertical = 5
 outer.left = 5
-outer.bottom = [{ monitor.secondary = 3 }, { monitor.'^built-in retina display$' = 3 }, 38]
-outer.top = [{ monitor.secondary = 7 }, { monitor.'^built-in retina display$' = 3 }, 38]
+outer.bottom = [
+  { monitor.secondary = 3 },
+  { monitor.'^built-in retina display$' = 3 },
+  38,
+]
+outer.top = [
+  { monitor.secondary = 7 },
+  { monitor.'^built-in retina display$' = 3 },
+  38,
+]
 outer.right = 5
 
 # 'main' バインディングモードの宣言
@@ -209,7 +202,7 @@ outer.right = 5
 # 参照: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = "layout tiles horizontal vertical"
 alt-comma = "layout accordion horizontal vertical"
-alt-shift-space = "layout tiles accordion"  # tilesとaccordionをトグル
+alt-shift-space = "layout tiles accordion"         # tilesとaccordionをトグル
 # 参照: https://nikitabobko.github.io/AeroSpace/commands#focus
 alt-h = "focus left"
 alt-j = "focus down"
@@ -256,8 +249,8 @@ alt-shift-semicolon = "mode service"
 # 参照: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
 esc = ["reload-config", "mode main"]
-r = ["flatten-workspace-tree", "mode main"]  # レイアウトをリセット
-f = ["layout floating tiling", "mode main"]  # フローティングとタイリングレイアウトを切り替え
+r = ["flatten-workspace-tree", "mode main"]                # レイアウトをリセット
+f = ["layout floating tiling", "mode main"]                # フローティングとタイリングレイアウトを切り替え
 backspace = ["close-all-windows-but-current", "mode main"]
 # stickyはまだサポートされていません https://github.com/nikitabobko/AeroSpace/issues/2
 # s = ['layout sticky tiling', 'mode main']
