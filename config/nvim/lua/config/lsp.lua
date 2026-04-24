@@ -12,6 +12,18 @@ local enabled_servers = {
   "yamlls",
 }
 
+local function picker(name)
+  return function()
+    Snacks.picker[name]()
+  end
+end
+
+local function lspsaga(command)
+  return function()
+    vim.cmd("Lspsaga " .. command)
+  end
+end
+
 local function lsp_capabilities()
   local ok, blink = pcall(require, "blink.cmp")
 
@@ -22,29 +34,24 @@ local function lsp_capabilities()
   return vim.lsp.protocol.make_client_capabilities()
 end
 
-local function diagnostic_jump(count)
-  return function()
-    vim.diagnostic.jump({
-      count = count,
-      float = true,
-    })
-  end
-end
-
 local normal_mode_maps = {
-  { "gD", vim.lsp.buf.declaration, "宣言へ移動" },
-  { "gd", vim.lsp.buf.definition, "定義へ移動" },
-  { "gi", vim.lsp.buf.implementation, "実装へ移動" },
-  { "gy", vim.lsp.buf.type_definition, "型定義へ移動" },
-  { "K", vim.lsp.buf.hover, "ホバーを表示" },
-  { "<leader>lD", vim.lsp.buf.type_definition, "型定義を表示" },
-  { "<leader>la", vim.lsp.buf.code_action, "コードアクション" },
+  { "gD", picker("lsp_declarations"), "宣言へ移動" },
+  { "gd", picker("lsp_definitions"), "定義へ移動" },
+  { "gi", picker("lsp_implementations"), "実装へ移動" },
+  { "gr", picker("lsp_references"), "参照を表示" },
+  { "gy", picker("lsp_type_definitions"), "型定義へ移動" },
+  { "K", lspsaga("hover_doc"), "ホバーを表示" },
+  { "<leader>la", lspsaga("code_action"), "コードアクション" },
   { "<leader>ld", vim.diagnostic.open_float, "診断を表示" },
+  { "<leader>lD", picker("diagnostics_buffer"), "現在バッファの診断を検索" },
+  { "<leader>li", picker("lsp_implementations"), "実装を検索" },
+  { "<leader>ln", lspsaga("rename"), "名前を変更" },
   { "<leader>lq", vim.diagnostic.setloclist, "診断リストを開く" },
-  { "<leader>lr", vim.lsp.buf.references, "参照を表示" },
-  { "<leader>ln", vim.lsp.buf.rename, "名前を変更" },
-  { "[d", diagnostic_jump(-1), "前の診断へ移動" },
-  { "]d", diagnostic_jump(1), "次の診断へ移動" },
+  { "<leader>lr", picker("lsp_references"), "参照を検索" },
+  { "<leader>ls", picker("lsp_symbols"), "シンボルを検索" },
+  { "<leader>lS", picker("lsp_workspace_symbols"), "ワークスペースシンボルを検索" },
+  { "[d", lspsaga("diagnostic_jump_prev"), "前の診断へ移動" },
+  { "]d", lspsaga("diagnostic_jump_next"), "次の診断へ移動" },
 }
 
 local function lsp_buf_map(bufnr, mode, lhs, rhs, desc)

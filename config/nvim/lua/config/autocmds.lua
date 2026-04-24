@@ -1,51 +1,62 @@
 local M = {}
 
-local function is_empty_buffer(bufnr)
-  if vim.api.nvim_buf_get_name(bufnr) ~= "" or vim.bo[bufnr].buftype ~= "" then
+local autosave_events = {
+  "InsertLeave",
+  "TextChanged",
+}
+
+local autoread_events = {
+  "FocusGained",
+  "BufEnter",
+  "CursorHold",
+}
+
+local function should_autosave(bufnr)
+  if vim.api.nvim_buf_get_name(bufnr) == "" then
     return false
   end
 
-  local lines = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)
+  if vim.bo[bufnr].buftype ~= "" then
+    return false
+  end
 
-  return vim.api.nvim_buf_line_count(bufnr) == 1 and (lines[1] or "") == ""
+  if vim.bo[bufnr].readonly or not vim.bo[bufnr].modifiable then
+    return false
+  end
+
+  return vim.bo[bufnr].modified
 end
 
-local function is_oil_buffer(bufnr)
-  return vim.bo[bufnr].filetype == "oil"
-end
-
-local function should_show_intro(bufnr)
-  return is_oil_buffer(bufnr) or is_empty_buffer(bufnr)
-end
-
-function M.show_intro_on_empty_startup()
-  if vim.fn.argc() ~= 0 then
+local function autosave(args)
+  if not should_autosave(args.buf) then
     return
   end
 
-  local bufnr = vim.api.nvim_get_current_buf()
-  local started_in_oil = is_oil_buffer(bufnr)
+  vim.cmd("silent write")
+end
 
-  if not should_show_intro(bufnr) then
+local function check_external_changes()
+  if vim.bo.buftype ~= "" then
     return
   end
 
-  if started_in_oil then
-    vim.cmd.enew()
-    pcall(vim.api.nvim_buf_delete, bufnr, { force = true })
-  end
-
-  vim.cmd.intro()
+  vim.cmd.checktime()
 end
 
 function M.setup()
-  local group = vim.api.nvim_create_augroup("user-startup-intro", { clear = true })
+  local autosave_group = vim.api.nvim_create_augroup("user-autosave", { clear = true })
+  local autoread_group = vim.api.nvim_create_augroup("user-autoread", { clear = true })
 
-  vim.api.nvim_create_autocmd("VimEnter", {
-    group = group,
-    callback = function()
-      vim.schedule(M.show_intro_on_empty_startup)
-    end,
+  vim.opt.autoread = true
+
+  vim.api.nvim_create_autocmd(autosave_events, {
+    group = autosave_group,
+    callback = autosave,
+  })
+
+  vim.api.nvim_create_autocmd(autoread_events, {
+    group = autoread_group,
+    callback = check_external_changes,
   })
 end
 

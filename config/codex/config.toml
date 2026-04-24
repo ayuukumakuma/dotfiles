@@ -2,11 +2,11 @@
 model_reasoning_effort = "high"
 personality = "friendly"
 forced_login_method = "chatgpt"
-model = "gpt-5.4"
+model = "gpt-5.5"
 web_search = "live"
 notify = ["$HOME/.codex/hooks/notify-terminal-notifier.sh"]
 suppress_unstable_features_warning = true
-plan_mode_reasoning_effort = "medium"
+plan_mode_reasoning_effort = "high"
 approval_policy = "on-request"
 sandbox_mode = "workspace-write"
 
@@ -98,7 +98,66 @@ enabled = true
 [plugins."computer-use@openai-bundled"]
 enabled = true
 
+[plugins."browser-use@openai-bundled"]
+enabled = true
+
+[plugins."claude-md-management@claude-plugins-official"]
+enabled = true
+
+[plugins."code-review@claude-plugins-official"]
+enabled = true
+
+[plugins."code-simplifier@claude-plugins-official"]
+enabled = true
+
+[plugins."context7@claude-plugins-official"]
+enabled = true
+
+[plugins."feature-dev@claude-plugins-official"]
+enabled = true
+
+[plugins."figma@claude-plugins-official"]
+enabled = true
+
+[plugins."frontend-design@claude-plugins-official"]
+enabled = true
+
+[plugins."plugin-dev@claude-plugins-official"]
+enabled = true
+
+[plugins."pr-review-toolkit@claude-plugins-official"]
+enabled = true
+
+[plugins."slack@claude-plugins-official"]
+enabled = true
+
+[plugins."terraform@claude-plugins-official"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."github@claude-plugins-official"]
+enabled = true
+
 [marketplaces.openai-bundled]
-last_updated = "2026-04-22T06:01:11Z"
+last_updated = "2026-04-24T00:22:23Z"
 source_type = "local"
 source = "/Users/nasuno.ayumu/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[marketplaces.claude-plugins-official]
+last_updated = "2026-04-24T00:22:15Z"
+last_revision = "020446a4294f09d9c32e60bff0c4ae8fb39205cb"
+source_type = "git"
+source = "https://github.com/anthropics/claude-plugins-official.git"
+
+[marketplaces.openai-primary-runtime]
+last_updated = "2026-04-24T00:19:13Z"
+source_type = "local"
+source = "/Users/nasuno.ayumu/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"

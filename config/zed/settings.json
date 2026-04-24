@@ -37,6 +37,7 @@
   "document_symbols": "on",
   "use_system_path_prompts": true,
   "agent": {
+    "dock": "right",
     "message_editor_min_lines": 6,
     "show_turn_stats": true,
     "default_profile": "ask",
@@ -65,6 +66,7 @@
     "mute_on_join": true,
   },
   "collaboration_panel": {
+    "dock": "left",
     "button": false,
   },
   "colorize_brackets": true,
@@ -144,6 +146,7 @@
     "allowed": false,
   },
   "project_panel": {
+    "dock": "left",
     "git_status_indicator": true,
     "button": false,
     "hide_root": true,
@@ -156,6 +159,7 @@
     "button": false,
   },
   "outline_panel": {
+    "dock": "left",
     "button": false,
   },
   "session": {

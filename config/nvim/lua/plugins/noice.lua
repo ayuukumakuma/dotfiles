@@ -23,14 +23,14 @@ return {
   },
   keys = {
     {
-      "<leader>nl",
-      noice_command("last"),
-      desc = "直近のメッセージを開く",
-    },
-    {
       "<leader>ne",
       noice_command("errors"),
-      desc = "エラー一覧を開く",
+      desc = "Noice でエラー一覧を開く",
+    },
+    {
+      "<leader>nl",
+      noice_command("last"),
+      desc = "Noice で直近のメッセージを開く",
     },
   },
   opts = {
