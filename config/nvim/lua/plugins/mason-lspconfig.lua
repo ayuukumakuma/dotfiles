@@ -3,6 +3,7 @@ local lsp_servers = {
   "jsonls",
   "lua_ls",
   "marksman",
+  "stylelint_lsp",
   "taplo",
   "yamlls",
 }

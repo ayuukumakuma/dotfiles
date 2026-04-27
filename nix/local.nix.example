@@ -3,4 +3,6 @@
   userName = "your-user-name";
   homeDirectory = "/Users/your-user-name";
   dotfilesRoot = "/Users/your-user-name/dev/github.com/your-account/dotfiles";
+  # "work" または "private" を指定すると、用途別パッケージが切り替わる。
+  profile = "private";
 }

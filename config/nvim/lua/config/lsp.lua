@@ -8,6 +8,7 @@ local enabled_servers = {
   "lua_ls",
   "marksman",
   "nixd",
+  "stylelint_lsp",
   "taplo",
   "yamlls",
 }

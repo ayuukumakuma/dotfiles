@@ -6,9 +6,8 @@
     overlays = [
       inputs.claude-code-overlay.overlays.default
       (final: prev: {
-        # rcodesign 0.29.0 currently fails a macOS test by reading protected
-        # application bundles during the Nix build sandbox.
-        rcodesign = prev.rcodesign.overrideAttrs (_: {
+        # Temporary workaround for direnv checkPhase hanging during switch.
+        direnv = prev.direnv.overrideAttrs (_: {
           doCheck = false;
         });
       })

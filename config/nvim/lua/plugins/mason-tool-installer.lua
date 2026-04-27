@@ -8,6 +8,7 @@ local mason_packages = {
   "prettier",
   "shellcheck",
   "shfmt",
+  "stylelint-language-server",
   "stylua",
   "taplo",
   "yaml-language-server",

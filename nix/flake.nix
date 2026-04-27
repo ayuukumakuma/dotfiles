@@ -31,8 +31,26 @@
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
       localConfigPath = ./local.nix;
-      local =
+      rawLocal =
         if builtins.pathExists localConfigPath then import localConfigPath else import ./local.nix.example;
+      validProfiles = [
+        "work"
+        "private"
+      ];
+      profile =
+        if rawLocal ? profile then
+          if builtins.elem rawLocal.profile validProfiles then
+            rawLocal.profile
+          else
+            throw "Invalid local.profile '${rawLocal.profile}' in nix/local.nix. Use one of: ${builtins.concatStringsSep ", " validProfiles}."
+        else
+          throw "Missing local.profile in nix/local.nix. Set it to \"work\" or \"private\".";
+      local = builtins.seq profile (
+        rawLocal
+        // {
+          inherit profile;
+        }
+      );
       darwinConfigName =
         if local ? darwinConfigName then
           local.darwinConfigName

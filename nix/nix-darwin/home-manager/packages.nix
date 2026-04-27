@@ -1,6 +1,11 @@
-{ inputs, pkgs, ... }:
 {
-  home.packages = with pkgs; [
+  inputs,
+  local,
+  pkgs,
+  ...
+}:
+let
+  commonPackages = with pkgs; [
     nil
     nixfmt
     nixd
@@ -48,4 +53,15 @@
     (callPackage ../../pkgs/site2skill/default.nix { })
     (callPackage ../../pkgs/tree-sitter-cli/default.nix { })
   ];
+
+  # 仕事用だけで入れたい Nix パッケージはここに追加する。
+  workPackages = [ ];
+
+  # プライベート用だけで入れたい Nix パッケージはここに追加する。
+  privatePackages = [ ];
+
+  profilePackages = if local.profile == "work" then workPackages else privatePackages;
+in
+{
+  home.packages = commonPackages ++ profilePackages;
 }
