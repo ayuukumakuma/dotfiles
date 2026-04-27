@@ -31,9 +31,7 @@ just switch
 ├── README.md
 ├── build/
 │   ├── download/
-│   │   └── crawl/
 │   └── markdown/
-│       └── lazy.folke.io/
 ├── config/
 │   ├── aerospace/
 │   ├── agents/
@@ -62,16 +60,19 @@ just switch
 │   ├── lazygit/
 │   ├── mise/
 │   ├── nvim/
-│   │   ├── lsp/
+│   │   ├── init.lua
 │   │   └── lua/
 │   ├── raycast/
 │   │   ├── README.md
 │   │   └── scripts/
 │   ├── tmux/
+│   │   ├── plugins/
+│   │   └── tmux.conf
 │   ├── wezterm/
 │   ├── yazi/
 │   │   └── flavors/
 │   └── zed/
+│       ├── keymap.json
 │       ├── prompts/
 │       ├── settings.json
 │       └── themes/
@@ -100,8 +101,6 @@ just switch
 │   │   ├── system.nix
 │   │   └── users.nix
 │   └── pkgs/
-│       ├── site2skill/
-│       └── tree-sitter-cli/
 ├── nvim.log
 ├── script/
 │   └── set-fish-default.sh

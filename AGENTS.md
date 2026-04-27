@@ -40,5 +40,5 @@
 
 ## エージェントスキル
 - 再利用可能なスキルは `config/agents/skills/` に保存。
-- 現在のリポジトリ内スキル: `a-bar`、`cmux`、`code-simplifier`、`conventional-commit`、`difit-review`、`electron`、`empirical-prompt-tuning`、`frontend-design`、`genshijin`、`ghostty`、`grill-me`、`justfile`、`lazy.nvim`、`viteplus`、`wezterm`、`zed`。
+- 現在のリポジトリ内スキル: `a-bar`、`aerospace`、`code-simplifier`、`conventional-commit`、`difit-review`、`empirical-prompt-tuning`、`frontend-design`、`ghostty`、`grill-me`、`justfile`、`lazy.nvim`、`viteplus`、`wezterm`、`zed`。
 - タスクで特定のスキルが明示された場合は、そのスキルのワークフローを使用し、変更範囲は要求された領域に限定。
