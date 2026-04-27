@@ -68,10 +68,6 @@ if.app-id = "dev.zed.Zed"
 run = "move-node-to-workspace 3" # Zedをワークスペース3に移動
 
 [[on-window-detected]]
-if.app-id = "com.openai.codex"
-run = "move-node-to-workspace 4" # Codexをワークスペース4に移動
-
-[[on-window-detected]]
 if.app-id = "com.anthropic.claudefordesktop"
 run = "move-node-to-workspace 5"             # Claudeをワークスペース5に移動
 
@@ -114,6 +110,10 @@ run = "layout floating"
 
 [[on-window-detected]]
 if.app-id = "com.openai.chat"
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = "com.openai.codex"
 run = "layout floating"
 
 # 設定可能な値: (qwerty|dvorak|colemak)

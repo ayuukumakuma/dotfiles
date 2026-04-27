@@ -6,8 +6,8 @@ return {
     "delphinus/budoux.lua",
   },
   keys = {
-    { "<leader>mp", "<Plug>(md-render-preview)", desc = "Markdownプレビューを切り替え" },
-    { "<leader>mt", "<Plug>(md-render-preview-tab)", desc = "Markdownプレビューをタブで切り替え" },
-    { "<leader>md", "<Plug>(md-render-demo)", desc = "Markdownレンダリングデモ" },
+    { "<leader>mp", "<Plug>(md-render-preview)", desc = "マークダウンプレビューを切り替え" },
+    { "<leader>mt", "<Plug>(md-render-preview-tab)", desc = "マークダウンプレビューをタブで切り替え" },
+    { "<leader>md", "<Plug>(md-render-demo)", desc = "マークダウンレンダリングデモ" },
   },
 }

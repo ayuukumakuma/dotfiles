@@ -25,12 +25,12 @@ return {
     {
       "<leader>ne",
       noice_command("errors"),
-      desc = "Noice でエラー一覧を開く",
+      desc = "エラー一覧を開く",
     },
     {
       "<leader>nl",
       noice_command("last"),
-      desc = "Noice で直近のメッセージを開く",
+      desc = "直近のメッセージを開く",
     },
   },
   opts = {

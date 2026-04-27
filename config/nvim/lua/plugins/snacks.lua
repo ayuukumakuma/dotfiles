@@ -196,11 +196,11 @@ end
 
 local function dashboard_keys()
   return {
-    { icon = " ", key = "p", desc = "Find Files", action = picker("files") },
-    { icon = "󰱼 ", key = "g", desc = "Find Text", action = picker("grep") },
-    { icon = " ", key = "r", desc = "Recent Files", action = picker("recent") },
-    { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
-    { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+    { icon = " ", key = "p", desc = "ファイルを検索", action = picker("files") },
+    { icon = "󰱼 ", key = "g", desc = "文字列を検索", action = picker("grep") },
+    { icon = " ", key = "r", desc = "最近使ったファイル", action = picker("recent") },
+    { icon = "󰒲 ", key = "l", desc = "プラグイン管理を開く", action = ":Lazy" },
+    { icon = " ", key = "q", desc = "終了", action = ":qa" },
   }
 end
 
@@ -341,7 +341,7 @@ return {
     {
       "<leader>sl",
       picker("loclist"),
-      desc = "Location List を開く",
+      desc = "ロケーションリストを開く",
     },
     {
       "<leader>sm",
@@ -356,73 +356,73 @@ return {
     {
       "<leader>sq",
       picker("qflist"),
-      desc = "Quickfix List を開く",
+      desc = "クイックフィックスリストを開く",
     },
     {
       "<leader>sr",
       picker("resume"),
-      desc = "直前の Picker を再開",
+      desc = "直前のピッカーを再開",
     },
     {
       "<leader>su",
       picker("undo"),
-      desc = "Undo 履歴を検索",
+      desc = "元に戻す履歴を検索",
     },
     {
       "<leader>gb",
       picker("git_branches"),
-      desc = "Git ブランチを検索",
+      desc = "ブランチを検索",
     },
     {
       "<leader>gd",
       picker("git_diff"),
-      desc = "Git 差分を検索",
+      desc = "変更差分を検索",
     },
     {
       "<leader>gf",
       picker("git_log_file"),
-      desc = "現在ファイルの Git 履歴を検索",
+      desc = "現在ファイルの変更履歴を検索",
     },
     {
       "<leader>gl",
       picker("git_log"),
-      desc = "Git 履歴を検索",
+      desc = "変更履歴を検索",
     },
     {
       "<leader>gL",
       picker("git_log_line"),
-      desc = "現在行の Git 履歴を検索",
+      desc = "現在行の変更履歴を検索",
     },
     {
       "<leader>gs",
       picker("git_status"),
-      desc = "Git 状態を検索",
+      desc = "変更状態を検索",
     },
     {
       "<leader>gS",
       picker("git_stash"),
-      desc = "Git stash を検索",
+      desc = "退避した変更を検索",
     },
     {
       "<leader>gB",
       gitbrowse_open,
       mode = { "n", "x" },
-      desc = "Git ホスティングを開く",
+      desc = "リモートリポジトリを開く",
     },
     {
       "<leader>gg",
       lazygit_open,
-      desc = "Lazygit を開く",
+      desc = "バージョン管理画面を開く",
     },
     {
       "<leader>gi",
       picker("gh_issue"),
-      desc = "GitHub Issue を検索",
+      desc = "課題を検索",
     },
     {
       "<leader>z",
       zen_toggle,
-      desc = "Zen Mode を切り替え",
+      desc = "集中モードを切り替え",
     },
     {
       "<leader>Z",
@@ -432,27 +432,27 @@ return {
     {
       "<leader>gI",
       picker("gh_issue", { state = "all" }),
-      desc = "すべての GitHub Issue を検索",
+      desc = "すべての課題を検索",
     },
     {
       "<leader>gp",
       picker("gh_pr"),
-      desc = "GitHub PR を検索",
+      desc = "プルリクエストを検索",
     },
     {
       "<leader>gP",
       picker("gh_pr", { state = "all" }),
-      desc = "すべての GitHub PR を検索",
+      desc = "すべてのプルリクエストを検索",
     },
     {
       "<leader>pm",
       debug_metrics,
-      desc = "Snacks のメトリクスを表示",
+      desc = "プラグインのメトリクスを表示",
     },
     {
       "<leader>ps",
       profiler_scratch,
-      desc = "Profiler Scratch を開く",
+      desc = "プロファイラー用スクラッチを開く",
     },
     {
       "<leader>.",
@@ -642,8 +642,8 @@ return {
 
     snacks.setup(opts)
 
-    toggle.option("spell", { name = "Spell" }):map("<leader>us")
-    toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
+    toggle.option("spell", { name = "スペルチェック" }):map("<leader>us")
+    toggle.option("wrap", { name = "折り返し" }):map("<leader>uw")
     toggle.line_number():map("<leader>ul")
     toggle.diagnostics():map("<leader>ud")
     toggle.indent():map("<leader>ug")

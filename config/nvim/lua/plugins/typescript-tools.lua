@@ -37,19 +37,19 @@ return {
       "<leader>co",
       "<cmd>TSToolsOrganizeImports<cr>",
       ft = filetypes,
-      desc = "Import を整理",
+      desc = "インポートを整理",
     },
     {
       "<leader>cf",
       "<cmd>TSToolsFixAll<cr>",
       ft = filetypes,
-      desc = "TypeScript の修正を適用",
+      desc = "利用可能な修正を適用",
     },
     {
       "<leader>cr",
       "<cmd>TSToolsRenameFile<cr>",
       ft = filetypes,
-      desc = "TypeScript ファイルをリネーム",
+      desc = "ファイル名を変更",
     },
   },
 }

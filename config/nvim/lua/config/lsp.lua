@@ -41,6 +41,11 @@ local normal_mode_maps = {
   { "gr", picker("lsp_references"), "参照を表示" },
   { "gy", picker("lsp_type_definitions"), "型定義へ移動" },
   { "K", lspsaga("hover_doc"), "ホバーを表示" },
+  { "[d", lspsaga("diagnostic_jump_prev"), "前の診断へ移動" },
+  { "]d", lspsaga("diagnostic_jump_next"), "次の診断へ移動" },
+}
+
+local leader_lsp_maps = {
   { "<leader>la", lspsaga("code_action"), "コードアクション" },
   { "<leader>ld", vim.diagnostic.open_float, "診断を表示" },
   { "<leader>lD", picker("diagnostics_buffer"), "現在バッファの診断を検索" },
@@ -50,9 +55,14 @@ local normal_mode_maps = {
   { "<leader>lr", picker("lsp_references"), "参照を検索" },
   { "<leader>ls", picker("lsp_symbols"), "シンボルを検索" },
   { "<leader>lS", picker("lsp_workspace_symbols"), "ワークスペースシンボルを検索" },
-  { "[d", lspsaga("diagnostic_jump_prev"), "前の診断へ移動" },
-  { "]d", lspsaga("diagnostic_jump_next"), "次の診断へ移動" },
 }
+
+local function global_map(mode, lhs, rhs, desc)
+  vim.keymap.set(mode, lhs, rhs, {
+    desc = desc,
+    silent = true,
+  })
+end
 
 local function lsp_buf_map(bufnr, mode, lhs, rhs, desc)
   vim.keymap.set(mode, lhs, rhs, {
@@ -60,6 +70,12 @@ local function lsp_buf_map(bufnr, mode, lhs, rhs, desc)
     desc = desc,
     silent = true,
   })
+end
+
+local function setup_global_keymaps()
+  for _, map in ipairs(leader_lsp_maps) do
+    global_map("n", map[1], map[2], map[3])
+  end
 end
 
 local function setup_diagnostics()
@@ -103,6 +119,7 @@ local function setup_server_configs()
 end
 
 function M.setup()
+  setup_global_keymaps()
   setup_diagnostics()
   setup_lsp_attach()
   setup_server_configs()

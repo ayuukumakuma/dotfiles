@@ -1,5 +1,5 @@
 #:schema https://developers.openai.com/codex/config-schema.json
-model_reasoning_effort = "high"
+model_reasoning_effort = "low"
 personality = "friendly"
 forced_login_method = "chatgpt"
 model = "gpt-5.5"
@@ -83,6 +83,9 @@ status_line = [
 ]
 theme = "catppuccin-latte"
 
+[tui.model_availability_nux]
+"gpt-5.5" = 3
+
 [plugins."google-calendar@openai-curated"]
 enabled = true
 
@@ -147,12 +150,12 @@ enabled = true
 enabled = true
 
 [marketplaces.openai-bundled]
-last_updated = "2026-04-24T00:22:23Z"
+last_updated = "2026-04-27T00:09:00Z"
 source_type = "local"
 source = "/Users/nasuno.ayumu/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.claude-plugins-official]
-last_updated = "2026-04-24T00:22:15Z"
+last_updated = "2026-04-27T00:08:43Z"
 last_revision = "020446a4294f09d9c32e60bff0c4ae8fb39205cb"
 source_type = "git"
 source = "https://github.com/anthropics/claude-plugins-official.git"
