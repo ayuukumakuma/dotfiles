@@ -36,7 +36,7 @@
 - `nix/local.nix` を ignore に入れると flake の pure 評価で参照できず失敗するため、ignore しない。
 - 秘密情報はコミットしない。Git の identity は `~/.config/git/config.local`（テンプレート: `config/git/config.local.example`）に保持し、その他の認証情報は 1Password CLI（`op signin`）を使用。
 - `flake.lock` を唯一の正とし、手動編集は避ける。依存更新時にはロックファイルもコミット。
-- 新しい cask やパッケージを追加する場合は `nix/nix-darwin/homebrew.nix` と `nix/nix-darwin/home-manager/packages.nix` を優先して宣言的に管理し、switch コマンドを再実行してシステムに反映。
+- 新しい cask やパッケージを追加する場合は `nix/nix-darwin/homebrew/` と `nix/nix-darwin/home-manager/packages/` 配下を優先して宣言的に管理し、switch コマンドを再実行してシステムに反映。
 
 ## エージェントスキル
 - 再利用可能なスキルは `config/agents/skills/` に保存。

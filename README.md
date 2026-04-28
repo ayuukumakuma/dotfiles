@@ -95,8 +95,14 @@ just switch
 │   │   ├── home-manager/
 │   │   │   ├── default.nix
 │   │   │   ├── files.nix
-│   │   │   └── packages.nix
-│   │   ├── homebrew.nix
+│   │   │   └── packages/
+│   │   │       ├── common.nix
+│   │   │       ├── private.nix
+│   │   │       └── work.nix
+│   │   ├── homebrew/
+│   │   │   ├── common.nix
+│   │   │   ├── private.nix
+│   │   │   └── work.nix
 │   │   ├── nix-core.nix
 │   │   ├── system.nix
 │   │   └── users.nix
