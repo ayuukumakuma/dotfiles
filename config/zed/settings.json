@@ -24,9 +24,6 @@
       "type": "registry",
     },
   },
-  "notification_panel": {
-    "button": false,
-  },
   "toolbar": {
     "agent_review": false,
     "breadcrumbs": true,
@@ -44,7 +41,7 @@
     "cancel_generation_on_terminal_stop": true,
     "use_modifier_to_send": true,
     "button": false,
-    "play_sound_when_agent_done": true,
+    "play_sound_when_agent_done": "when_hidden",
     "enable_feedback": false,
     "expand_terminal_card": true,
     "notify_when_agent_waiting": "primary_screen",
@@ -52,7 +49,7 @@
   },
   "always_treat_brackets_as_autoclosed": true,
   "audio": {
-    "experimental.auto_speaker_volume": false,
+    "experimental.auto_microphone_volume": false
   },
   "auto_signature_help": false,
   "autosave": "on_focus_change",
@@ -87,7 +84,7 @@
       "prompt_format": "qwen",
     },
     "mode": "eager",
-    "provider": "copilot",
+    "provider": "ollama",
   },
   "file_finder": {
     "include_ignored": "smart",
