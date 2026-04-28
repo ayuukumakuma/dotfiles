@@ -97,23 +97,8 @@ should_skip_notification() {
   [[ "$parent_app_path" == "$frontmost_app_path" ]]
 }
 
-can_play_custom_wav() {
-  local wav_path="${CODEX_NOTIFY_WAV:-}"
-
-  [[ -n "$wav_path" ]] || return 1
-  command -v afplay >/dev/null 2>&1 || return 1
-  [[ -f "$wav_path" ]]
-}
-
-play_custom_wav() {
-  local wav_path="${CODEX_NOTIFY_WAV:-}"
-
-  afplay -v 0.2 "$wav_path" >/dev/null 2>&1 &
-}
-
 notify() {
   local parent_app_bundle_path=""
-  local sound_disabled_flag="$HOME/.config/notify-sound-disabled"
   local -a notify_args=(
     -title "$title"
     -message "$message"
@@ -125,18 +110,7 @@ notify() {
     )
   fi
 
-  if [[ -f "$sound_disabled_flag" ]]; then
-    terminal-notifier "${notify_args[@]}"
-    return
-  fi
-
-  if can_play_custom_wav; then
-    terminal-notifier "${notify_args[@]}"
-    play_custom_wav || true
-    return
-  fi
-
-  terminal-notifier "${notify_args[@]}" -sound Glass
+  terminal-notifier "${notify_args[@]}"
 }
 
 title="$(extract_json_field "title")"

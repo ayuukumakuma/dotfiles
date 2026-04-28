@@ -34,44 +34,6 @@ build_notification() {
   esac
 }
 
-event_to_env_suffix() {
-  local event="$1"
-
-  printf '%s' "$event" | tr '[:lower:]' '[:upper:]' | sed 's/[^A-Z0-9]/_/g'
-}
-
-resolve_custom_wav_path() {
-  local event="$1"
-  local event_suffix
-  local event_var_name
-  local event_wav_path
-
-  event_suffix="$(event_to_env_suffix "$event")"
-  event_var_name="CLAUDE_NOTIFY_WAV_${event_suffix}"
-  event_wav_path="${!event_var_name:-}"
-
-  if [[ -n "$event_wav_path" ]]; then
-    printf '%s' "$event_wav_path"
-    return 0
-  fi
-
-  printf '%s' "${CLAUDE_NOTIFY_WAV:-}"
-}
-
-can_play_custom_wav() {
-  local wav_path="$1"
-
-  [[ -n "$wav_path" ]] || return 1
-  command -v afplay >/dev/null 2>&1 || return 1
-  [[ -f "$wav_path" ]]
-}
-
-play_custom_wav() {
-  local wav_path="$1"
-
-  afplay -v 0.2 "$wav_path" >/dev/null 2>&1 &
-}
-
 print_existing_bundle_path() {
   local bundle_path="$1"
 
@@ -112,8 +74,6 @@ find_parent_app_bundle_path() {
 }
 
 notify() {
-  local wav_path="$1"
-  local sound_disabled_flag="$HOME/.config/notify-sound-disabled"
   local parent_app_bundle_path=""
   local -a notify_args=(
     -title "$title"
@@ -126,18 +86,7 @@ notify() {
     )
   fi
 
-  if [[ -f "$sound_disabled_flag" ]]; then
-    terminal-notifier "${notify_args[@]}"
-    return
-  fi
-
-  if can_play_custom_wav "$wav_path"; then
-    terminal-notifier "${notify_args[@]}"
-    play_custom_wav "$wav_path" || true
-    return
-  fi
-
-  terminal-notifier "${notify_args[@]}" -sound Funk
+  terminal-notifier "${notify_args[@]}"
 }
 
 if ! command -v terminal-notifier >/dev/null 2>&1; then
@@ -146,12 +95,9 @@ fi
 
 title=""
 message=""
-wav_path=""
 
 if ! build_notification "$event_type"; then
   exit 0
 fi
 
-wav_path="$(resolve_custom_wav_path "$event_type")"
-
-notify "$wav_path"
+notify

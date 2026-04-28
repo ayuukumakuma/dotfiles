@@ -74,7 +74,6 @@ if status is-interactive
   abbr -a wt 'git gtr'
   abbr -a co 'codex'
   abbr -a lg 'lazygit'
-  abbr -a ns 'notify-sound'
   abbr -a cpi 'copilot'
   abbr -a tm 'tmux'
 

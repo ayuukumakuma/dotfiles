@@ -82,8 +82,7 @@ just switch
 │   ├── claude/
 │   ├── codex/
 │   ├── ime/
-│   ├── media/
-│   └── notify-sound/
+│   └── media/
 ├── nix/
 │   ├── AGENTS.md
 │   ├── flake.nix
