@@ -4,7 +4,7 @@
     ./nix-core.nix
     ./users.nix
     ./system.nix
-    ./homebrew.nix
+    ./homebrew/common.nix
     ./home-manager/default.nix
   ];
 }

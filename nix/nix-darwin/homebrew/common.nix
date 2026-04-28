@@ -23,7 +23,7 @@ let
       '') managedSymlinks
     )
   );
-  isWorkProfile = local.profile == "work";
+  profileHomebrew = import (./. + "/${local.profile}.nix");
 
   commonBrews = [
     ### CLI Applications not available in nixpkgs
@@ -42,14 +42,6 @@ let
     }
   ];
 
-  # 仕事用だけで入れたい Homebrew CLI はここに追加する。
-  workBrews = [ ];
-
-  # プライベート用だけで入れたい Homebrew CLI はここに追加する。
-  privateBrews = [ ];
-
-  profileBrews = if isWorkProfile then workBrews else privateBrews;
-
   commonTaps = [
     "nikitabobko/tap" # aerospace
     "daipeihust/tap" # im-select
@@ -59,40 +51,23 @@ let
     "productdevbook/tap" # portkiller
   ];
 
-  # 仕事用だけで使う tap はここに追加する。
-  workTaps = [ ];
-
-  # プライベート用だけで使う tap はここに追加する。
-  privateTaps = [ ];
-
-  profileTaps = if isWorkProfile then workTaps else privateTaps;
-
   commonCasks = [
     ### GUI Applications
-    # "slack"
-    # "google-chrome"
     "wezterm"
     "1password"
     "1password-cli"
     "aerospace"
-    "cursor"
     "figma"
-    "firefox"
-    "obsidian"
     "musaicfm"
     "raycast"
     "stats"
     "shottr"
-    "sequel-ace"
     "scroll-reverser"
     "notchnook"
-    "orbstack"
     "logitech-g-hub"
     "hhkb"
-    "another-redis-desktop-manager"
     "cap"
     "gyazo"
-    "google-drive"
     "zed"
     "deskpad"
     "logi-options+"
@@ -103,8 +78,6 @@ let
     "codex"
     "thebrowsercompany-dia"
     "visual-studio-code"
-    "zen"
-    "claude"
     "spotify"
     "azookey"
     "a-bar"
@@ -112,7 +85,6 @@ let
     "keycastr"
     "cage"
     "chatgpt"
-    "drawio"
     "portkiller"
     "tablepro"
 
@@ -121,26 +93,10 @@ let
     "font-monaspace"
   ];
 
-  # 仕事用だけで入れたい GUI アプリやフォントはここに追加する。
-  workCasks = [ ];
-
-  # プライベート用だけで入れたい GUI アプリやフォントはここに追加する。
-  privateCasks = [ ];
-
-  profileCasks = if isWorkProfile then workCasks else privateCasks;
-
   commonMasApps = {
     "Klack" = 6446206067;
     "Grila" = 6444335028;
   };
-
-  # 仕事用だけで入れたい Mac App Store アプリはここに追加する。
-  workMasApps = { };
-
-  # プライベート用だけで入れたい Mac App Store アプリはここに追加する。
-  privateMasApps = { };
-
-  profileMasApps = if isWorkProfile then workMasApps else privateMasApps;
 in
 {
   homebrew = {
@@ -151,10 +107,10 @@ in
       autoUpdate = true;
       cleanup = "zap";
     };
-    brews = commonBrews ++ profileBrews;
-    taps = commonTaps ++ profileTaps;
-    casks = commonCasks ++ profileCasks;
-    masApps = commonMasApps // profileMasApps;
+    brews = commonBrews ++ profileHomebrew.brews;
+    taps = commonTaps ++ profileHomebrew.taps;
+    casks = commonCasks ++ profileHomebrew.casks;
+    masApps = commonMasApps // profileHomebrew.masApps;
   };
 
   # `mo` と `mole` は同名バイナリを含むため、brew 管理の link を外して衝突を避ける。

@@ -5,8 +5,8 @@
 
 - `flake.nix` / `flake.lock`: Flake のエントリポイントと依存の固定。
 - `nix-darwin/`: system と Home Manager のモジュール群。
-- `default.nix`、`nix-core.nix`、`users.nix`、`system.nix`、`homebrew.nix`
-- `home-manager/`（`default.nix`、`packages.nix`、`files.nix`）
+- `default.nix`、`nix-core.nix`、`users.nix`、`system.nix`、`homebrew/`（`common.nix`、`work.nix`、`private.nix`）
+- `home-manager/`（`default.nix`、`files.nix`、`packages/`）
 - `pkgs/`: nixpkgs にないカスタムパッケージ定義（例: `site2skill`、`tree-sitter-cli`）。
 - `local.nix` / `local.nix.example`: ローカルマシン固有の上書き設定。
 

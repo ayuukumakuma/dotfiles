@@ -15,7 +15,7 @@
       { ... }:
       {
         imports = [
-          ./packages.nix
+          ./packages/common.nix
           ./files.nix
         ];
 
