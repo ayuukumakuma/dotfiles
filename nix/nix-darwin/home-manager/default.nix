@@ -16,7 +16,8 @@
       {
         imports = [
           ./packages/common.nix
-          ./files.nix
+          ./files/common.nix
+          (./files + "/${local.profile}.nix")
         ];
 
         home.stateVersion = "24.11";

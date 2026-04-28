@@ -2,111 +2,99 @@
 
 ## setup
 
+### 対象環境
+
+- Apple Silicon Mac
+- macOS
+
+### 事前準備
+
+このリポジトリを適用する前に、Xcode Command Line Tools、Nix、Homebrew をインストールする。
+Nix は [`NixOS/nix-installer`](https://github.com/NixOS/nix-installer) からインストールする。
+
 ```bash
-git clone https://github.com/ayuukumakuma/dotfiles.git <dotfiles_directory>
+xcode-select --install
+
+curl -sSfL https://artifacts.nixos.org/nix-installer | sh -s -- install --enable-flakes
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Nix のインストール後は、`nix` コマンドを使えるようにシェルを再起動する。
+
+### 初回適用
+
+```bash
+git clone https://github.com/luvpame/dotfiles.git <dotfiles_directory>
 cd <dotfiles_directory>
 
-# ひな形は nix/local.nix.example を参照
-$EDITOR nix/local.nix # local.nix edit
+test -f nix/local.nix || cp nix/local.nix.example nix/local.nix
+$EDITOR nix/local.nix
+```
 
+`nix/local.nix` に以下を設定する。
+
+```nix
+{
+  darwinConfigName = "your-darwin-config-name";
+  userName = "your-user-name";
+  homeDirectory = "/Users/your-user-name";
+  dotfilesRoot = "/Users/your-user-name/dev/github.com/your-account/dotfiles";
+  profile = "private";
+}
+```
+
+- `darwinConfigName`: nix-darwin の設定名。
+- `userName`: macOS のユーザー名。
+- `homeDirectory`: ユーザーのホームディレクトリの絶対パス。
+- `dotfilesRoot`: このリポジトリの絶対パス。clone したパスと一致させる。
+- `profile`: `work` または `private`。用途別のパッケージとリンクを切り替える。
+
+Git のユーザー情報は `config/git/config.local` に設定する。
+ひな形は `config/git/config.local.example` を参照する。
+
+```bash
+$EDITOR config/git/config.local
+```
+
+`config/git/config` は `~/.config/git/config.local` を include しているため、
+switch 後は Home Manager がリンクした `~/.config/git/config.local` として読み込まれる。
+`user.name`、`user.email`、`user.signingkey`、`ghq.root` を環境に合わせて設定する。
+このリポジトリは 1Password の SSH 署名を使うため、コミット前に 1Password と SSH Agent も有効にしておく。
+
+この設定は `mas` で Mac App Store アプリをインストールするため、switch 前に App Store にサインインしておく。
+
+初回 switch を実行する。このコマンドは `just` がまだインストールされていなくても実行できる。
+
+```bash
+cd nix
+DARWIN_CONFIG_NAME="$(nix eval --file local.nix darwinConfigName --raw)"
+sudo -H nix --extra-experimental-features "nix-command flakes" \
+  run nix-darwin -- switch --flake "path:.#$DARWIN_CONFIG_NAME"
+```
+
+初回 switch 後は Home Manager 経由で `just` が使える。
+
+```bash
+cd <dotfiles_directory>
+just check
 just switch
+```
 
+### 適用後の作業
+
+```bash
 ./script/set-fish-default.sh
 ```
 
-## directory structure (major paths)
+ログアウトして再ログインするか、新しい Fish セッションを開始する。
 
-```text
-.
-├── .cache/
-├── .data/
-├── .state/
-├── .claude/
-│   └── settings.local.json
-├── .editorconfig
-├── .gitignore
-├── .zed/
-│   └── settings.json
-├── AGENTS.md
-├── README.md
-├── build/
-│   ├── download/
-│   └── markdown/
-├── config/
-│   ├── aerospace/
-│   ├── agents/
-│   │   └── skills/
-│   ├── cage/
-│   ├── claude/
-│   │   ├── CLAUDE.md
-│   │   ├── hooks/
-│   │   ├── settings.json
-│   │   └── statusline.py
-│   ├── codex/
-│   │   ├── AGENTS.md
-│   │   ├── config.toml
-│   │   ├── hooks.json
-│   │   └── hooks/
-│   │       ├── notify-terminal-notifier.sh
-│   │       └── state-notify.sh
-│   ├── fish/
-│   │   ├── completions/
-│   │   ├── conf.d/
-│   │   ├── functions/
-│   │   └── fish_plugins
-│   ├── gh/
-│   ├── git/
-│   ├── guard-and-guide/
-│   ├── lazygit/
-│   ├── mise/
-│   ├── nvim/
-│   │   ├── init.lua
-│   │   └── lua/
-│   ├── raycast/
-│   │   ├── README.md
-│   │   └── scripts/
-│   ├── tmux/
-│   │   ├── plugins/
-│   │   └── tmux.conf
-│   ├── wezterm/
-│   ├── yazi/
-│   │   └── flavors/
-│   └── zed/
-│       ├── keymap.json
-│       ├── prompts/
-│       ├── settings.json
-│       └── themes/
-├── docs/
-├── justfile
-├── menubar-script/
-│   ├── claude/
-│   ├── codex/
-│   ├── ime/
-│   └── media/
-├── nix/
-│   ├── AGENTS.md
-│   ├── flake.nix
-│   ├── flake.lock
-│   ├── local.nix
-│   ├── local.nix.example
-│   ├── nix-darwin/
-│   │   ├── default.nix
-│   │   ├── home-manager/
-│   │   │   ├── default.nix
-│   │   │   ├── files.nix
-│   │   │   └── packages/
-│   │   │       ├── common.nix
-│   │   │       ├── private.nix
-│   │   │       └── work.nix
-│   │   ├── homebrew/
-│   │   │   ├── common.nix
-│   │   │   ├── private.nix
-│   │   │   └── work.nix
-│   │   ├── nix-core.nix
-│   │   ├── system.nix
-│   │   └── users.nix
-│   └── pkgs/
-├── nvim.log
-├── script/
-│   └── set-fish-default.sh
+```bash
+fish
+fisher update
 ```
+
+switch 後、ユーザー認証が必要なサービスにサインインする。
+
+- 1Password と 1Password CLI
+- GitHub CLI が必要な場合: `gh auth login`

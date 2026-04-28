@@ -28,48 +28,6 @@ enabled = false
 [sandbox_workspace_write]
 network_access = true
 
-[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/dotfiles"]
-trust_level = "trusted"
-
-[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/mario-chrome-extensions"]
-trust_level = "trusted"
-
-[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/smartcamp-fy26"]
-trust_level = "trusted"
-
-[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/cf-page-to-md"]
-trust_level = "trusted"
-
-[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/shogun-nix-flake"]
-trust_level = "trusted"
-
-[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/copy-url-as-markdown"]
-trust_level = "trusted"
-
-[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/repo-redirect-for-devin"]
-trust_level = "trusted"
-
-[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/always-show-github-reactions"]
-trust_level = "trusted"
-
-[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/browser-extantion-template"]
-trust_level = "trusted"
-
-[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/browser-extension-template"]
-trust_level = "trusted"
-
-[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/notion-enhancer"]
-trust_level = "trusted"
-
-[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/github-pr-copy"]
-trust_level = "trusted"
-
-[projects."/Users/nasuno.ayumu/dev/github.com/ayuukumakuma/aggr-hub"]
-trust_level = "trusted"
-
-[projects."/Users/nasuno.ayumu/dev/github.com/smartcamp/shogun"]
-trust_level = "trusted"
-
 [tui]
 status_line = [
   "model-with-reasoning",
@@ -154,7 +112,7 @@ source_type = "local"
 source = "/Users/nasuno.ayumu/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.claude-plugins-official]
-last_updated = "2026-04-28T11:47:05Z"
+last_updated = "2026-04-28T12:40:34Z"
 last_revision = "18113ade5c13cd90e669c650a58b1c815f0b158b"
 source_type = "git"
 source = "https://github.com/anthropics/claude-plugins-official.git"
@@ -163,3 +121,6 @@ source = "https://github.com/anthropics/claude-plugins-official.git"
 last_updated = "2026-04-28T04:19:20Z"
 source_type = "local"
 source = "/Users/nasuno.ayumu/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+[projects."/Users/nasuno.ayumu/dev/github.com/luvpame/dotfiles"]
+trust_level = "trusted"
