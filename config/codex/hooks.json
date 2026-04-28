@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/nasuno.ayumu/.codex/hooks/state-notify.sh idle"
+            "command": "$HOME/.codex/hooks/state-notify.sh idle"
           }
         ]
       }
@@ -15,7 +15,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/nasuno.ayumu/.codex/hooks/state-notify.sh working"
+            "command": "$HOME/.codex/hooks/state-notify.sh working"
           }
         ]
       }
@@ -26,7 +26,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/nasuno.ayumu/.codex/hooks/state-notify.sh working"
+            "command": "$HOME/.codex/hooks/state-notify.sh working"
           }
         ]
       }
@@ -36,7 +36,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/nasuno.ayumu/.codex/hooks/state-notify.sh complete"
+            "command": "$HOME/.codex/hooks/state-notify.sh complete"
           }
         ]
       }

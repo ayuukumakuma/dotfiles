@@ -1,5 +1,5 @@
 presets:
-  claude-code:
+  common:
     allow:
       # プロジェクト作業ディレクトリ
       - path: "."
@@ -9,13 +9,6 @@ presets:
         eval-symlinks: true
       # ターミナル操作
       - "/dev"
-      # Claude Code データ
-      - path: "$HOME/.claude"
-        eval-symlinks: true
-      - "$HOME/.claude.json"
-      - "$HOME/.claude.json.backup"
-      - "$HOME/.claude.json.lock"
-      - "$HOME/.claude.lock"
       # npm/npx キャッシュ (MCP サーバー等)
       - "$HOME/.npm"
       # bun キャッシュ (bunx for ccstatusline 等)
@@ -28,6 +21,19 @@ presets:
       # ランタイムで書き込まれるツール設定 (op, gcloud 等)
       - path: "$HOME/.config"
         eval-symlinks: true
+  claude-code:
+    allow:
+      # Claude Code データ
+      - path: "$HOME/.claude"
+        eval-symlinks: true
+      - "$HOME/.claude.json"
+      - "$HOME/.claude.json.backup"
+      - "$HOME/.claude.json.lock"
+      - "$HOME/.claude.lock"
+  codex:
+    allow:
+      - path: "$HOME/.codex"
+        eval-symlinks: true
   git:
     allow-keychain: true
     allow-git: true
@@ -35,5 +41,10 @@ presets:
 auto-presets:
   - command: claude
     presets:
+      - common
       - claude-code
       - git
+  - command: codex
+    presets:
+      - common
+      - codex
