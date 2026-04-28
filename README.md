@@ -84,6 +84,7 @@ just switch
 ### 適用後の作業
 
 ```bash
+chmod +x ./script/set-fish-default.sh
 ./script/set-fish-default.sh
 ```
 
