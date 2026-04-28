@@ -54,7 +54,9 @@ if status is-interactive
   end
 
   # Configurations for mise
-  /etc/profiles/per-user/nasuno.ayumu/bin/mise activate fish | source
+  if command -q mise
+    mise activate fish | source
+  end
 
   # Abbreviation
   abbr -a c 'clear'
