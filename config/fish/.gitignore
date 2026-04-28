@@ -1,4 +1,0 @@
-fish_variables
-.env
-.env.*
-!.env.example
