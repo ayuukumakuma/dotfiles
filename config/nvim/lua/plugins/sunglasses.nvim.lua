@@ -1,6 +1,7 @@
 -- sunglasses.nvim で非アクティブウィンドウを控えめに暗くします。
 return {
   "miversen33/sunglasses.nvim",
+  event = "VeryLazy",
   opts = {
     filter_type = "SHADE",
     filter_percent = 0.5,

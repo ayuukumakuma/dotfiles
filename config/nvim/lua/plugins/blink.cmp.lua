@@ -1,6 +1,7 @@
 -- blink.cmp で LSP、パス、スニペット、バッファ補完を有効にします。
 return {
   "saghen/blink.cmp",
+  event = "InsertEnter",
   dependencies = {
     "rafamadriz/friendly-snippets",
   },

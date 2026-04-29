@@ -2,7 +2,7 @@
 -- LSP サーバー本体は Nix/Home Manager 側で宣言的に管理します。
 return {
   "neovim/nvim-lspconfig",
-  lazy = false,
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     vim.lsp.config("efm", {
       init_options = {
