@@ -97,8 +97,6 @@ return {
 
     { "<leader>z", function() Snacks.zen() end, desc = "集中モードを切り替え" },
     { "<leader>Z", function() Snacks.zen.zoom() end, desc = "ズームを切り替え" },
-    { "<leader>.", function() Snacks.scratch() end, desc = "スクラッチバッファを切り替え" },
-    { "<leader>S", function() Snacks.scratch.select() end, desc = "スクラッチバッファを選択" },
     { "<leader>bd", function() Snacks.bufdelete() end, desc = "バッファを削除" },
     { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "ファイル名を変更" },
     { "<leader>un", function() Snacks.notifier.hide() end, desc = "すべての通知を閉じる" },
