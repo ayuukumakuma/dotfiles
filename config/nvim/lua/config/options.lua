@@ -1,3 +1,4 @@
+-- Neovim 全体の基本オプションを設定するファイルです。
 -- 行番号を表示する
 vim.opt.number = true
 

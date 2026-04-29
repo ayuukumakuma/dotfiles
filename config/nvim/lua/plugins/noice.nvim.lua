@@ -1,3 +1,4 @@
+-- noice.nvim で通知やコマンドライン UI の表示を整える設定です。
 return {
   "folke/noice.nvim",
   event = "VeryLazy",

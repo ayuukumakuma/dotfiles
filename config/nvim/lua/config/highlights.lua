@@ -1,3 +1,4 @@
+-- カラースキーム変更後も背景を透過するためのハイライト設定です。
 local transparent_groups = {
   "Normal",
   "NormalNC",

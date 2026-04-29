@@ -1,3 +1,4 @@
+-- nvim-treesitter のパーサー導入と構文解析の起動設定です。
 local parsers = {
   "bash",
   "lua",

@@ -1,3 +1,4 @@
+-- lazy.nvim の導入とプラグイン読み込み設定をまとめるファイルです。
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
