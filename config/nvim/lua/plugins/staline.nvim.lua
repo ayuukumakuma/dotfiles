@@ -4,17 +4,18 @@ return {
   event = "VeryLazy",
   config = function()
     local colors = require("config.colors").catppuccin_latte()
+    local info_separator = "  "
 
     local function save_state_text()
       if vim.bo.readonly then
-        return "  "
+        return ""
       end
 
       if vim.bo.modified then
-        return " ● "
+        return "●"
       end
 
-      return " ✓ "
+      return "✓"
     end
 
     local function language_icon_text()
@@ -23,36 +24,56 @@ return {
 
       if ok and filetype ~= "" then
         local icon = mini_icons.get("filetype", filetype)
-        return icon .. " "
+        return icon
       end
 
-      return "󰈙 "
+      return "󰈙"
+    end
+
+    local function git_branch_text()
+      local branch = vim.b.gitsigns_head
+
+      if branch == nil or branch == "" then
+        return ""
+      end
+
+      return " " .. branch
     end
 
     local function file_name_text()
       local name = vim.fn.expand("%:t")
 
       if name == "" then
-        return "[No Name] "
+        return "[No Name]"
       end
 
-      return name .. " "
+      return name
     end
 
-    local function save_state()
-      return { "Staline", save_state_text() }
+    local function left_info_text()
+      local parts = {
+        save_state_text(),
+        file_name_text(),
+        language_icon_text(),
+        git_branch_text(),
+      }
+      local visible_parts = {}
+
+      for _, part in ipairs(parts) do
+        if part ~= "" then
+          table.insert(visible_parts, part)
+        end
+      end
+
+      return " " .. table.concat(visible_parts, info_separator) .. " "
     end
 
-    local function language_icon()
-      return { "Staline", language_icon_text() }
-    end
-
-    local function file_name()
-      return { "Staline", file_name_text() }
+    local function left_info()
+      return { "Staline", left_info_text() }
     end
 
     local function line()
-      local left_width = vim.fn.strdisplaywidth(save_state_text() .. file_name_text() .. language_icon_text())
+      local left_width = vim.fn.strdisplaywidth(left_info_text())
       local line_width = math.max(vim.o.columns - left_width - 1, 1)
 
       return { "Staline", ("▁"):rep(line_width) }
@@ -103,12 +124,12 @@ return {
         t = " ",
       },
       sections = {
-        left = { save_state, file_name, language_icon, line },
+        left = { left_info, line },
         mid = {},
         right = {},
       },
       inactive_sections = {
-        left = { save_state, file_name, language_icon, line },
+        left = { left_info, line },
         mid = {},
         right = {},
       },
