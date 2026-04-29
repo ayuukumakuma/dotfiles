@@ -2,6 +2,7 @@
 local transparent_groups = {
   "Normal",
   "NormalNC",
+  "NormalFloat",
   "SignColumn",
   "LineNr",
   "CursorLineNr",
@@ -11,12 +12,16 @@ local transparent_groups = {
 }
 
 local function apply_transparent_background()
+  local latte = require("config.colors").catppuccin_latte()
+
   for _, group in ipairs(transparent_groups) do
-    vim.api.nvim_set_hl(0, group, { bg = "NONE" })
+    local highlight = vim.api.nvim_get_hl(0, { name = group, link = false })
+    highlight.bg = nil
+    vim.api.nvim_set_hl(0, group, highlight)
   end
 
-  vim.api.nvim_set_hl(0, "SnacksTerminalNormal", { bg = "#1f2335" })
-  vim.api.nvim_set_hl(0, "SnacksTerminalBorder", { fg = "#7aa2f7", bg = "#1f2335" })
+  vim.api.nvim_set_hl(0, "SnacksTerminalNormal", { fg = latte.text, bg = latte.mantle })
+  vim.api.nvim_set_hl(0, "SnacksTerminalBorder", { fg = latte.lavender, bg = latte.mantle })
 end
 
 apply_transparent_background()

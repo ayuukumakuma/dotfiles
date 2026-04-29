@@ -32,8 +32,11 @@ return {
         backdrop = 60,
         width = 0.85,
         height = 0.85,
+        on_win = function(win)
+          vim.wo[win.win].winblend = 20
+        end,
         wo = {
-          winblend = 12,
+          winblend = 20,
           winhighlight = "Normal:SnacksTerminalNormal,NormalNC:SnacksTerminalNormal,FloatBorder:SnacksTerminalBorder",
         },
       },
