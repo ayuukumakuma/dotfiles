@@ -1,7 +1,7 @@
 # リポジトリガイドライン
 
 ## プロジェクト構成とモジュール構成
-- `nix/`: Flake のエントリポイント（`flake.nix` / `flake.lock` / `local.nix.example` / `local.nix`）と、macOS の system+Homebrew+Home Manager 状態を管理する `nix-darwin/`、カスタム package 定義の `pkgs/` を持つ。
+- `nix/`: Flake のエントリポイント（`flake.nix` / `flake.lock` / `local.nix.example`）と、macOS の system+Homebrew+Home Manager 状態を管理する `nix-darwin/`、カスタム package 定義の `pkgs/` を持つ。`local.nix` は `local.nix.example` から作成する非追跡のローカル設定。
 - `config/`: 各種ツール設定を集約するディレクトリ。`config/fish/` にシェル設定、`config/git/` に Git 設定、`config/agents/skills/` に再利用可能なエージェントスキルを保存する。加えて `config/aerospace/`、`config/cage/`、`config/gh/`、`config/guard-and-guide/`、`config/lazygit/`、`config/mise/`、`config/nvim/`、`config/raycast/`、`config/tmux/`、`config/wezterm/`、`config/yazi/`、`config/zed/` などのツール別設定を配置する。`config/claude/` には `CLAUDE.md`・`settings.json`・`statusline.py`・`hooks/`、`config/codex/` には `AGENTS.md`・`config.toml`・`hooks.json`・`hooks/` がある。
 - `script/`: ユーティリティ Bash スクリプトを配置するディレクトリ。現状は `set-fish-default.sh` がある。
 - `menubar-script/`: `claude/`、`codex/`、`ime/`、`media/` などのメニューバー連携用スクリプト群。
@@ -31,9 +31,9 @@
 - PR には以下を含める: 簡単な概要、影響範囲（Nix/Fish/アプリ設定）、実行したコマンド（`cd nix && nix flake check`、apply switch）、UI 変更がある場合はスクリーンショット。
 
 ## セキュリティ & 設定の注意点
-- `nix/local.nix` はこのリポジトリで追跡されている設定ファイルで、各環境の値に合わせて編集して使う。
+- `nix/local.nix` は非追跡のローカル設定ファイルで、`nix/local.nix.example` を元に各環境の値へ編集して使う。
 - `nix/local.nix.example` は初期値の参照用テンプレートとして保持し、必要に応じて `nix/local.nix` と見比べて更新する。
-- `nix/local.nix` を ignore に入れると flake の pure 評価で参照できず失敗するため、ignore しない。
+- `nix/local.nix` は秘密情報やホスト固有値を含むため `.gitignore` に入れ、コミットしない。
 - 秘密情報はコミットしない。Git の identity は `~/.config/git/config.local`（テンプレート: `config/git/config.local.example`）に保持し、その他の認証情報は 1Password CLI（`op signin`）を使用。
 - `flake.lock` を唯一の正とし、手動編集は避ける。依存更新時にはロックファイルもコミット。
 - 新しい cask やパッケージを追加する場合は `nix/nix-darwin/homebrew/` と `nix/nix-darwin/home-manager/packages/` 配下を優先して宣言的に管理し、switch コマンドを再実行してシステムに反映。

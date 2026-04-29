@@ -33,6 +33,7 @@ $EDITOR nix/local.nix
 ```
 
 `nix/local.nix` に以下を設定する。
+このファイルはローカル専用で、Git にはコミットしない。
 
 ```nix
 {
@@ -52,6 +53,7 @@ $EDITOR nix/local.nix
 
 Git のユーザー情報は `config/git/config.local` に設定する。
 ひな形は `config/git/config.local.example` を参照する。
+このファイルもローカル専用で、Git にはコミットしない。
 
 ```bash
 $EDITOR config/git/config.local

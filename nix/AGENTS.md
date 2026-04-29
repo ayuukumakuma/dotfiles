@@ -52,5 +52,5 @@
 - `homeDirectory`（絶対パス）
 - `dotfilesRoot`（このリポジトリの絶対パス）
 - `local.nix` はローカル専用のためコミットしない。
-- ただし `.gitignore` には追加しない。pure 評価で参照できず失敗するため。
-- その結果、`git status` に `?? local.nix`（または `?? nix/local.nix`）が出るのは正常動作。
+- `local.nix` は秘密情報やホスト固有値を含むため `.gitignore` に追加し、非追跡のまま使う。
+- `just switch` は `local.nix` を直接読むため、switch 前に `cp local.nix.example local.nix` で作成しておく。
