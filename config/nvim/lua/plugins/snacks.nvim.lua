@@ -5,6 +5,7 @@
 -- 起動画面、ファイル選択、入力欄、通知など普段使いの表示を Snacks に寄せる。
 -- インデント、スコープ、スクロール、ステータス列、参照ジャンプで編集画面を補助する。
 -- スクラッチバッファ、ターミナル、LazyGit、GitHub 連携、ブラウザ表示、集中モードはキーマップから呼び出す。
+-- 現在行の Git blame は Snacks の小さなターミナルウィンドウで確認する。
 -- コマンドラインそのもののリッチ表示は Snacks ではなく noice.nvim 側に任せる。
 return {
   "folke/snacks.nvim",
@@ -42,6 +43,14 @@ return {
           winhighlight = "Normal:SnacksTerminalNormal,NormalNC:SnacksTerminalNormal,FloatBorder:SnacksTerminalBorder",
         },
       },
+      blame_line = {
+        width = 0.6,
+        height = 0.6,
+        border = true,
+        title = " Git Blame ",
+        title_pos = "center",
+        ft = "git",
+      },
     },
   },
   keys = {
@@ -58,6 +67,7 @@ return {
 
     { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Gitブランチ一覧" },
     { "<leader>gl", function() Snacks.picker.git_log() end, desc = "Gitログ" },
+    { "<leader>gL", function() Snacks.git.blame_line({ count = vim.v.count > 0 and vim.v.count or nil }) end, desc = "現在行のGit blame" },
     { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git状態" },
     { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git差分ハンク" },
     { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Gitの場所をブラウザで開く", mode = { "n", "v" } },
