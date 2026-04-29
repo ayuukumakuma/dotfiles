@@ -1,7 +1,7 @@
 -- oil.nvim でディレクトリを通常のバッファのように編集できるようにします。
 return {
   "stevearc/oil.nvim",
-  cmd = "Oil",
+  lazy = false,
   dependencies = {
     { "nvim-mini/mini.icons", opts = {} },
   },
