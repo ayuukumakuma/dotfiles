@@ -27,6 +27,10 @@
           {
             "type": "command",
             "command": "$HOME/.codex/hooks/state-notify.sh working"
+          },
+          {
+            "type": "command",
+            "command": "guard-and-guide"
           }
         ]
       }
