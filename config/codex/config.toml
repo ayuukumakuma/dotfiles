@@ -44,15 +44,12 @@ theme = "catppuccin-latte"
 "gpt-5.5" = 4
 
 [plugins."google-calendar@openai-curated"]
-enabled = true
+enabled = false
 
 [plugins."gmail@openai-curated"]
-enabled = true
+enabled = false
 
 [plugins."github@openai-curated"]
-enabled = true
-
-[plugins."google-drive@openai-curated"]
 enabled = true
 
 [plugins."computer-use@openai-bundled"]
@@ -62,37 +59,37 @@ enabled = true
 enabled = true
 
 [plugins."claude-md-management@claude-plugins-official"]
-enabled = true
+enabled = false
 
 [plugins."code-review@claude-plugins-official"]
-enabled = true
+enabled = false
 
 [plugins."code-simplifier@claude-plugins-official"]
 enabled = true
 
 [plugins."context7@claude-plugins-official"]
-enabled = true
+enabled = false
 
 [plugins."feature-dev@claude-plugins-official"]
 enabled = true
 
 [plugins."figma@claude-plugins-official"]
-enabled = true
+enabled = false
 
 [plugins."frontend-design@claude-plugins-official"]
 enabled = true
 
 [plugins."plugin-dev@claude-plugins-official"]
-enabled = true
+enabled = false
 
 [plugins."pr-review-toolkit@claude-plugins-official"]
-enabled = true
+enabled = false
 
 [plugins."slack@claude-plugins-official"]
-enabled = true
+enabled = false
 
 [plugins."terraform@claude-plugins-official"]
-enabled = true
+enabled = false
 
 [plugins."documents@openai-primary-runtime"]
 enabled = true
@@ -104,22 +101,19 @@ enabled = true
 enabled = true
 
 [plugins."github@claude-plugins-official"]
-enabled = true
+enabled = false
 
-[plugins."figma@openai-curated"]
-enabled = true
-
-[plugins."notion@openai-curated"]
+[plugins."superpowers@openai-curated"]
 enabled = true
 
 [marketplaces.openai-bundled]
-last_updated = "2026-04-29T03:18:34Z"
+last_updated = "2026-04-29T22:42:25Z"
 source_type = "local"
-source = "/Users/luvpame/.codex/.tmp/bundled-marketplaces/openai-bundled"
+source = "/Users/nasuno.ayumu/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.claude-plugins-official]
-last_updated = "2026-04-29T09:00:31Z"
-last_revision = "e73e9a6257ac5285a7218dc5e7e99b1ae2dc65e7"
+last_updated = "2026-04-29T22:58:41Z"
+last_revision = "0742692199b49af5c6c33cd68ee674fb2e679d50"
 source_type = "git"
 source = "https://github.com/anthropics/claude-plugins-official.git"
 
