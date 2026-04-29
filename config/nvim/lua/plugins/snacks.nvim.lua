@@ -13,13 +13,66 @@ local function lsp_preview_opts()
   }
 end
 
+local function dashboard_header_gradient(item)
+  local lines = vim.split(item.header or "", "\n", { plain = true, trimempty = false })
+  local width = 0
+
+  for _, line in ipairs(lines) do
+    width = math.max(width, vim.api.nvim_strwidth(line))
+  end
+
+  local chunks = {}
+  for line_index, line in ipairs(lines) do
+    local column = 0
+
+    for _, char in ipairs(vim.fn.split(line, [[\zs]])) do
+      local char_width = vim.api.nvim_strwidth(char)
+      local gradient_index = math.floor((column + char_width / 2) * 67 / math.max(width - 1, 1)) + 1
+
+      table.insert(chunks, {
+        char,
+        hl = char == " " and nil or ("SnacksDashboardHeaderGradient%d"):format(math.min(68, gradient_index)),
+      })
+      column = column + char_width
+    end
+
+    if line_index < #lines then
+      table.insert(chunks, { "\n" })
+    end
+  end
+
+  return chunks
+end
+
 return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
   opts = {
     bigfile = { enabled = true },
-    dashboard = { enabled = true },
+    dashboard = {
+      enabled = true,
+      preset = {
+        header = [[
+ ██╗      ██╗   ██╗ ██╗   ██╗ ██████╗   █████╗  ███╗   ███╗ ███████╗
+ ██║      ██║   ██║ ██║   ██║ ██╔══██╗ ██╔══██╗ ████╗ ████║ ██╔════╝
+ ██║      ██║   ██║ ██║   ██║ ██████╔╝ ███████║ ██╔████╔██║ █████╗  
+ ██║      ██║   ██║ ╚██╗ ██╔╝ ██╔═══╝  ██╔══██║ ██║╚██╔╝██║ ██╔══╝  
+ ███████╗ ╚██████╔╝  ╚████╔╝  ██║      ██║  ██║ ██║ ╚═╝ ██║ ███████╗
+ ╚══════╝  ╚═════╝    ╚═══╝   ╚═╝      ╚═╝  ╚═╝ ╚═╝     ╚═╝ ╚══════╝
+
+ ███╗   ██╗ ███████╗  ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗
+ ████╗  ██║ ██╔════╝ ██╔═══██╗ ██║   ██║ ██║ ████╗ ████║
+ ██╔██╗ ██║ █████╗   ██║   ██║ ██║   ██║ ██║ ██╔████╔██║
+ ██║╚██╗██║ ██╔══╝   ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║
+ ██║ ╚████║ ███████╗ ╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║
+ ╚═╝  ╚═══╝ ╚══════╝  ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝
+        ]],
+      },
+      formats = {
+        header = dashboard_header_gradient,
+      },
+    },
     explorer = { enabled = false },
     gh = {},
     indent = { enabled = true },
