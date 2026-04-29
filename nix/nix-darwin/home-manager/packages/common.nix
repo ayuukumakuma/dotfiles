@@ -13,9 +13,16 @@ let
   };
 
   commonPackages = with pkgs; [
-    nil
+    efm-langserver
     nixfmt
     nixd
+    statix
+    deadnix
+    shellcheck
+    shfmt
+    stylua
+    lua-language-server
+    yamllint
     fzf
     bat
     ripgrep

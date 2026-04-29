@@ -1,0 +1,84 @@
+version: 2
+
+# efm-langserver は LSP ではない外部 CLI formatter/linter を、Neovim から
+# LSP diagnostics/formatting のように扱うための薄い統合レイヤーです。
+# efm 自体が各言語を深く理解するわけではないため、補完や定義ジャンプは
+# nixd / just-lsp などの専用 LSP に任せます。
+#
+# 使い方:
+# - Nix ファイルは Neovim 保存時に efm 経由で nixfmt が走ります。
+# - 手動整形したい場合は `:lua vim.lsp.buf.format({ name = "efm" })` を実行します。
+# - diagnostics は通常の Neovim diagnostics として表示されます。この設定では
+#   `<leader>sd` / `<leader>sD` の Snacks diagnostics picker からも確認できます。
+# - 新しい言語を足す時は `tools` に command 定義を追加し、`languages` に紐付けます。
+#   プロジェクトローカルの実行ファイルを優先したい場合は command 内で
+#   `./node_modules/.bin/...` や `bundle exec ...` を先に試します。
+root-markers:
+  - flake.nix
+  - .git/
+lint-debounce: 1s
+
+tools:
+  nix-nixfmt: &nix-nixfmt
+    format-command: nixfmt
+    format-stdin: true
+
+  nix-statix: &nix-statix
+    lint-command: statix check --format errfmt ${INPUT}
+    lint-stdin: false
+    lint-ignore-exit-code: true
+    lint-formats:
+      - "%f>%l:%c:%m"
+
+  nix-deadnix: &nix-deadnix
+    lint-command: 'deadnix --output-format json ${INPUT} | jq -r ''.file as $file | .results[]? | "\($file):\(.line):\(.column): \(.message)"'''
+    lint-stdin: false
+    lint-ignore-exit-code: true
+    lint-formats:
+      - "%f:%l:%c: %m"
+
+  lua-stylua: &lua-stylua
+    format-command: stylua --search-parent-directories --stdin-filepath ${INPUT} -
+    format-stdin: true
+
+  sh-shellcheck: &sh-shellcheck
+    lint-command: shellcheck -f gcc -x ${INPUT}
+    lint-stdin: false
+    lint-ignore-exit-code: true
+    lint-formats:
+      - "%f:%l:%c: %trror: %m"
+      - "%f:%l:%c: %tarning: %m"
+      - "%f:%l:%c: %tote: %m"
+
+  sh-shfmt: &sh-shfmt
+    format-command: shfmt -ci -s -bn
+    format-stdin: true
+
+  yaml-yamllint: &yaml-yamllint
+    lint-command: yamllint -f parsable -
+    lint-stdin: true
+    lint-ignore-exit-code: true
+    lint-formats:
+      - "%f:%l:%c: [%t%*[a-z]] %m"
+
+languages:
+  nix:
+    - <<: *nix-nixfmt
+    - <<: *nix-statix
+    - <<: *nix-deadnix
+
+  yaml:
+    - <<: *yaml-yamllint
+
+  lua:
+    - <<: *lua-stylua
+
+  sh:
+    - <<: *sh-shellcheck
+    - <<: *sh-shfmt
+  bash:
+    - <<: *sh-shellcheck
+    - <<: *sh-shfmt
+  zsh:
+    - <<: *sh-shellcheck
+    - <<: *sh-shfmt

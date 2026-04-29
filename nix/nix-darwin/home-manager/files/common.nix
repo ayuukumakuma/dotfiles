@@ -23,6 +23,7 @@ in
     zed.source = oos "${configRoot}/zed";
     cage.source = oos "${configRoot}/cage";
     guard-and-guide.source = oos "${configRoot}/guard-and-guide";
+    efm-langserver.source = oos "${configRoot}/efm-langserver";
 
     # direnvrc は ${pkgs.nix-direnv} の Nix Store パスを参照するため
     # dotfiles 側に静的ファイルとして管理できない。text で直接記述する。
