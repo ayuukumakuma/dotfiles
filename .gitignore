@@ -7,7 +7,7 @@ nix/result
 .nvimlog
 nvim.log
 
-config/zed/prompts/prompts-library-db*/
+config/zed/prompts/
 
 build/
 .data/
