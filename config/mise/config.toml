@@ -1,9 +1,13 @@
 [settings]
+env_cache = true
+env_cache_ttl = "1h"
+fetch_remote_versions_cache = "1d"
+hook_env.cache_ttl = "1h"
 
 [settings.ruby]
 compile = false
 
 [tools]
-bun = "latest"
-python = "latest"
+bun = "1.3.13"
+python = "3.14.4"
 lua = "5.1"
