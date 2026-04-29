@@ -6,6 +6,13 @@
 -- スクラッチバッファ、ターミナル、LazyGit、GitHub 連携、ブラウザ表示、集中モードはキーマップから呼び出す。
 -- 現在行の Git blame は Snacks の小さなターミナルウィンドウで確認する。
 -- コマンドラインそのもののリッチ表示は Snacks ではなく noice.nvim 側に任せる。
+local function lsp_preview_opts()
+  return {
+    auto_confirm = false,
+    layout = { preset = "dropdown" },
+  }
+end
+
 return {
   "folke/snacks.nvim",
   priority = 1000,
@@ -269,38 +276,38 @@ return {
     {
       "gd",
       function()
-        Snacks.picker.lsp_definitions()
+        Snacks.picker.lsp_definitions(lsp_preview_opts())
       end,
-      desc = "定義へ移動",
+      desc = "定義をプレビュー",
     },
     {
       "gD",
       function()
-        Snacks.picker.lsp_declarations()
+        Snacks.picker.lsp_declarations(lsp_preview_opts())
       end,
-      desc = "宣言へ移動",
+      desc = "宣言をプレビュー",
     },
     {
       "gr",
       function()
-        Snacks.picker.lsp_references()
+        Snacks.picker.lsp_references(lsp_preview_opts())
       end,
       nowait = true,
-      desc = "参照一覧",
+      desc = "参照をプレビュー",
     },
     {
       "gI",
       function()
-        Snacks.picker.lsp_implementations()
+        Snacks.picker.lsp_implementations(lsp_preview_opts())
       end,
-      desc = "実装へ移動",
+      desc = "実装をプレビュー",
     },
     {
       "gy",
       function()
-        Snacks.picker.lsp_type_definitions()
+        Snacks.picker.lsp_type_definitions(lsp_preview_opts())
       end,
-      desc = "型定義へ移動",
+      desc = "型定義をプレビュー",
     },
     {
       "<leader>ss",
