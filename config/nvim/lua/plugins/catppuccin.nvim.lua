@@ -17,6 +17,7 @@ return {
         indent_scope_color = "lavender",
       },
       treesitter = true,
+      trouble = true,
     },
   },
   config = function(_, opts)

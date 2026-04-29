@@ -16,6 +16,7 @@ return {
       { "<leader>s", group = "search" },
       { "<leader>t", group = "terminal" },
       { "<leader>u", group = "ui" },
+      { "<leader>x", group = "trouble" },
       { "<leader>z", group = "zen" },
       { "<leader>?", desc = "バッファローカルキーマップ" },
     },
