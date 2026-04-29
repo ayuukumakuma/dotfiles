@@ -26,7 +26,11 @@ return {
     quickfile = { enabled = true },
     scope = { enabled = true },
     scroll = { enabled = true },
-    statuscolumn = { enabled = true },
+    statuscolumn = {
+      enabled = true,
+      left = { "git", "mark", "sign" },
+      right = { "fold" },
+    },
     words = { enabled = true },
     dim = { enabled = true },
     styles = {
