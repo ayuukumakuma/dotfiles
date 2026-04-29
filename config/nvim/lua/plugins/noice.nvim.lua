@@ -1,10 +1,10 @@
--- noice.nvim で通知やコマンドライン UI の表示を整える設定です。
+-- noice.nvim でコマンドラインとメッセージ表示を整える設定です。
+-- 通知表示は snacks.nvim の notifier に任せます。
 return {
   "folke/noice.nvim",
   event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",
-    "rcarriga/nvim-notify",
   },
   opts = {
     lsp = {
@@ -14,7 +14,13 @@ return {
       },
     },
     notify = {
+      enabled = false,
+    },
+    messages = {
       enabled = true,
+      view = "mini",
+      view_error = "mini",
+      view_warn = "mini",
     },
     popupmenu = {
       backend = "nui",

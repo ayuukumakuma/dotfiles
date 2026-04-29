@@ -8,7 +8,7 @@ vim.opt.relativenumber = true
 -- カーソル行をハイライトする
 vim.opt.cursorline = true
 
--- ターミナルの True Color を有効にする
+-- ターミナルの 24 ビットカラーを有効にする
 vim.opt.termguicolors = true
 
 -- サインカラムを常に表示して表示の揺れを防ぐ
@@ -71,19 +71,19 @@ vim.opt.swapfile = false
 -- バックアップファイルを作成しない
 vim.opt.backup = false
 
--- undo 履歴をファイルに保存して再起動後も保持する
+-- アンドゥ履歴をファイルに保存して再起動後も保持する
 vim.opt.undofile = true
 
--- undo 履歴ファイルの保存先を指定する
+-- アンドゥ履歴ファイルの保存先を指定する
 vim.opt.undodir = vim.fn.stdpath("data") .. "/undo"
 
 -- マウス操作を有効にする
 vim.opt.mouse = "a"
 
--- OS のクリップボードと連携する
+-- システムのクリップボードと連携する
 vim.opt.clipboard = "unnamedplus"
 
--- Backspace でインデント、改行、挿入開始位置を越えて削除できるようにする
+-- バックスペースでインデント、改行、挿入開始位置を越えて削除できるようにする
 vim.opt.backspace = { "indent", "eol", "start" }
 
 -- 横分割を現在ウィンドウの下に開く
@@ -92,10 +92,10 @@ vim.opt.splitbelow = true
 -- 縦分割を現在ウィンドウの右に開く
 vim.opt.splitright = true
 
--- CursorHold などのイベント発火までの待ち時間を短くする
+-- カーソル停止などのイベント発火までの待ち時間を短くする
 vim.opt.updatetime = 250
 
--- キーマップ入力待ちのタイムアウト時間を 500ms にする
+-- キーマップ入力待ちのタイムアウト時間を 500 ミリ秒にする
 vim.opt.timeoutlen = 500
 
 -- 未保存バッファがあっても別バッファへ切り替えられるようにする

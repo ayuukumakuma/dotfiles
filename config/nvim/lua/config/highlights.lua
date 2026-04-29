@@ -2,8 +2,6 @@
 local transparent_groups = {
   "Normal",
   "NormalNC",
-  "NormalFloat",
-  "FloatBorder",
   "SignColumn",
   "LineNr",
   "CursorLineNr",
@@ -16,6 +14,9 @@ local function apply_transparent_background()
   for _, group in ipairs(transparent_groups) do
     vim.api.nvim_set_hl(0, group, { bg = "NONE" })
   end
+
+  vim.api.nvim_set_hl(0, "SnacksTerminalNormal", { bg = "#1f2335" })
+  vim.api.nvim_set_hl(0, "SnacksTerminalBorder", { fg = "#7aa2f7", bg = "#1f2335" })
 end
 
 apply_transparent_background()

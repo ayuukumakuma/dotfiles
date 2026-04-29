@@ -6,7 +6,7 @@ return {
     { "nvim-mini/mini.icons", opts = {} },
   },
   keys = {
-    { "-", "<cmd>Oil<cr>", desc = "Open parent directory" },
+    { "-", "<cmd>Oil<cr>", desc = "親ディレクトリを開く" },
   },
   opts = {
     default_file_explorer = true,
