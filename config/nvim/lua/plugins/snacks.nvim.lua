@@ -4,7 +4,7 @@
 -- 大きなファイル対策と、ファイル指定起動時の初期表示高速化。
 -- 起動画面、ファイル選択、入力欄、通知など普段使いの表示を Snacks に寄せる。
 -- インデント、スコープ、スクロール、ステータス列、参照ジャンプで編集画面を補助する。
--- スクラッチバッファ、ターミナル、LazyGit、ブラウザ表示、集中モードはキーマップから呼び出す。
+-- スクラッチバッファ、ターミナル、LazyGit、GitHub 連携、ブラウザ表示、集中モードはキーマップから呼び出す。
 -- コマンドラインそのもののリッチ表示は Snacks ではなく noice.nvim 側に任せる。
 return {
   "folke/snacks.nvim",
@@ -14,6 +14,7 @@ return {
     bigfile = { enabled = true },
     dashboard = { enabled = true },
     explorer = { enabled = false },
+    gh = {},
     indent = { enabled = true },
     input = { enabled = true },
     notifier = {
@@ -26,6 +27,7 @@ return {
     scroll = { enabled = true },
     statuscolumn = { enabled = true },
     words = { enabled = true },
+    dim = { enabled = true },
     styles = {
       terminal = {
         border = "rounded",
@@ -60,6 +62,10 @@ return {
     { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git差分ハンク" },
     { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Gitの場所をブラウザで開く", mode = { "n", "v" } },
     { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygitを開く" },
+    { "<leader>gi", function() Snacks.picker.gh_issue() end, desc = "GitHub Issue一覧" },
+    { "<leader>gI", function() Snacks.picker.gh_issue({ state = "all" }) end, desc = "GitHub Issue一覧（全件）" },
+    { "<leader>gp", function() Snacks.picker.gh_pr() end, desc = "GitHub PR一覧" },
+    { "<leader>gP", function() Snacks.picker.gh_pr({ state = "all" }) end, desc = "GitHub PR一覧（全件）" },
 
     { "<leader>sb", function() Snacks.picker.lines() end, desc = "バッファ内の行を探す" },
     { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "開いているバッファを検索" },
