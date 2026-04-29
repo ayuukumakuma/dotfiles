@@ -1,12 +1,20 @@
 -- nvim-treesitter のパーサー導入と構文解析の起動設定です。
 local parsers = {
   "bash",
+  "diff",
+  "fish",
+  "gitcommit",
+  "json",
+  "just",
   "lua",
   "markdown",
   "markdown_inline",
+  "nix",
   "regex",
+  "toml",
   "vim",
   "vimdoc",
+  "yaml",
 }
 
 return {
@@ -19,7 +27,22 @@ return {
     require("nvim-treesitter").setup(opts)
 
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = { "bash", "lua", "markdown", "sh", "vim", "vimdoc" },
+      pattern = {
+        "bash",
+        "diff",
+        "fish",
+        "gitcommit",
+        "json",
+        "just",
+        "lua",
+        "markdown",
+        "nix",
+        "sh",
+        "toml",
+        "vim",
+        "vimdoc",
+        "yaml",
+      },
       callback = function()
         pcall(vim.treesitter.start)
       end,
