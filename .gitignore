@@ -1,7 +1,6 @@
 *.local.*
 !config/git/config.local.example
 config/git/config.local
-nix/local.nix
 .DS_Store
 fish_variables
 nix/result

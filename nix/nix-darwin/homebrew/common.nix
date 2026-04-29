@@ -88,6 +88,7 @@ let
     "chatgpt"
     "portkiller"
     "tablepro"
+    "nani"
 
     ### Fonts
     "font-hackgen-nerd"

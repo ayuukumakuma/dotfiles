@@ -77,7 +77,7 @@
       "enabled": true,
     },
   },
-  "disable_ai": false,
+  "disable_ai": true,
   "edit_predictions": {
     "ollama": {
       "model": "qwen3.5:2b",

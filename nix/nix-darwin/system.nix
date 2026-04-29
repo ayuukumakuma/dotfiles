@@ -78,6 +78,12 @@
         # 左右クリックを有効にする
         MouseButtonMode = "TwoButton";
       };
+      trackpad = {
+        # タップでクリックを有効にする
+        Clicking = true;
+        # 2本指タップ/クリックで右クリックを有効にする
+        TrackpadRightClick = true;
+      };
       menuExtraClock = {
         # メニューバーの時計を24時間表示にする
         Show24Hour = true;

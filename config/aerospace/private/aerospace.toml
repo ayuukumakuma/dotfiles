@@ -64,8 +64,12 @@ if.app-id = "com.openai.codex"
 run = "move-node-to-workspace 2" # Codexをワークスペース2に移動
 
 [[on-window-detected]]
+if.app-id = "com.github.wez.wezterm"
+run = "move-node-to-workspace 3" # WezTermをワークスペース3に移動
+
+[[on-window-detected]]
 if.app-id = "com.spotify.client"
-run = "move-node-to-workspace 3" # Spotifyをワークスペース3に移動
+run = "move-node-to-workspace 4" # Spotifyをワークスペース4に移動
 
 # フローティングで扱うアプリ
 [[on-window-detected]]
@@ -136,7 +140,7 @@ inner.horizontal = 5
 inner.vertical = 5
 outer.left = 5
 outer.bottom = [{ monitor.secondary = 3 }, { monitor.'^built-in retina display$' = 3 }, 38]
-outer.top = [{ monitor.secondary = 7 }, { monitor.'^built-in retina display$' = 3 }, 38]
+outer.top = [{ monitor.secondary = 3 }, { monitor.'^built-in retina display$' = 3 }, 38]
 outer.right = 5
 
 # 'main' バインディングモードの宣言
