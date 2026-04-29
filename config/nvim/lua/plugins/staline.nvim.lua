@@ -125,6 +125,19 @@ return {
       },
     })
 
+    require("stabline").setup({
+      style = "bubble",
+      bg = colors.surface0,
+      fg = colors.text,
+      inactive_bg = colors.mantle,
+      inactive_fg = colors.overlay0,
+      stab_bg = "none",
+      font_active = "bold",
+      exclude_fts = { "NvimTree", "help", "lazy", "snacks_dashboard" },
+      numbers = "ordinal",
+    })
+
     vim.o.statusline = "%!v:lua.require'staline'.get_statusline('active')"
+    vim.o.showtabline = 2
   end,
 }
