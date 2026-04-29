@@ -19,8 +19,8 @@ codex_hooks = true
 undo = true
 tool_search = true
 remote_control = true
-memories = false
-chronicle = false
+memories = true
+chronicle = true
 
 [feedback]
 enabled = false
@@ -106,21 +106,33 @@ enabled = true
 [plugins."github@claude-plugins-official"]
 enabled = true
 
+[plugins."figma@openai-curated"]
+enabled = true
+
+[plugins."notion@openai-curated"]
+enabled = true
+
 [marketplaces.openai-bundled]
-last_updated = "2026-04-28T03:56:40Z"
+last_updated = "2026-04-29T03:18:34Z"
 source_type = "local"
-source = "/Users/nasuno.ayumu/.codex/.tmp/bundled-marketplaces/openai-bundled"
+source = "/Users/luvpame/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.claude-plugins-official]
-last_updated = "2026-04-28T14:46:55Z"
-last_revision = "18113ade5c13cd90e669c650a58b1c815f0b158b"
+last_updated = "2026-04-29T03:23:16Z"
+last_revision = "e73e9a6257ac5285a7218dc5e7e99b1ae2dc65e7"
 source_type = "git"
 source = "https://github.com/anthropics/claude-plugins-official.git"
 
 [marketplaces.openai-primary-runtime]
-last_updated = "2026-04-28T04:19:20Z"
+last_updated = "2026-04-28T15:09:26Z"
 source_type = "local"
-source = "/Users/nasuno.ayumu/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+source = "/Users/luvpame/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
 
 [projects."/Users/nasuno.ayumu/dev/github.com/luvpame/dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/luvpame/dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/luvpame/dev/github.com/luvpame/dotfiles"]
 trust_level = "trusted"
