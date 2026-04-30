@@ -6,8 +6,12 @@
   taps = [ ];
 
   # プライベート用だけで入れたい GUI アプリやフォントはここに追加する。
-  casks = [ ];
+  casks = [
+    "altserver"
+  ];
 
   # プライベート用だけで入れたい Mac App Store アプリはここに追加する。
-  masApps = { };
+  masApps = {
+    "Xcode" = 497799835;
+  };
 }
