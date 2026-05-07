@@ -1,6 +1,6 @@
 #:schema https://developers.openai.com/codex/config-schema.json
 model_reasoning_effort = "medium"
-personality = "friendly"
+personality = "pragmatic"
 forced_login_method = "chatgpt"
 model = "gpt-5.5"
 web_search = "live"
@@ -55,9 +55,6 @@ enabled = true
 [plugins."computer-use@openai-bundled"]
 enabled = true
 
-[plugins."browser-use@openai-bundled"]
-enabled = true
-
 [plugins."claude-md-management@claude-plugins-official"]
 enabled = false
 
@@ -106,19 +103,22 @@ enabled = false
 [plugins."superpowers@openai-curated"]
 enabled = true
 
+[plugins."browser-use@openai-bundled"]
+enabled = true
+
 [marketplaces.openai-bundled]
-last_updated = "2026-04-29T22:42:25Z"
+last_updated = "2026-05-07T00:03:53Z"
 source_type = "local"
-source = "/Users/nasuno.ayumu/.codex/.tmp/bundled-marketplaces/openai-bundled"
+source = "/Users/luvpame/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.claude-plugins-official]
-last_updated = "2026-04-30T12:51:26Z"
-last_revision = "0742692199b49af5c6c33cd68ee674fb2e679d50"
+last_updated = "2026-05-07T00:03:53Z"
+last_revision = "d6947b6f35ada84a029349c76e9e44b1d35fb71e"
 source_type = "git"
 source = "https://github.com/anthropics/claude-plugins-official.git"
 
 [marketplaces.openai-primary-runtime]
-last_updated = "2026-04-28T15:09:26Z"
+last_updated = "2026-05-02T13:49:50Z"
 source_type = "local"
 source = "/Users/luvpame/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
 
@@ -130,3 +130,14 @@ trust_level = "trusted"
 
 [projects."/Users/luvpame/dev/github.com/luvpame/dotfiles"]
 trust_level = "trusted"
+
+[projects."/Users/luvpame/Documents/Codex/2026-05-02/https-oto-mart-com-oto-assets"]
+trust_level = "trusted"
+
+[projects."/Users/luvpame/dev/github.com/luvpame/setsuna"]
+trust_level = "trusted"
+
+[mcp_servers.xcode]
+args = ["mcpbridge"]
+command = "xcrun"
+enabled = true
