@@ -8,6 +8,8 @@
   # プライベート用だけで入れたい GUI アプリやフォントはここに追加する。
   casks = [
     "altserver"
+    "discord"
+    "rekordbox"
   ];
 
   # プライベート用だけで入れたい Mac App Store アプリはここに追加する。
