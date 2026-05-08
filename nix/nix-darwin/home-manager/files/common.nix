@@ -13,6 +13,7 @@ in
   xdg.enable = true;
   xdg.configFile = {
     fish.source = oos "${configRoot}/fish";
+    zsh.source = oos "${configRoot}/zsh";
     git.source = oos "${configRoot}/git";
     mise.source = oos "${configRoot}/mise";
     nvim.source = oos "${configRoot}/nvim";
@@ -33,6 +34,7 @@ in
   };
 
   home.file = {
+    ".zshenv".source = oos "${configRoot}/zsh/.zshenv";
     ".agents".source = oos "${configRoot}/agents";
     ".codex/hooks".source = oos "${configRoot}/codex/hooks";
     ".codex/hooks.json".source = oos "${configRoot}/codex/hooks.json";
