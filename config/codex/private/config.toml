@@ -1,5 +1,5 @@
 #:schema https://developers.openai.com/codex/config-schema.json
-model_reasoning_effort = "medium"
+model_reasoning_effort = "low"
 personality = "pragmatic"
 forced_login_method = "chatgpt"
 model = "gpt-5.5"
@@ -29,25 +29,12 @@ enabled = false
 network_access = true
 
 [tui]
-status_line = [
-  "model-with-reasoning",
-  "project-root",
-  "git-branch",
-  "context-used",
-  "five-hour-limit",
-  "weekly-limit",
-  "codex-version",
-]
+status_line = ["model-with-reasoning", "project-name", "git-branch", "context-used", "five-hour-limit", "weekly-limit", "codex-version", "pull-request-number", "run-state", "fast-mode", "thread-title", "task-progress"]
 theme = "catppuccin-latte"
+status_line_use_colors = true
 
 [tui.model_availability_nux]
 "gpt-5.5" = 4
-
-[plugins."google-calendar@openai-curated"]
-enabled = false
-
-[plugins."gmail@openai-curated"]
-enabled = false
 
 [plugins."github@openai-curated"]
 enabled = true
@@ -55,38 +42,20 @@ enabled = true
 [plugins."computer-use@openai-bundled"]
 enabled = true
 
-[plugins."claude-md-management@claude-plugins-official"]
-enabled = false
-
-[plugins."code-review@claude-plugins-official"]
-enabled = false
-
 [plugins."code-simplifier@claude-plugins-official"]
 enabled = true
-
-[plugins."context7@claude-plugins-official"]
-enabled = false
 
 [plugins."feature-dev@claude-plugins-official"]
 enabled = true
 
-[plugins."figma@claude-plugins-official"]
-enabled = false
-
 [plugins."frontend-design@claude-plugins-official"]
 enabled = true
 
-[plugins."plugin-dev@claude-plugins-official"]
-enabled = false
+[plugins."superpowers@openai-curated"]
+enabled = true
 
-[plugins."pr-review-toolkit@claude-plugins-official"]
-enabled = false
-
-[plugins."slack@claude-plugins-official"]
-enabled = false
-
-[plugins."terraform@claude-plugins-official"]
-enabled = false
+[plugins."build-ios-apps@openai-curated"]
+enabled = true
 
 [plugins."documents@openai-primary-runtime"]
 enabled = true
@@ -95,12 +64,6 @@ enabled = true
 enabled = true
 
 [plugins."presentations@openai-primary-runtime"]
-enabled = true
-
-[plugins."github@claude-plugins-official"]
-enabled = false
-
-[plugins."superpowers@openai-curated"]
 enabled = true
 
 [plugins."browser-use@openai-bundled"]
@@ -115,7 +78,7 @@ source_type = "local"
 source = "/Users/nasuno.ayumu/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.claude-plugins-official]
-last_updated = "2026-05-07T01:55:27Z"
+last_updated = "2026-05-08T02:03:53Z"
 last_revision = "00679aef889efe36bb0389f81d70b6229a2013ee"
 source_type = "git"
 source = "https://github.com/anthropics/claude-plugins-official.git"
@@ -165,9 +128,6 @@ trusted_hash = "sha256:f80728ad206e6647577d90719509022f480a805fe1872bc844eefe51f
 [memories]
 generate_memories = false
 use_memories = false
-
-[plugins."build-ios-apps@openai-curated"]
-enabled = true
 
 [projects."/Users/luvpame/dev/github.com/luvpame/ios-camera-simulator"]
 trust_level = "trusted"
