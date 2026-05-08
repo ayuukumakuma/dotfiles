@@ -18,6 +18,7 @@
     "google-drive"
     "claude"
     "drawio"
+    "visual-studio-code"
   ];
 
   # 仕事用だけで入れたい Mac App Store アプリはここに追加する。

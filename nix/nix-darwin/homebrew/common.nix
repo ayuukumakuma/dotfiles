@@ -31,6 +31,7 @@ let
     "mas" # Mac App Store CLI
     "im-select"
     "git-delta"
+    "ripgrep" # codex formula dependency; keep cleanup from trying to remove it
     "curl" # cage で homebrew 産の curl が必要
     "roots"
     # `mo` と `mole` は同名バイナリを含むため、必要な link だけ activation で戻す。
@@ -79,7 +80,6 @@ let
     "codex-app"
     "codex"
     "thebrowsercompany-dia"
-    "visual-studio-code"
     "spotify"
     "azookey"
     "a-bar"
@@ -109,6 +109,10 @@ in
       upgrade = true;
       autoUpdate = true;
       cleanup = "zap";
+      extraEnv = {
+        # Homebrew 5.1.9's cask API loader crashes on macOS 26 cask metadata.
+        HOMEBREW_NO_INSTALL_FROM_API = "1";
+      };
     };
     brews = commonBrews ++ profileHomebrew.brews;
     taps = commonTaps ++ profileHomebrew.taps;
