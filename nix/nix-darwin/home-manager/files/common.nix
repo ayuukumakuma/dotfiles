@@ -34,7 +34,6 @@ in
 
   home.file = {
     ".agents".source = oos "${configRoot}/agents";
-    ".codex/config.toml".source = oos "${configRoot}/codex/config.toml";
     ".codex/hooks".source = oos "${configRoot}/codex/hooks";
     ".codex/hooks.json".source = oos "${configRoot}/codex/hooks.json";
   };

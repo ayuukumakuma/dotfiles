@@ -7,5 +7,7 @@ in
   xdg.configFile = {
     aerospace.source = oos "${configRoot}/aerospace/private";
   };
-  home.file = { };
+  home.file = {
+    ".codex/config.toml".source = oos "${configRoot}/codex/private/config.toml";
+  };
 }

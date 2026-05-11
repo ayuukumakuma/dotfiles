@@ -8,6 +8,7 @@ in
     aerospace.source = oos "${configRoot}/aerospace/work";
   };
   home.file = {
+    ".codex/config.toml".source = oos "${configRoot}/codex/work/config.toml";
     ".claude/settings.json".source = oos "${configRoot}/claude/settings.json";
     ".claude/statusline.py".source = oos "${configRoot}/claude/statusline.py";
     ".claude/hooks".source = oos "${configRoot}/claude/hooks";
