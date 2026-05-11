@@ -30,6 +30,7 @@ presets:
       - "$HOME/.claude.json.backup"
       - "$HOME/.claude.json.lock"
       - "$HOME/.claude.lock"
+      - "$HOME/Library/Caches/claude-cli-nodejs"
   codex:
     allow:
       - path: "$HOME/.codex"
