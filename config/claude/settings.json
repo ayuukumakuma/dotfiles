@@ -149,7 +149,8 @@
   "sandbox": {
     "enabled": false
   },
-  "voiceEnabled": true,
   "autoMemoryEnabled": false,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": true,
+  "model": "sonnet"
 }

@@ -110,7 +110,7 @@ enabled = true
 enabled = true
 
 [marketplaces.claude-plugins-official]
-last_updated = "2026-05-11T01:16:58Z"
+last_updated = "2026-05-11T01:39:50Z"
 last_revision = "00679aef889efe36bb0389f81d70b6229a2013ee"
 source_type = "git"
 source = "https://github.com/anthropics/claude-plugins-official.git"
@@ -140,3 +140,6 @@ trusted_hash = "sha256:f80728ad206e6647577d90719509022f480a805fe1872bc844eefe51f
 [memories]
 generate_memories = false
 use_memories = false
+
+[projects."/Users/nasuno.ayumu/dev/github.com/luvpame/dotfiles"]
+trust_level = "trusted"
