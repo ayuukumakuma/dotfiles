@@ -40,20 +40,11 @@ status_line_use_colors = true
 trust_level = "trusted"
 
 [marketplaces.openai-bundled]
-last_updated = "2026-05-12T00:44:13Z"
+last_updated = "2026-05-12T01:12:41Z"
 source_type = "local"
 source = "/Users/nasuno.ayumu/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
-[marketplaces.claude-plugins-official]
-last_updated = "2026-05-12T01:04:24Z"
-last_revision = "45896c8f2fe68e68ca2a8e3554d4441f48475431"
-source_type = "git"
-source = "https://github.com/anthropics/claude-plugins-official.git"
-
 [plugins."browser-use@openai-bundled"]
-enabled = true
-
-[plugins."code-simplifier@claude-plugins-official"]
 enabled = true
 
 [plugins."superpowers@openai-curated"]
