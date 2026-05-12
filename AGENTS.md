@@ -33,7 +33,7 @@
 ## セキュリティ & 設定の注意点
 - `nix/local.nix` は非追跡のローカル設定ファイルで、`nix/local.nix.example` を元に各環境の値へ編集して使う。
 - `nix/local.nix.example` は初期値の参照用テンプレートとして保持し、必要に応じて `nix/local.nix` と見比べて更新する。
-- `nix/local.nix` は秘密情報やホスト固有値を含むため `.gitignore` に入れ、コミットしない。
+- `nix/local.nix` は秘密情報やホスト固有値を含むためコミットしない。Nix が検知できるよう `.gitignore` には追加せず、誤って追跡されている場合はファイルを残したまま `git rm --cached nix/local.nix` で追跡だけ外す。
 - 秘密情報はコミットしない。Git の identity は `~/.config/git/config.local`（テンプレート: `config/git/config.local.example`）に保持し、その他の認証情報は 1Password CLI（`op signin`）を使用。
 - `flake.lock` を唯一の正とし、手動編集は避ける。依存更新時にはロックファイルもコミット。
 - 新しい cask やパッケージを追加する場合は `nix/nix-darwin/homebrew/` と `nix/nix-darwin/home-manager/packages/` 配下を優先して宣言的に管理し、switch コマンドを再実行してシステムに反映。
