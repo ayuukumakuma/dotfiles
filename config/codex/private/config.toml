@@ -115,7 +115,7 @@ source_type = "local"
 source = "/Users/nasuno.ayumu/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.claude-plugins-official]
-last_updated = "2026-05-11T00:11:21Z"
+last_updated = "2026-05-07T01:55:27Z"
 last_revision = "00679aef889efe36bb0389f81d70b6229a2013ee"
 source_type = "git"
 source = "https://github.com/anthropics/claude-plugins-official.git"
@@ -165,3 +165,9 @@ trusted_hash = "sha256:f80728ad206e6647577d90719509022f480a805fe1872bc844eefe51f
 [memories]
 generate_memories = false
 use_memories = false
+
+[plugins."build-ios-apps@openai-curated"]
+enabled = true
+
+[projects."/Users/luvpame/dev/github.com/luvpame/ios-camera-simulator"]
+trust_level = "trusted"
