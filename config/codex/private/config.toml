@@ -78,8 +78,8 @@ source_type = "local"
 source = "/Users/nasuno.ayumu/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.claude-plugins-official]
-last_updated = "2026-05-08T02:03:53Z"
-last_revision = "00679aef889efe36bb0389f81d70b6229a2013ee"
+last_updated = "2026-05-12T13:13:50Z"
+last_revision = "45896c8f2fe68e68ca2a8e3554d4441f48475431"
 source_type = "git"
 source = "https://github.com/anthropics/claude-plugins-official.git"
 
