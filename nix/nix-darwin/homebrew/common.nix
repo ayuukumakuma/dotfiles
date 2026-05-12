@@ -32,6 +32,7 @@ let
     "im-select"
     "git-delta"
     "curl" # cage で homebrew 産の curl が必要
+    "roots"
     # `mo` と `mole` は同名バイナリを含むため、必要な link だけ activation で戻す。
     {
       name = "mo";

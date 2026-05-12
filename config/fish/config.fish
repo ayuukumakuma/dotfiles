@@ -35,6 +35,12 @@ if status is-interactive
   # Configurations for plugin: fish-fzf
   set -gx FZF_DISABLE_KEYBINDINGS 1
 
+  # Configurations for zoxide
+  if command -q zoxide
+    zoxide init fish --cmd z | source
+    alias cd z
+  end
+
   # Configurations for git
   set -gx GIT_CONFIG_GLOBAL ~/.config/git/config
 

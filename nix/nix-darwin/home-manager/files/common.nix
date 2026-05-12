@@ -36,5 +36,6 @@ in
     ".agents".source = oos "${configRoot}/agents";
     ".codex/hooks".source = oos "${configRoot}/codex/hooks";
     ".codex/hooks.json".source = oos "${configRoot}/codex/hooks.json";
+    ".codex/AGENTS.md".source = oos "${configRoot}/codex/AGENTS.md";
   };
 }

@@ -28,6 +28,7 @@ let
     ripgrep
     eza
     fish
+    zoxide
     gh
     git
     just

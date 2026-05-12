@@ -1,19 +1,13 @@
 function ghq_cd_fzf --description 'Search ghq repositories with fzf and cd into selected repo'
-    for cmd in ghq fzf
+    for cmd in ghq fzf roots
         if not type -q $cmd
             echo "ghq_cd_fzf: $cmd command is not installed." >&2
             return 127
         end
     end
 
-    set -l ghq_root (ghq root 2>/dev/null)
-    if test -z "$ghq_root"
-        echo 'ghq_cd_fzf: failed to get ghq root.' >&2
-        return 1
-    end
-
     set -l preview_cmd "
-set -l repo_path '$ghq_root'/'{}'
+set -l repo_path '{}'
 
 if not test -d \"\$repo_path\"
     echo \"Not found: \$repo_path\"
@@ -50,18 +44,18 @@ else
 end
 "
 
-    set -l selected_repo (
-        ghq list | _fzf_wrapper \
+    set -l selected_path (
+        ghq list --full-path | roots | _fzf_wrapper \
             --ansi \
             --height 80% \
             --layout=reverse \
-            --prompt='ghq> ' \
+            --prompt='ghq roots> ' \
             --preview-window='right:60%:wrap' \
             --preview "$preview_cmd"
     )
-    if test -z "$selected_repo"
+    if test -z "$selected_path"
         return
     end
 
-    cd -- "$ghq_root/$selected_repo"
+    cd -- "$selected_path"
 end
