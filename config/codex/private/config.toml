@@ -19,8 +19,8 @@ hooks = true
 undo = true
 tool_search = true
 remote_control = true
-memories = false
-chronicle = false
+memories = true
+chronicle = true
 
 [feedback]
 enabled = false
@@ -72,16 +72,13 @@ enabled = true
 [plugins."chrome@openai-bundled"]
 enabled = true
 
-[marketplaces.openai-bundled]
-last_updated = "2026-05-11T00:11:21Z"
-source_type = "local"
-source = "/Users/nasuno.ayumu/.codex/.tmp/bundled-marketplaces/openai-bundled"
+[plugins."gmail@openai-curated"]
+enabled = true
 
-[marketplaces.claude-plugins-official]
-last_updated = "2026-05-12T13:13:50Z"
-last_revision = "45896c8f2fe68e68ca2a8e3554d4441f48475431"
-source_type = "git"
-source = "https://github.com/anthropics/claude-plugins-official.git"
+[marketplaces.openai-bundled]
+last_updated = "2026-05-12T13:19:08Z"
+source_type = "local"
+source = "/Users/luvpame/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.openai-primary-runtime]
 last_updated = "2026-05-11T00:19:11Z"
@@ -110,6 +107,21 @@ enabled = true
 
 [hooks.state]
 
+[hooks.state."/Users/luvpame/.codex/hooks.json:pre_tool_use:0:0"]
+trusted_hash = "sha256:fbce185f06778f6935e18e60df59bbaeb3ba05d558ba9dfbe64b8133f5ce68fb"
+
+[hooks.state."/Users/luvpame/.codex/hooks.json:pre_tool_use:0:1"]
+trusted_hash = "sha256:834b651aa08dfd2df53a7236deeea5833d288e73624e6265cff78ea1dd38d3fd"
+
+[hooks.state."/Users/luvpame/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:5d1ae6f116fa0b65e1e69653956185b504f1a0fc00b7d6c3f26bce68f17eff2f"
+
+[hooks.state."/Users/luvpame/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:3988b809d1a46c97a9c5405712be87db63906a51f9467c7ca88ce36b60b649a5"
+
+[hooks.state."/Users/luvpame/.codex/hooks.json:user_prompt_submit:0:0"]
+trusted_hash = "sha256:f80728ad206e6647577d90719509022f480a805fe1872bc844eefe51fa36fe13"
+
 [hooks.state."/Users/nasuno.ayumu/.codex/hooks.json:pre_tool_use:0:0"]
 trusted_hash = "sha256:fbce185f06778f6935e18e60df59bbaeb3ba05d558ba9dfbe64b8133f5ce68fb"
 
@@ -126,8 +138,8 @@ trusted_hash = "sha256:3988b809d1a46c97a9c5405712be87db63906a51f9467c7ca88ce36b6
 trusted_hash = "sha256:f80728ad206e6647577d90719509022f480a805fe1872bc844eefe51fa36fe13"
 
 [memories]
-generate_memories = false
-use_memories = false
+generate_memories = true
+use_memories = true
 
 [projects."/Users/luvpame/dev/github.com/luvpame/ios-camera-simulator"]
 trust_level = "trusted"
