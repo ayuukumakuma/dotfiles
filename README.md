@@ -56,6 +56,7 @@ Git のユーザー情報は `config/git/config.local` に設定する。
 このファイルもローカル専用で、Git にはコミットしない。
 
 ```bash
+test -f config/git/config.local || cp config/git/config.local.example config/git/config.local
 $EDITOR config/git/config.local
 ```
 
