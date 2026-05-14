@@ -1,5 +1,5 @@
 #:schema https://developers.openai.com/codex/config-schema.json
-model_reasoning_effort = "low"
+model_reasoning_effort = "medium"
 personality = "pragmatic"
 forced_login_method = "chatgpt"
 model = "gpt-5.5"
@@ -39,15 +39,38 @@ status_line_use_colors = true
 [projects."/Users/nasuno.ayumu/dev/github.com/luvpame/dotfiles"]
 trust_level = "trusted"
 
+[projects."/Users/nasuno.ayumu/dev/github.com/luvpame/calpeek"]
+trust_level = "trusted"
+
+[projects."/Users/nasuno.ayumu/Documents/Codex/2026-05-14/superpowers-brainstorming-users-nasuno-ayumu-codex"]
+trust_level = "trusted"
+
 [marketplaces.openai-bundled]
-last_updated = "2026-05-12T01:12:41Z"
+last_updated = "2026-05-14T04:17:43Z"
 source_type = "local"
 source = "/Users/nasuno.ayumu/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+last_updated = "2026-05-14T04:19:24Z"
+source_type = "local"
+source = "/Users/nasuno.ayumu/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+[plugins."superpowers@openai-curated"]
+enabled = true
+
+[plugins."codex-security@openai-curated"]
+enabled = true
 
 [plugins."browser-use@openai-bundled"]
 enabled = true
 
-[plugins."superpowers@openai-curated"]
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
 enabled = true
 
 [hooks.state]
