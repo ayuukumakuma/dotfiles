@@ -88,7 +88,6 @@ let
     "cage"
     "chatgpt"
     "portkiller"
-    "tablepro"
     "nani"
 
     ### Fonts
