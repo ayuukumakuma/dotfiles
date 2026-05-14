@@ -109,10 +109,6 @@ in
       upgrade = true;
       autoUpdate = true;
       cleanup = "zap";
-      extraEnv = {
-        # Homebrew 5.1.9's cask API loader crashes on macOS 26 cask metadata.
-        HOMEBREW_NO_INSTALL_FROM_API = "1";
-      };
     };
     brews = commonBrews ++ profileHomebrew.brews;
     taps = commonTaps ++ profileHomebrew.taps;
