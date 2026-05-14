@@ -52,8 +52,8 @@ on-mode-changed = []
 # 参照: https://nikitabobko.github.io/AeroSpace/goodies#automation
 
 [[on-window-detected]]
-if.app-id = "com.gather.GatherV2"
-run = "move-node-to-workspace 0"  # Gatherをワークスペース0に移動
+if.app-id = "com.stengo.DeskPad"
+run = "move-node-to-workspace 0"  # DeskPadをワークスペース0に移動
 
 [[on-window-detected]]
 if.app-id = "company.thebrowser.dia"
@@ -139,7 +139,7 @@ preset = "qwerty"
 4 = "main"      # ワークスペース4をメインモニターに割り当て
 5 = "main"      # ワークスペース5をメインモニターに割り当て
 6 = "main"      # ワークスペース6をメインモニターに割り当て
-7 = "main"      # ワークスペース7をセカンダリモニターに割り当て
+7 = "DeskPad"      # ワークスペース7をセカンダリモニターに割り当て
 8 = "secondary" # ワークスペース8をセカンダリモニターに割り当て
 9 = "secondary" # ワークスペース9をセカンダリモニターに割り当て
 
