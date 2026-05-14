@@ -17,6 +17,10 @@
     };
     yazi.url = "github:sxyazi/yazi";
     guard-and-guide.url = "github:kawarimidoll/guard-and-guide";
+    calpeek = {
+      url = "github:luvpame/calpeek";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
