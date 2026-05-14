@@ -6,7 +6,7 @@
 - `flake.nix` / `flake.lock`: Flake のエントリポイントと依存の固定。
 - `nix-darwin/`: system と Home Manager のモジュール群。
 - `default.nix`、`nix-core.nix`、`users.nix`、`system.nix`、`homebrew/`（`common.nix`、`work.nix`、`private.nix`）
-- `home-manager/`（`default.nix`、`files.nix`、`packages/`）
+- `home-manager/`（`default.nix`、`files/`、`packages/`）
 - `pkgs/`: nixpkgs にないカスタムパッケージ定義（例: `site2skill`、`tree-sitter-cli`）。
 - `local.nix` / `local.nix.example`: ローカルマシン固有の上書き設定。
 
@@ -17,8 +17,8 @@
   Flake 出力とモジュール評価を検証します。
 - `sudo -H nix run nix-darwin -- switch --flake path:.#<darwinConfigName>`
   system + Home Manager 設定をホストに適用します。
-- `nix run path:.#update`
-  flake input と関連プロファイルを更新します。
+- `nix flake update`
+  flake input を更新します。
 
 コマンドは `nix/` ディレクトリで実行してください。
 `nix flake` 系コマンドは Codex 実行環境だと極端に遅くなるため、必要時はユーザー環境での実行を依頼してください。
@@ -51,6 +51,7 @@
 - `userName`
 - `homeDirectory`（絶対パス）
 - `dotfilesRoot`（このリポジトリの絶対パス）
+- `profile`（`work` または `private`）
 - `local.nix` はローカル専用のためコミットしない。
-- `local.nix` は秘密情報やホスト固有値を含むため `.gitignore` に追加し、非追跡のまま使う。
+- `local.nix` は秘密情報やホスト固有値を含むためコミットしない。Nix が検知できるよう `.gitignore` には追加せず、誤って追跡されている場合はファイルを残したまま `git rm --cached local.nix` で追跡だけ外す。
 - `just switch` は `local.nix` を直接読むため、switch 前に `cp local.nix.example local.nix` で作成しておく。

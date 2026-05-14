@@ -5,7 +5,7 @@
 - `config/`: 各種ツール設定を集約するディレクトリ。`config/fish/` にシェル設定、`config/git/` に Git 設定、`config/agents/skills/` に再利用可能なエージェントスキルを保存する。加えて `config/aerospace/`、`config/cage/`、`config/efm-langserver/`、`config/gh/`、`config/guard-and-guide/`、`config/lazygit/`、`config/mise/`、`config/nvim/`、`config/raycast/`、`config/tmux/`、`config/wezterm/`、`config/yazi/`、`config/zed/`、`config/zsh/` などのツール別設定を配置する。`config/claude/` には `CLAUDE.md`・`settings.json`・`statusline.py`・`hooks/`、`config/codex/` には `AGENTS.md`・`hooks.json`・`hooks/` と用途別の `private/` / `work/` 設定がある。
 - `script/`: ユーティリティ Bash スクリプトを配置するディレクトリ。現状は `set-fish-default.sh` がある。
 - `menubar-script/`: `claude/`、`codex/`、`ime/`、`media/` などのメニューバー連携用スクリプト群。
-- 補助アセットや生成物として `build/`（`download/` と `markdown/` を含む）と `docs/`、運用コマンドの入口としてトップレベルの `justfile` がある。隠しディレクトリとして `.claude/`（`settings.local.json`）に加え、ツール実行時のランタイム状態を保持する `.cache/`・`.data/`・`.state/` がルートに現れる。補助ログとしてトップレベルの `nvim.log` も存在する。
+- 補助生成物として `build/`（`download/` と `markdown/` を含む）、運用コマンドの入口としてトップレベルの `justfile` がある。隠しディレクトリとして `.claude/`（`settings.local.json`）に加え、ツール実行時のランタイム状態を保持する `.cache/`・`.data/`・`.state/` がルートに現れる。補助ログとしてトップレベルの `nvim.log` も存在する。
 
 ## ビルド・テスト・開発コマンド
 - `just check` — `nix/` で `nix flake check` を実行し、flake と darwin 設定を検証。
