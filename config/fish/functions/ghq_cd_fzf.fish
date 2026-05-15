@@ -57,8 +57,6 @@ end
         return
     end
 
-    cd -- "$selected_path"; or return
-
     set -l session_name (__ghq_tmux_session_name "$selected_path")
     if test -z "$session_name"
         echo "ghq_cd_fzf: failed to build tmux session name." >&2
