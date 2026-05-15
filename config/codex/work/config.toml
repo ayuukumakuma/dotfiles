@@ -46,7 +46,7 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [marketplaces.openai-bundled]
-last_updated = "2026-05-14T04:17:43Z"
+last_updated = "2026-05-14T23:48:01Z"
 source_type = "local"
 source = "/Users/nasuno.ayumu/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
@@ -61,9 +61,6 @@ enabled = true
 [plugins."codex-security@openai-curated"]
 enabled = true
 
-[plugins."browser-use@openai-bundled"]
-enabled = true
-
 [plugins."documents@openai-primary-runtime"]
 enabled = true
 
@@ -71,6 +68,9 @@ enabled = true
 enabled = true
 
 [plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."browser-use@openai-bundled"]
 enabled = true
 
 [hooks.state]
