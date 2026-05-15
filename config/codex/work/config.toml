@@ -1,10 +1,9 @@
-#:schema https://developers.openai.com/codex/config-schema.json
 model_reasoning_effort = "medium"
 personality = "pragmatic"
 forced_login_method = "chatgpt"
 model = "gpt-5.5"
 web_search = "live"
-notify = ["$HOME/.codex/hooks/notify-terminal-notifier.sh"]
+notify = [ "$HOME/.codex/hooks/notify-terminal-notifier.sh" ]
 suppress_unstable_features_warning = true
 plan_mode_reasoning_effort = "medium"
 approval_policy = "on-request"
@@ -18,7 +17,6 @@ js_repl = true
 hooks = true
 undo = true
 tool_search = true
-remote_control = true
 memories = false
 chronicle = false
 
@@ -29,7 +27,7 @@ enabled = false
 network_access = true
 
 [tui]
-status_line = ["model-with-reasoning", "project-name", "git-branch", "context-used", "five-hour-limit", "weekly-limit", "codex-version", "pull-request-number", "branch-changes", "run-state", "fast-mode", "thread-title", "task-progress"]
+status_line = [ "model-with-reasoning", "project-name", "git-branch", "context-used", "five-hour-limit", "weekly-limit", "codex-version", "pull-request-number", "branch-changes", "run-state", "fast-mode", "thread-title", "task-progress" ]
 theme = "catppuccin-latte"
 status_line_use_colors = true
 
@@ -46,7 +44,7 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [marketplaces.openai-bundled]
-last_updated = "2026-05-14T23:48:01Z"
+last_updated = "2026-05-15T01:25:16Z"
 source_type = "local"
 source = "/Users/nasuno.ayumu/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
@@ -70,10 +68,8 @@ enabled = true
 [plugins."presentations@openai-primary-runtime"]
 enabled = true
 
-[plugins."browser-use@openai-bundled"]
+[plugins."browser@openai-bundled"]
 enabled = true
-
-[hooks.state]
 
 [hooks.state."/Users/nasuno.ayumu/.codex/hooks.json:pre_tool_use:0:0"]
 trusted_hash = "sha256:fbce185f06778f6935e18e60df59bbaeb3ba05d558ba9dfbe64b8133f5ce68fb"
@@ -89,4 +85,3 @@ trusted_hash = "sha256:3988b809d1a46c97a9c5405712be87db63906a51f9467c7ca88ce36b6
 
 [hooks.state."/Users/nasuno.ayumu/.codex/hooks.json:user_prompt_submit:0:0"]
 trusted_hash = "sha256:f80728ad206e6647577d90719509022f480a805fe1872bc844eefe51fa36fe13"
-
