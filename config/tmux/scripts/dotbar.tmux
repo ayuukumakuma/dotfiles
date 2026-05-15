@@ -66,16 +66,18 @@ if [ "$right_state" != "true" ] && [ "$session_position" != "right" ]; then
 fi
 
 # Window Format & SSH
-base_window_format=$(get_tmux_option "@tmux-dotbar-window-status-format" ' #W ')
+window_index_prefix=' ###{window_index}'
+base_window_format=$(get_tmux_option "@tmux-dotbar-window-status-format" "${window_index_prefix} #W ")
+base_window_format_without_prefix="${base_window_format#"$window_index_prefix"}"
 ssh_enabled=$(get_tmux_option "@tmux-dotbar-ssh-enabled" true)
 
 if [ "$ssh_enabled" = true ]; then
   ssh_icon=$(get_tmux_option "@tmux-dotbar-ssh-icon" '󰌘')
   ssh_icon_only=$(get_tmux_option "@tmux-dotbar-ssh-icon-only" false)
   if [ "$ssh_icon_only" = true ]; then
-    ssh_window_format=" ${ssh_icon}${base_window_format}"
+    ssh_window_format="${window_index_prefix} ${ssh_icon}${base_window_format_without_prefix}"
   else
-    ssh_window_format=" ${ssh_icon} #(host=\$(echo '#{pane_title}' | sed 's/^ssh //; s/ .*//; s/.*@//; s/:.*//'); if echo \"\$host\" | grep -qE '^[0-9.]+\$|^[0-9]'; then echo '#W'; else echo \"\$host\"; fi | cut -c1-20) "
+    ssh_window_format="${window_index_prefix} ${ssh_icon} #(host=\$(echo '#{pane_title}' | sed 's/^ssh //; s/ .*//; s/.*@//; s/:.*//'); if echo \"\$host\" | grep -qE '^[0-9.]+\$|^[0-9]'; then echo '#W'; else echo \"\$host\"; fi | cut -c1-20) "
   fi
   window_status_format="#{?#{==:#{pane_current_command},ssh},${ssh_window_format},${base_window_format}}"
 else
