@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
 get_tmux_option() {
-  local option="$1"
-  local default_value="$2"
-  local option_value
-  option_value=$(tmux show-options -gqv "$option")
-  [ -n "$option_value" ] && echo "$option_value" || echo "$default_value"
+	local option="$1"
+	local default_value="$2"
+	local option_value
+	option_value=$(tmux show-options -gqv "$option")
+	[ -n "$option_value" ] && echo "$option_value" || echo "$default_value"
 }
+
+script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
 
 # Colors
 bg=$(get_tmux_option "@tmux-dotbar-bg" '#0B0E14')
@@ -35,26 +37,27 @@ bold_attr="bold"
 prefix_style="#[bg=$fg_prefix,fg=$fg_prefix_text,$bold_attr]"
 
 if [ "$rounded" = "true" ]; then
-  edge_left=''
-  edge_right=''
-  if [ "${#session_text}" -gt 2 ]; then
-    session_text_inner="${session_text:1:${#session_text}-2}"
-  else
-    session_text_inner="$session_text"
-  fi
-  session_component="#[bg=$bg,fg=$fg_session]#{?client_prefix,#[fg=$fg_prefix]$edge_left,$session_text}$prefix_style#{?client_prefix,$session_text_inner,}#[bg=$bg,fg=${fg_session}]#{?client_prefix,#[fg=$fg_prefix]$edge_right,}"
+	edge_left=''
+	edge_right=''
+	if [ "${#session_text}" -gt 2 ]; then
+		session_text_inner="${session_text:1:${#session_text}-2}"
+	else
+		session_text_inner="$session_text"
+	fi
+	session_component="#[bg=$bg,fg=$fg_session]#{?client_prefix,#[fg=$fg_prefix]$edge_left,$session_text}$prefix_style#{?client_prefix,$session_text_inner,}#[bg=$bg,fg=${fg_session}]#{?client_prefix,#[fg=$fg_prefix]$edge_right,}"
 else
-  session_component="#[bg=$bg,fg=$fg_session]#{?client_prefix,,$session_text}$prefix_style#{?client_prefix,$session_text,}#[bg=$bg,fg=${fg_session}]"
+	session_component="#[bg=$bg,fg=$fg_session]#{?client_prefix,,$session_text}$prefix_style#{?client_prefix,$session_text,}#[bg=$bg,fg=${fg_session}]"
 fi
 time_component="#[bg=$bg,fg=$fg_session]$time_text#[bg=$bg,fg=${fg_session}]"
+git_component="#[bg=$bg,fg=$fg_session]#($script_dir/git-status.sh full '#{pane_current_path}')#[bg=$bg,fg=${fg_session}]"
 
 # Build Default Status Strings
 if [ "$session_position" = "right" ]; then
-  default_left=""
-  [ "$right_state" = "true" ] && default_right="$time_component$session_component" || default_right="$session_component"
+	default_left=""
+	[ "$right_state" = "true" ] && default_right="$git_component$time_component$session_component" || default_right="$session_component"
 else
-  default_left="$session_component"
-  [ "$right_state" = "true" ] && default_right="$time_component" || default_right=""
+	default_left="$session_component"
+	[ "$right_state" = "true" ] && default_right="$git_component$time_component" || default_right=""
 fi
 
 status_left=$(get_tmux_option "@tmux-dotbar-status-left" "$default_left")
@@ -62,26 +65,26 @@ status_right=$(get_tmux_option "@tmux-dotbar-status-right" "$default_right")
 
 [ "$left_state" != "true" ] && status_left=""
 if [ "$right_state" != "true" ] && [ "$session_position" != "right" ]; then
-  status_right=""
+	status_right=""
 fi
 
 # Window Format & SSH
-window_index_prefix=' ###{window_index}'
-base_window_format=$(get_tmux_option "@tmux-dotbar-window-status-format" "${window_index_prefix} #W ")
+window_index_prefix='#{window_index}'
+base_window_format=$(get_tmux_option "@tmux-dotbar-window-status-format" "${window_index_prefix}:#W ")
 base_window_format_without_prefix="${base_window_format#"$window_index_prefix"}"
 ssh_enabled=$(get_tmux_option "@tmux-dotbar-ssh-enabled" true)
 
 if [ "$ssh_enabled" = true ]; then
-  ssh_icon=$(get_tmux_option "@tmux-dotbar-ssh-icon" '󰌘')
-  ssh_icon_only=$(get_tmux_option "@tmux-dotbar-ssh-icon-only" false)
-  if [ "$ssh_icon_only" = true ]; then
-    ssh_window_format="${window_index_prefix} ${ssh_icon}${base_window_format_without_prefix}"
-  else
-    ssh_window_format="${window_index_prefix} ${ssh_icon} #(host=\$(echo '#{pane_title}' | sed 's/^ssh //; s/ .*//; s/.*@//; s/:.*//'); if echo \"\$host\" | grep -qE '^[0-9.]+\$|^[0-9]'; then echo '#W'; else echo \"\$host\"; fi | cut -c1-20) "
-  fi
-  window_status_format="#{?#{==:#{pane_current_command},ssh},${ssh_window_format},${base_window_format}}"
+	ssh_icon=$(get_tmux_option "@tmux-dotbar-ssh-icon" '󰌘')
+	ssh_icon_only=$(get_tmux_option "@tmux-dotbar-ssh-icon-only" false)
+	if [ "$ssh_icon_only" = true ]; then
+		ssh_window_format="${window_index_prefix} ${ssh_icon}${base_window_format_without_prefix}"
+	else
+		ssh_window_format="${window_index_prefix} ${ssh_icon} #(host=\$(echo '#{pane_title}' | sed 's/^ssh //; s/ .*//; s/.*@//; s/:.*//'); if echo \"\$host\" | grep -qE '^[0-9.]+\$|^[0-9]'; then echo '#W'; else echo \"\$host\"; fi | cut -c1-20) "
+	fi
+	window_status_format="#{?#{==:#{pane_current_command},ssh},${ssh_window_format},${base_window_format}}"
 else
-  window_status_format="${base_window_format}"
+	window_status_format="${base_window_format}"
 fi
 
 window_status_separator=$(get_tmux_option "@tmux-dotbar-window-status-separator" ' • ')
