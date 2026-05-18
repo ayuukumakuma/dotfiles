@@ -53,15 +53,15 @@ on-mode-changed = []
 
 [[on-window-detected]]
 if.app-id = "com.stengo.DeskPad"
-run = "move-node-to-workspace 0"  # DeskPadをワークスペース0に移動
+run = "move-node-to-workspace 0" # DeskPadをワークスペース0に移動
 
 [[on-window-detected]]
 if.app-id = "company.thebrowser.dia"
-run = "move-node-to-workspace 1"     # Diaをワークスペース1に移動
+run = "move-node-to-workspace 1" # Diaをワークスペース1に移動
 
 [[on-window-detected]]
 if.app-id = "com.tinyspeck.slackmacgap"
-run = "move-node-to-workspace 2"        # Slackをワークスペース2に移動
+run = "move-node-to-workspace 2" # Slackをワークスペース2に移動
 
 [[on-window-detected]]
 if.app-id = "dev.zed.Zed"
@@ -73,19 +73,15 @@ run = "move-node-to-workspace 4" # Codexをワークスペース4に移動
 
 [[on-window-detected]]
 if.app-id = "com.anthropic.claudefordesktop"
-run = "move-node-to-workspace 5"             # Claudeをワークスペース5に移動
-
-[[on-window-detected]]
-if.app-id = "notion.id"
-run = "move-node-to-workspace 6" # Notionをワークスペース6に移動
+run = "move-node-to-workspace 5" # Claudeをワークスペース5に移動
 
 [[on-window-detected]]
 if.app-id = "com.spotify.client"
-run = "move-node-to-workspace 8" # Spotifyをワークスペース8に移動
+run = "move-node-to-workspace 7" # Spotifyをワークスペース7に移動
 
 [[on-window-detected]]
 if.app-id = "md.obsidian"
-run = "move-node-to-workspace 9" # Obsidianをワークスペース9に移動
+run = "move-node-to-workspace 8" # Obsidianをワークスペース8に移動
 
 # フローティングで扱うアプリ
 [[on-window-detected]]
@@ -139,10 +135,9 @@ preset = "qwerty"
 4 = "main"      # ワークスペース4をメインモニターに割り当て
 5 = "main"      # ワークスペース5をメインモニターに割り当て
 6 = "main"      # ワークスペース6をメインモニターに割り当て
-7 = "main"      # ワークスペース7をセカンダリモニターに割り当て
-8 = "secondary" # ワークスペース8をセカンダリモニターに割り当て
-9 = "secondary" # ワークスペース9をセカンダリモニターに割り当て
-d = "DeskPad*"  # ワークスペースdをDeskPad(仮想ディスプレイ)に割り当て
+7 = "^built-in retina display$" # ワークスペース7をセカンダリモニターに割り当て
+8 = "^built-in retina display$" # ワークスペース8をセカンダリモニターに割り当て
+9 = "DeskPad*"  # ワークスペース9をDeskPad(仮想ディスプレイ)に割り当て
 
 
 # ウィンドウ間のギャップ(inner-*)とモニター端とのギャップ(outer-*)
@@ -231,7 +226,6 @@ alt-6 = "workspace 6"
 alt-7 = "workspace 7"
 alt-8 = "workspace 8"
 alt-9 = "workspace 9"
-alt-d = "workspace d"
 # 参照: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-0 = "move-node-to-workspace 0"
 alt-shift-1 = "move-node-to-workspace 1"
@@ -243,7 +237,6 @@ alt-shift-6 = "move-node-to-workspace 6"
 alt-shift-7 = "move-node-to-workspace 7"
 alt-shift-8 = "move-node-to-workspace 8"
 alt-shift-9 = "move-node-to-workspace 9"
-alt-shift-d = "move-node-to-workspace d"
 # 参照: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 # alt-tab = "workspace-back-and-forth"
 # 参照: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
