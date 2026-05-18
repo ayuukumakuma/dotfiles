@@ -5,17 +5,17 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "tree-sitter-cli";
-  version = "0.26.6";
+  version = "0.26.8";
 
   src = fetchFromGitHub {
     owner = "tree-sitter";
     repo = "tree-sitter";
     tag = "v${version}";
-    hash = "sha256-ZtzwhEmNZg5brghKNiTRZSmY8FwQeWcemY2blq9j2GM=";
+    hash = "sha256-fcFEfoALrbpBD6rWogxJ7FNVlvDQgswoX9ylRgko+8Q=";
     fetchSubmodules = true;
   };
 
-  cargoHash = "sha256-u6RmwNR4QVwyuij5RlHTLC5lNNQpWMVrlQwfwF78pYc=";
+  cargoHash = "sha256-9FeWnWWPUWmMF15Psmul8GxGv2JceHWc2WZPmOr81gw=";
   doCheck = false;
 
   meta = with lib; {
