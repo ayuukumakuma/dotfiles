@@ -1,3 +1,5 @@
+darwin_config_name := "$(nix eval --file local.nix darwinConfigName --raw)"
+
 _:
     just --list
 
@@ -8,8 +10,12 @@ update:
 alias u := update
 
 [working-directory("nix")]
+build:
+    nh darwin build . -H {{darwin_config_name}}
+
+[working-directory("nix")]
 switch:
-    sudo -H nix run nix-darwin -- switch --flake path:.#$(nix eval --file local.nix darwinConfigName --raw)
+    nh darwin switch . -H {{darwin_config_name}}
 
 alias s := switch
 
@@ -18,6 +24,10 @@ check:
     nix flake check
 
 alias c := check
+
+[working-directory("nix")]
+clean:
+    nh clean all --keep-since 4d --keep 3
 
 [working-directory("nix")]
 update-and-switch: update switch

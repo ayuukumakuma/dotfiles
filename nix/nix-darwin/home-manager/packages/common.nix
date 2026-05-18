@@ -32,6 +32,7 @@ let
     gh
     git
     just
+    nh
     mise
     jq
     jnv
