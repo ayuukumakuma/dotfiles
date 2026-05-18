@@ -11,17 +11,17 @@ alias u := update
 
 [working-directory("nix")]
 build:
-    nh darwin build . -H {{darwin_config_name}}
+    nh darwin build path:. -H {{darwin_config_name}}
 
 [working-directory("nix")]
 switch:
-    nh darwin switch . -H {{darwin_config_name}}
+    nh darwin switch path:. -H {{darwin_config_name}}
 
 alias s := switch
 
 [working-directory("nix")]
 check:
-    nix flake check
+    nix flake check path:.
 
 alias c := check
 

@@ -62,8 +62,8 @@ let
     socat
     ov
     mergiraf
-    inputs.calpeek.packages.${pkgs.system}.default
-    inputs.guard-and-guide.packages.${pkgs.system}.default
+    inputs.calpeek.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.guard-and-guide.packages.${pkgs.stdenv.hostPlatform.system}.default
     (callPackage ../../../pkgs/site2skill/default.nix { })
     (callPackage ../../../pkgs/tree-sitter-cli/default.nix { })
   ];

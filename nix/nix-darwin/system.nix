@@ -11,6 +11,11 @@
     };
 
     defaults = {
+      CustomSystemPreferences = {
+        "com.apple.security.authorization" = {
+          ignoreArd = true;
+        };
+      };
       CustomUserPreferences = {
         "com.apple.desktopservices" = {
           DSDontWriteNetworkStores = true;

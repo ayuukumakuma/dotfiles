@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   # nixpkgs の共通設定。
   nixpkgs = {
@@ -16,6 +16,7 @@
 
   # このホストで共有する Nix のコア設定。
   nix = {
+    package = pkgs.nix;
     optimise.automatic = true;
     settings = {
       experimental-features = "nix-command flakes";
