@@ -44,12 +44,12 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [marketplaces.openai-bundled]
-last_updated = "2026-05-15T01:25:16Z"
+last_updated = "2026-05-18T01:16:01Z"
 source_type = "local"
 source = "/Users/nasuno.ayumu/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.openai-primary-runtime]
-last_updated = "2026-05-14T04:19:24Z"
+last_updated = "2026-05-18T01:19:06Z"
 source_type = "local"
 source = "/Users/nasuno.ayumu/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
 
