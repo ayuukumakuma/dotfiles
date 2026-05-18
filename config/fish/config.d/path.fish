@@ -1,4 +1,8 @@
 # Nix home-manager packages
+if test -d /run/current-system/sw/bin
+    set -gx PATH /run/current-system/sw/bin (string match --invert /run/current-system/sw/bin $PATH)
+end
+
 if test -d /etc/profiles/per-user/$USER/bin
     if not contains /etc/profiles/per-user/$USER/bin $PATH
         set -gx PATH /etc/profiles/per-user/$USER/bin $PATH
